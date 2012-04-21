@@ -1,8 +1,8 @@
 class BodyTypesController < ApplicationController
-  # GET /body_types
-  # GET /body_types.json
+
   def index
     @body_types = BodyType.order('position ASC')
+    @features   = Feature.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,13 +10,11 @@ class BodyTypesController < ApplicationController
     end
   end
 
-  # GET /body_types/1
-  # GET /body_types/1.json
   def show
     @body_type = BodyType.find(params[:id])
     @themes = @body_type.themes
     if @themes.nil?
-      @themes = [none]
+      @themes = []
     end
 
     respond_to do |format|
@@ -25,27 +23,21 @@ class BodyTypesController < ApplicationController
     end
   end
 
-  # GET /body_types/new
-  # GET /body_types/new.json
   def new
     @body_type  = BodyType.new
     @themes     = Theme.all
       
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @body_type }
     end
   end
 
-  # GET /body_types/1/edit
   def edit
     @body_type  = BodyType.find(params[:id])
     @themes     = Theme.all
   end
 
-  # POST /body_types
-  # POST /body_types.json
   def create
     @body_type = BodyType.new(params[:body_type])
 
@@ -60,8 +52,6 @@ class BodyTypesController < ApplicationController
     end
   end
 
-  # PUT /body_types/1
-  # PUT /body_types/1.json
   def update
     @body_type = BodyType.find(params[:id])
 
@@ -83,8 +73,6 @@ class BodyTypesController < ApplicationController
     render nothing: true
   end
 
-  # DELETE /body_types/1
-  # DELETE /body_types/1.json
   def delete
     @body_type = BodyType.find(params[:id])
     @body_type.destroy
