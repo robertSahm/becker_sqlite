@@ -1,0 +1,92 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, rows: 8 %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :x_image_url %><br />
+    <%= f.text_field :x_image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :display %><br />
+    <%= f.select :display, [true, false] %>
+  </div>
+  <div class="field">
+    <%= f.label :body_type_id %><br />
+    <%= f.collection_select( :body_type_id, BodyType.order(:position), :id, :name, include_blank: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :theme_id %><br />
+    <%= f.collection_select( :theme_id, Theme.order(:position), :id, :name, include_blank: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of %><br />
+    <%= f.select :type_of, ['guitar', 'bass', 'custom'] %>
+  </div>
+  <div class="field">
+    <%= f.label :feature %><br />
+    <%= f.text_field :feature %>
+  </div>
+  <div class="field">
+    <%= f.label :body_url %><br />
+    <%= f.text_field :body_url %>
+  </div>
+  <% 8.times do |i|  %>
+    <div class="field">
+      <%= f.label "photo_Url_#{i+1}" %><br />
+      <%= f.text_field "photo_url_#{i+1}" %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% if @options %>
+  <fieldset id="custom_build">
+    <table id="custom_build">
+      <tr>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Feature</th>
+        <th>Default</th>
+        <th>Display</th>
+      </tr>
+
+      <% @options.each do |option| %>
+
+          <tr>
+            <td><%= option.description %></td>
+            <td><%= number_with_precision(option.price, :precision => 0) %></td>
+            <td><%= @feat[option.feature_id] %></td>
+            <td><%= option.default %></td>
+            <td><%= option.display %></td>
+          </tr>
+
+      <% end %>
+    </table>
+  </fieldset>
+<% end %>

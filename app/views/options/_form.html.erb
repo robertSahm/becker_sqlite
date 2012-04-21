@@ -1,0 +1,49 @@
+<%= form_for(@option) do |f| %>
+  <% if @option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@option.errors.count, "error") %> prohibited this option from being saved:</h2>
+
+      <ul>
+      <% @option.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :feature_id %><br />
+    <%= f.select :feature_id, @feat %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.select :product_id, @prod %>
+  </div>
+  <div class="field">
+    <%= f.label :body_type_id %><br />
+    <%= f.collection_select( :body_type_id, BodyType.order(:position), :id, :name, include_blank: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :theme_id %><br />
+    <%= f.collection_select( :theme_id, Theme.order(:position), :id, :name, include_blank: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :default %><br />
+    <%= f.check_box :default %>
+  </div>
+  <div class="field">
+    <%= f.label :display %><br />
+    <%= f.check_box :display %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

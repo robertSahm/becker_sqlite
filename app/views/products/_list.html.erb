@@ -1,0 +1,33 @@
+ <div id="lister">
+  <% @products.each do |product| %>
+    <ul class="<%= cycle('list_line_odd', 'list_line_even')%>">
+        <li>
+            <%= image_tag(product.image_url, class: 'list_image') %>
+            <% if product.theme_id %>
+              <%= Theme.find(product.theme_id).name %>
+            <% end %>
+            <% if product.body_type_id %>
+              <%= BodyType.find(product.body_type_id).name %>
+            <% end %>
+            
+            <%= product.type_of %>
+            /Display <%= product.display %>
+            <span class="price"><%= number_to_currency(product.price) %></span>
+        </li>
+        <li class="list_actions">
+            <%= link_to 'Detail', product %><br/>
+            <%= link_to 'Edit', edit_product_path(product) %><br/>
+            <%= link_to("Delete", :action => 'delete', :id => product.id) %>
+        </li>
+        <li class="list_description">
+            <dl>
+                <dt><%= product.name %></dt>
+                <dd><%= truncate(strip_tags(product.description),
+                      length: 100) %></dd>
+            </dl>
+        </li>
+
+    </ul>
+  <% end %>
+</div>
+

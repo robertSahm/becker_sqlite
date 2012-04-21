@@ -1,0 +1,44 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address, rows: 3, cols: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :pay_type %><br />
+    <%= f.select :pay_type, Order::PAYMENT_TYPES,
+                            prompt: 'Select a payment method' %>
+  </div>
+  <% if @page_title == "Order Show" %>
+    <div class="field">
+      <%= f.label :ship_date %><br />
+      <%= f.date_select :ship_date, :order => [:month, :day, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => "Select year" } %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Update Order' %>
+    </div>
+  <% elsif @page_title == "Order New"  %>
+    <div class="actions">
+      <%= f.submit 'Place Order' %>
+    </div>
+  <% end %>
+<% end %>

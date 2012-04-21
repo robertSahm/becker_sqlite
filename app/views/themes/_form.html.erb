@@ -1,0 +1,89 @@
+<%= form_for(@theme) do |f| %>
+  <% if @theme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@theme.errors.count, "error") %> prohibited this theme from being saved:</h2>
+
+      <ul>
+      <% @theme.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+  <%= f.label :body_types %><br />
+  <%= hidden_field_tag "theme[body_type_ids][]", nil %>
+  <% @body_types.each do |body| %>
+      <%= check_box_tag "theme[body_type_ids][]", body.id, @theme.body_types.include?(body) %>
+      <%= body.name %>
+      <br />
+  <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :finish %><br />
+    <%= f.text_field :finish %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :top %><br />
+    <%= f.text_field :top %>
+  </div>
+  <div class="field">
+    <%= f.label :neck %><br />
+    <%= f.text_field :neck %>
+  </div>
+  <div class="field">
+    <%= f.label :headstock %><br />
+    <%= f.text_field :headstock %>
+  </div>
+  <div class="field">
+    <%= f.label :frets %><br />
+    <%= f.text_field :frets %>
+  </div>
+  <div class="field">
+    <%= f.label :electronics %><br />
+    <%= f.text_field :electronics %>
+  </div>
+  <div class="field">
+    <%= f.label :hardware %><br />
+    <%= f.text_field :hardware %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :x_image_url %><br />
+    <%= f.text_field :x_image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :thumb_url %><br />
+    <%= f.text_field :thumb_url %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :display %><br />
+    <%= f.select :display, [true, false] %>
+  </div>
+  <td><div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div></td>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

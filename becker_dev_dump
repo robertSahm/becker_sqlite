@@ -1,0 +1,1861 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: artists; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE artists (
+    id integer NOT NULL,
+    name character varying(255),
+    band character varying(255),
+    description text,
+    image_url character varying(255),
+    photo_url_1 character varying(255),
+    photo_url_2 character varying(255),
+    photo_url_3 character varying(255),
+    youtube_1 character varying(255),
+    youtube_2 character varying(255),
+    youtube_3 character varying(255),
+    note text,
+    website character varying(255),
+    facebook character varying(255),
+    twitter character varying(255),
+    instagram character varying(255),
+    blog character varying(255),
+    "position" integer
+);
+
+
+ALTER TABLE public.artists OWNER TO jongutwillig;
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE artists_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.artists_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE artists_id_seq OWNED BY artists.id;
+
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('artists_id_seq', 15, true);
+
+
+--
+-- Name: availables; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE availables (
+    id integer NOT NULL,
+    body_type_id integer,
+    theme_id integer
+);
+
+
+ALTER TABLE public.availables OWNER TO jongutwillig;
+
+--
+-- Name: availables_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE availables_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.availables_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: availables_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE availables_id_seq OWNED BY availables.id;
+
+
+--
+-- Name: availables_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('availables_id_seq', 1, false);
+
+
+--
+-- Name: body_types; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE body_types (
+    id integer NOT NULL,
+    name character varying(255),
+    description text,
+    image_url character varying(255),
+    x_image_url character varying(255),
+    "position" integer,
+    feature character varying(255),
+    type_of character varying(255),
+    price numeric(8,2),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    display boolean
+);
+
+
+ALTER TABLE public.body_types OWNER TO jongutwillig;
+
+--
+-- Name: body_types_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE body_types_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.body_types_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: body_types_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE body_types_id_seq OWNED BY body_types.id;
+
+
+--
+-- Name: body_types_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('body_types_id_seq', 12, true);
+
+
+--
+-- Name: body_types_themes; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE body_types_themes (
+    body_type_id integer,
+    theme_id integer
+);
+
+
+ALTER TABLE public.body_types_themes OWNER TO jongutwillig;
+
+--
+-- Name: carts; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE carts (
+    id integer NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    customer_id integer
+);
+
+
+ALTER TABLE public.carts OWNER TO jongutwillig;
+
+--
+-- Name: carts_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE carts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.carts_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: carts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE carts_id_seq OWNED BY carts.id;
+
+
+--
+-- Name: carts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('carts_id_seq', 174, true);
+
+
+--
+-- Name: customers; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE customers (
+    id integer NOT NULL,
+    username character varying(255),
+    hash_password character varying(255),
+    salt character varying(255),
+    ipaddress character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.customers OWNER TO jongutwillig;
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE customers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.customers_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE customers_id_seq OWNED BY customers.id;
+
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('customers_id_seq', 1, false);
+
+
+--
+-- Name: features; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE features (
+    id integer NOT NULL,
+    name character varying(255),
+    "position" integer,
+    description character varying(255)
+);
+
+
+ALTER TABLE public.features OWNER TO jongutwillig;
+
+--
+-- Name: features_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE features_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.features_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: features_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE features_id_seq OWNED BY features.id;
+
+
+--
+-- Name: features_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('features_id_seq', 22, true);
+
+
+--
+-- Name: instruments; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE instruments (
+    id integer NOT NULL,
+    artist_id integer,
+    customer_id integer,
+    line_item_id integer,
+    note text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.instruments OWNER TO jongutwillig;
+
+--
+-- Name: instruments_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE instruments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.instruments_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: instruments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE instruments_id_seq OWNED BY instruments.id;
+
+
+--
+-- Name: instruments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('instruments_id_seq', 1, false);
+
+
+--
+-- Name: line_items; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE line_items (
+    id integer NOT NULL,
+    product_id integer,
+    cart_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    quantity integer DEFAULT 1,
+    price numeric(8,2),
+    order_id integer,
+    body_type_id integer,
+    theme_id integer
+);
+
+
+ALTER TABLE public.line_items OWNER TO jongutwillig;
+
+--
+-- Name: line_items_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE line_items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.line_items_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: line_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE line_items_id_seq OWNED BY line_items.id;
+
+
+--
+-- Name: line_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('line_items_id_seq', 588, true);
+
+
+--
+-- Name: options; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE options (
+    id integer NOT NULL,
+    description character varying(255),
+    price numeric,
+    feature_id integer,
+    product_id integer,
+    "default" boolean DEFAULT false,
+    display boolean DEFAULT true,
+    line_item_id integer,
+    theme_id integer,
+    body_type_id integer
+);
+
+
+ALTER TABLE public.options OWNER TO jongutwillig;
+
+--
+-- Name: options_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE options_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.options_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: options_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE options_id_seq OWNED BY options.id;
+
+
+--
+-- Name: options_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('options_id_seq', 334, true);
+
+
+--
+-- Name: orders; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE orders (
+    id integer NOT NULL,
+    name character varying(255),
+    address text,
+    email character varying(255),
+    pay_type character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    ship_date timestamp without time zone,
+    customer_id integer,
+    artist_id integer,
+    note text
+);
+
+
+ALTER TABLE public.orders OWNER TO jongutwillig;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE orders_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.orders_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE orders_id_seq OWNED BY orders.id;
+
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('orders_id_seq', 128, true);
+
+
+--
+-- Name: products; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE products (
+    id integer NOT NULL,
+    name character varying(255),
+    description text,
+    image_url character varying(255),
+    price numeric(8,2),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    type_of character varying(255),
+    feature character varying(255),
+    "position" integer,
+    body_url character varying(255),
+    photo_url_1 character varying(255),
+    photo_url_2 character varying(255),
+    photo_url_3 character varying(255),
+    photo_url_4 character varying(255),
+    photo_url_5 character varying(255),
+    photo_url_6 character varying(255),
+    photo_url_7 character varying(255),
+    photo_url_8 character varying(255),
+    x_image_url character varying(255),
+    theme_id integer,
+    body_type_id integer,
+    display boolean
+);
+
+
+ALTER TABLE public.products OWNER TO jongutwillig;
+
+--
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE products_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.products_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE products_id_seq OWNED BY products.id;
+
+
+--
+-- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('products_id_seq', 41, true);
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO jongutwillig;
+
+--
+-- Name: themes; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE themes (
+    id integer NOT NULL,
+    name character varying(255),
+    finish character varying(255),
+    body character varying(255),
+    color character varying(255),
+    top character varying(255),
+    neck character varying(255),
+    headstock character varying(255),
+    frets character varying(255),
+    electronics character varying(255),
+    hardware character varying(255),
+    price numeric(8,2),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    image_url character varying(255),
+    x_image_url character varying(255),
+    thumb_url character varying(255),
+    "position" integer,
+    description text,
+    display boolean
+);
+
+
+ALTER TABLE public.themes OWNER TO jongutwillig;
+
+--
+-- Name: themes_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE themes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.themes_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: themes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE themes_id_seq OWNED BY themes.id;
+
+
+--
+-- Name: themes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('themes_id_seq', 11, true);
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    name character varying(255),
+    password_digest character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    email character varying(255),
+    first_name character varying(255),
+    last_name character varying(255)
+);
+
+
+ALTER TABLE public.users OWNER TO jongutwillig;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: jongutwillig
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO jongutwillig;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jongutwillig
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jongutwillig
+--
+
+SELECT pg_catalog.setval('users_id_seq', 2, true);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE artists ALTER COLUMN id SET DEFAULT nextval('artists_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE availables ALTER COLUMN id SET DEFAULT nextval('availables_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE body_types ALTER COLUMN id SET DEFAULT nextval('body_types_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE carts ALTER COLUMN id SET DEFAULT nextval('carts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE customers ALTER COLUMN id SET DEFAULT nextval('customers_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE features ALTER COLUMN id SET DEFAULT nextval('features_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE instruments ALTER COLUMN id SET DEFAULT nextval('instruments_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE line_items ALTER COLUMN id SET DEFAULT nextval('line_items_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE options ALTER COLUMN id SET DEFAULT nextval('options_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE orders ALTER COLUMN id SET DEFAULT nextval('orders_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE products ALTER COLUMN id SET DEFAULT nextval('products_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE themes ALTER COLUMN id SET DEFAULT nextval('themes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: jongutwillig
+--
+
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: artists; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY artists (id, name, band, description, image_url, photo_url_1, photo_url_2, photo_url_3, youtube_1, youtube_2, youtube_3, note, website, facebook, twitter, instagram, blog, "position") FROM stdin;
+13	Justin Hasting	Zoogma	Justin is the guitar player for electronic/rock group Zoogma. He has been using our instruments since 2009. He currently plays a custom GhostRider Roller.	artists/justin Hasting.jpg								www.zoogma.net			\N	\N	8
+8	Jake Cinninger	Umphrey's McGee	Jake plays lead guitar for progressive jam band Umphrey'92s McGee. We met the band in 2008, and Jake has played a variety of our guitars since. In 2009 we finished his fully custom Roller, '93Mother Earth.'94	artists/Jake Resized.jpg								www.umphreys.com			\N	\N	2
+14	Patrick Hayes		Pat is a platinum R&B producer and has played guitar for groups including B.B. King, The Black Eyed Peas, and R. Kelly. He has been using a Becker Hornet since 2009.	artists/Pat Hayes.jpg								www.facebook.com/patrickguitarboy			\N	\N	9
+11	Chuck Garvey	moe.	Chuck is the lead guitarist from prog rockers/jam band moe. He has been playing our guitars since 2010. Right now, Chuck plays two GhostRider Rollers, one with P90s and one with humbuckers.	artists/ChuckGarvey.png				<iframe width="560" height="315" src="http://www.youtube.com/embed/-sxUX3CNjmg" frameborder="0" allowfullscreen></iframe>				www.moe.org			\N	\N	3
+10	Marc Brownstein	Disco Biscuits	Marc plays bass for the Disco Biscuits. He has played several of our basses  since 2008. He is currently playing a LoRyder bass.	artists/MarcBrownstein.png					<iframe width="420" height="315" src="http://www.youtube.com/embed/IH85zcsXIEc" frameborder="0" allowfullscreen></iframe>			www.thediscobiscuits.com			\N	\N	4
+3	Kevin MacKenzie	The Few	Kevin and Ryan make up the string section of Boston based VintageRock band The Few. Kevin was introduced to our line in 2009, shortly after meeting Ryan. Magic was once again crafted and today Kevin plays a GhostRider Roller known as '91Granny Smith'92. Ryan'92s flavor of the week is a custom 6 string Mantis.	artists/The Few Kevin.png				<iframe width="420" height="315" src="http://www.youtube.com/embed/g2xhKidVDns" frameborder="0" allowfullscreen></iframe>				www.thefewmusic.net			\N	\N	10
+4	Ryan Martin	The Few	Crafts custom made instruments for Becker Martin Instruments when he is not jamming with 'The Few'	Logos/RyanLogosmall.jpg				<iframe width="420" height="315" src="http://www.youtube.com/embed/xlWJtW4Gz7Y" frameborder="0" allowfullscreen></iframe>				www.thefewmusic.net			\N	\N	13
+1	Jeff Lawson	ChainDrive	Jeff plays guitar in alternative rock band ChainDrive. He has been a Becker artist since 2011. He plays a GhostRider Roller.	artists/lawson1.jpg								www.chaindriverocks.com			\N	\N	11
+15	Robert	Sahm	Drummer of the e drums extraordinaire												\N	\N	14
+2	Rob Taylor		Rob Taylor is a pop singer/songwriter from Connecticut. He has been playing Becker Guitars since2007 and owns several instruments including 6 string guitars, basses, a mandolin and an electric Banjo.Becker Martin Instruments can be heard throughout his albums -Sun in a Box - Come\r\nDown Never, and his upcoming release, Imperfectly Sound	artists/Rob Taylor Artist Page Photo.jpg								www.robtaylor.com	www.facebook.com/#!/pages/Rob-Taylor/128104770662		\N	\N	12
+6	Ryan Stasik	Umphrey's McGee	Bassist for Umphrey'92s McGee, Ryan has been a RMB artist since early 2011. He plays a custom LoRyder bass.	artists/Ryan Stasik.jpg				<iframe width="420" height="315" src="http://www.youtube.com/embed/VFo7M_mCNgU" frameborder="0" allowfullscreen></iframe>				www.umphreys.com			\N	\N	5
+12	Mihali 'Mickey' Savoulidis	Twiddle	Mickey plays guitar in Vermont-based jam band Twiddle. He has played a variety of Hornets since 2010.	artists/Mickey.jpg				<iframe width="420" height="315" src="http://www.youtube.com/embed/n3LWJjCgiFM" frameborder="0" allowfullscreen></iframe>				www.twiddle.com			\N	\N	6
+5	Andrew Provine	AV8R	Andrew Provine is AV8R, a one-man electronic/DJ/live guitar act. He'92s been a Becker artist since 2011. Andrew plays a HeadHunter CastleWave with all MIDI electronics.	artists/av8r.jpg								www.myspace.com/prosizzle			\N	\N	0
+9	Jon Barber	Disco Biscuits	Lead guitarist and vocalist for electronic/jam band the Disco Biscuits, Jon is our longest-standing artist. He has been playing our instruments since we first met in 2008. Jon uses a custom MIDI Imperial A P90 GhostRider as well as several Rollers and Mistresses.	artists/barber1.jpg				<iframe width="420" height="315" src="http://www.youtube.com/embed/22mD_pUjYrk" frameborder="0" allowfullscreen></iframe>				www.thediscobiscuits.com	www.facebook.com/TheRealBarber	@barbershreds	barbershreds	\N	1
+7	Dave Drouin	The Brew	Dave plays guitar in Boston-based indie rock band The Brew. He has played our instruments since 2009. He has performed with a GhostRider Roller and a HeadHunter Imperial.	artists/Drouin1.png								www.thebrew.biz			\N	\N	7
+\.
+
+
+--
+-- Data for Name: availables; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY availables (id, body_type_id, theme_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: body_types; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY body_types (id, name, description, image_url, x_image_url, "position", feature, type_of, price, created_at, updated_at, display) FROM stdin;
+9	roller		Model Silhoutte/Roller.jpg		1		guitar	\N	2012-02-27 00:21:06.396596	2012-03-01 02:59:43.68165	t
+2	castlewave		Model Silhoutte/Castlewave.jpg		2		guitar	\N	2012-02-27 00:21:06.378559	2012-03-01 03:00:30.240712	t
+4	hornet		Model Silhoutte/Hornet.jpg		3		guitar	\N	2012-02-27 00:21:06.384238	2012-03-01 03:00:36.829086	t
+8	mistress		Model Silhoutte/Mistress.jpg		5		guitar	\N	2012-02-27 00:21:06.394253	2012-03-01 03:00:52.377115	t
+10	twiggler	yurp	Model Silhoutte/Twiggler.jpg		6		bass	\N	2012-02-27 00:21:06.398913	2012-03-01 03:01:00.591132	t
+11	waterfall		Model Silhoutte/Waterfall.jpg		7		bass	\N	2012-02-27 00:21:06.401256	2012-03-01 03:01:07.397361	t
+7	mantis		Model Silhoutte/Mantis.jpg		1		bass	\N	2012-02-27 00:21:06.391946	2012-03-01 03:01:13.830862	t
+6	mandolin		Model Silhoutte/Mandolin.jpg		1		custom	\N	2012-02-27 00:21:06.389619	2012-03-01 03:01:21.65503	t
+1	banjo		Model Silhoutte/Banjo.jpg		1		custom	\N	2012-02-27 00:21:06.348128	2012-03-01 03:01:28.51341	t
+3	darkhorse		Model Silhoutte/Dark Horse.jpg		4		guitar	\N	2012-02-27 00:21:06.381319	2012-03-01 09:53:58.71538	t
+5	imperial		Model Silhoutte/Imperial.jpg		1		guitar	2000.00	2012-02-27 00:21:06.386872	2012-03-02 07:53:48.121512	t
+\.
+
+
+--
+-- Data for Name: body_types_themes; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY body_types_themes (body_type_id, theme_id) FROM stdin;
+11	5
+4	6
+4	4
+4	5
+4	7
+3	4
+3	5
+3	6
+3	7
+8	4
+8	5
+8	6
+8	7
+5	4
+5	5
+5	6
+5	7
+9	2
+9	3
+9	4
+9	5
+9	6
+9	7
+2	4
+2	5
+2	6
+2	7
+11	9
+11	10
+10	9
+10	10
+7	9
+7	10
+9	11
+5	11
+2	11
+4	11
+3	11
+8	11
+10	11
+11	11
+7	11
+6	11
+1	11
+\.
+
+
+--
+-- Data for Name: carts; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY carts (id, created_at, updated_at, customer_id) FROM stdin;
+71	2012-02-10 08:49:09.489198	2012-02-10 08:49:09.489198	\N
+72	2012-02-10 10:02:06.104814	2012-02-10 10:02:06.104814	\N
+12	2012-02-10 02:33:39.054625	2012-02-10 02:33:39.054625	\N
+14	2012-02-10 02:38:26.127231	2012-02-10 02:38:26.127231	\N
+148	2012-02-16 06:48:22.999943	2012-02-16 06:48:22.999943	\N
+153	2012-02-18 14:43:41.10836	2012-02-18 14:43:41.10836	\N
+35	2012-02-10 06:12:06.5347	2012-02-10 06:12:06.5347	\N
+36	2012-02-10 06:12:44.5498	2012-02-10 06:12:44.5498	\N
+37	2012-02-10 06:13:29.123075	2012-02-10 06:13:29.123075	\N
+38	2012-02-10 06:13:52.913373	2012-02-10 06:13:52.913373	\N
+39	2012-02-10 06:14:06.181794	2012-02-10 06:14:06.181794	\N
+40	2012-02-10 06:14:27.332864	2012-02-10 06:14:27.332864	\N
+41	2012-02-10 06:14:51.370333	2012-02-10 06:14:51.370333	\N
+42	2012-02-10 06:15:57.452502	2012-02-10 06:15:57.452502	\N
+43	2012-02-10 06:16:20.235601	2012-02-10 06:16:20.235601	\N
+44	2012-02-10 06:16:25.798506	2012-02-10 06:16:25.798506	\N
+45	2012-02-10 06:16:32.545212	2012-02-10 06:16:32.545212	\N
+156	2012-02-21 01:53:32.795347	2012-02-21 01:53:32.795347	\N
+157	2012-02-21 21:12:43.506395	2012-02-21 21:12:43.506395	\N
+158	2012-02-23 19:50:34.74363	2012-02-23 19:50:34.74363	\N
+159	2012-02-24 19:35:11.157024	2012-02-24 19:35:11.157024	\N
+160	2012-02-25 03:27:30.314441	2012-02-25 03:27:30.314441	\N
+161	2012-02-26 18:47:13.904041	2012-02-26 18:47:13.904041	\N
+166	2012-03-02 02:43:24.763394	2012-03-02 02:43:24.763394	\N
+167	2012-03-02 04:25:38.660054	2012-03-02 04:25:38.660054	\N
+168	2012-03-02 04:27:11.442143	2012-03-02 04:27:11.442143	\N
+169	2012-03-02 04:27:16.350932	2012-03-02 04:27:16.350932	\N
+171	2012-03-02 06:51:37.165532	2012-03-02 06:51:37.165532	\N
+172	2012-03-02 07:14:09.34767	2012-03-02 07:14:09.34767	\N
+174	2012-03-06 07:09:05.48785	2012-03-06 07:09:05.48785	\N
+\.
+
+
+--
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY customers (id, username, hash_password, salt, ipaddress, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Data for Name: features; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY features (id, name, "position", description) FROM stdin;
+14	Neck Style	7	scale and radius of neck ,\r\n inlays 
+13	Color	8	paint colors and style, bursts and stains 
+10	Finish	9	laquer , oil, gloss
+2	Frets	10	number of frets , 0 fret option, metal quality
+4	Hardware	11	metal, wood, bone
+5	Pickups	12	types of pick ups and arrangements
+7	Computer Pickup	13	option for computer pickup
+6	Acoustic Pickup	14	option for acoustic pickup
+8	Case	15	none, soft , or hard
+9	Insurance	16	for a time period guys will fix and issues,\r\npossible for a free tune up after one year 
+1	Construction	5	style of construction of body\r\nchamber , bolt on , neck thru
+17	Body Type	0	The shape of the body
+3	Theme	1	collection of features that make up a whole
+18	Top	2	thin layer of wood that cover the body 
+16	Headstock	3	specific materials in top layer of headstock
+11	Body Wood	4	main body wood choice
+15	Neck Materials	6	wood selection and different wood arrangements
+\.
+
+
+--
+-- Data for Name: instruments; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY instruments (id, artist_id, customer_id, line_item_id, note, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Data for Name: line_items; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY line_items (id, product_id, cart_id, created_at, updated_at, quantity, price, order_id, body_type_id, theme_id) FROM stdin;
+249	6	\N	2012-02-10 21:53:46.999168	2012-02-11 00:21:22.33512	7	7000.00	110	\N	\N
+250	4	\N	2012-02-10 21:53:48.779503	2012-02-11 00:21:22.336496	5	5299.00	110	\N	\N
+582	37	166	2012-03-02 04:12:04.015477	2012-03-02 04:23:04.691439	2	2600.00	\N	\N	\N
+163	6	71	2012-02-10 08:49:09.526623	2012-02-10 08:49:09.526623	1	7000.00	\N	\N	\N
+225	6	\N	2012-02-10 11:07:00.427697	2012-02-10 20:59:25.709329	3	7000.00	1	\N	\N
+223	4	\N	2012-02-10 10:58:43.946598	2012-02-10 20:59:25.712176	3	5299.00	1	\N	\N
+227	1	\N	2012-02-10 11:19:21.457226	2012-02-10 20:59:25.714638	3	5499.00	1	\N	\N
+228	3	\N	2012-02-10 11:28:48.07829	2012-02-10 20:59:25.716671	1	4599.00	1	\N	\N
+586	30	172	2012-03-02 07:14:09.427337	2012-03-02 07:14:09.427337	1	5499.00	\N	\N	\N
+588	37	174	2012-03-06 07:09:05.832348	2012-03-06 07:09:05.832348	1	2600.00	\N	\N	\N
+54	6	14	2012-02-10 02:38:26.210965	2012-02-10 02:38:26.210965	1	7000.00	\N	\N	\N
+55	4	14	2012-02-10 02:39:26.991326	2012-02-10 02:39:26.991326	1	5299.00	\N	\N	\N
+241	5	\N	2012-02-10 21:03:03.170687	2012-02-10 21:03:29.769188	2	2299.00	2	\N	\N
+240	2	\N	2012-02-10 21:03:01.039631	2012-02-10 21:03:29.770609	2	6000.00	2	\N	\N
+239	7	\N	2012-02-10 21:02:59.825807	2012-02-10 21:03:29.771799	2	1500.00	2	\N	\N
+238	3	\N	2012-02-10 21:02:58.19874	2012-02-10 21:03:29.7731	2	4599.00	2	\N	\N
+237	1	\N	2012-02-10 21:02:57.410346	2012-02-10 21:03:29.774314	2	5499.00	2	\N	\N
+236	4	\N	2012-02-10 21:02:56.437315	2012-02-10 21:03:29.775532	2	5299.00	2	\N	\N
+235	6	\N	2012-02-10 21:02:54.198477	2012-02-10 21:03:29.776809	2	7000.00	2	\N	\N
+245	6	\N	2012-02-10 21:12:02.610731	2012-02-10 21:12:23.57608	1	7000.00	3	\N	\N
+247	6	\N	2012-02-10 21:13:00.188468	2012-02-10 21:13:12.819472	1	7000.00	4	\N	\N
+251	1	\N	2012-02-11 00:06:47.994517	2012-02-11 00:06:47.994517	1	5499.00	1	\N	\N
+252	6	\N	2012-02-11 00:06:48.008824	2012-02-11 00:06:48.008824	1	7000.00	1	\N	\N
+253	2	\N	2012-02-11 00:06:48.011819	2012-02-11 00:06:48.011819	1	6000.00	1	\N	\N
+254	3	\N	2012-02-11 00:06:48.014798	2012-02-11 00:06:48.014798	1	4599.00	1	\N	\N
+255	4	\N	2012-02-11 00:09:14.876128	2012-02-11 00:09:14.876128	1	5299.00	4	\N	\N
+256	1	\N	2012-02-11 00:09:27.405204	2012-02-11 00:09:27.405204	1	5499.00	4	\N	\N
+257	7	\N	2012-02-11 00:09:27.410139	2012-02-11 00:09:27.410139	1	1500.00	4	\N	\N
+258	4	\N	2012-02-11 00:15:36.68845	2012-02-11 00:15:36.68845	1	5299.00	10	\N	\N
+259	3	\N	2012-02-11 00:15:36.692107	2012-02-11 00:15:36.692107	1	4599.00	10	\N	\N
+260	2	\N	2012-02-11 00:15:36.69762	2012-02-11 00:15:36.69762	1	6000.00	11	\N	\N
+261	7	\N	2012-02-11 00:15:36.702493	2012-02-11 00:15:36.702493	1	1500.00	12	\N	\N
+262	2	\N	2012-02-11 00:15:36.704814	2012-02-11 00:15:36.704814	1	6000.00	12	\N	\N
+263	4	\N	2012-02-11 00:15:36.709444	2012-02-11 00:15:36.709444	1	5299.00	13	\N	\N
+264	4	\N	2012-02-11 00:15:36.711823	2012-02-11 00:15:36.711823	1	5299.00	13	\N	\N
+265	2	\N	2012-02-11 00:15:36.71423	2012-02-11 00:15:36.71423	1	6000.00	13	\N	\N
+266	5	\N	2012-02-11 00:15:36.741597	2012-02-11 00:15:36.741597	1	2299.00	13	\N	\N
+267	7	\N	2012-02-11 00:15:36.747481	2012-02-11 00:15:36.747481	1	1500.00	14	\N	\N
+268	3	\N	2012-02-11 00:15:36.752551	2012-02-11 00:15:36.752551	1	4599.00	15	\N	\N
+269	6	\N	2012-02-11 00:15:36.755048	2012-02-11 00:15:36.755048	1	7000.00	15	\N	\N
+270	7	\N	2012-02-11 00:15:36.759944	2012-02-11 00:15:36.759944	1	1500.00	16	\N	\N
+271	1	\N	2012-02-11 00:15:36.762371	2012-02-11 00:15:36.762371	1	5499.00	16	\N	\N
+272	7	\N	2012-02-11 00:15:36.768342	2012-02-11 00:15:36.768342	1	1500.00	17	\N	\N
+273	6	\N	2012-02-11 00:15:36.773384	2012-02-11 00:15:36.773384	1	7000.00	18	\N	\N
+274	6	\N	2012-02-11 00:15:36.776032	2012-02-11 00:15:36.776032	1	7000.00	18	\N	\N
+275	1	\N	2012-02-11 00:15:36.78244	2012-02-11 00:15:36.78244	1	5499.00	19	\N	\N
+276	3	\N	2012-02-11 00:15:36.787341	2012-02-11 00:15:36.787341	1	4599.00	20	\N	\N
+277	6	\N	2012-02-11 00:15:36.792859	2012-02-11 00:15:36.792859	1	7000.00	21	\N	\N
+278	6	\N	2012-02-11 00:15:36.795419	2012-02-11 00:15:36.795419	1	7000.00	21	\N	\N
+279	1	\N	2012-02-11 00:15:36.80045	2012-02-11 00:15:36.80045	1	5499.00	22	\N	\N
+280	4	\N	2012-02-11 00:15:36.802906	2012-02-11 00:15:36.802906	1	5299.00	22	\N	\N
+281	5	\N	2012-02-11 00:15:36.805382	2012-02-11 00:15:36.805382	1	2299.00	22	\N	\N
+285	1	\N	2012-02-11 00:15:36.822306	2012-02-11 00:15:36.822306	1	5499.00	24	\N	\N
+286	2	\N	2012-02-11 00:15:36.825081	2012-02-11 00:15:36.825081	1	6000.00	24	\N	\N
+287	2	\N	2012-02-11 00:15:36.828073	2012-02-11 00:15:36.828073	1	6000.00	24	\N	\N
+288	3	\N	2012-02-11 00:15:36.833483	2012-02-11 00:15:36.833483	1	4599.00	25	\N	\N
+289	7	\N	2012-02-11 00:15:36.836054	2012-02-11 00:15:36.836054	1	1500.00	25	\N	\N
+290	3	\N	2012-02-11 00:15:36.86628	2012-02-11 00:15:36.86628	1	4599.00	25	\N	\N
+291	6	\N	2012-02-11 00:15:36.870832	2012-02-11 00:15:36.870832	1	7000.00	26	\N	\N
+292	1	\N	2012-02-11 00:15:36.873792	2012-02-11 00:15:36.873792	1	5499.00	26	\N	\N
+293	4	\N	2012-02-11 00:15:36.879046	2012-02-11 00:15:36.879046	1	5299.00	27	\N	\N
+294	2	\N	2012-02-11 00:15:36.881649	2012-02-11 00:15:36.881649	1	6000.00	27	\N	\N
+295	6	\N	2012-02-11 00:15:36.88656	2012-02-11 00:15:36.88656	1	7000.00	28	\N	\N
+296	7	\N	2012-02-11 00:15:36.889124	2012-02-11 00:15:36.889124	1	1500.00	28	\N	\N
+297	4	\N	2012-02-11 00:15:36.891658	2012-02-11 00:15:36.891658	1	5299.00	28	\N	\N
+298	4	\N	2012-02-11 00:15:36.894601	2012-02-11 00:15:36.894601	1	5299.00	28	\N	\N
+299	7	\N	2012-02-11 00:15:36.901895	2012-02-11 00:15:36.901895	1	1500.00	29	\N	\N
+300	2	\N	2012-02-11 00:15:36.905491	2012-02-11 00:15:36.905491	1	6000.00	29	\N	\N
+301	6	\N	2012-02-11 00:15:36.90845	2012-02-11 00:15:36.90845	1	7000.00	29	\N	\N
+302	1	\N	2012-02-11 00:15:36.910808	2012-02-11 00:15:36.910808	1	5499.00	29	\N	\N
+303	4	\N	2012-02-11 00:15:36.91655	2012-02-11 00:15:36.91655	1	5299.00	30	\N	\N
+304	2	\N	2012-02-11 00:15:36.91937	2012-02-11 00:15:36.91937	1	6000.00	30	\N	\N
+305	5	\N	2012-02-11 00:15:36.922252	2012-02-11 00:15:36.922252	1	2299.00	30	\N	\N
+306	4	\N	2012-02-11 00:15:36.928921	2012-02-11 00:15:36.928921	1	5299.00	31	\N	\N
+307	3	\N	2012-02-11 00:15:36.932574	2012-02-11 00:15:36.932574	1	4599.00	31	\N	\N
+308	3	\N	2012-02-11 00:15:36.939313	2012-02-11 00:15:36.939313	1	4599.00	32	\N	\N
+313	1	\N	2012-02-11 00:15:36.955945	2012-02-11 00:15:36.955945	1	5499.00	34	\N	\N
+314	5	\N	2012-02-11 00:15:36.960529	2012-02-11 00:15:36.960529	1	2299.00	35	\N	\N
+315	4	\N	2012-02-11 00:15:36.98785	2012-02-11 00:15:36.98785	1	5299.00	35	\N	\N
+316	5	\N	2012-02-11 00:15:36.990138	2012-02-11 00:15:36.990138	1	2299.00	35	\N	\N
+317	3	\N	2012-02-11 00:15:36.992526	2012-02-11 00:15:36.992526	1	4599.00	35	\N	\N
+318	5	\N	2012-02-11 00:15:36.997925	2012-02-11 00:15:36.997925	1	2299.00	36	\N	\N
+319	4	\N	2012-02-11 00:15:37.000475	2012-02-11 00:15:37.000475	1	5299.00	36	\N	\N
+320	6	\N	2012-02-11 00:15:37.003005	2012-02-11 00:15:37.003005	1	7000.00	36	\N	\N
+321	2	\N	2012-02-11 00:15:37.00533	2012-02-11 00:15:37.00533	1	6000.00	36	\N	\N
+322	7	\N	2012-02-11 00:15:37.010407	2012-02-11 00:15:37.010407	1	1500.00	37	\N	\N
+323	3	\N	2012-02-11 00:15:37.013032	2012-02-11 00:15:37.013032	1	4599.00	37	\N	\N
+324	6	\N	2012-02-11 00:15:37.015837	2012-02-11 00:15:37.015837	1	7000.00	37	\N	\N
+325	2	\N	2012-02-11 00:15:37.021223	2012-02-11 00:15:37.021223	1	6000.00	38	\N	\N
+326	3	\N	2012-02-11 00:15:37.023906	2012-02-11 00:15:37.023906	1	4599.00	38	\N	\N
+327	1	\N	2012-02-11 00:15:37.031193	2012-02-11 00:15:37.031193	1	5499.00	39	\N	\N
+328	3	\N	2012-02-11 00:15:37.033686	2012-02-11 00:15:37.033686	1	4599.00	39	\N	\N
+329	2	\N	2012-02-11 00:15:37.036131	2012-02-11 00:15:37.036131	1	6000.00	39	\N	\N
+330	7	\N	2012-02-11 00:15:37.038593	2012-02-11 00:15:37.038593	1	1500.00	39	\N	\N
+331	5	\N	2012-02-11 00:15:37.04401	2012-02-11 00:15:37.04401	1	2299.00	40	\N	\N
+332	7	\N	2012-02-11 00:15:37.049042	2012-02-11 00:15:37.049042	1	1500.00	41	\N	\N
+333	1	\N	2012-02-11 00:15:37.054011	2012-02-11 00:15:37.054011	1	5499.00	42	\N	\N
+334	5	\N	2012-02-11 00:15:37.058864	2012-02-11 00:15:37.058864	1	2299.00	43	\N	\N
+335	1	\N	2012-02-11 00:15:37.06183	2012-02-11 00:15:37.06183	1	5499.00	43	\N	\N
+336	2	\N	2012-02-11 00:15:37.069249	2012-02-11 00:15:37.069249	1	6000.00	44	\N	\N
+337	6	\N	2012-02-11 00:15:37.07283	2012-02-11 00:15:37.07283	1	7000.00	44	\N	\N
+338	7	\N	2012-02-11 00:15:37.07547	2012-02-11 00:15:37.07547	1	1500.00	44	\N	\N
+339	5	\N	2012-02-11 00:15:37.077836	2012-02-11 00:15:37.077836	1	2299.00	44	\N	\N
+340	2	\N	2012-02-11 00:15:37.082721	2012-02-11 00:15:37.082721	1	6000.00	45	\N	\N
+341	3	\N	2012-02-11 00:15:37.087562	2012-02-11 00:15:37.087562	1	4599.00	46	\N	\N
+342	2	\N	2012-02-11 00:15:37.092684	2012-02-11 00:15:37.092684	1	6000.00	47	\N	\N
+343	3	\N	2012-02-11 00:15:37.097627	2012-02-11 00:15:37.097627	1	4599.00	48	\N	\N
+344	6	\N	2012-02-11 00:15:37.100171	2012-02-11 00:15:37.100171	1	7000.00	48	\N	\N
+345	3	\N	2012-02-11 00:15:37.102693	2012-02-11 00:15:37.102693	1	4599.00	48	\N	\N
+346	1	\N	2012-02-11 00:15:37.105308	2012-02-11 00:15:37.105308	1	5499.00	48	\N	\N
+347	3	\N	2012-02-11 00:15:37.110998	2012-02-11 00:15:37.110998	1	4599.00	49	\N	\N
+348	7	\N	2012-02-11 00:15:37.115495	2012-02-11 00:15:37.115495	1	1500.00	49	\N	\N
+349	2	\N	2012-02-11 00:15:37.118862	2012-02-11 00:15:37.118862	1	6000.00	49	\N	\N
+350	6	\N	2012-02-11 00:15:37.123678	2012-02-11 00:15:37.123678	1	7000.00	50	\N	\N
+351	4	\N	2012-02-11 00:15:37.126406	2012-02-11 00:15:37.126406	1	5299.00	50	\N	\N
+352	2	\N	2012-02-11 00:15:37.129156	2012-02-11 00:15:37.129156	1	6000.00	50	\N	\N
+353	4	\N	2012-02-11 00:15:37.131677	2012-02-11 00:15:37.131677	1	5299.00	50	\N	\N
+354	3	\N	2012-02-11 00:15:37.136589	2012-02-11 00:15:37.136589	1	4599.00	51	\N	\N
+355	7	\N	2012-02-11 00:15:37.141497	2012-02-11 00:15:37.141497	1	1500.00	52	\N	\N
+356	1	\N	2012-02-11 00:15:37.144001	2012-02-11 00:15:37.144001	1	5499.00	52	\N	\N
+357	7	\N	2012-02-11 00:15:37.149648	2012-02-11 00:15:37.149648	1	1500.00	53	\N	\N
+358	5	\N	2012-02-11 00:15:37.156195	2012-02-11 00:15:37.156195	1	2299.00	54	\N	\N
+359	4	\N	2012-02-11 00:15:37.161222	2012-02-11 00:15:37.161222	1	5299.00	55	\N	\N
+360	4	\N	2012-02-11 00:15:37.163451	2012-02-11 00:15:37.163451	1	5299.00	55	\N	\N
+361	3	\N	2012-02-11 00:15:37.168064	2012-02-11 00:15:37.168064	1	4599.00	56	\N	\N
+362	3	\N	2012-02-11 00:15:37.170586	2012-02-11 00:15:37.170586	1	4599.00	56	\N	\N
+363	2	\N	2012-02-11 00:15:37.173061	2012-02-11 00:15:37.173061	1	6000.00	56	\N	\N
+364	4	\N	2012-02-11 00:15:37.177983	2012-02-11 00:15:37.177983	1	5299.00	57	\N	\N
+365	7	\N	2012-02-11 00:15:37.180935	2012-02-11 00:15:37.180935	1	1500.00	57	\N	\N
+366	4	\N	2012-02-11 00:15:37.186367	2012-02-11 00:15:37.186367	1	5299.00	58	\N	\N
+367	7	\N	2012-02-11 00:15:37.188942	2012-02-11 00:15:37.188942	1	1500.00	58	\N	\N
+368	6	\N	2012-02-11 00:15:37.191316	2012-02-11 00:15:37.191316	1	7000.00	58	\N	\N
+369	3	\N	2012-02-11 00:15:37.197005	2012-02-11 00:15:37.197005	1	4599.00	59	\N	\N
+370	1	\N	2012-02-11 00:15:37.203528	2012-02-11 00:15:37.203528	1	5499.00	60	\N	\N
+371	1	\N	2012-02-11 00:15:37.206096	2012-02-11 00:15:37.206096	1	5499.00	60	\N	\N
+372	6	\N	2012-02-11 00:15:37.208306	2012-02-11 00:15:37.208306	1	7000.00	60	\N	\N
+373	6	\N	2012-02-11 00:15:37.210491	2012-02-11 00:15:37.210491	1	7000.00	60	\N	\N
+374	5	\N	2012-02-11 00:15:37.215087	2012-02-11 00:15:37.215087	1	2299.00	61	\N	\N
+375	6	\N	2012-02-11 00:15:37.217317	2012-02-11 00:15:37.217317	1	7000.00	61	\N	\N
+376	3	\N	2012-02-11 00:15:37.220168	2012-02-11 00:15:37.220168	1	4599.00	61	\N	\N
+377	2	\N	2012-02-11 00:15:37.225731	2012-02-11 00:15:37.225731	1	6000.00	62	\N	\N
+378	5	\N	2012-02-11 00:15:37.228304	2012-02-11 00:15:37.228304	1	2299.00	62	\N	\N
+379	6	\N	2012-02-11 00:15:37.233372	2012-02-11 00:15:37.233372	1	7000.00	63	\N	\N
+380	5	\N	2012-02-11 00:15:37.235943	2012-02-11 00:15:37.235943	1	2299.00	63	\N	\N
+381	1	\N	2012-02-11 00:15:37.238482	2012-02-11 00:15:37.238482	1	5499.00	63	\N	\N
+382	4	\N	2012-02-11 00:15:37.244051	2012-02-11 00:15:37.244051	1	5299.00	64	\N	\N
+383	3	\N	2012-02-11 00:15:37.247056	2012-02-11 00:15:37.247056	1	4599.00	64	\N	\N
+384	7	\N	2012-02-11 00:15:37.251612	2012-02-11 00:15:37.251612	1	1500.00	64	\N	\N
+385	7	\N	2012-02-11 00:15:37.257124	2012-02-11 00:15:37.257124	1	1500.00	65	\N	\N
+386	5	\N	2012-02-11 00:15:37.259456	2012-02-11 00:15:37.259456	1	2299.00	65	\N	\N
+387	3	\N	2012-02-11 00:15:37.261825	2012-02-11 00:15:37.261825	1	4599.00	65	\N	\N
+388	4	\N	2012-02-11 00:15:37.264222	2012-02-11 00:15:37.264222	1	5299.00	65	\N	\N
+389	1	\N	2012-02-11 00:15:37.269044	2012-02-11 00:15:37.269044	1	5499.00	66	\N	\N
+390	3	\N	2012-02-11 00:15:37.271908	2012-02-11 00:15:37.271908	1	4599.00	66	\N	\N
+391	7	\N	2012-02-11 00:15:37.274581	2012-02-11 00:15:37.274581	1	1500.00	66	\N	\N
+392	6	\N	2012-02-11 00:15:37.279684	2012-02-11 00:15:37.279684	1	7000.00	67	\N	\N
+393	3	\N	2012-02-11 00:15:37.282348	2012-02-11 00:15:37.282348	1	4599.00	67	\N	\N
+394	5	\N	2012-02-11 00:15:37.287229	2012-02-11 00:15:37.287229	1	2299.00	68	\N	\N
+395	7	\N	2012-02-11 00:15:37.289788	2012-02-11 00:15:37.289788	1	1500.00	68	\N	\N
+396	4	\N	2012-02-11 00:15:37.295935	2012-02-11 00:15:37.295935	1	5299.00	69	\N	\N
+397	4	\N	2012-02-11 00:15:37.300903	2012-02-11 00:15:37.300903	1	5299.00	69	\N	\N
+398	4	\N	2012-02-11 00:15:37.304172	2012-02-11 00:15:37.304172	1	5299.00	69	\N	\N
+399	1	\N	2012-02-11 00:15:37.309215	2012-02-11 00:15:37.309215	1	5499.00	70	\N	\N
+400	3	\N	2012-02-11 00:15:37.311833	2012-02-11 00:15:37.311833	1	4599.00	70	\N	\N
+401	5	\N	2012-02-11 00:15:37.314564	2012-02-11 00:15:37.314564	1	2299.00	70	\N	\N
+402	2	\N	2012-02-11 00:15:37.31948	2012-02-11 00:15:37.31948	1	6000.00	71	\N	\N
+403	2	\N	2012-02-11 00:15:37.32204	2012-02-11 00:15:37.32204	1	6000.00	71	\N	\N
+404	5	\N	2012-02-11 00:15:37.324513	2012-02-11 00:15:37.324513	1	2299.00	71	\N	\N
+405	6	\N	2012-02-11 00:15:37.3296	2012-02-11 00:15:37.3296	1	7000.00	72	\N	\N
+406	6	\N	2012-02-11 00:15:37.335265	2012-02-11 00:15:37.335265	1	7000.00	73	\N	\N
+407	1	\N	2012-02-11 00:15:37.339018	2012-02-11 00:15:37.339018	1	5499.00	73	\N	\N
+408	2	\N	2012-02-11 00:15:37.345903	2012-02-11 00:15:37.345903	1	6000.00	74	\N	\N
+409	1	\N	2012-02-11 00:15:37.350714	2012-02-11 00:15:37.350714	1	5499.00	75	\N	\N
+410	1	\N	2012-02-11 00:15:37.356555	2012-02-11 00:15:37.356555	1	5499.00	76	\N	\N
+411	6	\N	2012-02-11 00:15:37.35907	2012-02-11 00:15:37.35907	1	7000.00	76	\N	\N
+412	2	\N	2012-02-11 00:15:37.364256	2012-02-11 00:15:37.364256	1	6000.00	77	\N	\N
+413	2	\N	2012-02-11 00:15:37.369434	2012-02-11 00:15:37.369434	1	6000.00	78	\N	\N
+414	6	\N	2012-02-11 00:15:37.37459	2012-02-11 00:15:37.37459	1	7000.00	79	\N	\N
+415	6	\N	2012-02-11 00:15:37.377409	2012-02-11 00:15:37.377409	1	7000.00	79	\N	\N
+416	2	\N	2012-02-11 00:15:37.384827	2012-02-11 00:15:37.384827	1	6000.00	80	\N	\N
+417	7	\N	2012-02-11 00:15:37.387598	2012-02-11 00:15:37.387598	1	1500.00	80	\N	\N
+418	5	\N	2012-02-11 00:15:37.392566	2012-02-11 00:15:37.392566	1	2299.00	81	\N	\N
+419	4	\N	2012-02-11 00:15:37.39528	2012-02-11 00:15:37.39528	1	5299.00	81	\N	\N
+420	5	\N	2012-02-11 00:15:37.400298	2012-02-11 00:15:37.400298	1	2299.00	82	\N	\N
+421	7	\N	2012-02-11 00:15:37.405395	2012-02-11 00:15:37.405395	1	1500.00	83	\N	\N
+422	3	\N	2012-02-11 00:15:37.407905	2012-02-11 00:15:37.407905	1	4599.00	83	\N	\N
+423	2	\N	2012-02-11 00:15:37.410449	2012-02-11 00:15:37.410449	1	6000.00	83	\N	\N
+424	2	\N	2012-02-11 00:15:37.412973	2012-02-11 00:15:37.412973	1	6000.00	83	\N	\N
+425	4	\N	2012-02-11 00:15:37.418567	2012-02-11 00:15:37.418567	1	5299.00	84	\N	\N
+426	7	\N	2012-02-11 00:15:37.421278	2012-02-11 00:15:37.421278	1	1500.00	84	\N	\N
+427	5	\N	2012-02-11 00:15:37.424393	2012-02-11 00:15:37.424393	1	2299.00	84	\N	\N
+428	1	\N	2012-02-11 00:15:37.42704	2012-02-11 00:15:37.42704	1	5499.00	84	\N	\N
+429	2	\N	2012-02-11 00:15:37.431939	2012-02-11 00:15:37.431939	1	6000.00	85	\N	\N
+430	1	\N	2012-02-11 00:15:37.434967	2012-02-11 00:15:37.434967	1	5499.00	85	\N	\N
+431	4	\N	2012-02-11 00:15:37.479698	2012-02-11 00:15:37.479698	1	5299.00	86	\N	\N
+432	1	\N	2012-02-11 00:15:37.482106	2012-02-11 00:15:37.482106	1	5499.00	86	\N	\N
+433	2	\N	2012-02-11 00:15:37.486977	2012-02-11 00:15:37.486977	1	6000.00	87	\N	\N
+434	1	\N	2012-02-11 00:15:37.489508	2012-02-11 00:15:37.489508	1	5499.00	87	\N	\N
+435	7	\N	2012-02-11 00:15:37.49464	2012-02-11 00:15:37.49464	1	1500.00	88	\N	\N
+436	1	\N	2012-02-11 00:15:37.497215	2012-02-11 00:15:37.497215	1	5499.00	88	\N	\N
+437	3	\N	2012-02-11 00:15:37.499823	2012-02-11 00:15:37.499823	1	4599.00	88	\N	\N
+438	2	\N	2012-02-11 00:15:37.504887	2012-02-11 00:15:37.504887	1	6000.00	89	\N	\N
+439	2	\N	2012-02-11 00:15:37.507407	2012-02-11 00:15:37.507407	1	6000.00	89	\N	\N
+440	7	\N	2012-02-11 00:15:37.513004	2012-02-11 00:15:37.513004	1	1500.00	90	\N	\N
+441	1	\N	2012-02-11 00:15:37.516296	2012-02-11 00:15:37.516296	1	5499.00	90	\N	\N
+442	4	\N	2012-02-11 00:15:37.523337	2012-02-11 00:15:37.523337	1	5299.00	91	\N	\N
+443	4	\N	2012-02-11 00:15:37.52566	2012-02-11 00:15:37.52566	1	5299.00	91	\N	\N
+444	5	\N	2012-02-11 00:15:37.527862	2012-02-11 00:15:37.527862	1	2299.00	91	\N	\N
+445	4	\N	2012-02-11 00:15:37.532514	2012-02-11 00:15:37.532514	1	5299.00	92	\N	\N
+446	7	\N	2012-02-11 00:15:37.534889	2012-02-11 00:15:37.534889	1	1500.00	92	\N	\N
+447	4	\N	2012-02-11 00:15:37.537266	2012-02-11 00:15:37.537266	1	5299.00	92	\N	\N
+448	4	\N	2012-02-11 00:15:37.5421	2012-02-11 00:15:37.5421	1	5299.00	93	\N	\N
+449	5	\N	2012-02-11 00:15:37.544838	2012-02-11 00:15:37.544838	1	2299.00	93	\N	\N
+450	2	\N	2012-02-11 00:15:37.547284	2012-02-11 00:15:37.547284	1	6000.00	93	\N	\N
+451	7	\N	2012-02-11 00:15:37.549614	2012-02-11 00:15:37.549614	1	1500.00	93	\N	\N
+452	1	\N	2012-02-11 00:15:37.554503	2012-02-11 00:15:37.554503	1	5499.00	94	\N	\N
+453	6	\N	2012-02-11 00:15:37.559431	2012-02-11 00:15:37.559431	1	7000.00	95	\N	\N
+454	4	\N	2012-02-11 00:15:37.564652	2012-02-11 00:15:37.564652	1	5299.00	96	\N	\N
+455	3	\N	2012-02-11 00:15:37.567808	2012-02-11 00:15:37.567808	1	4599.00	96	\N	\N
+456	6	\N	2012-02-11 00:15:37.572629	2012-02-11 00:15:37.572629	1	7000.00	96	\N	\N
+457	5	\N	2012-02-11 00:15:37.575148	2012-02-11 00:15:37.575148	1	2299.00	96	\N	\N
+458	2	\N	2012-02-11 00:15:37.579994	2012-02-11 00:15:37.579994	1	6000.00	97	\N	\N
+459	1	\N	2012-02-11 00:15:37.582382	2012-02-11 00:15:37.582382	1	5499.00	97	\N	\N
+460	1	\N	2012-02-11 00:15:37.58466	2012-02-11 00:15:37.58466	1	5499.00	97	\N	\N
+461	5	\N	2012-02-11 00:15:37.590478	2012-02-11 00:15:37.590478	1	2299.00	98	\N	\N
+462	7	\N	2012-02-11 00:15:37.592972	2012-02-11 00:15:37.592972	1	1500.00	98	\N	\N
+463	1	\N	2012-02-11 00:15:37.595497	2012-02-11 00:15:37.595497	1	5499.00	98	\N	\N
+464	6	\N	2012-02-11 00:15:37.597921	2012-02-11 00:15:37.597921	1	7000.00	98	\N	\N
+465	3	\N	2012-02-11 00:15:37.602908	2012-02-11 00:15:37.602908	1	4599.00	99	\N	\N
+466	5	\N	2012-02-11 00:15:37.605337	2012-02-11 00:15:37.605337	1	2299.00	99	\N	\N
+467	6	\N	2012-02-11 00:15:37.60785	2012-02-11 00:15:37.60785	1	7000.00	99	\N	\N
+468	5	\N	2012-02-11 00:15:37.610369	2012-02-11 00:15:37.610369	1	2299.00	99	\N	\N
+469	2	\N	2012-02-11 00:15:37.615989	2012-02-11 00:15:37.615989	1	6000.00	100	\N	\N
+470	6	\N	2012-02-11 00:15:37.620625	2012-02-11 00:15:37.620625	1	7000.00	100	\N	\N
+471	1	\N	2012-02-11 00:15:37.627095	2012-02-11 00:15:37.627095	1	5499.00	101	\N	\N
+472	5	\N	2012-02-11 00:15:37.629469	2012-02-11 00:15:37.629469	1	2299.00	101	\N	\N
+473	5	\N	2012-02-11 00:15:37.631609	2012-02-11 00:15:37.631609	1	2299.00	101	\N	\N
+474	3	\N	2012-02-11 00:15:37.633958	2012-02-11 00:15:37.633958	1	4599.00	101	\N	\N
+475	4	\N	2012-02-11 00:15:37.638947	2012-02-11 00:15:37.638947	1	5299.00	102	\N	\N
+476	2	\N	2012-02-11 00:15:37.641415	2012-02-11 00:15:37.641415	1	6000.00	102	\N	\N
+477	1	\N	2012-02-11 00:15:37.643811	2012-02-11 00:15:37.643811	1	5499.00	102	\N	\N
+478	4	\N	2012-02-11 00:15:37.64635	2012-02-11 00:15:37.64635	1	5299.00	102	\N	\N
+479	1	\N	2012-02-11 00:15:37.651395	2012-02-11 00:15:37.651395	1	5499.00	103	\N	\N
+480	4	\N	2012-02-11 00:15:37.653807	2012-02-11 00:15:37.653807	1	5299.00	103	\N	\N
+481	3	\N	2012-02-11 00:15:37.656466	2012-02-11 00:15:37.656466	1	4599.00	103	\N	\N
+482	5	\N	2012-02-11 00:15:37.658999	2012-02-11 00:15:37.658999	1	2299.00	103	\N	\N
+483	5	\N	2012-02-11 00:15:37.664454	2012-02-11 00:15:37.664454	1	2299.00	104	\N	\N
+484	7	\N	2012-02-11 00:15:37.668483	2012-02-11 00:15:37.668483	1	1500.00	104	\N	\N
+485	4	\N	2012-02-11 00:15:37.676066	2012-02-11 00:15:37.676066	1	5299.00	105	\N	\N
+486	2	\N	2012-02-11 00:15:37.678473	2012-02-11 00:15:37.678473	1	6000.00	105	\N	\N
+487	7	\N	2012-02-11 00:15:37.680789	2012-02-11 00:15:37.680789	1	1500.00	105	\N	\N
+488	5	\N	2012-02-11 00:15:37.682963	2012-02-11 00:15:37.682963	1	2299.00	105	\N	\N
+489	2	\N	2012-02-11 00:15:37.689543	2012-02-11 00:15:37.689543	1	6000.00	106	\N	\N
+490	3	\N	2012-02-11 00:15:37.694635	2012-02-11 00:15:37.694635	1	4599.00	107	\N	\N
+491	3	\N	2012-02-11 00:15:37.69696	2012-02-11 00:15:37.69696	1	4599.00	107	\N	\N
+492	3	\N	2012-02-11 00:15:37.699419	2012-02-11 00:15:37.699419	1	4599.00	107	\N	\N
+493	5	\N	2012-02-11 00:15:37.704504	2012-02-11 00:15:37.704504	1	2299.00	108	\N	\N
+494	4	\N	2012-02-11 00:15:37.706928	2012-02-11 00:15:37.706928	1	5299.00	108	\N	\N
+495	5	\N	2012-02-11 00:15:37.712969	2012-02-11 00:15:37.712969	1	2299.00	109	\N	\N
+496	5	\N	2012-02-11 00:15:37.716906	2012-02-11 00:15:37.716906	1	2299.00	109	\N	\N
+497	6	\N	2012-02-11 00:15:37.719774	2012-02-11 00:15:37.719774	1	7000.00	109	\N	\N
+577	34	166	2012-03-02 02:44:28.783409	2012-03-02 04:09:04.670481	6	2299.00	\N	\N	\N
+502	4	\N	2012-02-11 00:54:25.378526	2012-02-11 03:34:01.165524	1	5299.00	111	\N	\N
+501	6	\N	2012-02-11 00:54:24.343983	2012-02-11 03:34:01.166994	5	7000.00	111	\N	\N
+503	6	\N	2012-02-11 03:34:03.63189	2012-02-11 04:08:26.41965	1	7000.00	112	\N	\N
+504	4	\N	2012-02-11 04:08:04.98893	2012-02-11 04:08:26.421049	1	5299.00	112	\N	\N
+505	4	\N	2012-02-11 04:08:47.283832	2012-02-11 04:15:18.21589	1	5299.00	114	\N	\N
+506	5	\N	2012-02-11 04:14:58.501161	2012-02-11 04:15:18.217325	1	2299.00	114	\N	\N
+507	6	\N	2012-02-11 04:36:35.201014	2012-02-11 04:36:57.068634	3	7000.00	115	\N	\N
+508	1	\N	2012-02-11 04:36:41.08904	2012-02-11 04:36:57.07066	1	5499.00	115	\N	\N
+509	6	\N	2012-02-11 08:57:23.686698	2012-02-11 08:57:54.70467	1	7000.00	116	\N	\N
+510	4	\N	2012-02-11 08:57:26.743476	2012-02-11 08:57:54.706131	1	5299.00	116	\N	\N
+511	1	\N	2012-02-11 08:57:29.74229	2012-02-11 08:57:54.707374	1	5499.00	116	\N	\N
+512	5	\N	2012-02-11 08:57:33.660397	2012-02-11 08:57:54.708803	1	2299.00	116	\N	\N
+513	6	\N	2012-02-11 08:58:42.118666	2012-02-11 08:58:59.758859	1	7000.00	118	\N	\N
+527	7	\N	2012-02-12 23:19:07.420622	2012-02-12 23:19:25.171231	1	1500.00	123	\N	\N
+528	6	\N	2012-02-12 23:20:59.046008	2012-02-12 23:21:17.636887	1	7000.00	124	\N	\N
+529	6	\N	2012-02-12 23:21:54.812252	2012-02-12 23:22:05.588984	1	7000.00	125	\N	\N
+531	6	\N	2012-02-13 06:01:51.005791	2012-02-13 08:19:03.622871	1	7000.00	127	\N	\N
+534	1	\N	2012-02-13 08:21:06.202639	2012-02-13 08:22:23.112097	1	5499.00	128	\N	\N
+556	37	153	2012-02-18 18:24:35.838286	2012-02-18 18:24:35.838286	1	2600.00	\N	\N	\N
+561	31	158	2012-02-23 19:50:41.054133	2012-02-23 19:50:41.054133	1	6000.00	\N	\N	\N
+562	35	159	2012-02-24 21:19:56.369385	2012-02-24 21:19:56.369385	1	3599.00	\N	\N	\N
+581	32	166	2012-03-02 03:54:58.061759	2012-03-02 03:59:19.787314	3	4599.00	\N	\N	\N
+580	\N	166	2012-03-02 03:43:40.470803	2012-03-02 03:59:27.165411	2	\N	\N	9	2
+579	33	166	2012-03-02 02:45:14.221477	2012-03-02 04:02:49.96526	13	5299.00	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: options; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY options (id, description, price, feature_id, product_id, "default", display, line_item_id, theme_id, body_type_id) FROM stdin;
+8	bolt on neck - solid body	0.0	1	37	t	t	\N	\N	10
+7	bolt on neck - solid body	0.0	1	36	t	t	\N	\N	\N
+48	22 fret standard	0.0	2	37	t	t	\N	\N	10
+17	neck thru - solid body	400.0	1	36	f	t	\N	\N	\N
+27	half chamber	800.0	1	36	f	t	\N	\N	\N
+37	full chamber	1200.0	1	36	f	t	\N	\N	\N
+40	full chamber	1200.0	1	39	f	t	\N	\N	\N
+47	22 fret standard	0.0	2	36	t	t	\N	\N	\N
+50	22 fret standard	0.0	2	39	t	t	\N	\N	\N
+57	24 fret	300.0	2	36	f	t	\N	\N	\N
+67	22 fret - Becker logo inlays	600.0	2	36	f	t	\N	\N	\N
+70	22 fret - Becker logo inlays	600.0	2	39	f	t	\N	\N	\N
+77	24 fret - Becker logo inlays	900.0	2	36	f	t	\N	\N	\N
+58	24 fret	300.0	2	37	f	t	\N	\N	10
+68	22 fret - Becker logo inlays	600.0	2	37	f	t	\N	\N	10
+78	24 fret - Becker logo inlays	900.0	2	37	f	t	\N	\N	10
+18	neck thru - solid body	600.0	1	37	f	t	\N	\N	10
+28	half chamber	800.0	1	37	f	f	\N	\N	10
+38	full chamber	1200.0	1	37	f	f	\N	\N	10
+49	22 fret standard	0.0	2	38	t	t	\N	9	7
+16	neck thru - solid body	400.0	1	35	f	t	\N	\N	1
+59	24 fret	300.0	2	38	f	t	\N	9	7
+26	half chamber	800.0	1	35	f	t	\N	\N	1
+36	full chamber	1200.0	1	35	f	t	\N	\N	1
+46	22 fret standard	0.0	2	35	t	t	\N	\N	1
+56	24 fret	300.0	2	35	f	t	\N	\N	1
+66	22 fret - Becker logo inlays	600.0	2	35	f	t	\N	\N	1
+76	24 fret - Becker logo inlays	900.0	2	35	f	t	\N	\N	1
+32	maple	0.0	15	30	t	t	\N	7	5
+6	bolt on neck - solid body	0.0	1	35	t	t	\N	\N	1
+41	22 fret standard	0.0	2	30	t	t	\N	7	5
+14	neck thru - solid body	400.0	1	33	f	t	\N	\N	3
+24	half chamber	800.0	1	33	f	t	\N	\N	3
+34	full chamber	1200.0	1	33	f	t	\N	\N	3
+44	22 fret standard	0.0	2	33	t	t	\N	\N	3
+54	24 fret	300.0	2	33	f	t	\N	\N	3
+64	22 fret - Becker logo inlays	600.0	2	33	f	t	\N	\N	3
+74	24 fret - Becker logo inlays	900.0	2	33	f	t	\N	\N	3
+3	bolt on neck - solid body	0.0	1	32	t	t	\N	\N	9
+13	neck thru - solid body	400.0	1	32	f	t	\N	\N	9
+23	half chamber	800.0	1	32	f	t	\N	\N	9
+33	full chamber	1200.0	1	32	f	t	\N	\N	9
+43	22 fret standard	0.0	2	32	t	t	\N	\N	9
+31	full burst	1200.0	13	30	f	t	\N	7	5
+63	22 fret - Becker logo inlays	600.0	2	32	f	t	\N	\N	9
+52	pearl inlay	600.0	18	30	f	t	\N	7	5
+69	22 fret - Becker logo inlays	600.0	2	38	f	t	\N	9	7
+334	full retard	1000.0	16	30	f	t	\N	7	5
+53	24 fret	300.0	2	30	f	t	\N	7	5
+35	full chamber	1200.0	1	34	f	t	\N	\N	9
+45	22 fret standard	0.0	2	34	t	t	\N	\N	9
+5	bolt on neck - solid body	0.0	1	34	t	t	\N	\N	9
+55	24 fret	300.0	2	34	f	t	\N	\N	9
+10	bolt on neck - solid body	0.0	1	39	f	f	\N	\N	\N
+60	24 fret	300.0	2	39	f	f	\N	\N	\N
+30	half chamber	800.0	1	39	t	t	\N	\N	\N
+20	neck thru - solid body	400.0	1	39	f	t	\N	\N	\N
+80	24 fret - Becker logo inlays	900.0	2	39	f	f	\N	\N	\N
+79	24 fret - Becker logo inlays	900.0	2	38	f	t	\N	9	7
+29	half chamber	800.0	1	38	f	f	\N	9	7
+22	mahogony	1000.0	15	30	f	t	\N	7	5
+42	matching body top	300.0	18	30	f	t	\N	7	5
+73	24 fret - Becker logo inlays	900.0	2	30	f	t	\N	7	5
+1	bolt on neck - solid body	0.0	1	30	f	t	\N	7	5
+65	22 fret - Becker logo inlays	600.0	2	34	f	t	\N	\N	9
+75	24 fret - Becker logo inlays	900.0	2	34	f	t	\N	\N	9
+21	oil stain color	0.0	13	30	t	t	\N	7	5
+2	alder	0.0	11	30	t	t	\N	7	5
+12	neck thru - solid body	700.0	11	30	f	t	\N	7	5
+61	22 fret - Becker logo inlays	600.0	2	30	f	t	\N	7	5
+71	7 piece inlays	900.0	14	30	f	t	\N	7	5
+62	22 fret - Becker logo inlays	600.0	2	31	f	t	\N	6	9
+72	24 fret - Becker logo inlays	900.0	2	31	f	t	\N	6	9
+9	bolt on neck - solid body	0.0	1	38	t	t	\N	9	7
+19	neck thru - solid body	400.0	1	38	f	t	\N	9	7
+39	full chamber	1200.0	1	38	f	f	\N	9	7
+15	neck thru - solid body	400.0	1	34	f	f	\N	\N	9
+25	half chamber	800.0	1	34	f	f	\N	\N	9
+172	Bone	300.0	4	31	f	t	\N	6	9
+182	3 Single Coils	0.0	5	31	t	t	\N	6	9
+222	Off	0.0	6	31	t	t	\N	6	9
+232	Built into Bridge location	200.0	6	31	f	t	\N	6	9
+158	Metal	0.0	4	37	t	t	\N	\N	10
+168	Wood	100.0	4	37	f	t	\N	\N	10
+178	Bone	300.0	4	37	f	t	\N	\N	10
+198	2 Single Coils and a Humbucker	200.0	5	37	f	t	\N	\N	10
+208	2 Classic Humbuckers	100.0	5	37	f	t	\N	\N	10
+156	Metal	0.0	4	35	t	t	\N	\N	1
+179	Bone	300.0	4	38	f	t	\N	9	7
+166	Wood	100.0	4	35	f	t	\N	\N	1
+199	2 Single Coils and a Humbucker	200.0	5	38	f	t	\N	9	7
+176	Bone	300.0	4	35	f	t	\N	\N	1
+209	2 Classic Humbuckers	100.0	5	38	t	t	\N	9	7
+186	3 Single Coils	0.0	5	35	t	t	\N	\N	1
+196	2 Single Coils and a Humbucker	200.0	5	35	f	t	\N	\N	1
+206	2 Classic Humbuckers	100.0	5	35	f	t	\N	\N	1
+216	2 Becker Bucker Humbuckers	200.0	5	35	f	t	\N	\N	1
+201	high gloss	100.0	10	30	f	t	\N	7	5
+226	Off	0.0	6	35	t	t	\N	\N	1
+236	Built into Bridge location	200.0	6	35	f	t	\N	\N	1
+173	maple	300.0	11	30	f	t	\N	7	5
+154	Metal	0.0	4	33	t	t	\N	\N	3
+164	Wood	100.0	4	33	f	t	\N	\N	3
+174	Bone	300.0	4	33	f	t	\N	\N	3
+184	3 Single Coils	0.0	5	33	t	t	\N	\N	3
+194	2 Single Coils and a Humbucker	200.0	5	33	f	t	\N	\N	3
+204	2 Classic Humbuckers	100.0	5	33	f	t	\N	\N	3
+214	2 Becker Bucker Humbuckers	200.0	5	33	f	t	\N	\N	3
+224	Off	0.0	6	33	t	t	\N	\N	3
+157	Metal	0.0	4	36	t	t	\N	\N	\N
+160	Metal	0.0	4	39	t	t	\N	\N	\N
+167	Wood	100.0	4	36	f	t	\N	\N	\N
+170	Wood	100.0	4	39	f	t	\N	\N	\N
+177	Bone	300.0	4	36	f	t	\N	\N	\N
+180	Bone	300.0	4	39	f	t	\N	\N	\N
+187	3 Single Coils	0.0	5	36	t	t	\N	\N	\N
+197	2 Single Coils and a Humbucker	200.0	5	36	f	t	\N	\N	\N
+207	2 Classic Humbuckers	100.0	5	36	f	t	\N	\N	\N
+217	2 Becker Bucker Humbuckers	200.0	5	36	f	t	\N	\N	\N
+220	2 Becker Bucker Humbuckers	200.0	5	39	f	t	\N	\N	\N
+227	Off	0.0	6	36	t	t	\N	\N	\N
+234	Built into Bridge location	200.0	6	33	f	t	\N	\N	3
+223	Off	0.0	6	30	t	t	\N	7	5
+230	Off	0.0	6	39	t	t	\N	\N	\N
+237	Built into Bridge location	200.0	6	36	f	t	\N	\N	\N
+163	Wood	100.0	4	32	f	t	\N	\N	9
+240	Built into Bridge location	200.0	6	39	f	t	\N	\N	\N
+183	3 Single Coils	0.0	5	32	t	t	\N	\N	9
+193	2 Single Coils and a Humbucker	200.0	5	32	f	t	\N	\N	9
+161	Wood	100.0	4	30	f	t	\N	7	5
+171	Bone	300.0	4	30	f	t	\N	7	5
+190	3 Single Coils	0.0	5	39	f	f	\N	\N	\N
+200	2 Single Coils and a Humbucker	200.0	5	39	f	f	\N	\N	\N
+210	2 Classic Humbuckers	100.0	5	39	t	t	\N	\N	\N
+221	Off	0.0	18	30	t	t	\N	7	5
+231	Built into Bridge location	200.0	6	30	f	t	\N	7	5
+151	single wood	0.0	14	30	t	t	\N	7	5
+241	Custom location	400.0	6	30	f	t	\N	7	5
+211	2 Becker Bucker Humbuckers	200.0	5	30	f	t	\N	7	5
+203	2 Classic Humbuckers	100.0	5	32	f	t	\N	\N	9
+213	2 Becker Bucker Humbuckers	200.0	5	32	f	t	\N	\N	9
+191	2 Single Coils and a Humbucker	200.0	5	30	t	t	\N	7	5
+153	Metal	0.0	4	30	t	t	\N	7	5
+181	oil	0.0	10	30	t	t	\N	7	5
+233	Built into Bridge location	200.0	6	32	f	t	\N	\N	9
+155	Metal	0.0	4	34	t	t	\N	\N	9
+165	Wood	100.0	4	34	f	t	\N	\N	9
+175	Bone	300.0	4	34	f	t	\N	\N	9
+185	3 Single Coils	0.0	5	34	t	t	\N	\N	9
+195	2 Single Coils and a Humbucker	200.0	5	34	f	t	\N	\N	9
+205	2 Classic Humbuckers	100.0	5	34	f	t	\N	\N	9
+215	2 Becker Bucker Humbuckers	200.0	5	34	f	t	\N	\N	9
+225	Off	0.0	6	34	t	t	\N	\N	9
+235	Built into Bridge location	200.0	6	34	f	t	\N	\N	9
+152	Metal	0.0	4	31	t	t	\N	6	9
+162	Wood	100.0	4	31	f	t	\N	6	9
+192	2 Single Coils and a Humbucker	200.0	5	31	f	t	\N	6	9
+202	2 Classic Humbuckers	100.0	5	31	f	t	\N	6	9
+212	2 Becker Bucker Humbuckers	200.0	5	31	f	t	\N	6	9
+188	3 Single Coils	0.0	5	37	t	t	\N	\N	10
+218	2 Becker Bucker Humbuckers	200.0	5	37	f	t	\N	\N	10
+159	Metal	0.0	4	38	t	t	\N	9	7
+169	Wood	100.0	4	38	f	t	\N	9	7
+219	2 Becker Bucker Humbuckers	200.0	5	38	f	t	\N	9	7
+189	3 Single Coils	0.0	5	38	f	f	\N	9	7
+247	Custom location	400.0	6	36	f	t	\N	\N	\N
+252	Off	0.0	7	31	t	t	\N	6	9
+322	On	300.0	9	31	f	t	\N	6	9
+250	Custom location	400.0	6	39	f	t	\N	\N	\N
+257	Off	0.0	7	36	t	t	\N	\N	\N
+260	Off	0.0	7	39	t	t	\N	\N	\N
+267	Roland G-Series Pickup	700.0	7	36	f	t	\N	\N	\N
+270	Roland G-Series Pickup	700.0	7	39	f	t	\N	\N	\N
+277	Axon System	900.0	7	36	f	t	\N	\N	\N
+280	Axon System	900.0	7	39	f	t	\N	\N	\N
+287	Hardshell Custom	0.0	8	36	t	t	\N	\N	\N
+290	Hardshell Custom	0.0	8	39	t	t	\N	\N	\N
+297	Softcase	-50.0	8	36	f	t	\N	\N	\N
+300	Softcase	-50.0	8	39	f	t	\N	\N	\N
+307	Off	-100.0	8	36	f	t	\N	\N	\N
+310	Off	-100.0	8	39	f	t	\N	\N	\N
+317	Off	0.0	9	36	t	t	\N	\N	\N
+320	Off	0.0	9	39	t	t	\N	\N	\N
+327	On	300.0	9	36	f	t	\N	\N	\N
+330	On	300.0	9	39	f	t	\N	\N	\N
+245	Custom location	400.0	6	34	f	t	\N	\N	9
+332	striped	400.0	16	30	f	t	\N	7	5
+261	Roland G-Series Pickup	700.0	7	30	f	t	\N	7	5
+271	Axon System	900.0	7	30	f	t	\N	7	5
+281	Hardshell Custom	0.0	8	30	t	t	\N	7	5
+291	Softcase	-50.0	8	30	f	t	\N	7	5
+301	Off	-100.0	8	30	f	t	\N	7	5
+311	Off	0.0	9	30	t	t	\N	7	5
+321	On	300.0	9	30	f	t	\N	7	5
+251	matching pick guard	100.0	18	30	f	t	\N	7	5
+333	matching top	100.0	16	31	t	t	\N	6	9
+258	Off	0.0	7	37	t	t	\N	\N	10
+268	Roland G-Series Pickup	700.0	7	37	f	t	\N	\N	10
+278	Axon System	900.0	7	37	f	t	\N	\N	10
+288	Hardshell Custom	0.0	8	37	t	t	\N	\N	10
+298	Softcase	-50.0	8	37	f	t	\N	\N	10
+308	Off	-100.0	8	37	f	t	\N	\N	10
+318	Off	0.0	9	37	t	t	\N	\N	10
+246	Custom location	400.0	6	35	f	t	\N	\N	1
+256	Off	0.0	7	35	t	t	\N	\N	1
+289	Hardshell Custom	0.0	8	38	t	t	\N	9	7
+266	Roland G-Series Pickup	700.0	7	35	f	t	\N	\N	1
+299	Softcase	-50.0	8	38	f	t	\N	9	7
+276	Axon System	900.0	7	35	f	t	\N	\N	1
+309	Off	-100.0	8	38	f	t	\N	9	7
+286	Hardshell Custom	0.0	8	35	t	t	\N	\N	1
+296	Softcase	-50.0	8	35	f	t	\N	\N	1
+11	neck thru - solid body	400.0	1	30	t	t	\N	7	5
+306	Off	-100.0	8	35	f	t	\N	\N	1
+316	Off	0.0	9	35	t	t	\N	\N	1
+326	On	300.0	9	35	f	t	\N	\N	1
+253	Off	0.0	7	30	t	t	\N	7	5
+244	Custom location	400.0	6	33	f	t	\N	\N	3
+254	Off	0.0	7	33	t	t	\N	\N	3
+264	Roland G-Series Pickup	700.0	7	33	f	t	\N	\N	3
+274	Axon System	900.0	7	33	f	t	\N	\N	3
+284	Hardshell Custom	0.0	8	33	t	t	\N	\N	3
+294	Softcase	-50.0	8	33	f	t	\N	\N	3
+304	Off	-100.0	8	33	f	t	\N	\N	3
+314	Off	0.0	9	33	t	t	\N	\N	3
+324	On	300.0	9	33	f	t	\N	\N	3
+4	bolt on neck - solid body	0.0	1	33	t	t	\N	\N	3
+243	Custom location	400.0	6	32	f	t	\N	\N	9
+263	Roland G-Series Pickup	700.0	7	32	f	t	\N	\N	9
+273	Axon System	900.0	7	32	f	t	\N	\N	9
+283	Hardshell Custom	0.0	8	32	t	t	\N	\N	9
+293	Softcase	-50.0	8	32	f	t	\N	\N	9
+303	Off	-100.0	8	32	f	t	\N	\N	9
+313	Off	0.0	9	32	t	t	\N	\N	9
+323	On	300.0	9	32	f	t	\N	\N	9
+331	matching top	0.0	16	30	t	t	\N	7	5
+255	Off	0.0	7	34	t	t	\N	\N	9
+265	Roland G-Series Pickup	700.0	7	34	f	t	\N	\N	9
+275	Axon System	900.0	7	34	f	t	\N	\N	9
+285	Hardshell Custom	0.0	8	34	t	t	\N	\N	9
+295	Softcase	-50.0	8	34	f	t	\N	\N	9
+305	Off	-100.0	8	34	f	t	\N	\N	9
+315	Off	0.0	9	34	t	t	\N	\N	9
+325	On	300.0	9	34	f	t	\N	\N	9
+242	Custom location	400.0	6	31	f	t	\N	6	9
+262	Roland G-Series Pickup	700.0	7	31	f	t	\N	6	9
+272	Axon System	900.0	7	31	f	t	\N	6	9
+282	Hardshell Custom	0.0	8	31	t	t	\N	6	9
+292	Softcase	-50.0	8	31	f	t	\N	6	9
+302	Off	-100.0	8	31	f	t	\N	6	9
+312	Off	0.0	9	31	t	t	\N	6	9
+328	On	300.0	9	37	f	t	\N	\N	10
+259	Off	0.0	7	38	t	t	\N	9	7
+269	Roland G-Series Pickup	700.0	7	38	f	t	\N	9	7
+279	Axon System	900.0	7	38	f	t	\N	9	7
+319	Off	0.0	9	38	t	t	\N	9	7
+329	On	300.0	9	38	f	t	\N	9	7
+\.
+
+
+--
+-- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY orders (id, name, address, email, pay_type, created_at, updated_at, ship_date, customer_id, artist_id, note) FROM stdin;
+1	Jon G	hello kiotty lane\r\n11234	jon@g.com	Credit card	2012-02-10 20:59:25.69661	2012-02-10 20:59:25.69661	\N	\N	\N	\N
+2	jeffersomn waful	helloasdn \r\nasdf\r\n12341	gut@gut.com	Check	2012-02-10 21:03:29.767049	2012-02-10 21:03:29.767049	\N	\N	\N	\N
+3	tes test	tes test tes	test@test.com	Purchase order	2012-02-10 21:12:23.573588	2012-02-10 21:12:23.573588	\N	\N	\N	\N
+4	country	bumpkin	the	Check	2012-02-10 21:13:12.817573	2012-02-10 21:13:12.817573	\N	\N	\N	\N
+5	Customer4	4 Main Street	customer-4@ample.com	Check	2012-02-11 00:10:15.879289	2012-02-11 00:10:15.879289	\N	\N	\N	\N
+6	Customer4	4 Main Street	customer-4@ample.com	Check	2012-02-11 00:10:25.038393	2012-02-11 00:10:25.038393	\N	\N	\N	\N
+10	Customer1	1 Main Street	customer-1@ample.com	Check	2012-02-11 00:15:36.62205	2012-02-11 00:15:36.62205	\N	\N	\N	\N
+11	Customer2	2 Main Street	customer-2@ample.com	Check	2012-02-11 00:15:36.694153	2012-02-11 00:15:36.694153	\N	\N	\N	\N
+12	Customer3	3 Main Street	customer-3@ample.com	Check	2012-02-11 00:15:36.699545	2012-02-11 00:15:36.699545	\N	\N	\N	\N
+13	Customer4	4 Main Street	customer-4@ample.com	Check	2012-02-11 00:15:36.706542	2012-02-11 00:15:36.706542	\N	\N	\N	\N
+14	Customer5	5 Main Street	customer-5@ample.com	Check	2012-02-11 00:15:36.743809	2012-02-11 00:15:36.743809	\N	\N	\N	\N
+15	Customer6	6 Main Street	customer-6@ample.com	Check	2012-02-11 00:15:36.749374	2012-02-11 00:15:36.749374	\N	\N	\N	\N
+16	Customer7	7 Main Street	customer-7@ample.com	Check	2012-02-11 00:15:36.756889	2012-02-11 00:15:36.756889	\N	\N	\N	\N
+17	Customer8	8 Main Street	customer-8@ample.com	Check	2012-02-11 00:15:36.764429	2012-02-11 00:15:36.764429	\N	\N	\N	\N
+18	Customer9	9 Main Street	customer-9@ample.com	Check	2012-02-11 00:15:36.770353	2012-02-11 00:15:36.770353	\N	\N	\N	\N
+19	Customer10	10 Main Street	customer-10@ample.com	Check	2012-02-11 00:15:36.778388	2012-02-11 00:15:36.778388	\N	\N	\N	\N
+20	Customer11	11 Main Street	customer-11@ample.com	Check	2012-02-11 00:15:36.784467	2012-02-11 00:15:36.784467	\N	\N	\N	\N
+21	Customer12	12 Main Street	customer-12@ample.com	Check	2012-02-11 00:15:36.789479	2012-02-11 00:15:36.789479	\N	\N	\N	\N
+22	Customer13	13 Main Street	customer-13@ample.com	Check	2012-02-11 00:15:36.797274	2012-02-11 00:15:36.797274	\N	\N	\N	\N
+24	Customer15	15 Main Street	customer-15@ample.com	Check	2012-02-11 00:15:36.818919	2012-02-11 00:15:36.818919	\N	\N	\N	\N
+25	Customer16	16 Main Street	customer-16@ample.com	Check	2012-02-11 00:15:36.830219	2012-02-11 00:15:36.830219	\N	\N	\N	\N
+26	Customer17	17 Main Street	customer-17@ample.com	Check	2012-02-11 00:15:36.868021	2012-02-11 00:15:36.868021	\N	\N	\N	\N
+27	Customer18	18 Main Street	customer-18@ample.com	Check	2012-02-11 00:15:36.875805	2012-02-11 00:15:36.875805	\N	\N	\N	\N
+28	Customer19	19 Main Street	customer-19@ample.com	Check	2012-02-11 00:15:36.883511	2012-02-11 00:15:36.883511	\N	\N	\N	\N
+29	Customer20	20 Main Street	customer-20@ample.com	Check	2012-02-11 00:15:36.896964	2012-02-11 00:15:36.896964	\N	\N	\N	\N
+30	Customer21	21 Main Street	customer-21@ample.com	Check	2012-02-11 00:15:36.91266	2012-02-11 00:15:36.91266	\N	\N	\N	\N
+31	Customer22	22 Main Street	customer-22@ample.com	Check	2012-02-11 00:15:36.924702	2012-02-11 00:15:36.924702	\N	\N	\N	\N
+32	Customer23	23 Main Street	customer-23@ample.com	Check	2012-02-11 00:15:36.935667	2012-02-11 00:15:36.935667	\N	\N	\N	\N
+34	Customer25	25 Main Street	customer-25@ample.com	Check	2012-02-11 00:15:36.953063	2012-02-11 00:15:36.953063	\N	\N	\N	\N
+35	Customer26	26 Main Street	customer-26@ample.com	Check	2012-02-11 00:15:36.957713	2012-02-11 00:15:36.957713	\N	\N	\N	\N
+36	Customer27	27 Main Street	customer-27@ample.com	Check	2012-02-11 00:15:36.994623	2012-02-11 00:15:36.994623	\N	\N	\N	\N
+37	Customer28	28 Main Street	customer-28@ample.com	Check	2012-02-11 00:15:37.007237	2012-02-11 00:15:37.007237	\N	\N	\N	\N
+38	Customer29	29 Main Street	customer-29@ample.com	Check	2012-02-11 00:15:37.017925	2012-02-11 00:15:37.017925	\N	\N	\N	\N
+39	Customer30	30 Main Street	customer-30@ample.com	Check	2012-02-11 00:15:37.026964	2012-02-11 00:15:37.026964	\N	\N	\N	\N
+40	Customer31	31 Main Street	customer-31@ample.com	Check	2012-02-11 00:15:37.040634	2012-02-11 00:15:37.040634	\N	\N	\N	\N
+41	Customer32	32 Main Street	customer-32@ample.com	Check	2012-02-11 00:15:37.045929	2012-02-11 00:15:37.045929	\N	\N	\N	\N
+42	Customer33	33 Main Street	customer-33@ample.com	Check	2012-02-11 00:15:37.050907	2012-02-11 00:15:37.050907	\N	\N	\N	\N
+43	Customer34	34 Main Street	customer-34@ample.com	Check	2012-02-11 00:15:37.055859	2012-02-11 00:15:37.055859	\N	\N	\N	\N
+44	Customer35	35 Main Street	customer-35@ample.com	Check	2012-02-11 00:15:37.064315	2012-02-11 00:15:37.064315	\N	\N	\N	\N
+45	Customer36	36 Main Street	customer-36@ample.com	Check	2012-02-11 00:15:37.07968	2012-02-11 00:15:37.07968	\N	\N	\N	\N
+46	Customer37	37 Main Street	customer-37@ample.com	Check	2012-02-11 00:15:37.084465	2012-02-11 00:15:37.084465	\N	\N	\N	\N
+47	Customer38	38 Main Street	customer-38@ample.com	Check	2012-02-11 00:15:37.089485	2012-02-11 00:15:37.089485	\N	\N	\N	\N
+48	Customer39	39 Main Street	customer-39@ample.com	Check	2012-02-11 00:15:37.094535	2012-02-11 00:15:37.094535	\N	\N	\N	\N
+49	Customer40	40 Main Street	customer-40@ample.com	Check	2012-02-11 00:15:37.107251	2012-02-11 00:15:37.107251	\N	\N	\N	\N
+50	Customer41	41 Main Street	customer-41@ample.com	Check	2012-02-11 00:15:37.120598	2012-02-11 00:15:37.120598	\N	\N	\N	\N
+51	Customer42	42 Main Street	customer-42@ample.com	Check	2012-02-11 00:15:37.133501	2012-02-11 00:15:37.133501	\N	\N	\N	\N
+52	Customer43	43 Main Street	customer-43@ample.com	Check	2012-02-11 00:15:37.138405	2012-02-11 00:15:37.138405	\N	\N	\N	\N
+53	Customer44	44 Main Street	customer-44@ample.com	Check	2012-02-11 00:15:37.145935	2012-02-11 00:15:37.145935	\N	\N	\N	\N
+54	Customer45	45 Main Street	customer-45@ample.com	Check	2012-02-11 00:15:37.15169	2012-02-11 00:15:37.15169	\N	\N	\N	\N
+55	Customer46	46 Main Street	customer-46@ample.com	Check	2012-02-11 00:15:37.158147	2012-02-11 00:15:37.158147	\N	\N	\N	\N
+56	Customer47	47 Main Street	customer-47@ample.com	Check	2012-02-11 00:15:37.165152	2012-02-11 00:15:37.165152	\N	\N	\N	\N
+57	Customer48	48 Main Street	customer-48@ample.com	Check	2012-02-11 00:15:37.174942	2012-02-11 00:15:37.174942	\N	\N	\N	\N
+58	Customer49	49 Main Street	customer-49@ample.com	Check	2012-02-11 00:15:37.183037	2012-02-11 00:15:37.183037	\N	\N	\N	\N
+59	Customer50	50 Main Street	customer-50@ample.com	Check	2012-02-11 00:15:37.193275	2012-02-11 00:15:37.193275	\N	\N	\N	\N
+60	Customer51	51 Main Street	customer-51@ample.com	Check	2012-02-11 00:15:37.200214	2012-02-11 00:15:37.200214	\N	\N	\N	\N
+61	Customer52	52 Main Street	customer-52@ample.com	Check	2012-02-11 00:15:37.212253	2012-02-11 00:15:37.212253	\N	\N	\N	\N
+62	Customer53	53 Main Street	customer-53@ample.com	Check	2012-02-11 00:15:37.222393	2012-02-11 00:15:37.222393	\N	\N	\N	\N
+63	Customer54	54 Main Street	customer-54@ample.com	Check	2012-02-11 00:15:37.230181	2012-02-11 00:15:37.230181	\N	\N	\N	\N
+64	Customer55	55 Main Street	customer-55@ample.com	Check	2012-02-11 00:15:37.240523	2012-02-11 00:15:37.240523	\N	\N	\N	\N
+65	Customer56	56 Main Street	customer-56@ample.com	Check	2012-02-11 00:15:37.254039	2012-02-11 00:15:37.254039	\N	\N	\N	\N
+66	Customer57	57 Main Street	customer-57@ample.com	Check	2012-02-11 00:15:37.265989	2012-02-11 00:15:37.265989	\N	\N	\N	\N
+67	Customer58	58 Main Street	customer-58@ample.com	Check	2012-02-11 00:15:37.276535	2012-02-11 00:15:37.276535	\N	\N	\N	\N
+68	Customer59	59 Main Street	customer-59@ample.com	Check	2012-02-11 00:15:37.284237	2012-02-11 00:15:37.284237	\N	\N	\N	\N
+69	Customer60	60 Main Street	customer-60@ample.com	Check	2012-02-11 00:15:37.291675	2012-02-11 00:15:37.291675	\N	\N	\N	\N
+70	Customer61	61 Main Street	customer-61@ample.com	Check	2012-02-11 00:15:37.306017	2012-02-11 00:15:37.306017	\N	\N	\N	\N
+71	Customer62	62 Main Street	customer-62@ample.com	Check	2012-02-11 00:15:37.316424	2012-02-11 00:15:37.316424	\N	\N	\N	\N
+72	Customer63	63 Main Street	customer-63@ample.com	Check	2012-02-11 00:15:37.326426	2012-02-11 00:15:37.326426	\N	\N	\N	\N
+73	Customer64	64 Main Street	customer-64@ample.com	Check	2012-02-11 00:15:37.331723	2012-02-11 00:15:37.331723	\N	\N	\N	\N
+74	Customer65	65 Main Street	customer-65@ample.com	Check	2012-02-11 00:15:37.341825	2012-02-11 00:15:37.341825	\N	\N	\N	\N
+75	Customer66	66 Main Street	customer-66@ample.com	Check	2012-02-11 00:15:37.347701	2012-02-11 00:15:37.347701	\N	\N	\N	\N
+76	Customer67	67 Main Street	customer-67@ample.com	Check	2012-02-11 00:15:37.352826	2012-02-11 00:15:37.352826	\N	\N	\N	\N
+77	Customer68	68 Main Street	customer-68@ample.com	Check	2012-02-11 00:15:37.36094	2012-02-11 00:15:37.36094	\N	\N	\N	\N
+78	Customer69	69 Main Street	customer-69@ample.com	Check	2012-02-11 00:15:37.366174	2012-02-11 00:15:37.366174	\N	\N	\N	\N
+79	Customer70	70 Main Street	customer-70@ample.com	Check	2012-02-11 00:15:37.371414	2012-02-11 00:15:37.371414	\N	\N	\N	\N
+80	Customer71	71 Main Street	customer-71@ample.com	Check	2012-02-11 00:15:37.380096	2012-02-11 00:15:37.380096	\N	\N	\N	\N
+81	Customer72	72 Main Street	customer-72@ample.com	Check	2012-02-11 00:15:37.389388	2012-02-11 00:15:37.389388	\N	\N	\N	\N
+82	Customer73	73 Main Street	customer-73@ample.com	Check	2012-02-11 00:15:37.397221	2012-02-11 00:15:37.397221	\N	\N	\N	\N
+83	Customer74	74 Main Street	customer-74@ample.com	Check	2012-02-11 00:15:37.402274	2012-02-11 00:15:37.402274	\N	\N	\N	\N
+84	Customer75	75 Main Street	customer-75@ample.com	Check	2012-02-11 00:15:37.414891	2012-02-11 00:15:37.414891	\N	\N	\N	\N
+85	Customer76	76 Main Street	customer-76@ample.com	Check	2012-02-11 00:15:37.428909	2012-02-11 00:15:37.428909	\N	\N	\N	\N
+86	Customer77	77 Main Street	customer-77@ample.com	Check	2012-02-11 00:15:37.437249	2012-02-11 00:15:37.437249	\N	\N	\N	\N
+87	Customer78	78 Main Street	customer-78@ample.com	Check	2012-02-11 00:15:37.483878	2012-02-11 00:15:37.483878	\N	\N	\N	\N
+88	Customer79	79 Main Street	customer-79@ample.com	Check	2012-02-11 00:15:37.491397	2012-02-11 00:15:37.491397	\N	\N	\N	\N
+89	Customer80	80 Main Street	customer-80@ample.com	Check	2012-02-11 00:15:37.50172	2012-02-11 00:15:37.50172	\N	\N	\N	\N
+90	Customer81	81 Main Street	customer-81@ample.com	Check	2012-02-11 00:15:37.509392	2012-02-11 00:15:37.509392	\N	\N	\N	\N
+91	Customer82	82 Main Street	customer-82@ample.com	Check	2012-02-11 00:15:37.519213	2012-02-11 00:15:37.519213	\N	\N	\N	\N
+92	Customer83	83 Main Street	customer-83@ample.com	Check	2012-02-11 00:15:37.529632	2012-02-11 00:15:37.529632	\N	\N	\N	\N
+93	Customer84	84 Main Street	customer-84@ample.com	Check	2012-02-11 00:15:37.539006	2012-02-11 00:15:37.539006	\N	\N	\N	\N
+95	Customer86	86 Main Street	customer-86@ample.com	Check	2012-02-11 00:15:37.55637	2012-02-11 00:15:37.55637	\N	\N	\N	\N
+96	Customer87	87 Main Street	customer-87@ample.com	Check	2012-02-11 00:15:37.561274	2012-02-11 00:15:37.561274	\N	\N	\N	\N
+97	Customer88	88 Main Street	customer-88@ample.com	Check	2012-02-11 00:15:37.577075	2012-02-11 00:15:37.577075	\N	\N	\N	\N
+98	Customer89	89 Main Street	customer-89@ample.com	Check	2012-02-11 00:15:37.586742	2012-02-11 00:15:37.586742	\N	\N	\N	\N
+99	Customer90	90 Main Street	customer-90@ample.com	Check	2012-02-11 00:15:37.599655	2012-02-11 00:15:37.599655	\N	\N	\N	\N
+100	Customer91	91 Main Street	customer-91@ample.com	Check	2012-02-11 00:15:37.612339	2012-02-11 00:15:37.612339	\N	\N	\N	\N
+101	Customer92	92 Main Street	customer-92@ample.com	Check	2012-02-11 00:15:37.623538	2012-02-11 00:15:37.623538	\N	\N	\N	\N
+102	Customer93	93 Main Street	customer-93@ample.com	Check	2012-02-11 00:15:37.635851	2012-02-11 00:15:37.635851	\N	\N	\N	\N
+103	Customer94	94 Main Street	customer-94@ample.com	Check	2012-02-11 00:15:37.648256	2012-02-11 00:15:37.648256	\N	\N	\N	\N
+105	Customer96	96 Main Street	customer-96@ample.com	Check	2012-02-11 00:15:37.671702	2012-02-11 00:15:37.671702	\N	\N	\N	\N
+106	Customer97	97 Main Street	customer-97@ample.com	Check	2012-02-11 00:15:37.685339	2012-02-11 00:15:37.685339	\N	\N	\N	\N
+107	Customer98	98 Main Street	customer-98@ample.com	Check	2012-02-11 00:15:37.691504	2012-02-11 00:15:37.691504	\N	\N	\N	\N
+109	Customer100	100 Main Street	customer-100@ample.com	Check	2012-02-11 00:15:37.709048	2012-02-11 00:15:37.709048	\N	\N	\N	\N
+110	testing	yes this is a test	yep	Purchase order	2012-02-11 00:21:22.332844	2012-02-11 00:21:22.332844	\N	\N	\N	\N
+108	Customer99	99 Main Street	customer-99@ample.com	Purchase order	2012-02-11 00:15:37.701362	2012-02-11 00:23:23.166557	\N	\N	\N	\N
+104	Customer95	95 Main Street	customer-95@ample.com	Credit card	2012-02-11 00:15:37.660871	2012-02-11 00:23:30.810467	\N	\N	\N	\N
+94	Customer85	85 Main Street	customer-85@ample.com	Credit card	2012-02-11 00:15:37.551455	2012-02-11 00:24:23.674698	\N	\N	\N	\N
+111	yeye	yeyey	yeyey	Purchase order	2012-02-11 03:34:01.163654	2012-02-11 03:34:01.163654	\N	\N	\N	\N
+112	jon	jonge	m80dubstation@gmail.com	Credit card	2012-02-11 04:08:26.417732	2012-02-11 04:08:26.417732	\N	\N	\N	\N
+113	jon	jonge	m80dubstation@gmail.com	Credit card	2012-02-11 04:08:43.3739	2012-02-11 04:08:43.3739	\N	\N	\N	\N
+114	jon	jonjojn	m80dubstation@gmail.com	Check	2012-02-11 04:15:18.214102	2012-02-11 04:15:18.214102	\N	\N	\N	\N
+115	jon	adsa asdf	m80dubstation@gmail.com	Purchase order	2012-02-11 04:36:57.064369	2012-02-11 04:36:57.064369	\N	\N	\N	\N
+116	jon G	ye ssend me an email	m80dubstation@gmail.com	Check	2012-02-11 08:57:54.702786	2012-02-11 08:57:54.702786	\N	\N	\N	\N
+123	yo hello	finally getting a lap steel	m80dubstation@gmail.com	Purchase order	2012-02-12 23:19:25.169309	2012-02-12 23:19:25.169309	\N	\N	\N	\N
+118	jon G	aklhlk	m80dubstation@gmail.com	Purchase order	2012-02-11 08:58:59.710835	2012-02-13 02:44:11.24169	2012-02-12 00:00:00	\N	\N	\N
+127	skrillex grammy	yep got 3 	m80dubstation@gmail.com	Check	2012-02-13 08:19:03.615461	2012-02-13 08:19:03.615461	\N	\N	\N	\N
+128	skrilled re	tested	m80dubstation@gmail.com	Check	2012-02-13 08:22:23.107817	2012-02-13 08:22:23.107817	\N	\N	\N	\N
+125	fasdf	asdf	M80DUBSTATION@gmail.com	Credit card	2012-02-12 23:22:05.587107	2012-02-13 03:30:29.451896	2012-02-09 00:00:00	\N	\N	\N
+117	jon G	ye ssend me an email	m80dubstation@gmail.com	Check	2012-02-11 08:58:03.710653	2012-02-13 03:37:36.905494	2012-02-11 00:00:00	\N	\N	\N
+124	adsfadf	asdf	m80dubstation@gmail.com	Check	2012-02-12 23:21:17.635061	2012-02-13 05:23:12.702296	2012-02-10 00:00:00	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY products (id, name, description, image_url, price, created_at, updated_at, type_of, feature, "position", body_url, photo_url_1, photo_url_2, photo_url_3, photo_url_4, photo_url_5, photo_url_6, photo_url_7, photo_url_8, x_image_url, theme_id, body_type_id, display) FROM stdin;
+30	Imperial	<p> - 9 Pc. Mahogany or Maple Thru-Neck Reinforced with cocobolo and maple accents            - Solid mahogany body sides accented with maple            - 3 Pc. cocobolo/ natural maple top and matching head-plate             - 24 Fret  bound cocobolo fretboard with 16" radius            - 2 cocobolo volume knobs and 2 cocobolo tone knobs            - cocobolo bridge with dual compensated bone saddles             - cocobolo 'HotDog' tailpiece            - cocobolo pickup mounting rings            - 2-seymour Duncan custom shop Becker-Buckers with etched covers            - 3 way pickup selector switch with cocobolo knob            - Gotoh 510 tuners            -pearl position markers and emblem            - Bone and nut saddles             - Hotrod dual action trussrod with coverless headstock access            - 24.625" scale length            - Finished natural in high gloss            </p>	houseimperial/houseimperial3.jpg	5499.00	2012-02-16 07:10:17.424141	2012-03-01 09:28:14.70065	guitar	all	4	Model Silhoutte/Imperial.jpg	houseimperial/houseimperial32.jpg								houseimperial/houseimperial32.jpg	7	5	t
+38	Mantis	<p>- available in Purpleheart, bloodwood, cocobolo, or zircote  -available as a mandolin with a 14" scale or mandola with a 17" scale  -mahogany thru-neck and fully hollow mahogany body  -3 pc. purple heart and birdseye maple top  -22 fret bound purpleheart fretboard with a 14" radius and zero fret  -Purpleheart finger rest with "B" inlaw  -mistress style bridge and tailpiece with compensated bone saddle  -grover and rotomatics tuners  -pearl position markers on a purpleheart fretboard  -bone nut and saddles  -finished in high  gloss with bursted back</p>	6 string mantis/gal front copy.jpg	6900.00	2012-02-16 07:10:17.475877	2012-03-01 03:47:05.569522	bass	all	1	Model Silhoutte/Mantis round.jpg	6 string mantis/back gal (1).jpg	6 string mantis/half back vert.jpg	6 string mantis/half front vert (2).jpg	6 string mantis/half_front.jpg	6 string mantis/headstock back (2).jpg	6 string mantis/headstock front.jpg			6 string mantis/gal front copy 2.jpg	9	7	t
+35	Banjo	<p>- available in Purpleheart, bloodwood, cocobolo, or zircote  -available as a mandolin with a 14" scale or mandola with a 17" scale  -mahogany thru-neck and fully hollow mahogany body  -3 pc. purple heart and birdseye maple top  -22 fret bound purpleheart fretboard with a 14" radius and zero fret  -Purpleheart finger rest with "B" inlay  -mistress style bridge and tailpiece with compensated bone saddle  -grover and rotomatics tuners  -pearl position markers on a purpleheart fretboard  -bone nut and saddles  -finished in high  gloss with bursted back</p>	Banjo/Banjo3.jpg	3599.00	2012-02-16 07:10:17.463994	2012-02-21 00:46:58.522948	custom	all	0	Model Silhoutte/Banjo.jpg	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+32	Jetson	<p>\r\n    5 pc. rock maple thruneck reinforced with bloodwood accents    -solid ash body sides with bloodwood accents    - 3pc. bloodwood/ curly maple top and matching headplate    - 24 fret bound bloodwood fretboard with 16" radius    -2 curly maple volume knobs with bloodwood position markers    -2 stacked tone knobs in curly maple and bloodwood    -bloodwood bridge with dual compensated bone saddles    - 3 way pickup selector switch with bloodwood knob    -2 mini coil cut switches     -gotoh 510 tuners     - pearl position markers and emblem     -bone nut and saddles     -hotrod dual action trussrod with coverless headstock access    -25.5" scale length     -Natural Finish in high gloss    </p>	Jetson/Jetson 1.jpg	4599.00	2012-02-16 07:10:17.442708	2012-03-01 09:28:36.835356	guitar	all	0		Jetson/Jetson 2.jpg	Jetson/Jetson 3.jpg	Jetson/Jetson 4.jpg	Jetson/Jetson 5.jpg	Jetson/Jetson 6.jpg	Jetson/Jetson 9.jpg	Jetson/Jetson 8.jpg		Jetson/Jetson 12.jpg	\N	9	t
+39	Ghost	<p>- available in Purpleheart, bloodwood, cocobolo, or zircote  -available as a mandolin with a 14" scale or mandola with a 17" scale  -mahogany thru-neck and fully hollow mahogany body  -3 pc. purple heart and birdseye maple top  -22 fret bound purpleheart fretboard with a 14" radius and zero fret  -Purpleheart finger rest with "B" inlaw  -mistress style bridge and tailpiece with compensated bone saddle  -grover and rotomatics tuners  -pearl position markers on a purpleheart fretboard  -bone nut and saddles  -finished in high  gloss with bursted back</p>	Ghost Mando/Ghost 1.jpg	4100.00	2012-02-16 07:10:17.479745	2012-02-24 21:52:35.014158	custom	all	1		Ghost Mando/Ghost 2.jpg	Ghost Mando/Ghost 3.jpg	Ghost Mando/Ghost 4.jpg	Ghost Mando/Ghost 5.jpg	Ghost Mando/Ghost 6.jpg	Ghost Mando/Ghost 7.jpg				\N	\N	\N
+34	Retro-Grad	<p>\r\n      - Fully Contoured Mahogany body with mahogany  neck or adler body with maple neck -22 Fret bolt-on (not screwed on) neck with 16" radius       -curly maple fretboard and pickguard      -Hotrod dual action truss rod with coverless headstock access      -2 Lindy Fralin Humbuckers      - Individual Volume and tone controls for each pickup      -3 way pickup selector switch       - 2 mini coil cut switches      -chrome hardware      -Grover mini rotomatic tuners      -Bone nut      -available in a variety of colors      -Smooth Satin finish      </p>	Retro/1black.jpg	2299.00	2012-02-16 07:10:17.458188	2012-03-01 09:28:56.270772	guitar	all	1	Model Silhoutte/Roller.jpg									1blackh.jpg	\N	9	t
+36	LapSteel	 <p>add description here ...</p>	LapSteel/lapsteel1 copy.jpg	2900.00	2012-02-16 07:10:17.468427	2012-02-24 23:39:29.009458	custom	all	2		LapSteel/lapsteel2.jpg	LapSteel/lapsteel3.jpg	LapSteel/lapsteel4.jpg	LapSteel/lapsteel1.jpg						\N	\N	\N
+37	Bloodwood	<p>-available in Purpleheart, bloodwood, cocobolo, or zircote  -available as a mandolin with a 14" scale or mandola with a 17" scale  -mahogany thru-neck and fully hollow mahogany body  -3 pc. purple heart and birdseye maple top  -22 fret bound purpleheart fretboard with a 14" radius and zero fret  -Purpleheart finger rest with "B" inlay  -mistress style bridge and tailpiece with compensated bone saddle  -grover and rotomatics tuners  -pearl position markers on a purpleheart fretboard  -bone nut and saddles  -finished in high  gloss with bursted back</p>	Bloodwood bass/Bloodwood Bass 1.jpg	2600.00	2012-02-16 07:10:17.472217	2012-03-01 09:29:18.439884	bass	all	0	Model Silhoutte/Twiggler bass.jpg	Bloodwood bass/Bloodwood Bass 2.jpg	Bloodwood bass/Bloodwood Bass 3.jpg	Bloodwood bass/Bloodwood Bass 4.jpg	Bloodwood bass/Bloodwood Bass 5.jpg	Bloodwood bass/Bloodwood Bass 6.jpg	Bloodwood bass/Bloodwood Bass 7.jpg	Bloodwood bass/Bloodwood Bass 8.jpg		Bloodwood Bass 1 copy.jpg	\N	10	t
+33	Darkhorse	<p> - 5 Pc. Mahogany thru-neck reinforced with cocobolo and maple accents         - Solid mahogany body sides        - 2 Pc. cocobolo top and matching headplate        - 24 fret bound cocobolo fretboard with 14" Radius        -2 cocobolo volume knobs and 1 cocobolo stacked tone knobs        - cocobolo bridge with dual compensated bone saddles        -cocobolo tailpiece        -cocobolo pickup mounting rings        -2- Seymour duncan custom shop Becker- Buckers with etched covers        -3 way pickup selector switch with cocobolo knob        - Gotoh 510 tuners        - Pearl position markers and emblem        - Bone Nut and Saddles        -Hotrod dual action trussrod and coverless headstock access        - 24.625" scale length        -Finished in high gloss     </p>	DarkHorse/Dark Horse 1.jpg	5299.00	2012-02-16 07:10:17.452608	2012-03-01 09:29:43.72758	guitar	all	2	Model Silhoutte/Dark Horse.jpg	DarkHorse/Dark Horse 2.jpg	DarkHorse/Dark Horse 3.jpg	DarkHorse/Dark Horse 4.jpg	DarkHorse/Dark Horse 5.jpg	DarkHorse/Dark Horse 6.jpg	DarkHorse/Dark Horse 7.jpg	DarkHorse/Dark Horse 8.jpg		DarkHorse/Dark Horse 1h.jpg	\N	3	t
+31	Nashville	<p>\r\n    -9 Pc. Mahogany Thru-Neck Reinforced with cocobolo and Maple Accents    -Chambered curly maple body sides    - 3 Pc. Birdseye Maple/ Cocobolo top and matching headplate    - 24 fret cocobolo bound BirdsEye Maple fret-board with 16" Radius    - 2 cocobolo volume knobs with pearl position markers    - stacked tone knobs in cocobolo and curly maple     - Nashville style Cocobolo/ BirdsEye Maple Tailpiece    -Cocobolo/ BirdsEye maple bridge with compensated bone saddles    - Cocobolo/ Birdseye Maple pickup mounting rings    -2 Seymour Duncan custom shop Becker- Buckers    -3 way pickup selector switch with cocobolo knob    - 2 Mini coil cut switches    - Gotoh 510 tuners    - Cocobolo position markers    - pearl side markers and emblem    - bone nut and saddles    -Hotrod dual action trussrod with coverless headstock access    - 25" scale length    - Finished natural in high gloss    </p>	Nashville Roller/Nashville 1.jpg	6000.00	2012-02-16 07:10:17.437133	2012-03-01 09:27:46.854331	guitar	all	3		Nashville Roller/Nashville 3.jpg	Nashville Roller/Nashville 10.jpg	Nashville Roller/Nashville 11.jpg	Nashville Roller/Nashville 12.jpg	Nashville Roller/Nashville 13.jpg				Nashville Roller/Nashville2.jpg	6	9	t
+\.
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY schema_migrations (version) FROM stdin;
+20120226223513
+20120227001424
+20120227012406
+20120227045213
+20120227070737
+20120227092608
+20120227232130
+20120228213621
+20120207105916
+20120301025000
+20120301025056
+20120207110936
+20120207111033
+20120209012802
+20120209015209
+20120209180857
+20120301025133
+20120301025225
+20120302031029
+20120209210158
+20120210002722
+20120210193942
+20120210194113
+20120213003403
+20120213054356
+20120214070302
+20120214070633
+20120214072159
+20120214073321
+20120214074849
+20120216025244
+20120216034742
+20120221001602
+20120223211408
+20120224033528
+20120224033945
+20120224035919
+20120224064226
+20120224064323
+20120224064525
+20120224070115
+20120224182858
+\.
+
+
+--
+-- Data for Name: themes; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY themes (id, name, finish, body, color, top, neck, headstock, frets, electronics, hardware, price, created_at, updated_at, image_url, x_image_url, thumb_url, "position", description, display) FROM stdin;
+10	Cosmic	High gloss lacquer finish	Unaccented Mahogany Body		3pc. exotic wood	neck-through	matched to top	Bound figured Maple fretboard with matching position markers 	Active Bartoni pickups/circuit with PushButton rear access	Figured Maple pickup covers, bridge and knobs	5400.00	2012-02-27 06:52:56.14417	2012-03-01 03:06:38.636093	6 string mantis/gal front copy.jpg	6 string mantis/gal front copy 2.jpg	Thumb H/gal front copy_thumbh.jpg	2	Boldly accented thru-neck instrument on Curly Maple and finished natural with high-gloss . Accented and embelished with the exotic of your choice. Bound figured Maple fretboard with matching position markers. 3pc. exotic wood top, Figured Maple pickup covers, bridge and knobs.  Active Bartolini circuit (standard), Push Button rear access.    \t\r\n	t
+9	Native	Hand Rubbed Oil finish.	Unaccented Mahogany Body			neck-through	matched to top	Bloodwood, Purpleheart, Ziricote, or Cocobolo: 24 frets 	lindy Fran passive 'Jazz' style pickups		5400.00	2012-02-27 06:52:47.772282	2012-03-01 03:06:46.351404	Bloodwood bass/Bloodwood Bass 1.jpg	Bloodwood bass/Bloodwood Bass 1 copy.jpg	Thumb H/Bloodwood Bass 1_thumbh.jpg	3	An intricutely accented Mahogany bodied gem! 9pc. thru-neck, accented 3pc. Curly Maple top. Accented exotic wood pickup \tcovers, bridge and knobs. Exotic headplate and figured Maple bound 	t
+2	Natural	Oil	Mahogany			Mahogany, neck-through 24.625' scale	Matched to body	Bloodwood, purpleheart, ziricote, or cocobolo, 24 frets	2 humbuckers, Master Volume, Master Tone, 3-way switch	Chrome, tune-o-matic bridge, stop tailpiece	2200.00	2012-02-27 01:10:26.618623	2012-03-01 03:06:12.61108				4	Our natural series of instruments is our most simplified theme. These instruments emphasize the natural beauty of mahogany bodies and through-necks along with exotic fretboards and natural oil finishes. For another dimension of elegance, they are available with matching wood hardware.\r\n	t
+6	Nashville	natural	Chambered Curly Maple with laminate accents		three piece with Birdseye Maple sides and Cocobolo, Ziricote, Purpleheart, or Bloodwood center section	seven piece Mahogany neck-through	matched to top	 Birdseye Maple bound with matching exotic choice: 24 frets +stainless zero fret	Two humbuckers with two volume and two tone controls , two coil cuts and a three-way switch 	Contrasting accented wood hardware	6200.00	2012-02-27 01:11:14.028343	2012-03-01 03:05:45.709637	Nashville Roller/Nashville 1.jpg	Nashville Roller/Nashville2.jpg	Thumb H/Nashville 1_thumbh.jpg	6	From a chambered curly maple body to exotic birdseye maple top sides and fretboard, our Nashvilles are a true testament to the unique beauty and clear tonality offered by figured Maple perfectly balance by the Mahogany neck.  The birdseye maple top sides are accented by a center section of your choice of our offered exotic woods. As with our House series, Nashvilles have an incredible amount of attention to detail in their design, notably seven-piece necks with exotic laminations, a wood-bound fretboard, matching wood knobs and hardware, and exotic body laminations.\r\n	t
+3	GhostRider	Satin Lacquer	Mahogany or Alder	blue	blue	Mahogany -for mahogany body- or Maple -for Alder body-, neck-through 25 scale	Matched to body	Bloodwood, Purpleheart, Ziricote or Cocobolo : 24 frets  + stainless zero Fret	Two ndy Fran hot humbuckers with two volume and two tone controls,  two coil cuts and a three-way switch  Two P90s with master volume, master tone, and a three-way switch	Chrome, tune-o-matic  bridge, stop tailpiece	2600.00	2012-02-27 01:10:33.638461	2012-03-01 03:05:55.357734				7	Our GhostRider takes the Roller shape and applies a matching exotic fretboard , pickguard and headplate. GhostRiders feature a vibrant satin lacquer finish available in a variety of bursts or solid colors as well as natural\r\n	t
+7	House	Natural high gloss	Mahogany or Ash with laminate accents		Bookmatched or Three-Piece with Maple center section and Cocobolo, Ziricote, Purpleheart, Walnut, or Bloodwood sides	seven piece Mahogany with mahogany bodies or Maple with Ash bodies, neck-through	matched to top	Bloodwood, Purpleheart, Ziricote, or Cocobolo: 24 frets 	Two humbuckers with two volume and two tone controls and a three-way switch	Matched wood hardware	5400.00	2012-02-27 01:11:19.959696	2012-03-01 03:06:03.065079	houseimperial/houseimperial3.jpg	houseimperial/houseimperial3.jpg	Thumb H/houseimperial3_thumbh.jpg	5	Our House theme is designed to showcase the striking contrast achieved when light and dark colored woods are used together. House-themed guitars feature bookmatched or three-piece tops with a maple center and your choice of our exotic offerings for sides. Our House theme also showcases some of our most advanced woodworking techniques, from ornate laminations between wood pieces to handmade wood hardware. \r\n	t
+11	Build Your Own										\N	2012-03-01 05:44:48.553884	2012-03-01 05:57:47.008995				8	Here is a basic starter theme\r\nfor you to customize and build your own	f
+5	Chameleon	natural high gloss	Mahogany		Bookmatched or three-piece Bloodwood, Purpleheart, Ziricote, or Cocobolo	Unaccented Mahogany or Maple, neck-through 25' scale		24 frets stainless zero fret	Two humbuckers with two volume and two tone controls and a three-way switch	matched wood hardware	4500.00	2012-02-27 01:10:51.595637	2012-03-01 03:06:21.017027	Jetson/Jetson 1.jpg	Jetson/Jetson 12.jpg	Thumb H/Jetson 1_thumbh.jpg	0	Our Chameleon theme focuses on showing the beauty of some of the finest exotic woods available. The design behind our Chameleon series uses bookmatched or three-piece exotic wood tops with matching wood knobs, bridges, tailpieces, pickup rings,fretboards, and headstock veneers to blend all of the instrument’s components into the look of one beautiful piece of continuous wood. In order to preserve the beauty of these woods, natural finishes are used. \r\n	t
+4	HeadHunter	high gloss burst	Mahogany w/Maple top	BlackCherry Burst, Greenburst, Blueberry burst, Blackberry burst, Honey Nut burst, Seaburst, Chestnut burst, Natural		Mahogany, neck-through 24.625 scale	Ebony or Ziricote		two humbuckers with two volume and two tone controls with a three-way switch	chrome, tune-o-matic bridge, stop tailpiece, knobs and pickup rings	3600.00	2012-02-27 01:10:40.879953	2012-03-01 03:06:30.518494	Retro/1black.jpg	Retro/1blackh.jpg	Thumb H/1black_thumbh.jpg	1	Our HeadHunter themed guitars begin with the classic combination of mahogany and highly figured curly maple, but feature our own designs and gorgeous burst finishes. We offset the rich colors of our finishes with the simple beauty of all chrome hardware and an ebony or zircote fretboard and headstock. These guitars are a truly refreshing take on a classic style.\r\n	t
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: jongutwillig
+--
+
+COPY users (id, name, password_digest, created_at, updated_at, email, first_name, last_name) FROM stdin;
+1	mellow	$2a$10$VThDLhhavL3bIKPeS4eSUuDIFZgN5Ao3hZUtvHSrQtqNXmaabqAPa	2012-02-13 06:20:45.614338	2012-02-16 10:29:54.166854	m80dubstation@gmail.com		
+2	mellow2	$2a$10$VfjXdh4TU4ustD7XAl5kUeZwnkm6WX6.4Hk2IARdrgypEHV4oUgY2	2012-02-13 06:21:49.46765	2012-02-16 10:30:09.7349	programcodex@gmail.com		
+\.
+
+
+--
+-- Name: artists_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY artists
+    ADD CONSTRAINT artists_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: availables_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY availables
+    ADD CONSTRAINT availables_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: body_types_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY body_types
+    ADD CONSTRAINT body_types_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: carts_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY carts
+    ADD CONSTRAINT carts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY customers
+    ADD CONSTRAINT customers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: features_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY features
+    ADD CONSTRAINT features_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instruments_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY instruments
+    ADD CONSTRAINT instruments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: line_items_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY line_items
+    ADD CONSTRAINT line_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: options_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY options
+    ADD CONSTRAINT options_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: orders_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY orders
+    ADD CONSTRAINT orders_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY products
+    ADD CONSTRAINT products_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: themes_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY themes
+    ADD CONSTRAINT themes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: jongutwillig; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: jongutwillig
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM jongutwillig;
+GRANT ALL ON SCHEMA public TO jongutwillig;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

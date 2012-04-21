@@ -1,0 +1,33 @@
+  <%= render 'layouts/main_navbar' %>
+<% list_o_products = Product.all %>
+    <fieldset class="new">
+      <h1>New Product</h1>
+<span><h3><%= link_to 'List', products_path %></h3></span>
+      <% if (Product.first)  %>
+        <table>
+            <tr class='list_line_odd'>
+                <td>
+                    <% list_o_products.each do |item| %>
+                      <%= image_tag(item.image_url, class: 'list_image') %>
+                    <% end %>
+                </td>
+            </tr>
+        </table>
+      <% end %>
+
+        <%= render 'form' %>
+
+      <% if (Product.first)  %>
+        <table>
+            <tr class='list_line_odd'>
+              <td>
+                <% list_o_products.each do |item| %>
+                  <%= image_tag(item.image_url, class: 'list_image') %>
+                <% end %>
+              </td>
+            </tr>
+        </table>
+      <% end %>
+</fieldset>
+<br />
+

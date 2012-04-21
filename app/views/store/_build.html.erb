@@ -1,0 +1,31 @@
+
+<fieldset id="custom_build">
+  <% @feature_list.each do |feat_num| %>
+    <fieldset id="feature">
+      <legend><%= @feat[feat_num] %></legend>
+
+      <ul>
+      <% @options.each do |option| %>
+        <% if feat_num == option.feature_id && option.display %>
+            <li class="cart_item">
+              <label>
+                <span></span>
+                <% if option.default %>
+                  <input name="option.<%= @feat[option.feature_id] %>" type="radio" checked="checked"/>
+                <% else %>
+                  <input name="option.<%= @feat[option.feature_id] %>" type="radio"/>
+                <% end %>
+                <strong><%= option.description %>
+                <% if option.price > 0 %>
+                  <span class="price-delta">[Add <%= number_with_precision(option.price, :precision => 0) %>]</span></strong>
+                <% elsif option.price < 0 %>
+                  <span class="price-delta">[Subtract <%= number_with_precision(option.price, :precision => 0) %>]</span></strong>
+                <% end %>
+              </label>
+            </li>
+        <% end %>
+      <% end %>
+      </ul>
+    </fieldset>
+  <% end %>
+</fieldset>

@@ -1,0 +1,29 @@
+  
+  <div class="field">
+    description<br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+ price<br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+ feature_id<br />
+    <%= f.select :feature_id, @feat %>
+  </div>
+  <div class="field">
+  product_id<br />
+    <%= f.select :product_id, @prod %>
+  </div>
+  <div class="field">
+  label :default<br />
+    <%= f.check_box :default %>
+  </div>
+  <div class="field">
+ :display<br />
+    <%= f.check_box :display %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+

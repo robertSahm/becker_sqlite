@@ -1,0 +1,74 @@
+  <%= render 'layouts/main_navbar' %>
+<div id="page">
+  <p><br /></p><p><br /></p>
+ <%= link_to 'New Theme', new_theme_path %>
+<div class="re_order">
+  <h2>Order Themes for the Site</h2>
+  <ul id="faqs" data-update-url="<%= sort_themes_url %>">
+    <% @themes.each do |theme| %>
+      <%= content_tag_for :li, theme do %>
+        <tr id="rows">
+          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
+          <td><%= link_to theme.name, theme %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </ul>
+</div> <!-- re_order -->
+
+
+
+
+<h2>Themes at a glance</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Description</th>
+    <th>Image</th>
+    <th>Finish</th>
+    <th>Body</th>
+    <th>Color</th>
+    <th>Top</th>
+    <th>Neck</th>
+    <th>Headstock</th>
+    <th>Frets</th>
+    <th>Electronics</th>
+    <th>Hardware</th>
+    <th>Price</th>
+    <th>Display</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @themes.each do |theme| %>
+  <tr>
+    <td><%= link_to theme.name, theme %></td>
+    <td><%= link_to 'Edit', edit_theme_path(theme) %><br />
+    <%= link_to("Delete", :action => 'delete', :id => theme.id) %></td>
+    <td><%= truncate(strip_tags(theme.description),
+          length: 50) %></td>
+    <% if theme.thumb_url.blank? %>
+      <td></td>
+    <% else %>
+      <td><%= image_tag(theme.thumb_url, class: 'list_image') %></td>
+    <% end %>
+    <td><%= theme.finish %></td>
+    <td><%= theme.body %></td>
+    <td><%= theme.color %></td>
+    <td><%= theme.top %></td>
+    <td><%= theme.neck %></td>
+    <td><%= theme.headstock %></td>
+    <td><%= theme.frets %></td>
+    <td><%= theme.electronics %></td>
+    <td><%= theme.hardware %></td>
+    <td><%= theme.price %></td>
+    <td><%= theme.display %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Theme', new_theme_path %>
+</div> <!-- page -->

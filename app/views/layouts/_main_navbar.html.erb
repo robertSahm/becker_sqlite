@@ -1,0 +1,41 @@
+<div class="headerBackground fixed">
+	<h1 id="fittext1" class="headerText">
+		<%= link_to 'Becker/Martin Instruments', rcontroller: 'main', action: 'index' %>
+	</h1>
+
+		<ul id="fittext2" class="navUl">
+			<li id="guitarNavClick" class="firstLi navLi">
+				<h2>
+					<%= link_to 'GUITARS', controller: 'main', action: 'instruments', instrument: 'guitar' %>
+				</h2>
+			</li>
+			<li id="bassNavClick" class="navLi">
+				<h2>
+					<%= link_to 'BASS', controller: 'main', action: 'instruments', instrument: 'bass' %>
+				</h2>
+			</li>
+			<li id="themesNavClick" class="navLi">
+				<h2>
+					<%= link_to "THEME", controller: 'main', action: 'themes' %>
+				</h2>
+			</li>
+
+			<li id="customNavClick" class="navLi">
+				<h2>
+					<%= link_to "CUSTOM", controller: 'main', action: 'instruments', instrument: 'custom' %>
+				</h2>
+
+			<li id="artistsNavClick" class="navLi">
+				<h2>
+					<%= link_to "ARTIST", controller: 'main', action: 'artists' %>
+				</h2>
+			</li>
+			<li id="storeNavClick" class="lastLi navLi">
+				<h2>
+					<%= link_to 'STORE', controller: 'store', action: 'new' %>
+				</h2>
+			</li>
+		</ul>
+		
+</div>
+<div class="topLine"></div>

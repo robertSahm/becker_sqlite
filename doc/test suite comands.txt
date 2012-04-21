@@ -1,0 +1,45 @@
+Unit testing of models
+   Model classes contain business logic. For example, when we add a product
+   to a cart, the cart model class checks to see whether that product is
+   already in the cart’s list of items. If so, it increments the quantity of that
+   item; if not, it adds a new item for that product.
+Functional testing of controllers
+   Controllers direct the show. They receive incoming web requests (typically
+   user input), interact with models to gather application state, and then
+   respond by causing the appropriate view to display something to the user.
+   So when we’re testing controllers, we’re making sure that a given request
+   is answered with an appropriate response. We still need models, but we
+   already have them covered with unit tests.
+
+assert_equal(string, location)
+   must match exactly the given string 
+   assert_equal "Thank you for Ordering a Becker Martin Handmade Instrument!", mail.subject
+   assert_equal 1, cart.line_items.size
+
+assert_match(reg-exp, location)
+   must match(validate) part of the string
+   assert_match /your recent order from Becker Martin Instruments/, mail.body.encoded 
+
+get "URL"
+   have test get a URL specified 
+   get "/" 
+      get the index page
+   get in a functional test does not need a full url because it is in a specific controller
+   in integration test, the full url is needed because it is not controller specific
+
+assert_response (server response)
+   check that server responds with specific code success is 200ok
+
+assert_template "index"
+   check that the correct template is rendered when requesting a page from server
+
+post_via_redirect() 
+   generates the post request and then follows any redirects 
+   returned until a non-redirect response is returned.
+   post_via_redirect "/orders",
+      order: { name: "Dave Thomas",
+      address: "123 The Street",
+      email: "dave@example.com",
+      pay_type: "Check" }
+
+

@@ -1,0 +1,16 @@
+  <%= render 'layouts/main_navbar' %>
+<div class="list">
+<h1>Instruments</h1>
+<strong><h3><span><%= link_to "Catalog", products_path %></span>&nbsp;&nbsp;<span><%= link_to 'Bass', 'products?instrument=bass' %></span>&nbsp;&nbsp;<span><%= link_to "Customs", 'products?instrument=custom' %></span>&nbsp;&nbsp;<span><%= link_to 'Guitars', 'products?instrument=guitar' %></span>&nbsp;&nbsp;
+<span><%= link_to 'New Product', new_product_path %></span></h3></strong>
+
+  <% if @instrument %>
+    <%= render partial: 'list_one' %>
+  <% else %>
+    <%= render partial: 'list' %>
+  <% end %>
+</div>
+
+<br />
+
+

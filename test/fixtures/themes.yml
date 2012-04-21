@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  finish: MyString
+  body: MyString
+  color: MyString
+  top: MyString
+  neck: MyString
+  headstock: MyString
+  frets: MyString
+  electronics: MyString
+  hardware: MyString
+  price: 9.99
+
+two:
+  finish: MyString
+  body: MyString
+  color: MyString
+  top: MyString
+  neck: MyString
+  headstock: MyString
+  frets: MyString
+  electronics: MyString
+  hardware: MyString
+  price: 9.99

@@ -1,0 +1,21 @@
+<% t = Time.now %>
+<div id="side">
+    <ul>
+      <li id="timer"><%= t.to_formatted_s(:custom) %></li>
+      <div id="cart">
+          <li>
+            <% if @cart %>
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+              <%= render @cart %><% end  %>
+            <% end  %>
+          </li>
+      </div>
+    </ul>
+    <% if session[:user_id] %>
+      <%= button_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <% if controller.controller_name != 'sessions' %>
+        <%= button_to "Login", login_path, method: :get %>
+      <% end %>
+    <% end %>
+</div>

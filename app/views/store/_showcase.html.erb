@@ -1,0 +1,13 @@
+<div class="loop">
+    <div class="showcase">
+      <h2> Choose a <%= @body_types.first.type_of.capitalize %> Body style </h2>
+      <% @body_types.each do |body_type| %>
+          <div id="listbox">
+            <p><%= body_type.name %></p>
+           <%= link_to image_tag(body_type.image_url), action: "show", body_type: body_type, theme: @theme.id %>
+           <%= button_to 'Add to Cart', line_items_path(body_type: body_type, theme: @theme.id), remote: true %>
+          </div>
+      <% end %>  
+    </div> <!-- showcase -->
+</div> <!-- loop -->
+

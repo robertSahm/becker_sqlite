@@ -1,0 +1,36 @@
+  <%= render 'layouts/main_navbar' %>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end  %>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Feature</th>
+    <th>Product</th>
+    <th>Theme</th>
+    <th>Body Type</th>
+    <th>Default</th>
+    <th>Display</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @options.each do |option| %>
+    <tr>
+      <td><%= best_in_place option, :description, html_attrs: { size: 34}  %></td>
+      <td><%= best_in_place option, :price, display_with: :number_to_currency, helper_options: {:precision => 0} %></td>
+      <td><%= best_in_place option, :feature_id, type: :select, collection: @feature_array, html_attrs: { include_blank: true } %></td>
+      <td><%= best_in_place option, :product_id, type: :select, collection: @product_array, html_attrs: { include_blank: true } %></td>
+      <td><%= best_in_place option, :theme_id, type: :select, collection: @theme_array, html_attrs: { include_blank: true } %></td>
+      <td><%= best_in_place option, :body_type_id, type: :select, collection: @body_type_array, html_attrs: { include_blank: true } %></td>
+      <td><%= best_in_place option, :default, type: :checkbox, collection: %w[false true] %></td>
+      <td><%= best_in_place option, :display, type: :checkbox, collection: %w[false true] %></td>
+      <td><%= link_to 'Edit |', edit_option_path(option) %></td>
+      <td><%= link_to 'Delete', action: 'delete', id: option.id %></td>
+      <td><%= link_to ' |  New Option', new_option_path %></td>
+    </tr>
+  <% end %>
+</table>

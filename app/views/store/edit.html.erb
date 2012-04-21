@@ -1,0 +1,67 @@
+  <%= render 'layouts/main_navbar' %>
+<h1><%= @product.name %></h1>
+<span><h3><%= link_to 'List', products_path %> |
+<%= link_to 'Detail View', product_path(@product) %> | <%= link_to "Edit Detail View", edit_product_path(@product) %> | <%= link_to "Custom Build", action: 'build', id: @product.id %></h3></span>
+
+<fieldset id="custom_build">
+  <% @feature_list.each do |feat_num| %>
+  <fieldset id="feature">
+    <table>
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th><%= @feat[feat_num] %></th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>  
+        <td></td>  
+        <td></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>Default</th>
+        <th>Show/Hide</th>
+        <th>Option Description</th>
+        <th>Price</th>
+        <th>&nbsp;</th>
+        <th></th>
+      </tr>
+      <% @options.each do |option| %>
+     
+        <%= form_for(option) do |opt| %>
+        	<% if @feat[feat_num] == @feat[option.feature_id] %> 
+        	  <%= render(:partial => 'form', :locals => { :opt => opt}) %> 
+          <% end %>
+          <!--      
+          <tr>
+            <td><% if option.default %>
+                  <%= radio_button :opt, :feat_num, :default, checked: :checked %>
+                <% else %>
+                  <%= radio_button :opt, :feat_num, :default %>
+                <% end %></td>
+            <td><%= opt.check_box :display %></td>
+            <td><%= opt.text_field :description %></td>
+            <td><%= opt.text_field :price %></td>
+            <td>&nbsp;</td>
+            <td><%= link_to '-X-', option, confirm: 'Are you sure?', method: :delete %></td>
+          </tr>
+           -->
+        <% end %>
+      <% end %>
+      <tr>
+        <td><%= link_to 'New Option', new_option_path %></td>
+      </tr>
+    </table>
+  </fieldset>  
+  <% end %>
+  <fieldset>
+    <label><%= link_to 'New Feature', new_feature_path %></label>
+  </fieldset>
+</fieldset>
+
+

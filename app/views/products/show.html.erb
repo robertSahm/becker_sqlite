@@ -1,0 +1,103 @@
+  <%= render 'layouts/main_navbar' %>
+  <span><h3><%= link_to 'List', products_path %> |
+  <%= link_to 'Edit Detail', edit_product_path(@product) %> | <%= link_to "Edit Custom Build", controller: 'store', action: 'edit', id: @product.id %> | <%= link_to "Display Custom Build", controller: 'store', action:'build', id: @product.id %></h3></span>
+
+
+<fieldset class="sho">
+  <table>
+    <td><%= image_tag(@product.image_url, class: 'list_image') %></td>
+    <td>Detail View</td>
+  </table>
+  <% if notice %>
+    <p id="notice">
+    <%= notice %></p>
+  <% end %>
+
+  <p>
+    <b>Name:</b>
+    <%= @product.name %>
+    <%= @product.type_of %>
+  </p>
+
+  <p>
+    <b>Description:</b>
+    <%= strip_tags(@product.description) %>
+  </p>
+  <p>
+    <b>Body Type Id:</b>
+    
+    <%= BodyType.find(@product.body_type_id).name  if @product.body_type_id %>
+  </p>
+  <p>
+    <b>Theme Id:</b>
+    <%= Theme.find(@product.theme_id).name if @product.theme_id %>
+  </p>
+  <p>
+    <b>Display:</b>
+    <%= @product.display %>
+  </p>
+
+
+
+  <p>
+    <b>Image url:</b>
+    <%= @product.image_url %>
+  </p>
+  <p>
+    <b>X Image url:</b>
+    <%= @product.x_image_url %>
+  </p>
+  <p>
+    <b>X Body Type Id:</b>
+    <%= @product.body_type_id %>
+  </p>
+  <p>
+    <b>X Theme Id:</b>
+    <%= @product.theme_id %>
+  </p>
+  <p>
+    <b>X Display:</b>
+    <%= @product.display %>
+  </p>
+  <p>
+    <b>Price:</b>
+    <span class="price"><%= number_to_currency(@product.price) %></span>
+  </p>
+  <p>
+    <b>Body url:</b>
+    <%= @product.body_url %>
+  </p>
+  <p>
+    <b>Photo Url 1:</b>
+    <%= @product.photo_url_1 %>
+  </p>
+  <p>
+    <b>Photo Url 2:</b>
+    <%= @product.photo_url_2 %>
+  </p>
+  <p>
+    <b>Photo Url 3:</b>
+    <%= @product.photo_url_3 %>
+  </p>
+  <p>
+    <b>Photo Url 4:</b>
+    <%= @product.photo_url_4 %>
+  </p>
+  <p>
+    <b>Photo Url 5:</b>
+    <%= @product.photo_url_5 %>
+  </p>
+  <p>
+    <b>Photo Url 6:</b>
+    <%= @product.photo_url_6 %>
+  </p>
+  <p>
+    <b>Photo Url 7:</b>
+    <%= @product.photo_url_7 %>
+  </p>
+  <p>
+    <b>Photo Url 8:</b>
+    <%= @product.photo_url_8 %>
+  </p>
+</fieldset>
+

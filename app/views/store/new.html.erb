@@ -1,0 +1,32 @@
+  <%= render 'layouts/main_navbar' %>
+<div id="store-page">
+    <div class="tabs">
+      <h1 class="instrument">Custom Build an Instrument</h1>
+      <ul>
+        <li><%= link_to ("Guitars"),  action: 'new', instrument: 'guitar' %></li>
+        <li><%= link_to ("Bass"),     action: 'new', instrument: 'bass' %></li>
+        <li><%= link_to ("Custom Instruments"), action: 'new', instrument: 'custom' %></li>
+        <li><%= link_to ("All"), action: 'new' %></li>
+      </ul>
+    </div> <!-- tabs --> 
+
+    <div class="loop">
+      <% @type_of.each do |t| %>
+        <div class="showcase">
+          <h2> Choose a <%= t.capitalize %> Body Style </h2>
+          <% @products.each do |p| %>
+            <% if p.type_of == t %>
+              <div id="listbox">
+                <p><%= p.name %></p>
+                <%= link_to image_tag(p.image_url), action: "themes", id: p.id  %>
+              </div>
+            <% end %>
+          <% end %>  
+        </div> <!-- showcase -->
+      <% end %>
+    </div> <!-- loop -->
+
+</div> <!-- store-page -->
+  
+  
+  

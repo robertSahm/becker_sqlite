@@ -1,0 +1,31 @@
+  <%= render 'layouts/main_navbar' %>
+<h1>Listing customers</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Hash password</th>
+    <th>Salt</th>
+    <th>Ipaddress</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.username %></td>
+    <td><%= customer.hash_password %></td>
+    <td><%= customer.salt %></td>
+    <td><%= customer.ipaddress %></td>
+    <td><%= link_to 'Show', customer %></td>
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer', new_customer_path %>
+

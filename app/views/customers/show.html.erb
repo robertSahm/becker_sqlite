@@ -1,0 +1,28 @@
+  <%= render 'layouts/main_navbar' %>
+
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+
+
+<p>
+  <b>Username:</b>
+  <%= @customer.username %>
+</p>
+
+<p>
+  <b>Hash password:</b>
+  <%= @customer.hash_password %>
+</p>
+
+<p>
+  <b>Salt:</b>
+  <%= @customer.salt %>
+</p>
+
+<p>
+  <b>Ipaddress:</b>
+  <%= @customer.ipaddress %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

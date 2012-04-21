@@ -1,0 +1,19 @@
+
+<ul id="faqs" data-update-url="<%= sort_products_url %>">
+  <% @products.each do |product| %>
+    <%= content_tag_for :li, product do %>
+      <tr id="rows">
+        <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td> |
+        <td><%= link_to product.name, product %></td> |
+        <td><%= product.price %></td> |
+        <td><%= image_tag(product.image_url) %></td> |
+        <td><%= product.description %></td> |
+        <td><%= BodyType.find(product.body_type_id).name  if product.body_type_id %>/<%= Theme.find(product.theme_id).name if product.theme_id %>/<%= product.display %></td> |
+        <td><%= link_to 'Show', product %><br />
+        <%= link_to 'Edit', edit_product_path(product) %><br />
+        <%= link_to 'Delete', action: 'delete', id: product.id %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</ul>
+

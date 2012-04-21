@@ -1,0 +1,456 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="./global.css">
+		<title>Becker martin Shopping Cart</title>
+			<style>
+				#h3style 
+				{
+					color: #f0f;
+				}
+				body{
+					background-color: #535152;
+				}
+				#cart_summary {
+					color: #cccfff;
+				}
+				ul#model-bar { list-style-type : none;
+					width : 900px;
+					margin : 0;
+					padding : 2px 0 0 0 ;
+					border-top : 20px solid #9bc;
+				}
+				ul#model-bar li.model-bar {
+					position : relative;
+					float : left;
+					width : 178px;
+					padding : 0 1px 1px 1px;
+					padding-bottom : 1em; 
+				}
+				ul#model-bar p {padding : .2em; letter-spacing : .15em; color : #ffd}
+				
+				li.model-bar#one { background : #9ab url("./bullet_black.png") repeat-x 0 100%; }
+				li.model-bar#two { background : url("./bullet_black.png") repeat-x 0 100%; }
+				li.model-bar#three { background : #9ab url("./bullet_black.png") repeat-x 0 100%; }
+				li.model-bar#four { background : url("./bullet_black.png") repeat-x 0 100%; }
+				li.model-bar#five { background : #9ab url("./bullet_black.png") repeat-x 0 100%; }
+				li.model-bar h2 { margin : 0 10px;
+					padding : .5em 0 .5em 0;
+					font-size : 130%;
+					font-weight : bold;
+					text-decoration : none;
+					color: #333;}
+					
+				h2 img { position : relative;
+					float : right;
+				}
+				h2 a { color: #fff ;  
+					 background-color : #fff; border : #fff solid 2px; }
+				h2 a:visited { color: #333; border : #fff solid 2px; 
+					background-color : #fff; text-decoration : none; }
+				p { margin : 0 10px;
+					padding : 0 0 .5em 0 ;
+					color : #fff;
+				}
+				a { text-decoration : none;}
+				ul.feature-select { list-style-type : none;
+					width : 500px;
+					margin : 0;
+					padding : 0 0 1em;
+					border-top : 20px solid #9ab;
+				}
+				
+				li.option { position : relative;
+					float : top;
+					height : 0;
+					padding : 1em 0 1em 1em;
+				}
+				fieldset { color : #ffd; letter-spacing : .15em;
+						background : #424041 url("./images/body.png") repeat-x;
+						margin-bottom : 10px;
+					padding : 20px;
+					border : 1px solid #420;
+					overflow : hidden;}
+				
+			</style>
+	</head>
+
+	<body onLoad="calculateCart('', document.getElementById('cart_summary'), 0);">
+	
+		<script language="javascript" type"text/javascript">
+			<!-- Hide Javascript
+			var body_shape = 2000;
+			var feature = 0;
+			var construct = 0;
+			var color = 0;
+			var hardw = 0;
+			var pups = 0;
+			var piez = 0;
+			var comp = 0;
+			var caz = 0;
+			var ins = 0;
+			
+			function calculateCart(inputField, helpId, value) {
+				switch(inputField.name){
+					case "option.features": feature = value; break;
+					case "option.construction_style": construct = value; break;
+					case "option.color_theme": color = value; break;
+					case "option.hardware": hardw = value; break;
+					case "option.pickups": pups = value; break;
+					case "option.acoustic": piez = value; break;
+					case "option.computer": comp = value; break;
+					case "option.cases": caz = value; break;
+					case "option.insurance": ins = value; break;
+					default : break;
+				}
+				total = body_shape + feature + construct + color + hardw + pups + piez + comp + caz + ins;
+				return editNodeText(helpId, total);
+			}
+			function editNodeText(helpId, total)
+			{
+				if (helpId != null)
+					while (helpId.firstChild)
+					{
+						helpId.removeChild(helpId.firstChild);
+					}
+				helpId.appendChild(document.createTextNode("$" + total));
+			}
+
+			-->
+		</script>
+		<!-- model bar -->
+		<ul id="model-bar">
+			<li id="one" class="model-bar one">
+				<h2><a href="#" title="Imperial">Imperial<img src="./Hollowbody Guitars/Hollowbody 1.gif" alt="" /></a></h2>
+				<p>The Imperial guitar blurb goes here - Furthermore, some methods are written so they&#146;ll at least do something, whether you pass them a code block or not. String#split</p>
+			</li>
+			<li id="two" class="model-bar">
+				<h2><a href="#" title="Mistress">Mistress<img src="./Hollowbody Guitars/Hollowbody 2.gif" alt="" /></a></h2>
+				<p>The Mistress guitar blurb goes here - Furthermore, some methods are written so they&#146;ll at least do something, whether you pass them a code block or not. String#split</p>
+			</li>
+			<li id="three" class="model-bar">
+				<h2><a href="#" title="GhostRider">GhostRider<img src="./Hollowbody Guitars/Hollowbody 3.gif" alt="" /></a></h2>
+				<p>The GhostRider guitar blurb goes here - Furthermore, some methods are written so they&#146;ll at least do something, whether you pass them a code block or not. String#split</p>
+			</li>
+			<li id="four" class="model-bar">
+				<h2><a href="#" title="Retro">Retro<img src="./Hollowbody Guitars/Hollowbody 4.gif" alt="" /></a></h2>
+				<p>The Retro guitar blurb goes here - Furthermore, some methods are written so they&#146;ll at least do something, whether you pass them a code block or not. String#split</p>
+			</li>
+			<li id="five" class="model-bar">
+				<h2><a href="#" title="DarkHorse">DarkHorse <img src="./Hollowbody Guitars/Hollowbody 5.gif" alt="" /></a></h2>
+				<p>The DarkHorse guitar blurb goes here - Furthermore, some methods are written so they&#146;ll at least do something, whether you pass them a code block or not. String#split</p>
+			</li>
+		</ul>
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<p>
+			
+		</p>			
+		<fieldset>
+			<legend class="calculator">Order Summary</legend>
+			<h2><strong><span id="cart_summary"></span></strong></h2>
+			<p>Parts in Stock</p>
+			<span id="h3style">Free Shipping</span>
+		<fieldset>
+			<legend class="xs">Body Features</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.features" type="radio" value="065-9536" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>bolt on neck - solid body
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.features" type="radio" value="065-9537" onClick="calculateCart(this, document.getElementById('cart_summary'), 400)" />
+						 	<strong>neck thru - solid body 
+							<span class="price-delta">[Add $400]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.features" type="radio" value="065-9538" onClick="calculateCart(this, document.getElementById('cart_summary'), 800)" />
+						 	<strong>half chamber body 
+							<span class="price-delta">[Add $800]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.features" type="radio" value="065-9538" onClick="calculateCart(this, document.getElementById('cart_summary'), 1200)" />
+						 	<strong>full chamber body
+							<span class="price-delta">[Add $1,200]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs">Construction Style</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.construction_style" type="radio" value="065-9539" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)"/>
+						 	<strong>22 fret standard
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.construction_style" type="radio" value="065-9540" onClick="calculateCart(this, document.getElementById('cart_summary'), 300)"/>
+						 	<strong>24 fret
+							<span class="price-delta">[Add $300]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.construction_style" type="radio" value="065-9541" onClick="calculateCart(this, document.getElementById('cart_summary'), 600)"/>
+						 	<strong>22 fret logo inlays 
+							<span class="price-delta">[Add $600]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.construction_style" type="radio" value="065-9542" onClick="calculateCart(this, document.getElementById('cart_summary'), 900)"/>
+						 	<strong>24 fret logo inlays
+							<span class="price-delta">[Add $900]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs2">Color Theme</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.color_theme" type="radio" value="065-9539"  onClick="calculateCart(this, document.getElementById('cart_summary'), -100)" />
+						 	<strong>Oil Stain
+							<span class="price-delta">[Subtract $100]</span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.color_theme" type="radio" value="065-9540" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>Single Color Stains 
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.color_theme" type="radio" value="065-9541" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>Sunburst
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.color_theme" type="radio" value="065-9542" onClick="calculateCart(this, document.getElementById('cart_summary'), 400)" />
+						 	<strong>Classic Aman's Theme
+							<span class="price-delta">[Add $400]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.color_theme" type="radio" value="065-9542" onClick="calculateCart(this, document.getElementById('cart_summary'), 600)" />
+						 	<strong>Purple Heart
+							<span class="price-delta">[Add $600]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.color_theme" type="radio" value="065-9542" onClick="calculateCart(this, document.getElementById('cart_summary'), 900)" />
+						 	<strong>Lemon Lime
+							<span class="price-delta">[Add $900]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs">Hardware</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.hardware" type="radio" value="065-9536" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>Metal Package
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.hardware" type="radio" value="065-9537" onClick="calculateCart(this, document.getElementById('cart_summary'), 100)" />
+						 	<strong>Wooden Package
+							<span class="price-delta">[Add $100]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.hardware" type="radio" value="065-9538" onClick="calculateCart(this, document.getElementById('cart_summary'), 200)" />
+						 	<strong>Bone Package
+							<span class="price-delta">[Add $200]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs">Pick-ups</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.pickups" type="radio" value="065-9536" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>3 Single Coils 
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.pickups" type="radio" value="065-9536" onClick="calculateCart(this, document.getElementById('cart_summary'), 200)" />
+						 	<strong>2 Single Coils and a Humbucker
+							<span class="price-delta">[Add $200]</span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.pickups" type="radio" value="065-9537" onClick="calculateCart(this, document.getElementById('cart_summary'), 100)" />
+						 	<strong>2 Humbuckers Classics
+							<span class="price-delta">[Add $100]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.pickups" type="radio" value="065-9538" onClick="calculateCart(this, document.getElementById('cart_summary'), 200)" />
+						 	<strong>2 Humbuckers Becker Buckers
+							<span class="price-delta">[Add $200]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs">Acoustic Piezo Pickup</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.acoustic" type="radio" value="065-9536" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>Off
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.acoustic" type="radio" value="065-9537" onClick="calculateCart(this, document.getElementById('cart_summary'), 100)" />
+						 	<strong>Built into Bridge location
+							<span class="price-delta">[Add $100]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.acoustic" type="radio" value="065-9538" onClick="calculateCart(this, document.getElementById('cart_summary'), 200)" />
+						 	<strong>Custom location
+							<span class="price-delta">[Add $200]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs">Computer Pickup</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.computer" type="radio" value="065-9536" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>Off
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.computer" type="radio" value="065-9537" onClick="calculateCart(this, document.getElementById('cart_summary'), 600)" />
+						 	<strong>Roland G-Series Pickup
+							<span class="price-delta">[Add $600]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.computer" type="radio" value="065-9538" onClick="calculateCart(this, document.getElementById('cart_summary'), 800)" />
+						 	<strong>Axon System
+							<span class="price-delta">[Add $800]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs">Cases</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.cases" type="radio" value="065-9536" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)" />
+						 	<strong>Hardcase Custom
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.cases" type="radio" value="065-9537" onClick="calculateCart(this, document.getElementById('cart_summary'), -50)" />
+						 	<strong>Softcase
+							<span class="price-delta">[Subtract $50]</span></strong>
+						</label>
+					</li>
+					<li class="option last">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.cases" type="radio" value="065-9538" onClick="calculateCart(this, document.getElementById('cart_summary'), -100)" />
+						 	<strong>Off
+							<span class="price-delta">[Subtract $100]</span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset>
+		<fieldset>
+			<legend class="xs">Becker Shop Insurance</legend>
+				<ul class="feature-select">
+					<li class="option selected">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.insurance" type="radio" value="065-9536" onClick="calculateCart(this, document.getElementById('cart_summary'), 300)" />
+						 	<strong>On
+							<span class="price-delta">[Add $300]</span></strong>
+						</label>
+					</li>
+					<li class="option">
+					  <label>
+							<span class="state-label"></span>
+							<input name="option.insurance" type="radio" value="065-9537" checked="checked" onClick="calculateCart(this, document.getElementById('cart_summary'), 0)"/>
+						 	<strong>Off
+							<span class="price-delta"></span></strong>
+						</label>
+					</li>
+				</ul>
+		</fieldset></fieldset>
+	</body>
+</html>		
+		

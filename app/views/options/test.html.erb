@@ -1,0 +1,30 @@
+  <%= render 'layouts/main_navbar' %>
+
+<% @options.each do |option| %>
+  <b>Description:</b>
+  <%= best_in_place option, :description, html_attrs: { size: 34}  %>
+
+  <b>Price:</b>
+  <%= best_in_place option, :price, display_with: :number_to_currency, helper_options: {:precision => 0} %>
+
+  <b>Feature:</b>
+  <%= best_in_place option, :feature_id, type: :select, collection: @feature_array %>
+
+  <b>Product:</b>
+  <%= best_in_place option, :product_id, type: :select, collection: @product_array %>
+
+  <b>Theme:</b>
+  <%= best_in_place option, :theme_id, type: :select, collection: @theme_array %>
+
+  <b>Body Type:</b>
+  <%= best_in_place option, :body_type_id, type: :select, collection: @body_type_array %>
+
+  <b>Default:</b>
+  <%= best_in_place option, :default, type: :checkbox, collection: %w[false true] %>
+
+  <b>Display:</b>
+  <%= best_in_place option, :display, type: :checkbox, collection: %w[false true] %>
+<% end %>
+
+
+
