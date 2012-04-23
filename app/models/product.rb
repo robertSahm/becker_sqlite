@@ -2,9 +2,10 @@ class Product < ActiveRecord::Base
   acts_as_list
   has_many :line_items
   has_many :orders, through: :line_items
-  belongs_to :body_types
-  belongs_to :themes
+  belongs_to :body_type
+  belongs_to :theme
   before_destroy :ensure_not_referenced_by_any_line_item
+  has_and_belongs_to_many :options
   
   validates :name, :description, :image_url, :type_of, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}

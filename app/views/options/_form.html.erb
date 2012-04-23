@@ -24,17 +24,31 @@
     <%= f.select :feature_id, @feat %>
   </div>
   <div class="field">
-    <%= f.label :product_id %><br />
-    <%= f.select :product_id, @prod %>
+  <%= f.label :body_types %><br />
+  <%= hidden_field_tag "option[body_type_ids][]", nil %>
+  <% @body_types.each do |body_type| %>
+      <%= check_box_tag "option[body_type_ids][]", body_type.id, @option.body_types.include?(body_type) %>
+      <%= body_type.name %>
+  <% end %>
   </div>
   <div class="field">
-    <%= f.label :body_type_id %><br />
-    <%= f.collection_select( :body_type_id, BodyType.order(:position), :id, :name, include_blank: true) %>
+  <%= f.label :themes %><br />
+  <%= hidden_field_tag "option[theme_ids][]", nil %>
+  <% @themes.each do |theme| %>
+      <%= check_box_tag "option[theme_ids][]", theme.id, @option.themes.include?(theme) %>
+      <%= theme.name %>
+  <% end %>
   </div>
   <div class="field">
-    <%= f.label :theme_id %><br />
-    <%= f.collection_select( :theme_id, Theme.order(:position), :id, :name, include_blank: true) %>
+  <%= f.label :products %><br />
+  <%= hidden_field_tag "option[product_ids][]", nil %>
+  <% @products.each do |product| %>
+      <%= check_box_tag "option[product_ids][]", product.id, @option.products.include?(product) %>
+      <%= product.name %>
+  <% end %>
   </div>
+
+
   <div class="field">
     <%= f.label :default %><br />
     <%= f.check_box :default %>
