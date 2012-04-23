@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423180113) do
+ActiveRecord::Schema.define(:version => 20120423204536) do
 
   create_table "artists", :force => true do |t|
     t.string  "name"
@@ -102,12 +102,10 @@ ActiveRecord::Schema.define(:version => 20120423180113) do
     t.string  "description"
     t.decimal "price"
     t.integer "feature_id"
-    t.integer "product_id"
     t.boolean "default",      :default => false
     t.boolean "display",      :default => true
     t.integer "line_item_id"
-    t.integer "theme_id"
-    t.integer "body_type_id"
+    t.string  "type_of"
   end
 
   create_table "options_products", :id => false, :force => true do |t|

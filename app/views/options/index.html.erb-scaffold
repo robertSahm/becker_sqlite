@@ -1,0 +1,43 @@
+<h1>Listing options</h1>
+<%= link_to 'New Option', new_option_path %>
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Default</th>
+    <th>Display</th>
+    <th>Theme</th>
+    <th>Body Type</th>
+    <th>Product</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @options.each do |option| %>
+  <tr>
+    <td><%= option.description %></td>
+    <td><%= number_with_precision(option.price, :precision => 0) %></td>
+    <td><%= option.default %></td>
+    <td><%= option.display %></td>
+    <td><ul><% @themes.each do |theme| %>
+          <li><%= check_box_tag "option[theme_ids][]", theme.id, option.themes.include?(theme) %>
+              <%= theme.name %></li>
+    <% end %></ul></td>
+    <td><ul><% @body_types.each do |body_type| %>
+          <li><%= check_box_tag "option[body_type_ids][]", body_type.id, option.body_types.include?(body_type) %>
+              <%= body_type.name %></li>
+    <% end %></ul></td>
+    <td><ul><% @products.each do |product| %>
+          <li><%= check_box_tag "option[product_ids][]", product.id, option.products.include?(product) %>
+              <%= product.name %></li>
+    <% end %></ul></td>
+    <td><%= link_to 'Edit THIS |', edit_option_path(option) %></td>
+    <td><%= link_to 'Delete', action: 'delete', id: option.id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
