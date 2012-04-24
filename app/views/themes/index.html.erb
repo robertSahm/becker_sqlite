@@ -49,7 +49,7 @@
           <%= link_to 'Add Body Types' %>
         </li>
         <li class="tcell">Features Drop down link
-        <% @options   = Option.where(theme_id: theme.id).order("options.price ASC") %>
+        <% @options   = Option.order("options.price ASC") %>
         <%= render 'admins/cart' %></li>
         <li class="tcell">Code to call the options for this theme in each feature</li>
         <li class="tcell">Code to put a body type check box next to each group of options with add body type</li>

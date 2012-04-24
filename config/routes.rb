@@ -31,7 +31,7 @@ Becker::Application.routes.draw do
   resources :users
 
   resources :orders
-  resources :store
+
 
   resources :line_items
 
