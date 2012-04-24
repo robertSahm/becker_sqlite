@@ -1,6 +1,9 @@
 <%= render 'layouts/main_navbar' %>
+<<<<<<< HEAD
 <div id="page">
   
+=======
+>>>>>>> 9ec5e6331523ede86cee9094a58257c2580997f5
   <h1 class="instrument">Custom Instruments</h1>
   <p>
     In addition to our instrument lines, we also do fully custom work. Custom instruments are built to order and pricing will vary based on specifications. These orders have included lap steel guitars, banjos, mandolas, upright basses, and doubleneck mandolin and guitars. If interested in a project of this nature, please inquire or, build using one of the body types below.
@@ -13,7 +16,15 @@
 			<ul id="spinner">
 			<% @products.each do |p| %>
 					<p><%= p.name %></p>
+<<<<<<< HEAD
 					<li><%= link_to image_tag(p.image_url), action: "customs", id: p.id, class: "galleryImage"  %></li>
 			<% end %> 
 			</ul>
 		</div>
+=======
+					<li><%= link_to image_tag(p.image_url), action: "custom", id: p.id, class: "galleryImage"  %></li>
+			<% end %> 
+			</ul>
+		</div>
+
+>>>>>>> 9ec5e6331523ede86cee9094a58257c2580997f5
