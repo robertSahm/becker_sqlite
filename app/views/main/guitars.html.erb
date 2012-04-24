@@ -1,12 +1,5 @@
 <%= render 'layouts/main_navbar' %>
-<div id="page">
-<<<<<<< HEAD
 
-  <%= render 'display' %>
-  <%= render 'go_to_cart' %>
-
-</div> <!-- page -->
-=======
   
   <h1 class="instrument">Guitars</h1>
   <h3>Welcome to the Becker Martin Family of Guitars.</h3>
@@ -18,8 +11,8 @@
 		<ul id="spinner">
 		<% @products.each do |p| %>
 				<p><%= p.name %></p>
-				<li><%= link_to image_tag(p.image_url), action: "guitars", id: p.id, class: "galleryImage"  %></li>
+				<li><%= link_to image_tag(p.image_url), action: "guitar", id: p.id, class: "galleryImage"  %></li>
 		<% end %> 
 		</ul>
 	</div>
->>>>>>> 8bcb65b2fcb5152eaa4f1dbb4f264e23f359e20d
+
