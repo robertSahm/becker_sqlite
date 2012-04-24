@@ -11,9 +11,9 @@
               <div id="listbox">
                 <p><%= link_to t.name, theme_path(t) %></p>
                 <% if t.name == BodyType.find(t.id).name %>
-                  <%= link_to image_tag(@theme.image_url), action: "show", theme: @theme, body_type: t %>
-                <% else %>
                   <%= link_to image_tag(t.image_url), action: "show", theme: @theme, body_type: t %>
+                <% else %>
+                  <%= link_to image_tag(@theme.image_url), action: "show", theme: @theme, body_type: t %>
                 <% end %>
               </div>
           <% end %>  
