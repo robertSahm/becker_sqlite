@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302031029) do
+ActiveRecord::Schema.define(:version => 20120423204536) do
 
   create_table "artists", :force => true do |t|
     t.string  "name"
@@ -39,12 +39,16 @@ ActiveRecord::Schema.define(:version => 20120302031029) do
     t.string   "image_url"
     t.string   "x_image_url"
     t.integer  "position"
-    t.string   "feature"
     t.string   "type_of"
-    t.decimal  "price",       :precision => 8, :scale => 2
+    t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "display"
+  end
+
+  create_table "body_types_options", :id => false, :force => true do |t|
+    t.integer "body_type_id"
+    t.integer "option_id"
   end
 
   create_table "body_types_themes", :id => false, :force => true do |t|
@@ -98,12 +102,20 @@ ActiveRecord::Schema.define(:version => 20120302031029) do
     t.string  "description"
     t.decimal "price"
     t.integer "feature_id"
-    t.integer "product_id"
     t.boolean "default",      :default => false
     t.boolean "display",      :default => true
     t.integer "line_item_id"
+    t.string  "type_of"
+  end
+
+  create_table "options_products", :id => false, :force => true do |t|
+    t.integer "option_id"
+    t.integer "product_id"
+  end
+
+  create_table "options_themes", :id => false, :force => true do |t|
+    t.integer "option_id"
     t.integer "theme_id"
-    t.integer "body_type_id"
   end
 
   create_table "orders", :force => true do |t|

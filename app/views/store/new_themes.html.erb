@@ -1,0 +1,23 @@
+  <%= render 'layouts/main_navbar' %>
+<div id="store-page">
+    <div class="tabs">
+      <h1 class="instrument">Custom Build an Instrument</h1>
+    </div> <!-- tabs --> 
+    
+    <div class="loop">
+        <div class="showcase">
+          <h2> Choose a Theme  </h2>
+          <% @themes.each do |t| %>
+              <div id="listbox">
+                <p><%= link_to t.name, theme_path(t) %></p>
+                <% if t.name == Theme.find(t.id).name %>
+                  <%= link_to image_tag(t.image_url), action: "show_theme", theme: t %>
+                <% else %>
+                  <%= link_to image_tag(t.image_url), action: "show_theme", theme: t %>
+                <% end %>
+              </div>
+          <% end %>  
+        </div> <!-- showcase -->
+    </div> <!-- loop -->
+
+</div> <!-- page -->

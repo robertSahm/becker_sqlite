@@ -1,0 +1,50 @@
+
+
+
+<div class="table-admin">
+  <h2>Body Type At A Glance</h2>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Description</th>
+      <th>Image url</th>
+      <th>X image url</th>
+      <th>Feature</th>
+      <th>Type of</th>
+      <th>Price</th>
+      <th>Display</th>
+      <th>Themes</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </table>
+</div>
+<div class="re_order">
+  <h2>Order Body Types for the Site</h2>
+  <ul id="faqs" data-update-url="<%= sort_body_types_url %>">
+    <% @body_types.each do |body_type| %>
+      <%= content_tag_for :li, body_type do %>
+        <tr id="rows">
+          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
+          <td><%= link_to body_type.name, edit_body_type_path(body_type)  %></td>
+          <td><%= link_to 'Delete', action: 'delete', id: body_type.id %></td>
+          <td><%= body_type.description %></td>
+          <td><%= image_tag body_type.image_url %></td>
+          <td><%= body_type.x_image_url %></td>
+          <td><%= body_type.feature %></td>
+          <td><%= body_type.type_of %></td>
+          <td><%= body_type.price %></td>
+          <td><%= body_type.display %></td>
+          <td><% body_type.themes.each do |t| %>
+            <%= link_to t.name, theme_path(t) %><br />
+            <% end %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </ul>
+</div> <!-- re_order -->
+
+    <%= link_to 'New Body type', new_body_type_path %>
+</div> <!-- table-admin -->

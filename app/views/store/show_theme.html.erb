@@ -1,0 +1,24 @@
+  <%= render 'layouts/main_navbar' %>
+<div id="store-page">
+    <div class="tabs">
+      <h1 class="instrument">Custom Build an Instrument</h1>
+    </div> <!-- tabs --> 
+    <div class="closed_box">You have chosen the <%= @theme.name.capitalize %> </div>
+    <div class="loop">
+        <div class="showcase">
+          <h2> Choose a Body Type  </h2>
+          <% @theme.body_types.each do |t| %>
+              <div id="listbox">
+                <p><%= link_to t.name, theme_path(t) %></p>
+                <% if t.name == BodyType.find(t.id).name %>
+                  <%= link_to image_tag(t.image_url), action: "show", theme: @theme, body_type: t %>
+                <% else %>
+                  <%= link_to image_tag(@theme.image_url), action: "show", theme: @theme, body_type: t %>
+                <% end %>
+              </div>
+          <% end %>  
+        </div> <!-- showcase -->
+    </div> <!-- loop -->
+
+</div> <!-- page -->
+
