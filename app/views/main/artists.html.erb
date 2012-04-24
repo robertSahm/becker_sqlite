@@ -1,0 +1,43 @@
+  <%= render 'layouts/main_navbar' %>
+<div id="artists">
+
+
+
+  <div id="artists_side"><h4>Becker Martin Artists</h4>
+    <ul>
+    <% @artists.each do |a| %>
+      <li><%= link_to a.name, action: 'artist', id: a.id  %></li>
+    <% end %>
+    </ul>
+    
+    </div> <!-- artists_side -->
+  <div id="signature"><h4>Signature models</h4>
+    <ul>
+    <% @products.each do |p| %>
+      <li><%= link_to p.name, action: 'instrument', id: p.id  %></li>
+    <% end %>
+    </ul>
+    
+    </div> <!-- signature -->
+  <div id="twitter_home"><p>Artist videos  in center
+  News items about artist
+  Product demos discussing guitars</p>
+    <ul>
+      <% @artists.each do |a| %>
+        <% if !a.youtube_1.blank? %>
+          <li><%= link_to a.name, action: 'artist', id: a.id  %></li>
+          <li><%= a.youtube_1.html_safe %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div> <!-- twitter_home -->
+
+
+
+
+
+
+
+
+
+</div> <!-- artists -->

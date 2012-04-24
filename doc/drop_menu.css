@@ -1,0 +1,127 @@
+<style type="text/css"> 
+#menu {list-style-type:none; margin:40px auto 250px auto; padding:0; width:608px;} /* margin for this demo only */
+#menu li {float:left; padding:0; margin:0 1px 0 0; position:relative; width:150px; height:3em; z-index:100;}
+#menu li dl {position:absolute; top:0; left:0; padding-bottom:0;}
+#menu li a, #menu li a:visited {text-decoration:none;}
+#menu li dd {display:none;}
+#menu li a:hover {border:0;}
+#menu li:hover dd, #menu li a:hover dd {display:block;}
+#menu li:hover dl, #menu li a:hover dl {padding-bottom:10px;}
+#menu table {border-collapse:collapse; padding:0; margin:-1px; font-size:1em;}
+#menu dl {width: 150px; margin: 0; padding: 0; background: transparent;}
+#menu dt {margin:0; padding: 0;}
+
+#menu dd {margin:0; padding:0; color: #fff; font-size: 1em; text-align:left;}
+
+#menu dt a, #menu dt a:visited {display:block; font-size: 0.9em; color: #038; text-align:center; border:1px solid #08c; border-width:0 1px 1px 1px; background:#d4d4d4; padding:0.25em 0 0.75em 0;}
+
+#menu li:hover dt a, #menu a:hover dt a {color:#006; background:#ddd; border:1px solid #08c; border-width:0 1px 1px 1px;}
+
+#menu dd a, #menu dd a:visited {background:#08c; color:#fff; padding:0.5em 0; text-decoration:none; display:block; text-align:center; border-left:1px solid #08c; border-right:1px solid #08c;}
+
+#menu dd a:hover {background: #ddd; color:#000; border-left:1px solid #08c; border-right:1px solid #08c;}
+
+#menu b {display:block; overflow:hidden; height:1px;}
+
+#menu b.p1 {background:#08c; margin:0 5px;}
+#menu b.p2 {background:#d4d4d4; border:2px solid #08c; border-width:0 2px; margin:0 3px;}
+#menu b.p3 {background:#d4d4d4; margin:0 2px; border:1px solid #08c; border-width:0 1px;}
+#menu b.p4 {height:2px; background:#d4d4d4; margin:0 1px; border:1px solid #08c; border-width:0 1px;}
+#menu b.p5 {background:#08c; margin:0 5px;}
+#menu b.p6 {background:#08c; margin:0 3px;}
+#menu b.p7 {background:#08c; margin:0 2px;}
+#menu b.p8 {height:2px; background:#08c; margin:0 1px;}
+
+#menu li:hover b.p2, #menu a:hover b.p2 {background:#fff;}
+#menu li:hover b.p3, #menu a:hover b.p3 {background:#f0f0f0;}
+#menu li:hover b.p4, #menu a:hover b.p4 {background:#e8e8e8;}
+</style>
+
+/******    MENU START *****/
+<ul id="menu">
+/****  BECKER LOGO ****/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><%= link_to image_tag("Logos/BeckerLogoJay.png", :border=>0), controller: 'main' %></dt>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+/***** GUITAR w/ LIST  *****/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><%= link_to 'Guitars', controller: 'store', action: 'index', instrument: 'guitar' %></dt>
+	<dd><a href="../menu/zero_dollars.html" title="The zero dollar ads page">zero dollars</a></dd>
+	<dd><a href="../menu/embed.html" title="Wrapping text around images">wrapping text</a></dd>
+	<dd><a href="../menu/form.html" title="Styling forms">styled form</a></dd>
+	<dd><a href="../menu/nodots.html" title="Removing active/focus borders">active focus</a></dd>
+	<dd><a href="../menu/shadow_boxing.html" title="Multi-position drop shadow">shadow boxing</a></dd>
+	<dd><a href="../menu/old_master.html" title="Image Map for detailed information">image map</a></dd>
+	<dd><a href="../menu/bodies.html" title="fun with background images">fun with backgrounds</a></dd>
+	<dd><a href="../menu/fade_scroll.html" title="fade-out scrolling">fade scrolling</a></dd>
+	<dd><a href="../menu/em_images.html" title="em size images compared">em sized images</a><b class="p8"></b><b class="p7"></b><b class="p6"></b><b class="p5"></b></dd>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+/***** BASSS w LIST *****/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><%= link_to 'Bass', controller: 'store', action: 'index', instrument: 'bass' %></dt>
+	<dd><a href="spies.html" title="a coded list of spies">spies menu</a></dd>
+	<dd><a href="vertical.html" title="a horizontal vertical menu">vertical menu</a></dd>
+	<dd><a href="expand.html" title="an enlarging unordered list">enlarging list</a></dd>
+	<dd><a href="enlarge.html" title="an unordered list with link images">link images</a></dd>
+	<dd><a href="cross.html" title="non-rectangular links">non-rectangular links</a></dd>
+	<dd><a href="jigsaw.html" title="jigsaw links">jigsaw links</a></dd>
+	<dd><a href="circles.html" title="circular links">circular links</a><b class="p8"></b><b class="p7"></b><b class="p6"></b><b class="p5"></b></dd>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+/***** CUSTOM w/ LIST *****/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><%= link_to "Customs", controller: 'store', action: 'index', instrument: 'custom' %></dt>
+	<dd><a href="../layouts/bodyfix.html" title="Cross browser fixed layout">Fixed 1</a></dd>
+	<dd><a href="../layouts/body2.html" title="Cross browser fixed layout">Fixed 2</a></dd>
+	<dd><a href="../layouts/body4.html" title="Cross browser fixed layout">Fixed 3</a></dd>
+	<dd><a href="../layouts/body5.html" title="Cross browser fixed layout">Fixed 4</a></dd>
+	<dd><a href="../layouts/minimum.html" title="A simple minimum width layout">minimum width for Internet Explorer</a><b class="p8"></b><b class="p7"></b><b class="p6"></b><b class="p5"></b></dd>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+/******   ARTIST ******/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><a href="#">Artists</a></dt>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+/*****   STORE *****/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><a href="#">Artists</a></dt>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+/*****  SEARCH *****/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><a href="#">Search</a></dt>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+/**** RYAN MARTIN LOGO *****/
+<li>
+<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+<dl>
+	<dt><b class="p1"></b><b class="p2"></b><b class="p3"></b><b class="p4"></b><%= link_to image_tag("Logos/BeckerLogoJay.png", :border=>0), controller: 'main' %></dt>
+</dl>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+</ul>

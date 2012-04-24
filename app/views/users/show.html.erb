@@ -1,0 +1,58 @@
+  <%= render 'layouts/main_navbar' %>
+<% if notice %>
+    <% if notice %>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+
+  <% if notice %>
+  <% if notice %>
+<p id="notice"><%= notice %></p>
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+
+  <% if notice %><% if notice %>
+<p id="notice"><%= notice %></p>
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+<% end  %>
+  <% if notice %><% if notice %>
+<p id="notice"><%= notice %></p>
+  <% if notice %>
+  <p id="notice"><%= notice %></p>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+<% end  %>
+
+<% end %>
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+<p>
+  <b>First:</b>
+  <%= @user.first_name %>
+</p>
+<p>
+  <b>Last:</b>
+  <%= @user.last_name %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>Password digest:</b>
+  <%= @user.password_digest %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,137 @@
+Intro Page 
+
+2 buttons
+
+1 – Becker Guitars & Ryan Martin Basses
+
+2 – Repairs and Restorations
+
+Home Page Becker Guitar & Ryan Martin Basses
+
+Top Buttons Bar 
+
+	•	Becker Guitar Logo / Ryan Martin Bass Logo aka ‘Home Page’
+	•	Store 
+	•	Guitar
+	•	Bass
+	•	Banjo /Mandolin
+	•	Artists
+	•	Dealers
+	•	Search
+	.  gallery - visual tour thru making a custom guitar with videos
+
+Main feature Box 
+	Full screen photo layout of one of the feature boxes
+
+Hot News Text click line
+
+Four feature Box
+	Four small feature boxes 
+
+Bottom Contact Bar
+	Simple text links at the bottom of every page 
+
+Becker Store / Phone Number / Dealer page link / Site Map / News / Facebook / YouTube / Contact Us 
+
+Feature Boxes – ideas for content
+	•	featured custom instrument
+	•	Artists demo of an instrument – Live or direct
+	•	Company address – how are products are changing the world
+	•	Photo news album – Becker goes to Bonnarroo etc
+	•	Check out the new website – explains website
+	•	Lesson with Becker Artist
+	•	In the shop, building an instrument 
+
+
+Store Page
+
+Sideways scroll bar 
+
+	Retro / Mistress / Imperials / Rollers /  Head Hunters / Castlewaves 
+
+Click on one takes you to an already filled out build your own cart with one of the above models  - so it sells you the guitar on the build your own site - if you click on acoustic mistress it takes you to the build your own site with it filled out mistress / purple wood / double cavity etc.
+
+Custom signature Models
+
+	Jon Barber Unibomber
+	Jake Cinnenger Carribean Retro  
+
+Its possible we may not want to offer Jake’s elaborate paint job on every guitar but it would be ideal to have these guitars also be purchased off the custom shop cart
+
+
+Build Your own becker  - Custom Shop 
+
+This is similar to the Apple computer shopping cart 
+Each item will be given its own price and choosing each feature will result in your instrument changing price
+
+	Choose Body style page 
+		Roller / Imperial / Mistress  / Hornet
+	
+	Look
+		Retro 
+		Jetson
+		Lemon Lime Unibomber
+		Nashville
+		Koko
+		Purple Wood
+	
+	Chamber
+		No
+		Single chamber
+		Double Chamber 
+Hardware
+		Classic Plastic Standard
+		Metal
+		Punk Industrial
+		Wood carved
+
+	Pickups
+		3  all single coils
+		3  pick ups with bridge humbucker
+		double humbucker
+		Roland V pick up (Yes/No)
+
+Case
+		Soft shoulder carry case
+		Hardcase
+		Both 
+
+	Warranty 
+		Standard Becker Warranty 
+		Extended coverage Becker warranty 
+
+Guitar Page  /  Bass Page  /  Banjo/Mandolin Page
+
+-Each page brings you to a product listing menu
+Retro / Mistress / Imperials / Rollers /  Head Hunters
+Castlewaves / Rollers / 
+Floaters / Mandos
+Signature Instruments on each page
+
+-Featured instrument is on the page already 
+
+When You click on one product listing …. 
+
+photo of the instrument
+Description  of features
+Link to any videos we have of instrument in use or artist demos 
+Link to the custom shop cart to buy 
+
+
+Artist Page 
+
+Artist videos  in center 
+News items about artist
+Product demos discussing guitars 
+List of artists on the right with clickable links
+Signature models on the left 
+
+
+Dealer Page 
+
+List of Becker guitar dealers 
+	Click for contact information
+Enter zip code to find closest dealer
+	Result is listing with contact information
+	
+	

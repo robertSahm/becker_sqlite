@@ -1,0 +1,57 @@
+<h1>
+  <%= @artist.name %>
+</h1>
+<div id="featurebox">
+  <b>The Skinny</b><br />
+  <% feature = strip_tags(@artist.description) %>
+  <ul id="features_box">
+      <% if !feature.blank? %>
+        <li id="features_box">- <%= feature %></li>
+        <li><hr /></li>
+        <li><%= link_to @artist.website, '#' %></li>
+        <li><hr /></li>
+        <% if !@artist.facebook.blank? %>
+          <li><%= link_to @artist.facebook, '#' %></li>
+          <li><hr /></li>
+        <% end %>
+        <% if !@artist.twitter.blank? %>
+          <li>Twitter - <%= @artist.twitter %></li>
+          <li><hr /></li>
+        <% end %>
+        <% if !@artist.instagram.blank? %>
+          <li>Instagram - <%= @artist.instagram %></li>
+          <li><hr /></li>
+        <% end %>
+        <% if !@artist.blog.blank? %>
+          <li>Blog - <%= @artist.blog if @artist.blog.blank? %></li>
+          <li><hr /></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div> <!-- featurebox -->
+<div id="photo_gallery">
+  <div id="main_image">
+    <%= image_tag(@artist.image_url) %>
+  </div>
+</div> <!-- photo_gallery -->
+<div id="twitter_home"><p>Artist videos  in center
+News items about artist
+Product demos discussing guitars</p>
+  <ul>
+      <% if !@artist.youtube_1.blank? %>
+        <li><%= link_to @artist.name, action: 'artist', id: @artist.id  %></li>
+        <li><%= @artist.youtube_1.html_safe %></li>
+      <% end %>
+      <% if !@artist.youtube_2.blank? %>
+        <li><%= link_to @artist.name, action: 'artist', id: @artist.id  %></li>
+        <li><%= @artist.youtube_1.html_safe %></li>
+      <% end %>
+      <% if !@artist.youtube_3.blank? %>
+        <li><%= link_to @artist.name, action: 'artist', id: @artist.id  %></li>
+        <li><%= @artist.youtube_1.html_safe %></li>
+      <% end %>
+  </ul>
+</div>
+
+
+

@@ -1,0 +1,15 @@
+
+<%= render 'layouts/main_navbar' %>
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+<div id="page">
+  <h1>Choose Your Options</h1>
+  <div class="closed_box">You have chosen the <%= @body_type.name.capitalize %> <%= @body_type.type_of.capitalize %></div>
+  <div class="closed_box">You have chosen the <%= @theme.name.capitalize %> Theme</div>
+
+  <%= button_to 'Add to Cart', line_items_path(body_type_id: @body_type, theme_id: @theme), remote: true %>
+  <%= render 'layouts/cart_sidebar' %>
+  <%= render 'cart' %>
+
+</div> <!-- store-page -->

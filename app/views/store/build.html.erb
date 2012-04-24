@@ -1,0 +1,27 @@
+<div id="page">
+  <%= render 'layouts/main_navbar' %>
+  <div id="title-banner"><h1><%= @product.name %> <%= @product.type_of.capitalize %>
+  </h1>
+  </div><!-- title-banner -->
+  <div class="closed_box">
+    You have chosen the 
+    <% if @product.body_type_id %>
+      <% b = BodyType.find(@product.body_type_id) %> 
+      <%= b.name.capitalize %>
+    <% else %>
+      <%= @product.name.capitalize %>
+    <% end %>
+    <%= @product.type_of.capitalize %>
+  </div>
+  <div class="closed_box">
+    You have chosen the
+   <% if @product.theme_id %>
+     <% t = Theme.find(@product.theme_id) %>
+     <%= t.name.capitalize %>
+    <% end %>
+    Theme
+  </div>
+  <%= button_to 'Add to Cart', line_items_path(product_id: @product), remote: true %>
+  <%= render 'layouts/cart_sidebar' %>
+  <%= render 'cart' %>
+</div> <!-- page -->

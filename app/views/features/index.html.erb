@@ -1,0 +1,35 @@
+  <%= render 'layouts/main_navbar' %>
+<%= link_to 'New Feature', new_feature_path %>
+<div class="re_order">
+  <h2>Order Features on site</h2>
+  <ul id="faqs" data-update-url="<%= sort_features_url %>">
+    <% @features.each do |feature| %>
+      <%= content_tag_for :li, feature do %>
+        <tr id="rows">
+          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
+          <td><%= link_to feature.name, edit_feature_path(feature) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </ul>
+</div> <!-- re_order -->
+
+<div class="table-admin">
+  <h2>Features At A Glance</h2>
+
+  <table id="features">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+
+  <% @features.each do |feature| %>
+    <tr>
+      <td><%= link_to feature.name, edit_feature_path(feature)  %></td>
+      <td><%= feature.description %></td>
+      <td><%= link_to 'Delete', action: 'delete', id: feature.id %></td>
+    </tr>
+  <% end %>
+  </table>
+</div> <!-- table-admin -->

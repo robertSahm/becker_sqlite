@@ -1,0 +1,15 @@
+<% if line_item == @current_item %>
+  <tr id="current_item">
+<% else %>
+  <tr>
+<% end %>
+    <td><b><%= line_item.quantity %></b></td>
+    <td><%= button_to '^', increment_line_item_path(line_item), method: :put, remote: true %></td>
+    <td><%= button_to 'v', decrement_line_item_path(line_item), method: :put, remote: true %></td>
+    <td><b><%= line_item.product.name %></b></td>
+    <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+    <td><%= button_to 'Remove', line_item,
+                    confirm: "Are you sure ?", 
+                    method:  :delete,
+                    remote: true %></td>
+  </tr>

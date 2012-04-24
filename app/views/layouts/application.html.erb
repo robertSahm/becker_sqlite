@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @page_title || "* Becker Martin Handmade Instruments *    Guitars - Bass - Customs Builds" %></title>
+  <%= stylesheet_link_tag    "application" %>
+	<link href='http://fonts.googleapis.com/css?family=Ovo' rel='stylesheet' type='text/css'>
+	
+	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag params[:controller] %>
+
+  <%= csrf_meta_tags %>
+  <% Time::DATE_FORMATS[:custom] = "%B %e, %Y at %I:%M %p" %>
+  <% Time::DATE_FORMATS[:custom_form] = "%b %e, %Y" %>
+	
+	
+	  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+	<%= javascript_include_tag "libs/modernizr-2.5.3.min" %>
+</head>
+<body class='<%= controller.controller_name %>'>
+  <%= render 'layouts/admin_navbar' %>
+
+<!-- ***********    HEADER NAV BAR     *************** -->
+
+
+<!-- ***********    MAIN - SIDEBAR   ///  LAYOUT     *************** -->
+  <div id="columns">
+
+    <div id="main">
+      <%= yield %>
+    </div>
+
+  </div>
+	
+	
+	
+	
+	
+<!-- scripts concatenated and minified via build script -->
+	<%= javascript_include_tag "plugins" %>
+	<%= javascript_include_tag "script" %>
+  <!-- end scripts -->
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+       mathiasbynens.be/notes/async-analytics-snippet -->
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+</body>
+</html>

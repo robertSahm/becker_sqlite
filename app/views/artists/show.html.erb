@@ -1,0 +1,11 @@
+
+  <%= render 'layouts/main_navbar' %>
+<div id="page">
+  <% if notice %>
+      <p id="notice"><%= notice %></p>
+  <% end %>
+  <%= link_to 'Edit', edit_artist_path(@artist) %> |
+  <%= link_to 'List', artists_path %>
+  <%= render 'main/artist_view' %>
+  
+</div> <!--page-->

@@ -1,0 +1,68 @@
+<%= form_for(@artist) do |f| %>
+  <% if @artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% @artist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :band %><br />
+    <%= f.text_field :band, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, rows: 8 %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook %><br />
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note, rows: 8 %>
+  </div>
+  <% 3.times do |i|  %>
+    <div class="field">
+      <%= f.label "photo_Url_#{i+1}" %><br />
+      <%= f.text_field "photo_url_#{i+1}" %>
+    </div>
+  <% end %>
+  <% 3.times do |i|  %>
+    <div class="field">
+      <%= f.label "youtube_#{i+1}" %><br />
+      <%= f.text_field "youtube_#{i+1}" %>
+    </div>
+  <% end %>
+  <% if @page_title == "Artist Edit" %>
+    <div class="actions">
+      <%= f.submit 'Update' %>
+    </div>
+  <% elsif @page_title == "Artist New"  %>
+    <div class="actions">
+      <%= f.submit 'Submit' %>
+    </div>
+  <% end %>
+<% end %>
+

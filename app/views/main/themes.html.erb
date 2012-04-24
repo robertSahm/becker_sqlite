@@ -1,0 +1,25 @@
+<%= render 'layouts/main_navbar' %>
+<div id="page">
+  <p><br /><br /><br /></p>
+  
+  <p>We offer our models in a variety of themes, all with different specifications, price levels, and options. 
+    Please refer to models pages to see which themes are available for each model. We currently offer the following themes: 
+ </p>
+  
+  <% @themes.each do |t| %>
+    <div id="listbox">
+      <p><%= link_to t.name, action: 'theme', id: t.id %></p>
+      <p>
+      <% if t.image_url.blank? %>
+        <%= t.description %>
+      <% else %>
+        <%= link_to image_tag(t.image_url), action: 'theme', id: t.id %>
+      <% end %></p>
+    </div>
+
+
+  <% end %>  
+  <div id="sidebox1">
+    <%= render 'sidecart2' %>
+  </div> <!-- sidebox1-->
+</div> <!-- page -->

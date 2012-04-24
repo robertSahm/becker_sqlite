@@ -1,0 +1,33 @@
+
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+
+<p>
+  <b>Name:</b>
+  <%= @order.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @order.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @order.email %>
+</p>
+
+<p>
+  <b>Payment Type:</b>
+  <%= @order.pay_type %>
+</p>
+<p>
+  <b>Ship Date:</b>
+  <% if @order.ship_date%>
+    <%= @order.ship_date.to_formatted_s(:custom_form) %>
+  <% else  %>
+    <span>No ship date yet</span>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

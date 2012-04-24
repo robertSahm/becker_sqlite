@@ -1,0 +1,53 @@
+  <%= render 'layouts/main_navbar' %>
+  <% if notice %><p id="notice"><%= notice %></p><% end  %>
+
+<p>
+  <b>Name:</b>
+  <%= @body_type.name %>
+  <%= image_tag(@body_type.image_url) %>
+</p>
+
+<p>
+  <b>Available in these Themes:</b>
+  <% @themes.each do |b| %>
+    <p><%= b.name %></p>
+  <% end %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @body_type.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @body_type.image_url %>
+</p>
+
+<p>
+  <b>X image url:</b>
+  <%= @body_type.x_image_url %>
+</p>
+
+<p>
+  <b>Feature:</b>
+  <%= @body_type.feature %>
+</p>
+
+<p>
+  <b>Type of:</b>
+  <%= @body_type.type_of %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @body_type.price %>
+</p>
+
+<p>
+  <b>Display:</b>
+  <%= @body_type.display %>
+</p>
+
+<%= link_to 'Edit', edit_body_type_path(@body_type) %> |
+<%= link_to 'Back', body_types_path %>

@@ -1,0 +1,409 @@
+JS SIDEBAR CART
+   on page load - get the base price of the body type 
+      - calculate the total prices of all the options that are default: true
+      - add them up and display price for line item in sidebar cart
+      - check thru all the option default:false and adjust their prices relative to the default: true
+      - make features-list box that includes the default features
+   run a program where any radio buttons clicked change three things
+      - change the value of the price in the line item 
+      - create a flash of the cart value changing
+      - add or adjust the new item in the features-list box
+      - adjust the values of all the options in that feature 
+         option . clicked loses all price info 
+         other options get their price adjusted to be relative to option.clicked
+
+
+go from show to the dynamo method , calling the dynamo view
+   in the dynamo controller -> 
+      create an instance variable that can hold all of the cart details
+         1. need an array with all the feature names in order of their appearance in the cart
+         2. need a hash where each feature is a key 
+               @options are changed to @item.description, @item.checked, @item price
+               @items with each key are stored in an array
+               they are stored in order of lowest to highest price
+         - when u build the cart
+            go thru the feature_cart array.each
+               find all the @option arrays associated with that key in the hash
+               @option_array.each and put into definition list
+
+
+
+
+
+
+MEDIA DB
+PHOTOS
+   polymorphic - can belongs_to different tables
+      Artist, Product, BodyType, Theme has_many photos as: imageable
+   necessary because the photos are going to be stored by the website itself, how does the website do it?
+
+      types of images
+         thumbnail - 100px Height
+         gallery - long thin photos for side by side galleries
+         horizontal gallery - for display in cart 
+         showcase - large main image photo for display pages
+         horizontal showcase - for front page of the site
+
+
+VIDEOS
+   polymorphic - can belongs_to diferent tables
+   necessary so you can add functionality to the videos without having to add it all over
+         ie comment engine etc 
+      Artist, Product
+      add timestamps so u can sort the videos by time and get most recent in the feed
+      official comment
+      have a text_AREA field to paste youtube links into on artist edit page
+      types of videos
+         feed - videos for main#artists page feed and main#artist page feed - same video
+
+ 
+ 
+
+
+
+
+
+
+
+LOGIN PASSWORD RESET REMEMBER ME
+have password reset link go to view that asks for email address
+then send an email to that email with a reset link
+   reset link must be specific to the user account for that email
+   # email validation added for uniqueness in db and model
+
+PRODUCT VIEW/EDIT INFO/CART
+to sort for custom_build
+   get features_array from product.features
+   go thru features in order, search options db for feature_id / product_id
+      display in order of price
+      have default=true radio button checked
+HOW DO U ADD BODY FEATURES TO A PRODUCT ?? 
+   if u add a product, there will be no options with its product_id
+   when u go to try and populate them in edit product- cart ... they wont show up 
+   this system is fine for drawing the cart, but doesn't draw the cart-edit
+   HOW DO U DRAW THE CART EDIT?? 
+      "add option button"  that links to option=> create , which should be on options=> list view
+       ... only options with that feature_id
+      option=> create must have skills
+         ability to copy other options into the input fields and make a new option
+         ability to do a bunch in a row , ie save just adds to list and doesn't change view
+         ability to quickly shift to different feature_id's
+DO U NEED DISPLAY IN FEATURES TABLE ??
+   can you gleam the info out of the options table? 
+   if you have features checked off, then turn all the options display off in that feature
+   good because if all the options are disabled then the feature doesn't show up in cart
+   put logic in feature_controller or model? that it must 2+ options with display true for it to show up
+      otherwise feature is not included in choices
+   for each feature_id
+      get all product_id where display == true
+      count that - if == 2+ , send feature with true displays to the custom_build display
+
+Validations for new database types
+   products ,type must be ["guitar", "bass", "mandolin", "banjo"]
+      look at solution for pay_types in database ^
+         need some kind of CRUD for these types
+   products, feature must be a valid feature_id
+   feature model validation, presence => true, uniqueness => true
+   options validations ?
+      
+Need Crud for feature model build into options CRUD
+
+
+
+AJAX FIXES
+
+write methods for ^/v , where they add or remove quantity form the line item quantity
+   if quantity is == 1 , V if pressed (q becomes 0) a pop up asks 3 options, do not lower quantity -  cancel , leave in cart at 0 , remove from cart
+   if left in cart at 0 , V disappears
+   as quantities change, the price of the line item and the total of the cart are changing
+
+enhance remove button ajax so it only removes the line item that it is pressed on and not the whole cart
+
+stop cart from re-ordering ... keep in order you add to cart in 
+
+cart should follow the scroll on the screen, you scroll down, so does cart
+
+
+
+
+# class CreateBodyTypeTheme < ActiveRecord::Migration
+#   def change
+#     create_table :body_types_themes, id: false do|t|
+#       t.integer :body_type_id, null: false
+#       t.integer :theme_id, null: false
+#     end
+#   end
+# end
+
+# <li>
+# <!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->
+# <dl>
+#  <dt><p class="line_break"></p>
+#    <div id="globalsearch">
+#        <form action="/search/" method="post" class="search" id="g-search"><div class="sp-label">
+#           <input type="text" name="q" id="sp-searchtext" accesskey="s" placeholder="search"/>
+#        </form>
+#     </div>
+#    </dt>
+# </dl>
+# <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+# </li>
+# NEW BUILD PAGE
+#    # add silouhette photo url to the product database
+#    get all products, display their sillohouttes and name as link
+#    when link is pressed send the id associated with each product
+#       go to build custom with that id
+EDIT CUSTOM BUILD
+## check boxes for the feature names - I dont have this in db yet ??
+   ## delete feature ?
+   # should I re- migrate the features db to have direct product ownership ??
+   # then I can re-order and delete and re-name as necessary
+## add feature box - new CRUD
+## add option  - new CRUD
+   - should unhide/expose input fields for the new feature/option
+## radio boxes for default choice
+## show/hide check boxes
+ -  greys out when you check display off
+##  delete option - delete CRUD
+   - should grey and x-out the field - then you get a final SAVE after all edits
+## change price input box - update CRUD
+
+# name / descriptions / prices ---> should be IN input fields and you can edit right there
+#    select one of each option by name for each feature_id
+# start = Option.find_all_by_feature_id(feature.id)
+# start = Option.where(feature_id: feature.id)
+# h = {}
+# start.each do |s| 
+#    h[s.description] = 1
+# end
+# a = h.keys
+# list = []
+# a.each do |it|
+# list << Option.find_by_description(it)
+# 
+# add email, first name, last name to users db
+# rails generate migration add_email_to_users
+#    add names inside migration
+# delete admin views and admin model
+# rails generate migration add_type_to_products type:string
+# rails generate migration add_features_to_products feature:integer[]
+   # feature_id's go into the features_array []
+
+# rails generate model Feature name:string 
+# create features table
+#    name:string id:auto timestamps:no
+#    ie ...
+#    Body Features        1 
+#    Construction         2  
+#    Color Theme          3  
+#    Hardware             4     
+#    Pick-ups             5
+#    Acoustic Pick-ups    6    
+#    Computer Pick-ups    7           
+#    Cases                8     
+#    Insurance            9             
+
+# rails generate scaffold Option description:string price:decimal feature_id:integer product_id:integer default:boolean display:boolean 
+    # must be able to hold negative numbers
+   # ie ...
+   # 24 fret              300            2                 3                 false          checkbox true
+   # Bolt on Neck         0              1                 8                 true           checkbox true
+   # Full Chamber         1200           1                 4                 false          checkbox true
+   # Full Chamber         900            1                 12                false          checkbox true
+   # acoustic piezo       200            6                 4                 false          checkbox true
+# ship email code
+#    check order update for ship date changes to send email 
+#    A. how is ship date entered ?
+#    1. ship_date is not nil
+#    2. ship_date is a date
+#    3. ship_date is within a month either side of the actual date
+#    4. pop up ajax box confirming that customer will be sent email , confirm send info
+#    5. update db
+#    6. send email to customer
+#    7. update view to user
+# create a migration adding a column price to line_items
+x rails generate migration add_price_to_line_items price:decimal
+# add price validations to migration
+x add column :line_item, :price, :decimal, :precision 8, :scale 2
+
+# call all previous carts or line items 
+#iterate thru their line items and add the prices 
+#   product.price - have migration go to product model get price for that item
+#      and copy it into the new price data field
+x LineItem.all.each do |item|
+x   p_id = item.product_id
+x   product = Product.find(product_id)
+x   item_price = product.price
+x   item.update_attributes.price = item_price
+x end
+
+# now the program asks the product database for product.price whenever it builds the cart
+# change the cart ( anywhere else ? ) to get the price for the cart from line_items and not query products
+x in line_item model
+x   change product.price to ...
+x      line_item.price
+
+# 
+# ADMIN SUPER VIEW
+# ul- horizontal - above becker navigation bar
+#    with sidebar items
+#       admin, old store, orders, products, users, logout
+# PRODUCT LIST VIEW ADMIN
+# three tab navigation bar
+#    guitar, bass, custom
+#    sets variable for search sort to guitar, bass, or not guitar or bass
+# new product button in sidebar
+# ul- vertical - products sorted by navigation choice -> guitar , bass, custom
+#    .jpg, name, base price, description, re-order tab (linked to position), detail link
+#    detail link is one link to display and edit views
+# DATA VIEWS 
+#    select all products where type = 'guitar'
+#       sort in order of position
+# guitars = Product.where(type_of: "guitar")
+# guitars = Product.find_all_by_type_of('guitar')
+# 
+#    select all products where type = 'bass'
+#       sort in order of position
+# bass = Product.where(type_of: "bass")
+# bass = Product.find_all_by_type_of('bass')
+# 
+#    select all products where type  = 'custom'
+#       sort in order of position
+# custom = Product.where(type_of: "custom")
+# custom = Product.find_all_by_type_of('custom')      
+# 
+#    select all options where product_id = 'product.id'
+#       delineate by features
+#          sort features in order of position
+#       sort options then in order by price, lowest on top
+# custom_build_query = Option.find_all_by_product_id_and_feature_id(34, 3)
+# custom_build_query = Option.where(product_id: 34, feature_id: 3).all
+# @options = Option.where(product_id: 33).order("options.feature_id ASC").order("options.price ASC")
+#
+# CUSTOM BUILD TABLE <- this is very loopy for not much printing - for each feature it goes thru all the options
+#  make an array of all the feature_types .uniq! and in order of feature.position
+#  display the first feature array as a h3
+#  list the option.descriptions that have that feature below the h3 in the section
+# radio list those descriptions in reverse price order as they are listed already
+# pre-check the option where default = true
+# only display options where display = true
+# repeat with the second feature from array and so on 
+# until all the features and options are displayed
+ 
+#    
+# 
+# Cart has line item
+# line item has three stages 
+# 1. Body type
+# 2. Theme
+# 3. Options
+# You can get to cart from 3 places
+# I have nothing yet - questions -> 
+#    1. what type of instrument - guitar, bass, banjo, mandolin, lap steel , other
+#       TYPE_OF or BodyType.all
+#    2. what body type do u like 
+#       BodyType.where(params[:instrument])
+#    3. what theme do u like  ->
+#       @body_type.themes
+#    4. full blown line item with all options and javascript tally bar
+#       list of options with chosen body_type and chosen theme, options and extras in this default with extras empty 
+#       options.???????
+# 
+# I like this theme - questions ->
+#    1. what type of  available instrument - guitar, bass, banjo, mandolin, lap steel , other
+#       @theme.body_types.each do |t| x << t.type_of ; x.uniq! ; end
+#       theme_types = x
+#       can you do @theme.body_types.type_of.uniq! for quick list of available instruments
+#       # reverse engineering the available instruments from the chosen theme
+#    2. what type of available body type
+#       @theme.body_types 
+#    3. full blown line item with all options and javascript tally bar
+#       list of options with chosen body_type and chosen theme, options and extras in this default with extras empty 
+#       options.???????
+#    
+# I like this specific instrument - questions ->
+#    1. full blown line item with all options and javascript tally bar
+#       list of options with chosen body_type and chosen theme plus options and extras filled out
+#       options.???????
+#    2. note - "click here for basic body shape and all availiable options"
+#    
+# what is options.??????
+#    it should ask for list of features in order by position ASC
+#    it should ask for body type and fill out the body type selection sideways bar
+#       it should put body type price into the js cart
+#    it should ask for the theme and fill out the theme selection sideways bar
+#       it should put the theme prices into the cart 
+#       it should iterate thru the options names after the remaining features
+#          choosing only options that are "with" the selected themes and body type
+#             ie are there options that work for a theme and not a body type - like pickups for bass or guitar
+#       so for each feature.id it should ask the database
+#          do you have any options for this body type AND theme ?
+#          since options only has a product_id this above question is a problem !!!
+#             SOLUTIONS
+#                make a product in database for every body_type & theme combo
+#                   do the options for each of those seperately
+#                   pros - works in present system
+#                   cons - lots of work to do in choosing the options for each
+#                theme is a set of features and options on features
+#                   theme has no specific body type
+#                theme has_many features .. feature has_many options ... theme has_many options through features
+#                product has a set features and options on features
+#                   has specific body type
+#                product has theme ... product has body type ... product has type of ... product has options
+#                   options have features .. product has features thru options
+# 
+# ghost rider and natural dont have top and cannot be chambered
+# nashville ghost rider cannot be acoustic - nashville roller can be acoustic
+#       nashville has top ? can it be a ghost rider
+# acoustic pickup is dependant on whether there is chamber or not
+# does acoustic pickup have multiple locations ? is that part of option ?
+# 
+# you could have another database called secondary options which get called when certain features are called
+# 3 places ... new - theme - instrument
+# new makes u pick a body style then a them
+# them makes u pick a body style
+# instrument already has body type and theme
+# code asks
+# 
+# store#build should be new gives you choice of body types
+# store#bulld from theme - gives you a div with you have chosen theme
+#    please choose instrument/ body style
+# store#build from instrument
+#    give you list of options in features list
+# BUILDER CODE V2
+# @features.each do |f|
+#    @options.each do |o|  # this could be more specific
+# 
+# feature_position = 2
+# @options.each do |option|
+#    if @feature.position == feature_position
+#       output @feature.name 
+#       feature_position += 1
+#    end
+#    output option. radio button code with descriptions and prices
+# end
+#    
+# go thru each feature
+# look thru options for the options that match
+# 
+# @options.each do |o|
+# # for each option
+# # append the 
+# 
+# f.each do |f|
+# if f.id is contained in @feature_ids then 
+#    print x.name
+#    run option loop
+# 
+# names = ["Jetson", "Retro-Grad", "Nashville"]
+# options = Option.all
+# options.each do |option|
+#    product = Product.where(name: "Mantis")
+#    p = product.pop
+#    if p.id == option.product_id
+#       body = Theme.where(name: "Native")
+#       b = body.pop
+#       option.theme_id = b.id
+#       option.save
+#    end
+# end

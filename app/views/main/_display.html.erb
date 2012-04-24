@@ -1,0 +1,38 @@
+<h1>
+  <%= @product.name %>
+  <%= @product.type_of.capitalize %>
+</h1>
+
+<div id="featurebox">
+  <b>Features:</b><br />
+  <% feature = strip_tags(@product.description).split('-') %>
+  <ul id="features_box">
+    <% feature.each do |f| %>
+      <% if !f.blank? %>
+        <li id="features_box">- <%= f %></li>
+        <li><hr /></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<div id="photo_gallery">
+  <div id="main_image">
+    <% main_image =  @image[0] + ".png" if @image[0] %>
+    <%= image_tag(main_image) %>
+  </div>
+  <ul class="thumbnail">
+  <% c = 1 %>
+  <% while c < @image.count %>
+    <li class="thumbnail">
+      <% folder, image_name = @image[c].split("/") if @image[c]  %>
+      <% image_url_string = @thumb_folder + image_name + @tag %>
+      <% if @image[c] == @product.image_url.chomp(".jpg") %>
+        <%= link_to image_tag(image_url_string), id: @product.id %>
+      <% else %>
+        <%= link_to image_tag(image_url_string), id: @product.id, :image => c  %>
+      <% end %>
+      <% c += 1 %>
+    </li> <!-- thumbnail -->
+  <% end %>
+  </ul>
+</div> <!-- photo_gallery -->

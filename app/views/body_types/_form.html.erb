@@ -1,0 +1,64 @@
+<%= form_for(@body_type) do |f| %>
+  <% if @body_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@body_type.errors.count, "error") %> prohibited this body_type from being saved:</h2>
+
+      <ul>
+        <% @body_type.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+  <%= f.label :themes %><br />
+  <%= hidden_field_tag "body_type[theme_ids][]", nil %>
+  <% @themes.each do |theme| %>
+      <%= check_box_tag "body_type[theme_ids][]", theme.id, @body_type.themes.include?(theme) %>
+      <%= theme.name %>
+      <br />
+  <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :x_image_url %><br />
+    <%= f.text_field :x_image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.select :position, [1,2,3,4,5,6,7] %>
+  </div>
+  <div class="field">
+    <%= f.label :feature %><br />
+    <%= f.text_field :feature %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of %><br />
+    <%= f.select :type_of, ['guitar', 'bass', 'custom'] %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :display %><br />
+    <%= f.select :display, [true, false] %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

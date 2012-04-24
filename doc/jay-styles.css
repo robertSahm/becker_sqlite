@@ -1,0 +1,979 @@
+/*****************************/
+/* CSS RESET */
+/*****************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+form, fieldset, legend, label, textarea,
+table, caption, thead, tbody, tfoot, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-family: Arial, sans-serif;
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+	/*line-height: 1.5;*/
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+:focus {
+	outline: 1;
+	background-color: #ff9;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*****************************/
+/* END CSS RESET */
+/*****************************/
+/*****************************/
+/* BASE STYLES */
+/*****************************/
+/* Use ems for font size */
+
+
+
+
+/*************************************** LISTS */
+
+
+
+
+
+ul,
+ol {
+margin:0px;
+padding:0px;
+	list-style-position: inside;
+}
+li{
+list-style-position:inside;
+margin:0px;
+padding:0px;
+}
+
+ul {
+	list-style-type: disc;
+	margin:0px;
+margin-bottom:10px;
+}
+
+ul ul {
+	list-style-type: circle;
+	margin-top: 0;
+
+}
+
+ol {
+	list-style-type: decimal;
+	margin:0px;
+margin-bottom:10px;
+list-style-position: inside;
+
+}
+
+ol ol {
+	list-style-type: lower-alpha;
+	margin-top: 0;
+}
+
+ol.upper-roman {
+	list-style-type: upper-roman;
+}
+
+ol.lower-roman {
+	list-style-type: lower-roman;
+}
+
+ol.upper-alpha {
+	list-style-type: upper-alpha;
+}
+
+ol.lower-alpha {
+	list-style-type: lower-alpha;
+}
+
+dl {
+	margin: 1em 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: 2em;
+}
+
+
+ul.arrowList { margin-left:0em; padding-left:0.2em; margin-bottom:1em; list-style-position:outside;}
+ul.arrowList li { background:url(images/bullet.gif) 0em 0.3em no-repeat; /* change background em accordingly */ padding-left: 0.8em; list-style: none;list-style-position:outside; }
+.arrowList ul li { background-image:url(images/bullet_child.gif); }
+
+ol.arrowList li, ul.niceList li { margin-bottom:0.5em; }
+
+ol.arrowList { margin-left:1.5em; padding-left:0px; }
+.arrowList ol li { list-style:decimal; background-image:none; padding-left:0em; }
+/*************************************** TABLES */
+
+table {
+	margin: 2em 0;
+}
+
+caption {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+th {
+	font-weight: bold;
+	vertical-align: bottom;
+}
+
+thead th {
+	background-color: black;
+	color: white;
+}
+
+/* for alternate rows */
+tr.shaded {
+	background-color: #ddd;
+}
+
+th,
+td {
+	padding: 0.3em;
+}
+
+td {
+	vertical-align: top;
+}
+
+
+
+/*************************************** FORMS */
+.submit input
+{
+color: #ffffff;
+background: #eb2d2f;
+border: 1px solid #024c7d;
+padding-top:2px;
+padding-bottom:2px;
+font-weight:bold;
+}
+.submit input:hover
+{
+color: #024c7d;
+background: #eb2d2f;
+border: 1px solid #024c7d;
+padding-top:2px;
+padding-bottom:2px;
+}
+fieldset {
+	border: dotted 1px #999;
+	padding: 1em;
+	margin: 1em auto;
+}
+
+legend {
+	font-size: 1.3em;
+	font-weight: bold;
+	background-color: white;
+	padding: 0 0.25em;
+}
+
+label {
+	font-weight: bold;
+}
+
+/* For inline labels and inputs, enclose both in <div class="row"> */
+.row {
+	margin: 0.5em 0;
+}
+
+.row label {
+	display: block;
+	float: left;
+	width: 10em;
+	margin-right: 0.75em;
+}
+
+.required {
+	color: red;
+}
+
+textarea {
+	border: solid 1px #999;
+}
+
+
+
+/* INLINE ELEMENTS */
+
+strong {
+	font-weight: bold;
+}
+
+em,
+cite {
+	font-style: italic;
+}
+
+acronym,
+abbr {
+	border-bottom: dotted 1px #666;
+	cursor: help;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	line-height: 0;
+}
+
+q:lang(en) {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+q:before {
+	content: open-quote;
+}
+
+q:after {
+	content: close-quote;
+}
+
+sup {
+	vertical-align: super;
+}
+
+sub {
+	vertical-align: sub;
+}
+
+kbd,
+pre {
+	font-family: Courier, monospaced;
+}
+
+
+/*************************************** LINKS */
+
+a:link {
+	color:#090;
+	text-decoration:none;
+}
+
+a:visited {
+	color:#090;
+		text-decoration:none;
+}
+
+a:focus,
+a:hover,
+a:active {
+	color: #006398;
+		text-decoration:none;
+}
+
+a#footerlink:link {
+	color: #ffffff;
+	text-decoration:none;
+}
+
+a#footerlink:visited {
+	color: #ffffff;
+	text-decoration:none;
+}
+
+a#footerlink:focus,
+a#footerlink:hover,
+a#footerlink:active {
+	color: #eb2d2e;
+}
+
+a.contest:link {
+	color: #ffffff;
+	text-decoration:none;
+}
+
+a.contest:visited {
+	color: #ffffff;
+	text-decoration:none;
+}
+
+a.contest:focus,
+a.contest:hover,
+a.contest:active {
+	color: #eb2d2e;
+}
+
+a.myhc:link {
+	color: #ffffff;
+	text-decoration:none;
+font-weight:bold;
+font-size:1.2em;
+}
+
+a.myhc:visited {
+	color: #ffffff;
+	text-decoration:none;
+font-weight:bold;
+font-size:1.2em;
+}
+
+a.myhc:focus,
+a.myhc:hover,
+a.myhc:active {
+	color: #ffffff;
+font-weight:bold;
+font-size:1.2em;
+}
+
+/* ACCESSIBILITY */
+
+a#skipnav:link,
+a#skipnav:visited {
+	position: absolute;
+	width: 100%;
+	left: -999em !important;
+	margin; 1em auto;
+	text-align: center;
+	background-color: white;
+}
+
+a#skipnav:focus,
+a#skipnav:active {
+	left: 0 !important;
+}
+
+/*************************************** BLOCK ELEMENTS */
+
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1.25;
+}
+
+h1 {
+	font-weight: bold;
+	margin-bottom: 1em;
+	line-height:1.1em;
+	font-size:1.5em;
+	color:#da6b29;
+	margin:0;
+	padding-bottom:.6em;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+h2 {
+	margin: 0;
+	font-size:1.3em;
+	font-weight:bold;
+	color:#da6b29;
+	margin:0;
+	padding-bottom:.3em;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+h3 {
+
+	margin: 0;
+	font-size:1.2em;
+	font-weight:bold;
+	color:#da6b29;
+	margin:0;
+	padding-bottom:.3em;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+h1.LightHead {
+	font-weight: bold;
+	margin-bottom: 1em;
+	line-height:1.1em;
+	font-size:1.8em;
+	color:#006398;
+	margin:0;
+	padding-bottom:.8em;
+}
+h2.LightHead  {
+	margin: 0.5em 0 0.25em 0;
+	font-size:1.5em;
+	font-weight:bold;
+	color:#006398;
+	margin:0;
+	padding-bottom:.8em;
+}
+
+h3.LightHead  {
+
+	margin: 0.25em 0 0.25em 0;
+	font-size:1.2em;
+	font-weight:bold;
+	color:#006398;
+	margin:0;
+	padding-bottom:.8em;
+}
+
+p {
+	margin: 0 0 1.5em 0;
+		font-family: arial, verdana, ms sans serif;
+	font-size:12px; 
+	margin: 0px; 
+	padding-bottom:1em;
+}
+
+blockquote {
+	margin: 1em 8em;
+}
+
+address {
+	margin: 1em 0 1em 2em;
+}
+
+/*****************************/
+/***************************************END BASE STYLES
+/*****************************/
+
+body { 
+	font-family: arial, verdana, ms sans serif;
+	font-size:12px; 
+	background-color:#110c01;
+	margin:0;
+	padding:0;
+	height:100%; 
+	background-image:url(images/MainBack.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-position:top;
+	color:#402e00;
+	}
+
+
+
+.smalltext{
+font-size:.8em;
+}	
+	
+#contain {
+	width:950px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#190303;
+	overflow:auto;
+	overflow:hidden;
+	border-left:1px solid #5b77a1;
+	border-right:1px solid #5b77a1;
+	color:#ffffff;
+}
+#header {
+height:0px;
+background-image:url(images/header_becker_bg.jpg);
+border-bottom:1px solid #415966; 
+padding-top:60px;
+}
+
+#header1{
+float:left;
+width: 82px;
+display:inline;
+overflow:hidden;
+margin-left:10px;
+margin-right: 766px;
+margin-top:-70px;
+position:relative; 
+z-index:600;
+}
+
+
+#header3{
+float:left;
+width: 82px;
+display:inline;
+overflow:hidden;
+margin-top:-70px;
+position:relative; 
+z-index:600;
+
+}
+
+#main {
+
+background-repeat:repeat-x;
+background-color:#000000;
+padding-top:60px;
+padding-left:10px;
+padding-right:10px;
+}
+
+#pcol1{
+width:508px;
+float:left;
+display:inline;
+overflow:hidden;
+	
+}
+#pcol2{
+	width:422px;
+float:left;
+display:inline;
+overflow:hidden;
+}
+
+
+#footer {
+border-top:1px solid #5b77a1; 
+padding-top:5px;
+padding-bottom:5px;
+padding-left:10px;
+padding-right:10px;
+}
+#footerleft{
+
+float:left;
+width: 271px;
+display:inline;
+overflow:hidden;
+padding-right:10px;
+padding-top:10px;
+}
+#footerright{
+padding-top:3px;
+float:left;
+width: 665px;
+display:inline;
+overflow:hidden;
+padding-left:20px;
+text-align:right;
+background-image:url(images/FooterRightBack.jpg);
+margin-top:10px;
+margin-left:5px;
+height:48px;
+padding-right:10px;
+color:#ffffff;
+}
+
+
+#homecol{
+width:980px;
+border:1px solid #FF0000;
+}
+
+#homecol1{
+float:left;
+width: 240px;
+display:inline;
+overflow:hidden;
+margin-right:10px;
+
+}
+
+#homecol2{
+float:left;
+width: 482px;
+display:inline;
+overflow:hidden;
+margin-right:10px;
+
+}
+#homecol3{
+float:left;
+width: 240px;
+display:inline;
+overflow:hidden;
+
+}
+
+
+
+
+/*************************************** NAVIGATION ELEMENTS */
+#mainnav{
+padding-left:230px;
+padding-top:113px;
+}
+.navstyle{
+width: 785px;
+font-weight: bold;
+
+}
+
+.navstyle:after{ 
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden;
+}
+.navwrapper{
+border-top: 1px solid #000000;
+border-bottom: 1px solid #000000;
+height:23px;
+width: 761px;
+background-color:#2d6f92;
+background-color:#eb2d2e;
+
+}
+.navstyle ul{
+
+height:23px;
+width: 780px;
+/*background: url(images/navbg.gif) center center repeat-x; */
+padding:0;
+margin: 0;
+text-align: left;
+padding-right:-10px;
+margin-top:-1px;
+
+}
+
+.navstyle ul li{
+display: inline;
+background-position:right;
+background-repeat:no-repeat;
+margin:0px;
+padding:0px;
+padding-right:2px;
+
+
+
+}
+
+.navstyle ul li a{
+
+margin-bottom:5px;
+}
+
+.navstyle ul li a:hover, .navstyle ul li a.selected{ /*script dynamically adds a class of "selected" to the current active menu item*/
+
+background-position:center;
+background-repeat:no-repeat;
+}
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #BBB; /*THEME CHANGE HERE*/
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+background-color: #eb2d2e;
+width: 150px;
+visibility: hidden;
+margin-top:-2px;
+}
+
+
+.dropmenudiv a{
+width: auto;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid #BBB; /*THEME CHANGE HERE*/
+padding: 2px 0;
+text-decoration: none;
+font-weight: bold;
+color: black;
+}
+
+* html .dropmenudiv a{ /*IE only hack*/
+width: 100%;
+}
+
+.dropmenudiv a:hover{ 
+background-color: #F0F0F0;
+border-top: 1px solid #000000;
+border-bottom: 1px solid #000000;
+}
+
+/*************************************** END NAVIGATION ELEMENTS */
+
+
+.small_text{
+font-size:10px; 
+}
+
+
+#dltbl1 {
+width:311px;
+padding:0px;
+float:left;
+height:100%;
+padding-right:10px;
+
+		}
+
+
+#dltbl2 {
+width:330px;
+padding:0px;
+float:left;
+padding-left:10px;
+text-align:center;
+height:100%;
+
+}	
+#dltbl3 {
+width:311px;
+padding:0px;
+float:left;
+height:100%;
+
+		}
+
+
+
+img {
+vertical-align: text-bottom;
+}
+
+/* ================================================================ 
+This copyright notice must be kept untouched in the stylesheet at 
+all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.stunicholls.com/menu/pro_drop_2.html
+Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any 
+way to fit your requirements.
+=================================================================== */
+
+.preload1 {background: url(three_1.gif);}
+.preload2 {background: url(three_1a.gif);}
+
+#nav {padding:0; margin:0; list-style:none; height:38px; background:#000000 url(images/three_0.gif) repeat-x; position:relative; z-index:500; font-family:arial, verdana, sans-serif; padding-left:100px; font-size:14px; font-weight:bold;}
+#nav li.top {display:block; float:left; height:38px;}
+#nav li a.top_link {display:block; float:left; height:35px; line-height:33px; color:#ccc; text-decoration:none; font-size:14px; font-weight:bold; padding:0 0 0 12px; cursor:pointer;background: url(images/three_0.gif);font-weight:bold;}
+#nav li a.top_link span {float:left; display:block; padding:0 24px 0 12px; height:35px; background: url(images/three_0.gif) right top no-repeat;font-size:16px; font-family:Georgia, "Times New Roman", Times, serif; color:ffffff;}
+#nav li a.top_link span.down {float:left; display:block; padding:0 24px 0 12px; height:35px; background: url(images/three_0a.gif) no-repeat right top;font-size:16px; font-family:Georgia, "Times New Roman", Times, serif;color:ffffff;}
+
+#nav li:hover a.top_link {color:#fff; background: url(images/three_1.gif) no-repeat;}
+#nav li:hover a.top_link span {background:url(images/three_1.gif) no-repeat right top;}
+#nav li:hover a.top_link span.down {background:url(images/three_1a.gif) no-repeat right top;}
+
+/* Default list styling */
+
+#nav li:hover {position:relative; z-index:200;}
+
+#nav li:hover ul.sub
+{left:1px; top:38px; background: #a38140; padding:3px; border:1px solid #5c731e; white-space:nowrap; width:140px; height:auto; z-index:300;}
+#nav li:hover ul.sub li
+{display:block; height:20px; position:relative; float:left; width:140px; font-weight:normal;}
+#nav li:hover ul.sub li a
+{display:block; font-size:12px; height:18px; width:138px; line-height:18px; text-indent:5px; color:#000; text-decoration:none;border:1px solid #000000; }
+#nav li ul.sub li a.fly
+{background:#a38140 url(images/arrow.gif) 130px 6px no-repeat;}
+#nav li:hover ul.sub li a:hover 
+{background:#6a812c; color:#fff; border-color:#fff;}
+#nav li:hover ul.sub li a.fly:hover
+{background:#6a812c url(images/arrow_over.gif) 130px 6px no-repeat; color:#fff;}
+
+
+#nav li:hover li:hover ul,
+#nav li:hover li:hover li:hover ul,
+#nav li:hover li:hover li:hover li:hover ul,
+#nav li:hover li:hover li:hover li:hover li:hover ul
+{left:140px; top:-4px; background: #a38140; padding:3px; border:1px solid #5c731e; white-space:nowrap; width:140px; z-index:400; height:auto;}
+
+#nav ul, 
+#nav li:hover ul ul,
+#nav li:hover li:hover ul ul,
+#nav li:hover li:hover li:hover ul ul,
+#nav li:hover li:hover li:hover li:hover ul ul
+{position:absolute; left:-9999px; top:-9999px; width:0; height:0; margin:0; padding:0; list-style:none;}
+
+#nav li:hover li:hover a.fly,
+#nav li:hover li:hover li:hover a.fly,
+#nav li:hover li:hover li:hover li:hover a.fly,
+#nav li:hover li:hover li:hover li:hover li:hover a.fly
+{background:#6a812c url(images/arrow_over.gif) 130px 6px no-repeat; color:#fff; border-color:#000000;} 
+
+#nav li:hover li:hover li a.fly,
+#nav li:hover li:hover li:hover li a.fly,
+#nav li:hover li:hover li:hover li:hover li a.fly
+{background:#a38140 url(images/arrow.gif) 130px 6px no-repeat; color:#000; border-color:#000000;} 
+
+/*Photo Gallery for home page*/
+#simplegallery1{ //CSS for Simple Gallery Example 1
+position: relative; /*keep this intact*/
+visibility: hidden; /*keep this intact*/
+border:1px solid #5b77a1; 
+z-index:1;
+}
+
+#simplegallery1 .gallerydesctext{ //CSS for description DIV of Example 1 (if defined)
+text-align: left;
+padding: 2px 5px;
+font-size:18px;
+z-index:1;
+}
+
+/************************NEWS HOME PAGE*********************/
+#homenews{
+height:70px;
+padding-top:5px; 
+padding-bottom:5px; 
+padding-left:5px;
+width:923px; 
+border:1px solid #5b77a1; 
+margin-top:10px; 
+color:#FFFFFF;
+background-color:#180302;
+
+}
+
+/***********************PRODUCT PHOTO GALLERY***************/
+
+#container {position:relative; width:495px; height:700px; background:#000000; border:1px solid #000; font-family:verdana, arial, sans-serif; font-size:12px; padding-left:5px;}
+
+#container a.pics {float:left; padding:7px 21px; display:inline; color:#000; text-decoration:none; width:80px; height:75px; cursor:default;}
+#container a.pics img.thumb {display:block; border:1px solid #FFFFFF;}
+
+#container a.pics span {display:none; border:0; width:480px; background-color:#000000; text-align:center;}
+#container a.pics span img {margin:10px auto; border:1px solid #000000;}
+
+#container a.pics:hover {white-space:normal;}
+#container a.pics:hover img.thumb {border:1px solid #fff;}
+#container a.pics:hover span {display:block; position:absolute; left:9px; top:192px; z-index:10; height:500px;}
+
+#container a.pics:active img.thumb {border:1px solid #fc0;} 
+#container a.pics:active span {display:block; position:absolute; left:9px; top:192px; z-index:5; height:500px;}
+
+#container a.pics:focus {outline:0;}
+#container a.pics:focus img.thumb {border:1px solid #fc0}
+#container a.pics:focus span {display:block; position:absolute; left:9px; top:192px; z-index:5; outline:0; height:500px;}
+
+#container span.info {clear:left; display:block; text-align:center; line-height:20px; margin:0; padding:200px 0 0 0; width:600px; text-align:center; color:#eee; z-index:1;}
+#container span.info a {color:#000;}
+#container span.info a:hover {text-decoration:none;}
+
+/***********************PRODUCT PHOTO GALLERY***************/
+
+/*******************PUT ME ON THE MAP**********************/
+
+.map {
+    width: 710px;
+    height: 300px;
+    border: 10px solid #273035;
+    overflow: hidden;
+}
+
+.tooltip {
+    font-family: "Lucida Sans", "Lucida Sans Unicode", arial;
+    font-size: 9pt;
+    width: 170px;
+    overflow: hidden;
+}
+
+.tooltip .top{
+    background: url(images/bubble.png) no-repeat;
+    height: 5px;
+    overflow: hidden;
+}
+
+.tooltip .middle{
+    background: url(images/bg.png) repeat;
+    background-position: -173px top;
+    padding: 0px 5px;
+    color: #FFF;
+}
+
+.tooltip .middle img{
+    margin: 5px 0px;
+    clear: both;
+}
+
+.tooltip .bottom{
+    background: url(images/bubble.png) no-repeat;
+    height: 25px;
+    background-position: left bottom;
+    overflow: hidden;
+}
+
+.tooltip .IE6 {
+    background: url(images/bubble.gif) no-repeat;
+}
+
+.tooltip .BOTTOMIE6 {
+    background: url(images/bubble.gif) no-repeat left bottom;
+}
+
+.tooltip .MIDDLEIE6 {
+    background: #1A1A1A;
+}
+/*******************PUT ME ON THE MAP**********************/
+
+/***********CONTACT FORM***********************************/
+
+
+#contact p, label, legend { font: 1.5em "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif; }
+
+#contact h1 { margin: 10px 0 10px; font-size: 24px; color: #333333; }
+#contact hr { color: inherit; height: 0; margin: 6px 0 6px 0; padding: 0; border: 1px solid #d9d9d9; border-style: none none solid; }
+
+#contact { display: block; width: 650px; margin: 10px auto; padding: 15px; border: 1px solid #000000;  -webkit-border-radius:5px;  }
+
+/* Form style */
+
+#contact label { display: inline-block; float: left; height: 26px; line-height: 26px; width: 155px; font-size: 1.5em; -webkit-border-radius:5px; }
+#contact input, textarea, select { width: 280px; margin: 0; padding: 5px; color: #666; background: #f5f5f5; border: 1px solid #ccc; margin: 5px 0; font:1.5em "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif; webkit-border-radius:5px; }   
+#contact input:focus, textarea:focus, select:focus { border: 1px solid #999; background-color: #fff; color:#333; }
+#contact input.submit { width: 85px; cursor: pointer; border: 1px solid #222; background:#333; color:#fff; }
+#contact input.submit:hover { background:#444; }
+#contact input[type="submit"][disabled] { background:#888; }
+#contact fieldset { padding:20px; border:1px solid #eee; -webkit-border-radius:5px; -moz-border-radius:5px; }
+#contact legend { padding:7px 10px; font-weight:bold; color:#000; border:1px solid #eee; -webkit-border-radius:5px; -moz-border-radius:5px; margin-bottom:0 !important; margin-bottom:20px; }
+
+#contact span.required{ font-size: 13px; color: #ff0000; } /* Select the colour of the * if the field is required. */
+
+#message { margin: 10px 0; padding: 0; }
+
+.error_message { display: block; height: 22px; line-height: 22px; background: #FBE3E4 url('../assets/error.gif') no-repeat 10px center; padding: 3px 10px 3px 35px; color:#8a1f11;border: 1px solid #FBC2C4; -webkit-border-radius:5px; }
+
+.loader { padding: 0 10px; }
+
+#contact #success_page h1 { background: url('../assets/success.gif') left no-repeat; padding-left:22px; }
+
+acronym { border-bottom:1px dotted #ccc; }
+
+/***********CONTACT FORM***********************************/

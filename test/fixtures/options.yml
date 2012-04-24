@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyString
+  price: 9.99
+  feature_id: 1
+  product_id: 1
+  default: false
+  display: false
+
+two:
+  description: MyString
+  price: 9.99
+  feature_id: 1
+  product_id: 1
+  default: false
+  display: false

@@ -1,0 +1,71 @@
+<%= render 'layouts/main_navbar' %>
+
+<div id="artist_page">
+  <%= link_to 'New Artist', new_artist_path %>
+  <h1>Artists</h1>
+  <p class="artist">
+
+
+  </p>
+  
+  <h2>Order Artists for Site</h2>
+  <%= sort_artists_url %>
+  <ul id="faqs" data-update-url="<%= sort_artists_url %>">
+    <% @artists.each do |artist| %>
+      <%= content_tag_for :li, artist do %>
+        <tr id="rows">
+          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
+          <td><%= link_to artist.name, artist %></td> |
+          <td>  <%= artist.band %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <h2>Artists at a glance</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Band</th>
+      <th>Description</th>
+      <th>Website-Fb-twitter</th>
+      <th>Main Image</th>
+      <th>Photos</th>
+      <th>Videos</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @artists.each do |artist| %>
+    <tr>
+      <td><%= link_to artist.name, artist %></td>
+      <td><%= link_to 'Edit', edit_artist_path(artist) %><br />
+      <%= link_to("Delete", :action => 'delete', :id => artist.id) %></td>
+      <td><%= artist.band %></td>
+      <td><%= truncate(strip_tags(artist.description),
+            length: 50) %></td>
+            <td><%= artist.website %><br />
+            <%= truncate(artist.facebook, length: 30) %><br />
+            <%= artist.twitter %></td>
+      <% if artist.image_url.blank? %>
+        <td>need main image</td>
+      <% else %>
+        <td><%= image_tag(artist.image_url, class: 'list_image') %></td>
+      <% end %>
+      <td><%= artist.photo_url_1 %><br />
+      <%= artist.photo_url_2 %><br />
+      <%= artist.photo_url_3 %></td>
+      <td><%= truncate(artist.youtube_1, length: 20) %><br />
+      <%= truncate(artist.youtube_2, length: 20) %><br />
+      <%= truncate(artist.youtube_3, length: 20) %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Artist', new_artist_path %>
+
+
+</div> <!--page-->

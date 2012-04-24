@@ -1,0 +1,15 @@
+<h3>Becker Martin Order Received!</h3>
+<p>
+  Thank you for your recent order from Becker Martin Instruments.
+  You ordered the following items:
+</p>
+
+<table>
+  <tr><th colspan="2">Qty</th><th>Description</th></tr>
+  <%= render @order.line_items %>
+</table>
+
+<p>
+  We'll send you a separate e-mail when your order ships.
+Cheers!
+</p>

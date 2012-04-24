@@ -1,0 +1,57 @@
+<h1>
+  <%= @theme.name %> Theme
+</h1>
+
+<div id="descriptionbox">
+
+  <p>
+    <%= @theme.description %>
+  </p>
+
+</div> <!-- descriptionbox -->
+
+<div id="featurebox">
+  <h3>List of the features in a the skinny way </h3>
+  <%= render 'main/featurebox' %>
+
+
+
+</div><!-- featurebox -->
+
+<div id="body_types">
+  <h3>Available on these Body Types:</h3>
+  <h5>These should link to specific instruments ie body type and theme , but to cart?</h5>
+  <p>
+    <% @body_types.each do |b| %>
+      <p><%= b.name %></p>
+    <% end %>
+  </p>
+
+</div> <!-- page -->
+
+<div id="image-gallery">
+  <h3>Image Gallery</h3>
+  <h5>these should be arranged similar to artist page with multiple thumbs around a main</h5>
+  <% if !@theme.image_url.blank? %>
+  <p>
+    <b>Image Url:</b>
+    <%= @theme.image_url %>
+    <%= image_tag(@theme.image_url) %>
+  </p>
+  <% end %>
+  <% if !@theme.x_image_url.blank? %>
+  <p>
+    <b>X Image Url:</b>
+    <%= @theme.x_image_url %>
+    <%= image_tag(@theme.x_image_url) %>
+  </p>
+  <% end %>
+  <% if !@theme.thumb_url.blank? %>
+  <p>
+    <b>Thumbnail:</b>
+    <%= @theme.thumb_url %>
+    <%= image_tag(@theme.thumb_url) %>
+  </p>
+  <% end %>
+</div><!-- image-gallery --> 
+
