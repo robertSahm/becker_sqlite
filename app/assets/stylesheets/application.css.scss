@@ -41,7 +41,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+html, button, input, select, textarea { font-family: sans-serif; color: #999; }
 
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
@@ -757,6 +757,7 @@ display: none;
 	
 }
 
+
 .banjoIndex {
 width: 100%;
 top: 2590px;
@@ -771,6 +772,14 @@ z-index: 1998;
 	}
 }
 /* - - - - - - - - - - - - - - - */
+
+
+.handle {
+       img {
+               height : 20px;
+               width: 20px;
+       }
+}
 
 
 #frame3 {

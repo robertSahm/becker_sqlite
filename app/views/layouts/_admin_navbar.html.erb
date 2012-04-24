@@ -3,19 +3,22 @@
     <div id="admin-navbar">
       <div class="tabs">
         <ul>
-          <li class="adminButtons">
-            <p><%= link_to 'Front',     'admins' %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Artists',     artists_path %></p>
-          </li>
+
           <li class="adminButtons">
             <p><%= link_to 'Body Types',  body_types_path %></p>
           </li>
           <li class="adminButtons">
+            <p><%= link_to 'Themes', themes_path %></p>
+          </li>
+          <li class="adminButtons">
+            <p><%= link_to 'Products',  products_path %></p>
+          </li>
+          <li class="adminButtons">
             <p><%= link_to 'Features',  features_path %></p>
           </li>
-
+          <li class="adminButtons">
+            <p><%= link_to 'Options',   options_path %></p>
+          </li>
           <li class="adminButtons">
             <p><%= link_to 'Customers',  customers_path %></p>
           </li>
@@ -23,14 +26,10 @@
             <p><%= link_to 'Orders',    orders_path %></p>
           </li>
           <li class="adminButtons">
-            <p><%= link_to 'Options',   options_path %></p>
+            <p><%= link_to 'Front',     'admins' %></p>
           </li>
           <li class="adminButtons">
-            <p><%= link_to 'Products',  products_path %></p>
-          </li>
-
-          <li class="adminButtons">
-            <p><%= link_to 'Themes', themes_path %></p>
+            <p><%= link_to 'Artists',     artists_path %></p>
           </li>
           <li class="adminButtons">
             <p><%= link_to 'Admin',     admins_url %></p>
