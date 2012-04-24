@@ -34,7 +34,11 @@ Theme.create( name: "Native", finish: "Hand Rubbed Oil finish.", body: "Unaccent
 
 Theme.create( name: "Cosmic", finish: "High gloss lacquer finish", body: "Unaccented Mahogany Body", neck: "neck-through", top: "3pc. exotic wood", headstock: "matched to top", frets: "Bound figured Maple fretboard with matching position markers ", hardware: "Figured Maple pickup covers, bridge and knobs", electronics: "Active Bartoni pickups/circuit with PushButton rear access", price: 5400, display: true, image_url: "6 string mantis/gal front copy.jpg", x_image_url: "6 string mantis/gal front copy 2.jpg", thumb_url: "Thumb H/gal front copy_thumbh.jpg", body_type_ids: bt_all_array)
 
-
+theme_all_array = []
+types = Theme.all
+types.each do |t|
+  theme_all_array << t.id
+end
 
 
 
@@ -319,6 +323,14 @@ Product.create(name: 'Ghost',
     body_type_id: BodyType.find_by_name("mandolin").id,
     theme_id: Theme.find_by_name("GhostRider").id)
 
+product_all_array = []
+types = Product.all
+types.each do |t|
+  product_all_array << t.id
+end
+
+
+
 Feature.delete_all
 
 Feature.create([
@@ -368,22 +380,15 @@ options_all   = [["Body Style", "bolt on neck - solid body", 0, true, true],
                             ["Case", "Off", -100, false, true],
                              ["Insurance", "Off", 0, true, true],
                               ["Insurance", "On", 300, false, true]]
-product_list  = Product.all
-i             = product_list.count
+
 num           = options_all.count
 num.times do |n|
-  feat        = options_all[n][0]
-  feat_id     = Feature.find_by_name(feat).id
+  feature     = options_all[n][0]
+  feat_id     = Feature.find_by_name(feature).id
   descr       = options_all[n][1]
   price       = options_all[n][2]
   deflt       = options_all[n][3]
-  i.times do |i|
-    prod_id   = product_list[i].id
-    product   = product_list[i]
-    bt_id     = product.body_type_id
-    t_id      = product.theme_id
-    op_new    = Option.create(description: descr, price: price, default: deflt, display: true, feature_id: feat_id, product_id: prod_id, body_type_id: bt_id, theme_id: t_id)
-  end
+  op_new      = Option.create(description: descr, price: price, default: deflt, display: true, feature_id: feat_id, body_type_ids: bt_all_array, theme_ids: theme_all_array, product_ids: product_all_array)
 end
 
 Artist.delete_all
