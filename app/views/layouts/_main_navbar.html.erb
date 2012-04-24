@@ -1,17 +1,17 @@
 <div class="headerBackground fixed">
 	<h1 id="fittext1" class="headerText">
-		<%= link_to 'Becker/Martin Instruments', rcontroller: 'main', action: 'index' %>
+		<%= link_to 'Becker/Martin Instruments', controller: 'main', action: 'index' %>
 	</h1>
 
 		<ul id="fittext2" class="navUl">
 			<li id="guitarNavClick" class="firstLi navLi">
 				<h2>
-					<%= link_to 'GUITARS', controller: 'main', action: 'instruments', instrument: 'guitar' %>
+					<%= link_to 'GUITARS', controller: 'main', action: 'guitars', instrument: 'guitar' %>
 				</h2>
 			</li>
 			<li id="bassNavClick" class="navLi">
 				<h2>
-					<%= link_to 'BASS', controller: 'main', action: 'instruments', instrument: 'bass' %>
+					<%= link_to 'BASS', controller: 'main', action: 'basses', instrument: 'bass' %>
 				</h2>
 			</li>
 			<li id="themesNavClick" class="navLi">
@@ -22,7 +22,7 @@
 
 			<li id="customNavClick" class="navLi">
 				<h2>
-					<%= link_to "CUSTOM", controller: 'main', action: 'instruments', instrument: 'custom' %>
+					<%= link_to "CUSTOM", controller: 'main', action: 'customs', instrument: 'custom' %>
 				</h2>
 
 			<li id="artistsNavClick" class="navLi">

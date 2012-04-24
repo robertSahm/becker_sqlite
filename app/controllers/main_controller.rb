@@ -4,12 +4,22 @@ class MainController < ApplicationController
 		@products = Product.ninja_list
 	end
 
-  def instruments
+  def guitars
     @products = Product.where(type_of: params[:instrument]).order("products.position ASC")
     @type_of  = params[:instrument]
   end
   
-  def guitars
+  def basses
+    @products = Product.where(type_of: params[:instrument]).order("products.position ASC")
+    @type_of  = params[:instrument]
+  end
+  
+  def customs
+    @products = Product.where(type_of: params[:instrument]).order("products.position ASC")
+    @type_of  = params[:instrument]
+  end
+  
+  def guitar
     @product = Product.find(params[:id])
     @page_title = @product.name + " " + @product.type_of.capitalize
     @tag = TAG
@@ -71,7 +81,7 @@ class MainController < ApplicationController
     end
   end
   
-  def customs
+  def custom
     @product = Product.find(params[:id])
     @page_title = @product.name + " " + @product.type_of.capitalize
     @tag = TAG

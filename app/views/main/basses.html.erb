@@ -1,0 +1,17 @@
+<%= render 'layouts/main_navbar' %>
+<div id="page">
+  
+  
+  <h1 class="instrument">Bass</h1>
+
+    <h3>Welcome to the Becker Martin Family of Bass.</h3>
+       <p> Peruse our models.  Our website is designed so you may add custom effects to every shape and style that we offer.  All to give you the badass Bass you desire with the huge thumping low end.  If you find yourself wanting something that is not offered here, please inquire.  </p>
+       
+   		<div id="spinnerWrapper">
+   			<ul id="spinner">
+   			<% @products.each do |p| %>
+   					<p><%= p.name %></p>
+   					<li><%= link_to image_tag(p.image_url), action: "bass", id: p.id, class: "galleryImage"  %></li>
+   			<% end %> 
+   			</ul>
+   		</div>
