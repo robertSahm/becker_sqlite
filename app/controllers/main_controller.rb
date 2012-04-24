@@ -4,12 +4,14 @@ class MainController < ApplicationController
 		@products = Product.ninja_list
 	end
 
-  def basses
+
+  def guitars
     @products = Product.where(type_of: params[:instrument]).order("products.position ASC")
     @type_of  = params[:instrument]
   end
   
-  def guitars
+
+  def basses
     @products = Product.where(type_of: params[:instrument]).order("products.position ASC")
     @type_of  = params[:instrument]
   end
@@ -80,7 +82,6 @@ class MainController < ApplicationController
       format.json { render json: @product }
     end
   end
-  
 
   def custom
     @product = Product.find(params[:id])
