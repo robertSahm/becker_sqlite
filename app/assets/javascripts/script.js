@@ -11,12 +11,8 @@ $(document).ready(function() {
 	//Call parallax scrolling ability on elements
 	$('.headerImage').scrollingParallax({
 	  reverseDirection : true,
-<<<<<<< HEAD
-	  staticSpeed: .1
-=======
 	  staticSpeed: .2,
 		staticScrollLimit : false
->>>>>>> (null)
 	});
 	
 	$('#parallax1').scrollingParallax({
@@ -34,20 +30,6 @@ $(document).ready(function() {
 		staticSpeed: .04,
 		staticScrollLimit : true
 	});
-<<<<<<< HEAD
-
-
-}); //End All
-
-
-
-  
-
-
-
-
-
-=======
 		$('.banjoIndex').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: 0.6,
@@ -77,7 +59,6 @@ var scroller = new StickyScroller(".youtubeContainer",
 });
 
 */
->>>>>>> (null)
 
 
 

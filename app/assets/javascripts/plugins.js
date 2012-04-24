@@ -1871,8 +1871,6 @@ jQuery.extend(jQuery.roundaboutShapes,
 
 
 
-<<<<<<< HEAD
-=======
 /************************************************************/
 //Class GetSet
 //Purpose: Creates dynamic getters and setters
@@ -2317,7 +2315,6 @@ function StickyScroller(obj, options)
 }
 
 
->>>>>>> (null)
 
 
 
