@@ -15,7 +15,7 @@ class OptionsController < ApplicationController
 
   def index
     # @option = Option.find(params[:id])
-    @options = Option.order("options.description ASC").order("options.feature_id ASC")
+    @options = Option.order("options.feature_id ASC").order("options.price ASC")
     @body_types = BodyType.all
     @themes     = Theme.all
     @products   = Product.all
