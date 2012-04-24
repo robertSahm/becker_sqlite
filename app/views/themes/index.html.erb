@@ -1,74 +1,58 @@
-  <%= render 'layouts/main_navbar' %>
-<div id="page">
-  <p><br /></p><p><br /></p>
- <%= link_to 'New Theme', new_theme_path %>
-<div class="re_order">
-  <h2>Order Themes for the Site</h2>
-  <ul id="faqs" data-update-url="<%= sort_themes_url %>">
-    <% @themes.each do |theme| %>
-      <%= content_tag_for :li, theme do %>
-        <tr id="rows">
-          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
-          <td><%= link_to theme.name, theme %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </ul>
-</div> <!-- re_order -->
-
-
-
-
-<h2>Themes at a glance</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th>Description</th>
-    <th>Image</th>
-    <th>Finish</th>
-    <th>Body</th>
-    <th>Color</th>
-    <th>Top</th>
-    <th>Neck</th>
-    <th>Headstock</th>
-    <th>Frets</th>
-    <th>Electronics</th>
-    <th>Hardware</th>
-    <th>Price</th>
-    <th>Display</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @themes.each do |theme| %>
-  <tr>
-    <td><%= link_to theme.name, theme %></td>
-    <td><%= link_to 'Edit', edit_theme_path(theme) %><br />
-    <%= link_to("Delete", :action => 'delete', :id => theme.id) %></td>
-    <td><%= truncate(strip_tags(theme.description),
-          length: 50) %></td>
-    <% if theme.thumb_url.blank? %>
-      <td></td>
-    <% else %>
-      <td><%= image_tag(theme.thumb_url, class: 'list_image') %></td>
-    <% end %>
-    <td><%= theme.finish %></td>
-    <td><%= theme.body %></td>
-    <td><%= theme.color %></td>
-    <td><%= theme.top %></td>
-    <td><%= theme.neck %></td>
-    <td><%= theme.headstock %></td>
-    <td><%= theme.frets %></td>
-    <td><%= theme.electronics %></td>
-    <td><%= theme.hardware %></td>
-    <td><%= theme.price %></td>
-    <td><%= theme.display %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<%= render 'layouts/admin_navbar' %>
+<h2>Themes at a Glance</h2>
 
 <%= link_to 'New Theme', new_theme_path %>
+<p>Drag-able Handle</p>
+<p>Each Theme - Name link -> Edit detail of theme - photo_urls etc / 'X' delete link</p>
+<p>body types - radio list - checked when available - could show avails and have "add new body type" and it shows a list of other body types</p>
+<p>List Products that have this body type ?</p>
+<p>Body Type and Theme divs load from server - features div load via ajax at document ready</p>
+<p>Options available for each feature - checked when available for theme</p>
+<p>Body Types for each option avail show, add theme button shows unchecked list of other body types</p>
+<p>if you check a body type that is on a same option earlier it should prompt a box to alert the user</p>
+    <ul>
+      <% @themes.each do |theme| %>
+        <hr />
+        <li class="tcell">
+          <%= link_to theme.name, edit_theme_path(theme)  %> | 
+          <%= truncate(strip_tags(theme.description),
+                length: 50) %>
+          <% if theme.thumb_url.blank? %>
+          <% else %>
+            <%= image_tag(theme.thumb_url, class: 'list_image') %>
+          <% end %>
+          <%= theme.finish %> |
+          <%= theme.body %> |
+          <%= theme.color %> | 
+          <%= theme.top %> |
+          <%= theme.neck %> |
+          <%= theme.headstock %> |
+          <%= theme.frets %> |
+          <%= theme.electronics %> |
+          <%= theme.hardware %> |
+          <%= theme.price %>  |
+          <%= theme.display %> |
+          
+          
+          <%= theme.description %> | 
+          <%= theme.finish %> | 
+          <%= theme.body %>
+          <%= link_to 'X', action: 'delete', id: theme.id %></li>
+        <li class="tcell">
+          <% @body_types = theme.body_types %>
+        
+        
+          <% @body_types.each do |t| %>
+          <%= check_box_tag "theme[body_type_ids][]", t.id, @body_types.include?(t) %>
+          <%= link_to t.name, body_type_path(t) %>
+          <% end %> | 
+          <%= link_to 'Add Body Types' %>
+        </li>
+        <li class="tcell">Features Drop down link
+        <% @options   = Option.where(theme_id: theme.id).order("options.price ASC") %>
+        <%= render 'admins/cart' %></li>
+        <li class="tcell">Code to call the options for this theme in each feature</li>
+        <li class="tcell">Code to put a body type check box next to each group of options with add body type</li>
+      <% end %>
+    </ul>
 </div> <!-- page -->

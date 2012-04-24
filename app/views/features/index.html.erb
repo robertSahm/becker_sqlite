@@ -1,18 +1,48 @@
-  <%= render 'layouts/main_navbar' %>
+<%= render 'layouts/admin_navbar' %>
+<h2>Features At A Glance</h2>
 <%= link_to 'New Feature', new_feature_path %>
-<div class="re_order">
-  <h2>Order Features on site</h2>
-  <ul id="faqs" data-update-url="<%= sort_features_url %>">
-    <% @features.each do |feature| %>
-      <%= content_tag_for :li, feature do %>
-        <tr id="rows">
-          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
-          <td><%= link_to feature.name, edit_feature_path(feature) %></td>
-        </tr>
+<p>Drag-able Handle</p>
+<p>Each Body Type - Name link -> Edit detail of body type - photo_urls etc / 'X' delete link</p>
+<p>themes - radio list - checked when available - could show avails and have "add new theme" and it shows a list of other themes</p>
+<p>List Products that have this body type ?</p>
+<p>Body Type and Theme divs load from server - features div load via ajax at document ready</p>
+<p>Options available for each feature - checked when available for body type</p>
+<p>Themes for each option avail show, add theme button shows unchecked list of other themes</p>
+<p>if you check a theme that is on a same option earlier it should prompt a box to alert the user</p>
+    <ul>
+      <% @features.each do |feature| %>
+        <hr />
+        <li class="tcell">
+          <%= link_to feature.name, edit_feature_path(feature)  %> | 
+          <%= feature.description %> | 
+          <%= link_to 'X', action: 'delete', id: feature.id %></li>
+          <li class="tcell">
+            <% @body_types = BodyType.all %>
+
+
+            <% @body_types.each do |t| %>
+              <%= link_to t.name, theme_path(t) %>
+            <% end %> | 
+            <%= link_to 'Add Body Types' %>
+          </li>
+        <li class="tcell">
+          <% @themes = Theme.all %>
+        
+        
+          <% @themes.each do |t| %>
+            <%= link_to t.name, theme_path(t) %>
+          <% end %> | 
+          <%= link_to 'Add Themes' %>
+        </li>
+        <li class="tcell">Options Drop down link
+        <% @options   = Option.order("options.price ASC") %>
+        <%= render 'admins/cart' %></li>
+        <li class="tcell">Code to call the options for this body type in each feature</li>
+        <li class="tcell">Code to put a theme check box next to each group of options with add theme</li>
       <% end %>
-    <% end %>
-  </ul>
-</div> <!-- re_order -->
+    </ul>
+      
+
 
 <div class="table-admin">
   <h2>Features At A Glance</h2>
@@ -23,13 +53,21 @@
       <th>Description</th>
       <th></th>
     </tr>
-
-  <% @features.each do |feature| %>
-    <tr>
-      <td><%= link_to feature.name, edit_feature_path(feature)  %></td>
-      <td><%= feature.description %></td>
-      <td><%= link_to 'Delete', action: 'delete', id: feature.id %></td>
-    </tr>
-  <% end %>
   </table>
 </div> <!-- table-admin -->
+<%= link_to 'New Feature', new_feature_path %>
+<div class="re_order">
+  <h2>Order Features on site</h2>
+  <ul id="faqs" data-update-url="<%= sort_features_url %>">
+    <% @features.each do |feature| %>
+      <%= content_tag_for :li, feature do %>
+        <tr id="rows">
+          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
+          <td><%= link_to feature.name, edit_feature_path(feature) %></td>
+          <td><%= feature.description %></td>
+          <td><%= link_to 'Delete', action: 'delete', id: feature.id %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </ul>
+</div> <!-- re_order -->

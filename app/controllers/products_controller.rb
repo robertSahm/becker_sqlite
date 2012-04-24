@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
-    @page_title = "Products"
+    @features = Feature.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }

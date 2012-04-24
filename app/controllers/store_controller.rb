@@ -60,8 +60,8 @@ class StoreController < ApplicationController
 
   def show
     @body_type = BodyType.find(params[:body_type])
-    @theme     = Theme.find(params[:theme])
-    @options   = Option.where(body_type_id: @body_type.id, theme_id: @theme.id, display: true).order("options.feature_id ASC").order("options.price ASC")
+    @theme     = Theme.find(params[:theme]).
+    @options   = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
     @features  = cart_builder(@options)
     @cart_total = @body_type.price
   end
@@ -80,12 +80,13 @@ class StoreController < ApplicationController
       @theme     = Theme.find(params[:theme])
       @options   = Option.where(body_type_id: @body_type.id, theme_id: @theme.id, display: true).order("options.feature_id ASC").order("options.price ASC")
       @features  = cart_builder(@options)
-    end
-    
-    
-    
-    
-    
-    
+    end  
   end
+  
+  # get you have the body type and theme id's or you have the product id's
+  #  ask the options to get all the options for either of those combo's
+  # sort those options first by feature then by price ASC
+  #  remove unused features 
+  #  send @features and @options to the html.erb view
+  
 end

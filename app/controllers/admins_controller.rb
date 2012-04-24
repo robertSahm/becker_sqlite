@@ -7,5 +7,10 @@ class AdminsController < ApplicationController
   def front
     
   end
+  
+  
+  def woodshop
+    
+  end
 end
 

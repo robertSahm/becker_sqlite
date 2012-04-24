@@ -1,59 +1,39 @@
-  <%= render 'layouts/main_navbar' %>
+<%= render 'layouts/admin_navbar' %>
+<h2>Body Type at a Glance</h2>
 
-
-<div class="re_order">
-  <h2>Order Body Types for the Site</h2>
-  <ul id="faqs" data-update-url="<%= sort_body_types_url %>">
-    <% @body_types.each do |body_type| %>
-      <%= content_tag_for :li, body_type do %>
-        <tr id="rows">
-          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
-          <td><%= link_to body_type.name, edit_body_type_path(body_type)  %></td>
-        </tr>
+<%= link_to 'New Body type', new_body_type_path %>
+<p>Drag-able Handle</p>
+<p>Each Body Type - Name link -> Edit detail of body type - photo_urls etc / 'X' delete link</p>
+<p>themes - radio list - checked when available - could show avails and have "add new theme" and it shows a list of other themes</p>
+<p>List Products that have this body type ?</p>
+<p>Body Type and Theme divs load from server - features div load via ajax at document ready</p>
+<p>Options available for each feature - checked when available for body type</p>
+<p>Themes for each option avail show, add theme button shows unchecked list of other themes</p>
+<p>if you check a theme that is on a same option earlier it should prompt a box to alert the user</p>
+    <ul>
+      <% @body_types.each do |body_type| %>
+        <hr />
+        <li class="tcell">
+          <%= link_to body_type.name, edit_body_type_path(body_type)  %> | 
+          <%= body_type.description %> | 
+          <%= body_type.type_of %> | 
+          <%= body_type.price %>
+          <%= link_to 'X', action: 'delete', id: body_type.id %></li>
+        <li class="tcell">
+          <% @themes = body_type.themes %>
+        
+        
+          <% body_type.themes.each do |t| %>
+          <%= check_box_tag "body_type[theme_ids][]", t.id, body_type.themes.include?(t) %>
+          <%= link_to t.name, theme_path(t) %>
+          <% end %> | 
+          <%= link_to 'Add Themes' %>
+        </li>
+        <li class="tcell">Features Drop down link
+        <% @options   = Option.where(body_type_id: body_type.id).order("options.price ASC") %>
+        <%= render 'admins/cart' %></li>
+        <li class="tcell">Code to call the options for this body type in each feature</li>
+        <li class="tcell">Code to put a theme check box next to each group of options with add theme</li>
       <% end %>
-    <% end %>
-  </ul>
-</div> <!-- re_order -->
-
-<div class="table-admin">
-  <h2>Body Type At A Glance</h2>
-
-  <table>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>X image url</th>
-      <th>Feature</th>
-      <th>Type of</th>
-      <th>Price</th>
-      <th>Display</th>
-      <th>Themes</th>
-      <th></th>
-      <th></th>
-    </tr>
-
-  <% @body_types.each do |body_type| %>
-    <tr>
-      <td><%= link_to body_type.name, edit_body_type_path(body_type)  %></td>
-      <td><%= link_to 'Delete', action: 'delete', id: body_type.id %></td>
-      <td><%= body_type.description %></td>
-      <td><%= image_tag body_type.image_url %></td>
-      <td><%= body_type.x_image_url %></td>
-      <td><%= body_type.feature %></td>
-      <td><%= body_type.type_of %></td>
-      <td><%= body_type.price %></td>
-      <td><%= body_type.display %></td>
-      <td><% body_type.themes.each do |t| %>
-        <%= link_to t.name, theme_path(t) %><br />
-        <% end %></td>
-
-    </tr>
-  <% end %>
-  </table>
-
-  <br />
-
-    <%= link_to 'New Body type', new_body_type_path %>
-</div> <!-- table-admin -->
+    </ul>
+      
