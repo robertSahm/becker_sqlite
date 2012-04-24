@@ -11,7 +11,8 @@ $(document).ready(function() {
 	//Call parallax scrolling ability on elements
 	$('.headerImage').scrollingParallax({
 	  reverseDirection : true,
-	  staticSpeed: .1
+	  staticSpeed: .2,
+		staticScrollLimit : false
 	});
 	
 	$('#parallax1').scrollingParallax({
@@ -29,18 +30,35 @@ $(document).ready(function() {
 		staticSpeed: .04,
 		staticScrollLimit : true
 	});
-
+		$('.banjoIndex').scrollingParallax({
+		reverseDirection : false,
+		staticSpeed: 0.6,
+		staticScrollLimit : false
+});
 
 }); //End All
 
+/*
+var scroller = new StickyScroller("#frame3 h3",
+{
+    start: 2530,
+    end: 9700,
+    interval: 900,
+    range: 100,
+    margin: 1
+});
 
 
-  
+var scroller = new StickyScroller(".youtubeContainer",
+{
+	start: 3080,
+    end: 7300,
+    interval: 900,
+    range: 900,
+    margin: 153
+});
 
-
-
-
-
+*/
 
 
 

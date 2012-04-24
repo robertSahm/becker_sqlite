@@ -2,30 +2,34 @@
 
 <%= render 'layouts/main_navbar' %>
 <div id="page">
-	<div class="headerImage fixed">
-		<%= image_tag("webphotos/greenHeadstock.png") %>
-	</div> 
-	
-	<div class="welcome">
-		<h3 id="parallax1"><span class="welcomeGlow">Welcome to</span></h3>
-		<h3 id="parallax2"><span class="welcomeGlow">Becker/Martin</span></h3>
-		<h3 id="parallax3"><span class="welcomeGlow">Instruments</span></h3>
+	<div id="frame1">
+		<div class="headerImage fixed">
+			<%= image_tag("webphotos/greenHeadstock.png") %>
+		</div> 
+		<div class="welcome">
+			<h3 id="parallax1"><span class="welcomeGlow">Welcome to</span></h3>
+			<h3 id="parallax2"><span class="welcomeGlow">Becker/Martin</span></h3>
+			<h3 id="parallax3"><span class="welcomeGlow">Instruments</span></h3>
+		</div>
 	</div>
-	
 	<div id="frame2">
+		<div class="frame2Line"></div>
+
 		<div class="frame2Text">
 			<h3>
 				Instruments
 			</h3>
 			<p2 class="instrumentsText">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet. Duis tortor eros, ultricies sit amet interdum non, venenatis nec nisl. Curabitur egestas, nibh ut ultricies placerat, purus nibh bibendum nisi, et luctus ipsum est id mi. Nulla semper turpis ut nunc iaculis pharetra nec ut sapien.
+
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet. Duis tortor eros, ultricies sit amet interdum non, venenatis nec nisl. Curabitur egestas, nibh ut ultricies placerat, purus nibh bibendum nisi, et luctus ipsum est id mi. Nulla semper turpis ut nunc iaculis pharetra nec ut sapien.
+
 			</p2>
 			<br />
 			<br />			
 			<div class="bigQuoteOpen"><p5>&ldquo;</p5></div>
 					<p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p1>
 			<div class="bigQuoteClose"><p5>&rdquo;</p5></div>
-			
+		</div>	
 			<div id="spinnerIndexWrapper">
 				<ul id="spinnerIndex">
 					<% @products.each do |p| %>
@@ -33,7 +37,52 @@
 					<% end %> 
 				</ul>
 			</div>
-		</div>
+			<div class="banjoIndex">
+				<%= image_tag("webphotos/banjo1.jpg") %>
+			</div>
+	</div> <!-- Frame 2-->
+	<div id="frame3">
+		<div class="aboutContainer">
+			<div class="aboutText">
+				<h3>
+					History
+				</h3>
+				<p2 class="aboutTextArticle">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet. Duis tortor eros, ultricies sit amet interdum non, venenatis nec nisl. Curabitur egestas, nibh ut ultricies placerat, purus nibh bibendum nisi, et luctus ipsum est id mi. Nulla semper turpis ut nunc iaculis pharetra nec ut sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet. Duis tortor eros, ultricies sit amet interdum non, venenatis nec nisl. Curabitur egestas, nibh ut ultricies placerat, purus nibh bibendum nisi, et luctus ipsum est id mi. Nulla semper turpis ut nunc iaculis pharetra nec ut sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet. Duis tortor eros, ultricies sit amet interdum non, venenatis nec nisl. Curabitur egestas, nibh ut ultricies placerat, purus nibh bibendum nisi, et luctus ipsum est id mi. Nulla semper turpis ut nunc iaculis pharetra nec ut sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet. Duis tortor eros, ultricies sit amet interdum non, venenatis nec nisl. Curabitur egestas, nibh ut ultricies placerat, purus nibh bibendum nisi, et luctus ipsum est id mi. Nulla semper turpis ut nunc iaculis pharetra nec ut sapien.
+				</p2>
+			</div>
+				<iframe 
+					width="400" height="233"  
+					src="http://www.youtube.com/embed/KO7YehUro38" 
+					frameborder="0" 
+					allowfullscreen>
+				</iframe>
+				<%= image_tag("webphotos/castlewave.jpg", :class=>'shop') %>
+			</div>
+				
+			<div class="shopImage">
+				
+			</div>
+	</div> <!-- Frame 3-->
+	<div id="frame4">
+		<%= image_tag("webphotos/guy1.jpg",:class=>'guy') %>
+		<%= image_tag("webphotos/shop1.jpg",:class=>'shop') %>
+		<h3 class="other">
+			Other
+		</h3>
+		<h3 class="repairs">
+			Repairs, etc.
+		</h3>
+		<h3 class="skillz">
+			Got skillz to pay tha billz...
+		</h3>
+		
+		<h3 class="money">
+				&#36;
+		</h3>
+		<h3 class="fin">
+				Fin.
+		</h3>
 	</div>
 	
 	
