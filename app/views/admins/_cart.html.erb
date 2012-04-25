@@ -4,16 +4,24 @@
         <h3 id="feature" value="1000"><%= feature.name %></h3>
         <% feature.name.gsub!(" ", "-") %>
         <% @options.each do |option| %>
-        <% if feature.id == option.feature_id && option.display %>
+        <% if feature.id == option.feature_id  %>
             <div class="option <%= feature.name.downcase %>">
                 <% option_value = number_with_precision(option.price, :precision => 0) %>
+
+                <span>Default </span>
                 <% if option.default %>
-                  <input name="option.<%= feature.name %>" type="checkbox" checked="checked" value="<%= option_value %>">
+                  <input name="radio.<%= feature.name.downcase %>" type="radio" checked="checked" />
+                <% else %>
+                  <input name="radio.<%= feature.name.downcase %>" type="radio" />
+                <% end %>
+                <span>Display </span>
+                <% if option.display %>
+                  <input name="option.<%= feature.name %>" type="checkbox" checked="checked" value="<%= option_value %>" />
                 <% else %>
                   <input name="option.<%= feature.name %>" type="checkbox" value="<%= option_value %>"/>
                 <% end %>
                 <p3><%= option.description %></p3>
-                
+                
                 <% if option.price > 0 %>
                   <span class="price-delta">[Add $<%= option_value %>]</span>
                 <% elsif option.price < 0 %>
@@ -22,8 +30,8 @@
                 <% else %>
                   <span class="price-delta"></span>
                 <% end %>
-                <%= option.display %>
-                <%= option.price %>
+
+
             </div>
         <% end %>
         <% end %>

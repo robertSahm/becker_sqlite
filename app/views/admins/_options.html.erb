@@ -1,10 +1,15 @@
 <fieldset>
   <% feature = feature %>
     <% @options.each do |option| %>
-    <% if feature.id == option.feature_id && option.display %>
+    <% if feature.id == option.feature_id  %>
         <div class="option <%= feature.name.downcase %>">
             <% option_value = number_with_precision(option.price, :precision => 0) %>
             <% if option.default %>
+              <input name="option.<%= feature.name %>" type="checkbox" checked="checked" value="<%= option_value %>">
+            <% else %>
+              <input name="option.<%= feature.name %>" type="checkbox" value="<%= option_value %>"/>
+            <% end %>
+            <% if option.display %>
               <input name="option.<%= feature.name %>" type="checkbox" checked="checked" value="<%= option_value %>">
             <% else %>
               <input name="option.<%= feature.name %>" type="checkbox" value="<%= option_value %>"/>
@@ -19,8 +24,6 @@
             <% else %>
               <span class="price-delta"></span>
             <% end %>
-            <%= option.display %>
-            <%= option.price %>
         </div>
     <% end %>
     <% end %>
