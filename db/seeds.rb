@@ -1,17 +1,17 @@
 BodyType.delete_all
 
-BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/Banjo.jpg", type_of: "custom" },
-  {name: "castlewave", image_url: "Model Silhoutte/Castlewave.jpg", type_of: "guitar" },
-  {name: "dark horse", image_url: "Model Silhoutte/Dark Horse.jpg", type_of: "guitar" },
-  {name: "hornet", image_url: "Model Silhoutte/Hornet.jpg", type_of: "guitar" },
-  {name: "imperial", image_url: "Model Silhoutte/Imperial.jpg", type_of: "guitar" },
-  {name: "mandolin", image_url: "Model Silhoutte/Mandolin.jpg", type_of: "custom" },
-  {name: "mantis", image_url: "Model Silhoutte/Mantis.jpg", type_of: "bass" },
-  {name: "mistress", image_url: "Model Silhoutte/Mistress.jpg", type_of: "guitar" },
-  {name: "roller", image_url: "Model Silhoutte/Roller.jpg", type_of: "guitar" },
-  {name: "twiggler", image_url: "Model Silhoutte/Twiggler.jpg", type_of: "bass" },
-  {name: "waterfall", image_url: "Model Silhoutte/Waterfall.jpg", type_of: "bass" },
-  {name: "custom", type_of: "custom"} ])
+BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/Banjo.jpg", type_of: "custom", price: 1800 },
+  {name: "castlewave", image_url: "Model Silhoutte/Castlewave.jpg", type_of: "guitar", price: 1800 },
+  {name: "dark horse", image_url: "Model Silhoutte/Dark Horse.jpg", type_of: "guitar", price: 1800 },
+  {name: "hornet", image_url: "Model Silhoutte/Hornet.jpg", type_of: "guitar", price: 1800 },
+  {name: "imperial", image_url: "Model Silhoutte/Imperial.jpg", type_of: "guitar", price: 1800 },
+  {name: "mandolin", image_url: "Model Silhoutte/Mandolin.jpg", type_of: "custom", price: 1800 },
+  {name: "mantis", image_url: "Model Silhoutte/Mantis.jpg", type_of: "bass", price: 1800 },
+  {name: "mistress", image_url: "Model Silhoutte/Mistress.jpg", type_of: "guitar", price: 1800 },
+  {name: "roller", image_url: "Model Silhoutte/Roller.jpg", type_of: "guitar", price: 1800 },
+  {name: "twiggler", image_url: "Model Silhoutte/Twiggler.jpg", type_of: "bass", price: 1800 },
+  {name: "waterfall", image_url: "Model Silhoutte/Waterfall.jpg", type_of: "bass", price: 1800 },
+  {name: "custom", type_of: "custom", price: 1800} ])
 
 bt_all_array = []
 types = BodyType.all

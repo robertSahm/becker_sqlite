@@ -6,3 +6,5 @@
   <p><%= link_to 'Users',     users_path %></p>
 It's <%= Time.now.to_formatted_s(:custom) %><br />
 We have <%= pluralize(@total_orders, "order") %>.
+
+<%= render 'layouts/login' %>

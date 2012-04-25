@@ -21,7 +21,8 @@
     <% end %>
     Theme
   </div>
-  <%= button_to 'Add to Cart', line_items_path(product_id: @product), remote: true %>
+
   <%= render 'layouts/cart_sidebar' %>
-  <%= render 'cart' %>
+  <%= button_to 'Add to Cart', line_items_path(product_id: @product), remote: true %>
+  <%= render 'features' %>
 </div> <!-- page -->

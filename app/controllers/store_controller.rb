@@ -73,10 +73,11 @@ class StoreController < ApplicationController
 
   def show
     @body_type = BodyType.find(params[:body_type]) if params[:body_type]
+
     @theme     = Theme.find(params[:theme]) if params[:theme]
+    @cart_price = @body_type.price + @theme.price    
     @options   = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
     @features  = cart_builder(@options)
-    @cart_total = 2000
   end
   
   def cart_builder(options)

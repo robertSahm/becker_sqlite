@@ -1,15 +1,17 @@
 <% if line_item == @current_item %>
-  <tr id="current_item">
+  <ul id="current_item" class="line_item">
 <% else %>
-  <tr>
+  <ul class="line_item">
 <% end %>
-    <td><b><%= line_item.quantity %></b></td>
-    <td><%= button_to '^', increment_line_item_path(line_item), method: :put, remote: true %></td>
-    <td><%= button_to 'v', decrement_line_item_path(line_item), method: :put, remote: true %></td>
-    <td><b><%= line_item.product.name %></b></td>
-    <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
-    <td><%= button_to 'Remove', line_item,
-                    confirm: "Are you sure ?", 
+    <li><%= line_item.quantity %></li>
+    <li><%= line_item.inspect %>
+    <li><%= button_to '^', increment_line_item_path(line_item), method: :put, remote: true %></li>
+    <li><%= button_to 'v', decrement_line_item_path(line_item), method: :put, remote: true %></li>
+    <li><%= line_item.product.name %></li>
+    <li class="item_price"><%= number_to_currency(line_item.total_price) %></li>
+  </ul>
+    <div class="delete-button"><%= button_to 'Remove Item', line_item, 
                     method:  :delete,
-                    remote: true %></td>
-  </tr>
+                    remote: true,
+                    confirm: "Does this ever happen?" %></div>
+

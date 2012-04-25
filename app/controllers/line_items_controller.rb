@@ -11,7 +11,7 @@ class LineItemsController < ApplicationController
   end
 
   def show
-    @line_item = LineItem.find(params[:id])
+    @line_item = LineItem.find(params[:product_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,12 +29,21 @@ class LineItemsController < ApplicationController
   end
 
   def edit
-    @line_item = LineItem.find(params[:id])
+    @line_item = LineItem.find(params[:product_id])
   end
 
   def create
     @cart = current_cart
-    product = Product.find(params[:product_id])
+    if params[:product_id].nil?
+      # work around
+      # save a product with the body_type and theme and the options
+      # display: false
+      # then create that product in the line items here
+      product = Product.first
+      # work around
+    else
+      product = Product.find(params[:product_id])
+    end
     @line_item = @cart.add_product(product.id, product.price)
 
     respond_to do |format|
@@ -62,13 +71,26 @@ class LineItemsController < ApplicationController
       end
     end
   end
+  
+  def increment_line_item_path(line_item)
+    @line_item = LineItem.find(params[:id])
+    @line_item.quantity += 1
+    update(@line_item)
+  end
+  
+  def decrement_line_item_path(line_item)
+    @line_item = LineItem.find(params[:id])
+    @line_item.quantity -= 1
+    update(@line_item)
+  end
 
   def destroy
      @line_item = LineItem.find(params[:id])
+     @html_words = "<strong> this is working </strong>"
      @line_item.destroy
 
      respond_to do |format|
-       format.html { redirect_to(store_url) }
+       format.html { redirect_to store_url }
        format.js
        format.xml  { head :ok }
      end
