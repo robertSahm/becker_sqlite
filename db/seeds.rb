@@ -11,7 +11,7 @@ BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/Banjo.jpg", type_o
   {name: "roller", image_url: "Model Silhoutte/Roller.jpg", type_of: "guitar", price: 1500 },
   {name: "twiggler", image_url: "Model Silhoutte/Twiggler.jpg", type_of: "bass", price: 1600 },
   {name: "waterfall", image_url: "Model Silhoutte/Waterfall.jpg", type_of: "bass", price: 2000 },
-  {name: "custom", type_of: "custom", price: 1800} ])
+  {name: "custom", image_url: "Thumb H/Lap Steel 1_thumbh.jpg", type_of: "custom", price: 1800} ])
 
 bt_all_array = []
 types = BodyType.all
