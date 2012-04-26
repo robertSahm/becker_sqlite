@@ -44,7 +44,7 @@ class LineItemsController < ApplicationController
     else
       product = Product.find(params[:product_id])
     end
-    @line_item = @cart.add_product(product.id, product.price)
+    @line_item = @cart.add_product(product.id, product.price)   # defined in cart.rb model
 
     respond_to do |format|
       if @line_item.save
