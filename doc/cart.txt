@@ -14,3 +14,7 @@ body_type + themes + features + options  -> product
 product -> line_item
 cart -> order    through:  line_item + line_item -> cart
 order line_item-> instrument
+
+click add to cart 
+brings you to your cart page with the product in a line item in the page
+
