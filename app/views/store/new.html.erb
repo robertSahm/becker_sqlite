@@ -1,12 +1,13 @@
   <%= render 'layouts/main_navbar' %>
 <div id="store-page">
-    <div class="tabs">
-      <h1 class="instrument">Custom Build an Instrument</h1>
-      <ul>
-        <li><%= link_to ("Guitars"),  action: 'new', instrument: 'guitar' %></li>
-        <li><%= link_to ("Bass"),     action: 'new', instrument: 'bass' %></li>
-        <li><%= link_to ("Custom Instruments"), action: 'new', instrument: 'custom' %></li>
-        <li><%= link_to ("All"), action: 'new' %></li>
+  
+    <div class="tabs step1Wrapper">
+      <h1 class="storeHeader">Custom Build an Instrument</h1>
+      <ul class="instrumentStart">
+        <li class="guitarClick1"><%= link_to ("Guitar"),  action: 'new', instrument: 'guitar' %></li>
+        <li class="bassClick1"><%= link_to ("Bass"),     action: 'new', instrument: 'bass' %></li>
+        <li class="customClick1"><%= link_to ("Custom Instruments"), action: 'new', instrument: 'custom' %></li>
+        <li class="allClick1"><%= link_to ("All"), action: 'new' %></li>
       </ul>
     </div> <!-- tabs --> 
 
