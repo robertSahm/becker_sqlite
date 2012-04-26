@@ -53,10 +53,12 @@ class StoreController < ApplicationController
 
   
   def build
-    @product  = Product.find(params[:id])
-    @prod     = product_hash
-    @options  = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
-    @features = cart_builder(@options)
+    @product   = Product.find(params[:id])
+    @prod      = product_hash
+    @options   = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
+    @features  = cart_builder(@options)
+    @body_type = BodyType.find(@product.body_type_id)
+    @theme     = Theme.find(@product.theme_id)
   end
   
   def edit

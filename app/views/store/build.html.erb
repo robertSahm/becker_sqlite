@@ -3,28 +3,8 @@
   <div id="title-banner"><h1><%= @product.name %> <%= @product.type_of.capitalize %>
   </h1>
   </div><!-- title-banner -->
-  <div class="closed_box">
-    You have chosen the 
-    <% if @product.body_type_id %>
-      <% b = BodyType.find(@product.body_type_id) %> 
-      <%= b.name.capitalize %>
-      <% @body_type = b %>
-    <% else %>
-      <%= @product.name.capitalize %>
-    <% end %>
-    <%= @product.type_of.capitalize %>
-  </div>
-  <div class="closed_box">
-    You have chosen the
-   <% if @product.theme_id %>
-     <% t = Theme.find(@product.theme_id) %>
-     <%= t.name.capitalize %>
-     <% @theme = t %>
-    <% end %>
-    Theme
-  </div>
 
     <%= render 'cart_sidebar2' %>
-  <%= render 'build_type', :locals => { body_type: b , theme: t} %>
+  <%= render 'build_type'%>
   <%= render 'features' %>
 </div> <!-- page -->
