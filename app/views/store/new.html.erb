@@ -4,7 +4,7 @@
       <h1 class="instrument">Custom Build an Instrument</h1>
       <ul>
         <li><%= link_to 'Guitar',{ controller: 'store', action: 'new'}, {href: '#', :id => "storeClick" }%></li>
-        <li><%= link_to "Bass",     action: 'new', instrument: 'bass' %></li>
+        <li><%= link_to "Bass",   {  action: 'new', instrument: 'bass'}, {href: '#', :id => "storeClick" } %></li>
         <li><%= link_to "Custom Instruments", {action: 'new', instrument: 'custom'},{href: '#', :id => "storeClick" } %></li>
         <li><%= link_to "All", action: 'new' %></li>
       </ul>
