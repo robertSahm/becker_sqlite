@@ -8,6 +8,7 @@
     <% if @product.body_type_id %>
       <% b = BodyType.find(@product.body_type_id) %> 
       <%= b.name.capitalize %>
+      <% @body_type = b %>
     <% else %>
       <%= @product.name.capitalize %>
     <% end %>
@@ -18,11 +19,12 @@
    <% if @product.theme_id %>
      <% t = Theme.find(@product.theme_id) %>
      <%= t.name.capitalize %>
+     <% @theme = t %>
     <% end %>
     Theme
   </div>
 
-  <%= render 'layouts/cart_sidebar' %>
-  <%= button_to 'Add to Cart', line_items_path(product_id: @product), remote: true %>
+    <%= render 'cart_sidebar2' %>
+  <%= render 'build_type', :locals => { body_type: b , theme: t} %>
   <%= render 'features' %>
 </div> <!-- page -->
