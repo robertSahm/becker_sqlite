@@ -81,7 +81,7 @@
           <tr>
             <td><%= option.description %></td>
             <td><%= number_with_precision(option.price, :precision => 0) %></td>
-            <td><%= @feat[option.feature_id] %></td>
+            <td><%= Feature.find(option.feature_id).name %></td>
             <td><%= option.default %></td>
             <td><%= option.display %></td>
           </tr>

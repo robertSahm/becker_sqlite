@@ -33,14 +33,14 @@ class LineItemsController < ApplicationController
   end
 
   def create
-    @cart = current_cart
+    @cart = current_cart          #defined in application controller
     if params[:product_id].nil?
-      # work around
+      # !! work around
       # save a product with the body_type and theme and the options
       # display: false
       # then create that product in the line items here
       product = Product.first
-      # work around
+      # work around !!
     else
       product = Product.find(params[:product_id])
     end

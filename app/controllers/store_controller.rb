@@ -53,12 +53,13 @@ class StoreController < ApplicationController
 
   
   def build
-    @product   = Product.find(params[:id])
-    @prod      = product_hash
-    @options   = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
-    @features  = cart_builder(@options)
-    @body_type = BodyType.find(@product.body_type_id)
-    @theme     = Theme.find(@product.theme_id)
+    @product    = Product.find(params[:id])
+    @prod       = product_hash
+    @options    = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
+    @features   = cart_builder(@options)
+    @body_type  = BodyType.find(@product.body_type_id)
+    @theme      = Theme.find(@product.theme_id)
+    @cart_price = @body_type.price + @theme.price  
   end
   
   def edit
@@ -74,12 +75,11 @@ class StoreController < ApplicationController
   end
 
   def show
-    @body_type = BodyType.find(params[:body_type]) if params[:body_type]
-
-    @theme     = Theme.find(params[:theme]) if params[:theme]
+    @body_type  = BodyType.find(params[:body_type]) if params[:body_type]
+    @theme      = Theme.find(params[:theme]) if params[:theme]
     @cart_price = @body_type.price + @theme.price    
-    @options   = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
-    @features  = cart_builder(@options)
+    @options    = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
+    @features   = cart_builder(@options)
   end
   
   def cart_builder(options)
