@@ -1,57 +1,42 @@
-var headerImage = $('.headerImage');
-var parallax1 = $('#parallax1');
-var parallax2 = $('#parallax2');
-var parallax3 = $('#parallax3');
-var banjoIndex = $('.banjoIndex');
+
+
+
+
 
 $(document).ready(function() {
   //call image rotator
 	$('#spinnerIndex').roundabout({
 		shape: 'lazySusan'
-	});
+		});
 	//Call parallax scrolling ability on elements
-	$(headerImage).scrollingParallax({
-	    reverseDirection : true,
-	    staticSpeed: .2,
+	$('.headerImage').scrollingParallax({
+	  reverseDirection : true,
+	  staticSpeed: .2,
 		staticScrollLimit : false
 	});
 	
-	$(parallax1).scrollingParallax({
+	$('#parallax1').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .06,
 		staticScrollLimit : true
 	});
-	$(parallax2).scrollingParallax({
+		$('#parallax2').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .05,
 		staticScrollLimit : true
 	});
-	$(parallax3).scrollingParallax({
+		$('#parallax3').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .04,
 		staticScrollLimit : true
 	});
-	$(banjoIndex).scrollingParallax({
+		$('.banjoIndex').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: 0.6,
 		staticScrollLimit : false
-	});
 });
 
-var header = $(".headerBackground")
-
-//Store
-$(document).ready(function() {
-	$(".loop").hide();
-	$(header).animate({
-		top: '-=100',
-	}, 3000);
-});
-
-
-
-
- //End All
+}); //End All
 
 /*
 var scroller = new StickyScroller("#frame3 h3",
