@@ -3,10 +3,10 @@
     <div class="tabs">
       <h1 class="instrument">Custom Build an Instrument</h1>
       <ul>
-        <li><%= link_to ("Guitars"),  action: 'new', instrument: 'guitar' %></li>
-        <li><%= link_to ("Bass"),     action: 'new', instrument: 'bass' %></li>
-        <li><%= link_to ("Custom Instruments"), action: 'new', instrument: 'custom' %></li>
-        <li><%= link_to ("All"), action: 'new' %></li>
+        <li><%= link_to 'Guitar',{ controller: 'store', action: 'new'}, {href: '#', :id => "storeClick" }%></li>
+        <li><%= link_to "Bass",     action: 'new', instrument: 'bass' %></li>
+        <li><%= link_to "Custom Instruments", {action: 'new', instrument: 'custom'},{href: '#', :id => "storeClick" } %></li>
+        <li><%= link_to "All", action: 'new' %></li>
       </ul>
     </div> <!-- tabs --> 
 
