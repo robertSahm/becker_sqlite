@@ -16,8 +16,8 @@ div#store-page a {
 	position: relative;
 	width: 100%;
 	height: auto;
-	top: 27px;
-	padding-top: 15px;
+	top: 0px;
+	padding: 0;
 		h, h1, h2, h3 {
 			font: {
 				family: 'MenschMenschRegular';
@@ -37,6 +37,15 @@ div#store-page a {
 	}
 	.tabs {
 		margin-left: 20px;
+		h2 {
+			font-size: 1.3em;
+			color: white;
+			top: 5px;
+			padding: 18px 0 2px 5px;
+		}
+		h2.chooseInstrument {
+			margin-top: 20px;
+		}
 		h1 {
 			color: 
 				darken($darkBlue, 0%);
@@ -46,7 +55,7 @@ div#store-page a {
 			}
 		}
 		ul {
-			margin: 20px 0 0 0;
+			margin: 40px 0 0 5px;
 			padding: 0;
 			li {
 				display: vertical;
@@ -59,9 +68,10 @@ div#store-page a {
 						size: 3em;
 					}
 					line-height: .5em;
+					color: $darkBlue;
 				}
 				a:hover {
-					color: $lightBlue;
+					color: $red;
 				}
 			}
 		}

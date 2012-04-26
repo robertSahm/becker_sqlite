@@ -4,6 +4,8 @@ var parallax2 = $('#parallax2');
 var parallax3 = $('#parallax3');
 var banjoIndex = $('.banjoIndex');
 
+var header = $(".headerBackground")
+
 $(document).ready(function() {
   //call image rotator
 	$('#spinnerIndex').roundabout({
@@ -36,24 +38,29 @@ $(document).ready(function() {
 		staticSpeed: 0.6,
 		staticScrollLimit : false
 	});
+
+	//Store Animations
+	$(".showcaseGuitar, .showcaseBass, .showcaseCustom").hide();
+
+ 
+	$('.guitarClick1 a').click(function() {
+		$('li.bassClick1 a, li.customClick1 a, li.allClick1 a').fadeOut(500);
+		$('.showcaseGuitar').delay(500).fadeIn(500);
+	});
 });
 
-var header = $(".headerBackground")
 
 //Store
-$(document).ready(function() {
-	$(".loop").hide();
-	$(header).animate({
-		top: '-=100',
-	}, 3000);
-});
 
 
 
 
- //End All
+
 
 /*
+ //End All
+
+
 var scroller = new StickyScroller("#frame3 h3",
 {
     start: 2530,

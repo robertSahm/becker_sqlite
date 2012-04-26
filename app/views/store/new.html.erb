@@ -1,23 +1,33 @@
-  <%= render 'layouts/main_navbar' %>
+<%= render 'layouts/main_navbar' %>
 <div id="store-page">
-  
     <div class="tabs step1Wrapper">
+      <h2 class="storeHeader">Home > Store</h2>
       <h1 class="storeHeader">Custom Build an Instrument</h1>
+      <h2 class="chooseInstrument">Step 1: Choose an instrument</h2>
       <ul class="instrumentStart">
-        <li class="guitarClick1"><%= link_to ("Guitar"),  action: 'new', instrument: 'guitar' %></li>
-        <li class="bassClick1"><%= link_to ("Bass"),     action: 'new', instrument: 'bass' %></li>
-        <li class="customClick1"><%= link_to ("Custom Instruments"), action: 'new', instrument: 'custom' %></li>
-        <li class="allClick1"><%= link_to ("All"), action: 'new' %></li>
+        <li class="guitarClick1">
+          <%= link_to ("-Guitar"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+        </li>
+        <li class="bassClick1">
+          <%= link_to ("-Bass"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+        </li>
+        <li class="customClick1">
+          <%= link_to ("-Custom Instrument"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+        </li>
+        <li class="allClick1">
+          <%= link_to ("-All"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+        </li>
       </ul>
     </div> <!-- tabs --> 
 
+
     <div class="loop">
       <% @type_of.each do |t| %>
-        <div class="showcase">
+        <div class="showcase<%= t.capitalize %>">
           <h2> Choose a <%= t.capitalize %> Body Style </h2>
           <% @products.each do |p| %>
             <% if p.type_of == t %>
-              <div id="listbox">
+              <div class="spinner">
                 <p><%= p.name %></p>
                 <%= link_to image_tag(p.image_url), action: "themes", id: p.id  %>
               </div>
@@ -28,6 +38,14 @@
     </div> <!-- loop -->
 
 </div> <!-- store-page -->
-  
-  
-  
+
+
+<script>
+
+$(document).ready(function() {
+  $(header).animate({
+    top: '-=109',
+  }, 2500);
+});
+
+</script>
