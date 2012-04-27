@@ -22,7 +22,7 @@
         <li class="tcell">
           <%= link_to product.name, edit_product_path(product)  %></li>
         <li class="tcell">  
-          <%= product.description %> | 
+          <%= raw(product.description) %> | 
           <%= product.type_of %> | 
           <%= product.price %>
           <%= link_to 'X', action: 'delete', id: product.id %></li>
