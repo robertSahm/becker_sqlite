@@ -25,17 +25,20 @@
       <% @type_of.each do |t| %>
         <div class="showcase<%= t.capitalize %>">
           <h2> Choose a <%= t.capitalize %> Body Style </h2>
+
           <div class="spinner">
-          <% @products.each do |p| %>
+          <% @body_types.each do |p| %>
           <% if p.type_of == t %>
             <%  spinner = "spinner#{t.capitalize}" %>
               <%= render spinner, p: p %>
               <% end %>
             <% end %> 
           </div> 
+
         </div> <!-- showcase -->
       <% end %>
     </div> <!-- loop -->
+  </div> <!-- jonBumper -->
 
 </div> <!-- store-page -->
 

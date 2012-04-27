@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     @page_title = "Product Show Detail"
     @feat = feature_hash
     @prod = product_hash
-    @options = Option.where(product_id: @product.id).order("options.feature_id ASC").order("options.price ASC")
+    @options = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @page_title = "Product New"
+    @options = Option.order("options.feature_id ASC").order("options.price ASC")
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
@@ -43,7 +44,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @feat = feature_hash
     @prod = product_hash
-    @options = Option.where(product_id: @product.id).order("options.feature_id ASC").order("options.price ASC")
+    @options = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
   end
 
   def create

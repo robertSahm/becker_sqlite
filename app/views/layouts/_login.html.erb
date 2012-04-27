@@ -1,0 +1,7 @@
+<% if session[:user_id] %>
+  <%= button_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <% if controller.controller_name != 'sessions' %>
+    <%= button_to "Login", login_path, method: :get %>
+  <% end %>
+<% end %>
