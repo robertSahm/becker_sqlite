@@ -165,7 +165,7 @@ Product.create(name: 'Darkhorse',
         - 24.625" scale length\
         -Finished in high gloss \
     </p>},
-    image_url: 'DarkHorse/Dark Horse 1.jpg',
+    image_url: 'webphotos/darkhorse.png',
     price: 5299.00,
     type_of: 'guitar',
     feature: 'all',
