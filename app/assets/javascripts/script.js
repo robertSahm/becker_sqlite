@@ -1,3 +1,4 @@
+
 var headerImage = $('.headerImage');
 var parallax1 = $('#parallax1');
 var parallax2 = $('#parallax2');
@@ -21,32 +22,34 @@ $(document).ready(function() {
 		easing: "swing",
 
 	});
+
 	//Call parallax scrolling ability on elements
-	$(headerImage).scrollingParallax({
-	    reverseDirection : true,
-	    staticSpeed: .2,
+	$('.headerImage').scrollingParallax({
+	  reverseDirection : true,
+	  staticSpeed: .2,
 		staticScrollLimit : false
 	});
 	
-	$(parallax1).scrollingParallax({
+	$('#parallax1').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .06,
 		staticScrollLimit : true
 	});
-	$(parallax2).scrollingParallax({
+		$('#parallax2').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .05,
 		staticScrollLimit : true
 	});
-	$(parallax3).scrollingParallax({
+		$('#parallax3').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .04,
 		staticScrollLimit : true
 	});
-	$(banjoIndex).scrollingParallax({
+		$('.banjoIndex').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: 0.6,
 		staticScrollLimit : false
+
 	});
 	$(shopImage).scrollingParallax({
 		reverseDirection : true,
@@ -69,9 +72,6 @@ $(document).ready(function() {
 
 
 //Store
-
-
-
 
 
 

@@ -1,8 +1,9 @@
-
-<div class="cart-title">Your Cart</div>
+<div id="cartHolder">
+<div id="cart">
+<h2 class="cart-title">Your Cart</h2>
 <table>
   
-  <%= render(cart.line_items) %>
+  <%= render cart.line_items %>
   
   <tr class="total_line">
     <td colspan="4">Total</td>
@@ -10,8 +11,10 @@
   </tr>
 </table>
 <% if (@order.nil?) %>
-  <%= button_to 'Checkout', new_order_path, method: :get  %>
+  <%= button_to 'Check Out Now', new_order_path, method: :get, id: cart.id  %>
 <% end %>
-<%= button_to 'Empty cart', cart, method: :delete, remote: true,
-    confirm: 'Are you sure want to empty the cart?' %>
+</div><!-- cart -->
+</div><!-- cartHolder -->
+
+
 

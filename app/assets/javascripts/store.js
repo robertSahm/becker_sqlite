@@ -1,4 +1,9 @@
 $(function() {
+	var body_type_price = parseInt($('#body_type').attr("value"));
+	var theme_price = parseInt($('#theme').attr("value"));
+	var base_price = theme_price + body_type_price;
+	calcCartPrice(base_price);
+	
 	$('div input').change(function() {
 	  	var options = $(this).parent().parent().children(":not(h3)");
 		var text_to_cart = $(this).parent().text();
@@ -9,12 +14,21 @@ $(function() {
 	});	
 });
 
+function calcCartPrice(base_price) {
+	$('#cart_price').append("<span> JS Value: $ " + base_price + "</span>");
+};
+
+
 function price_to_cart(feature_to_cart, text_to_cart) {
 	var total_price = 0;
   	$("div input:checked").each(function() {
         	total_price += parseInt($(this).attr("value"));
    });
-  	$("#custom_build").append('<fieldset> **  Clicked-> ' + feature_to_cart + " - " + text_to_cart + '  * Cart Price -> ' + total_price + " ** </fieldset>");	
+	total_price += parseInt($('#body_type').attr("value")) + parseInt($('#theme').attr("value"));
+	$("#cart_price span").empty();
+  	$("#cart_price").append("<span> JS Value: $ " + total_price + "</span>");
+	$("#feature_adds").append('<fieldset>' + feature_to_cart + " - " + text_to_cart + "</fieldset>");
+
 }
 
 function calculateDelta(options, indi_price) {

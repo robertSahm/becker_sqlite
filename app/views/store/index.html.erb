@@ -2,9 +2,8 @@
 <% if notice %>
     <p id="notice"><%= notice %></p>
 <% end %>
-
+<div class="jonBumper">
 <h1>Catalog</h1>
-  <%= render 'layouts/cart_sidebar' %>
 <% @products.each do |product| %>
   <div class="entry">
     <%= link_to image_tag(product.image_url, :border=>0), product_path(product) %>
@@ -12,8 +11,9 @@
     <%= sanitize(product.description) %>
     <div class="price_line">
       <span class="price"><%= number_to_currency(product.price) %></span>
-      <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+      <%= button_to 'Select', controller: 'store', action:'build', id: product.id %></h2>
     </div>
   </div>
 <% end %>
+</div>
 
