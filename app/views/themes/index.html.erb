@@ -1,19 +1,25 @@
 <h2>Themes at a Glance</h2>
 
 <%= link_to 'New Theme', new_theme_path %>
-<p>Drag-able Handle</p>
-<p>Each Theme - Name link -> Edit detail of theme - photo_urls etc / 'X' delete link</p>
-<p>body types - radio list - checked when available - could show avails and have "add new body type" and it shows a list of other body types</p>
-<p>List Products that have this body type ?</p>
-<p>Body Type and Theme divs load from server - features div load via ajax at document ready</p>
-<p>Options available for each feature - checked when available for theme</p>
-<p>Body Types for each option avail show, add theme button shows unchecked list of other body types</p>
-<p>if you check a body type that is on a same option earlier it should prompt a box to alert the user</p>
+<a href="#" class="codeLink">Code Drop Down Link</a>
+<div class="codeDropDown">
+  <p>Drag-able Handle</p>
+  <p>Each Theme - Name link -> Edit detail of theme - photo_urls etc / 'X' delete link</p>
+  <p>body types - radio list - checked when available - could show avails and have "add new body type" and it shows a list of other body types</p>
+  <p>List Products that have this body type ?</p>
+  <p>Body Type and Theme divs load from server - features div load via ajax at document ready</p>
+  <p>Options available for each feature - checked when available for theme</p>
+  <p>Body Types for each option avail show, add theme button shows unchecked list of other body types</p>
+  <p>if you check a body type that is on a same option earlier it should prompt a box to alert the user</p>
+  <p1>Code to call the options for this body type in each feature</p1><br />
+  <p1>Code to put a theme check box next to each group of options with add theme</p1>
+</div>
     <ul>
       <% @themes.each do |theme| %>
         <hr />
         <li class="tcell">
-          <%= link_to theme.name, edit_theme_path(theme)  %> | 
+          <%= link_to theme.name, edit_theme_path(theme)  %></li>
+        <li class="tcell">  
           <%= truncate(strip_tags(theme.description),
                 length: 50) %>
           <% if theme.thumb_url.blank? %>
@@ -47,11 +53,12 @@
           <% end %> | 
           <%= link_to 'Add Body Types' %>
         </li>
-        <li class="tcell">Features Drop down link
-        <% @options   = Option.order("options.price ASC") %>
-        <%= render 'admins/cart' %></li>
-        <li class="tcell">Code to call the options for this theme in each feature</li>
-        <li class="tcell">Code to put a body type check box next to each group of options with add body type</li>
+        <li class="tcell"><a href="#" class="<%= theme.name %>">Features Drop down link</a>
+          <div class="adminDropDown <%= theme.name %>">
+            <% @options   = Option.order("options.price ASC") %>
+            <%= render 'admins/cart' %>
+          </div>
       <% end %>
     </ul>
 </div> <!-- page -->
+
