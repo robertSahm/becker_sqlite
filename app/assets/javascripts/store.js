@@ -18,7 +18,6 @@ function calcCartPrice(base_price) {
 	$('#cart_price').append("<span> JS Value: $ " + base_price + "</span>");
 };
 
-
 function price_to_cart(feature_to_cart, text_to_cart) {
 	var total_price = 0;
   	$("div input:checked").each(function() {
@@ -28,7 +27,6 @@ function price_to_cart(feature_to_cart, text_to_cart) {
 	$("#cart_price span").empty();
   	$("#cart_price").append("<span> JS Value: $ " + total_price + "</span>");
 	$("#feature_adds").append('<fieldset>' + feature_to_cart + " - " + text_to_cart + "</fieldset>");
-
 }
 
 function calculateDelta(options, indi_price) {
