@@ -3,11 +3,11 @@ class StoreController < ApplicationController
 
   def new
     if params[:instrument]
-      @products  = BodyType.where(type_of: params[:instrument]).order("position ASC")
+      @body_types     = BodyType.where(type_of: params[:instrument]).order("position ASC")
       @type_of      = [params[:instrument]]
     else
       @type_of      = TYPE_OF
-      @products     = BodyType.order("position ASC")
+      @body_types     = BodyType.order("position ASC")
     end
   end
   

@@ -1,9 +1,10 @@
-<% if notice %>
-  <p id="notice">
-    <%= notice %>
-  </p>
-<% end %>
+<%= render 'layouts/main_navbar' %>
+<div class="jonBumper">
+  <% if notice %>
+    <p id="notice">
+      <%= notice %>
+    </p>
+  <% end %>
 
-<%= render @cart %>
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', store_path %>
+  <%= render @cart %>
+</div> <!-- jonBumper -->

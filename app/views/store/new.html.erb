@@ -1,4 +1,4 @@
-  <%= render 'layouts/main_navbar' %>
+<%= render 'layouts/main_navbar' %>
 <div id="store-page">
   <div class="jonBumper">
     <div class="tabs">
@@ -15,7 +15,7 @@
       <% @type_of.each do |t| %>
         <div class="showcase">
           <h2> Choose a <%= t.capitalize %> Body Style </h2>
-          <% @products.each do |p| %>
+          <% @body_types.each do |p| %>
             <% if p.type_of == t %>
               <div id="listbox">
                 <p><%= p.name %></p>

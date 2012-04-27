@@ -3,15 +3,14 @@
 <% else %>
   <ul class="line_item">
 <% end %>
-    <li><%= line_item.quantity %></li>
-    <li><%= line_item.inspect %>
-    <li><%= button_to '^', increment_line_item_path(line_item), method: :put, remote: true %></li>
-    <li><%= button_to 'v', decrement_line_item_path(line_item), method: :put, remote: true %></li>
-    <li><%= line_item.product.name %></li>
-    <li class="item_price"><%= number_to_currency(line_item.total_price) %></li>
+    <li>Product: <%= line_item.product.name %></li>
+    <li>Object: <%= line_item.inspect %>
+    <li>Quantity: <%= line_item.quantity %></li>
+    <li class="item_price">Total Item Price: <%= number_to_currency(line_item.total_price) %></li>
   </ul>
     <div class="delete-button"><%= button_to 'Remove Item', line_item, 
                     method:  :delete,
                     remote: true,
-                    confirm: "Does this ever happen?" %></div>
+                    confirm: "Does this ever happen?" %>
+    </div>
 
