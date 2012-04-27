@@ -13,7 +13,7 @@
 
 
 
-$(function() {
+$(document).ready(function() {
 	var adminDropDown = $('.adminDropDown');
 	var codeDropDown = $('.codeDropDown');
   $(codeDropDown).hide();
@@ -25,21 +25,6 @@ $(function() {
     $(this).siblings("div").toggle('slow');
   });
 })
-
-(function() {
-
-  jQuery(function() {
-    return $('#faqs').sortable({
-      axis: 'y',
-      handle: '.handle',
-      update: function() {
-        return $.post($(this).data('update-url'), $(this).sortable('serialize'));
-      }
-    });
-  });
-
-}).call(this);
-
 
 
 

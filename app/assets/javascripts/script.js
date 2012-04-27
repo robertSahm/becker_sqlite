@@ -70,6 +70,18 @@ $(document).ready(function() {
 	});
 });
 
+$('.guitarClick1 a').click(function() {
+	$('h2.chooseInstrument').replaceWith('<h2 class="chooseInstrument">Step 2: Choose a body style</h2>');
+});
+
+$('.roundabout-moveable-item a').click(function() {
+	$('.showcaseGuitar h2').animate({
+			fontSize: "1.7em",
+			marginTop: "5px"
+		}, 500 );
+});
+//
+
 
 //Store
 
