@@ -3,7 +3,6 @@
     <div id="admin-navbar">
       <div class="tabs">
         <ul>
-
           <li class="adminButtons">
             <p><%= link_to 'Body Types',  body_types_path %></p>
           </li>
@@ -34,29 +33,23 @@
           <li class="adminButtons">
             <p><%= link_to 'Admin',     admins_url %></p>
           </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Main',  '/' %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Store#new', controller: 'store', action: 'new' %></p>
-          </li>
         </ul>
       </div>
     </div>
   <% end %>
 	<h1 id="fittext1" class="headerText">
-		<%= link_to 'Becker/Martin Instruments', controller: 'main', action: 'index' %>
+		<%= link_to 'Becker Instruments', controller: 'main', action: 'index' %>
 	</h1>
 
 		<ul id="fittext2" class="navUl">
 			<li id="guitarNavClick" class="firstLi navLi">
 				<h2>
-				<%= link_to "Guitars", { controller: 'main', action: 'guitars', instrument: 'guitar'}, :id => "guitarsClick" %>
+				<%= link_to "Guitars", { controller: 'main', action: 'guitars'}, :id => "guitarsClick" %>
 				</h2>
 			</li>
 			<li id="bassNavClick" class="navLi">
 				<h2>
-					<%= link_to 'Bass', { controller: 'main', action: 'basses', instrument: 'bass' }, :id => "bassClick"%>
+					<%= link_to 'Bass', { controller: 'main', action: 'basses'}, :id => "bassClick"%>
 				</h2>
 			</li>
 			<li id="themesNavClick" class="navLi">
@@ -67,7 +60,7 @@
 
 			<li id="customNavClick" class="navLi">
 				<h2>
-				<%= link_to "Custom",  { controller: 'main', action: 'customs', instrument: 'custom' }, :id => "customClick" %>
+				<%= link_to "Custom",  { controller: 'main', action: 'customs'}, :id => "customClick" %>
 				</h2>
 
 			<li id="artistsNavClick" class="navLi">

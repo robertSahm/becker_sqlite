@@ -2,15 +2,15 @@
 <%= render 'layouts/main_navbar' %>
 
 <div id="artist_page">
-  <%= link_to 'New Artist', new_artist_path %>
+
   <h1>Artists</h1>
   <p class="artist">
-
+  <%= link_to 'New Artist', new_artist_path %>
 
   </p>
   
   <h2>Order Artists for Site</h2>
-  <%= sort_artists_url %>
+  <% sort_artists_url %>
   <ul id="faqs" data-update-url="<%= sort_artists_url %>">
     <% @artists.each do |artist| %>
       <%= content_tag_for :li, artist do %>

@@ -1,19 +1,17 @@
 <%= render 'layouts/main_navbar' %>
-
-  <h1 class="instrument">Custom Instruments</h1>
-  <p>
+  <h3>Welcome to the Becker Family of Custom Insturments.</h3>
+  <p2>
     In addition to our instrument lines, we also do fully custom work. Custom instruments are built to order and pricing will vary based on specifications. These orders have included lap steel guitars, banjos, mandolas, upright basses, and doubleneck mandolin and guitars. If interested in a project of this nature, please inquire or, build using one of the body types below.
-    </p>
+    </p2>
     <h3>Ordering an Instrument</h3>
-    <p>Our instruments can be ordered by selecting <span>Add to Cart</span> from the desired model page. Once an instrument has been added to the cart, themes can be applied and options for specifications can be selected. For fully custom inquiries, please contact by phone or email. Our <span>Available Now</span> page features completed instruments ready for purchase as well.</p>
-    <h2>ECL Custom Instruments</h2>
+    <p>Our instruments can be ordered clicking <span>Select</span> from the desired model page. Once an instrument has been added to the cart, themes can be applied and options for specifications can be selected. For fully custom inquiries, please contact by phone or email. Our <span>Available Now</span> page features completed instruments ready for purchase as well.</p>
     
 		<div id="spinnerWrapper">
 			<ul id="spinner">
 			<% @products.each do |p| %>
 					<p><%= p.name %></p>
 
-					<li><%= link_to image_tag(p.image_url), action: "custom", id: p.id, class: "galleryImage"  %></li>
+					<li><%= link_to image_tag(p.image_url),{ action: "custom", id: p.id}, class: "galleryImage"  %></li>
 			<% end %> 
 			</ul>
 		</div>
