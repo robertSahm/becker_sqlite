@@ -1,6 +1,6 @@
 BodyType.delete_all
 
-BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/banjo.png", type_of: "custom", price: 1200 },
+BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/Banjo.jpg", type_of: "custom", price: 1200 },
   {name: "castlewave", image_url: "Model Silhoutte/castlewave.png", type_of: "guitar", price: 2800 },
   {name: "dark horse", image_url: "Model Silhoutte/darkhorse.jpg", type_of: "guitar", price: 2400 },
   {name: "hornet", image_url: "Model Silhoutte/hornet.png", type_of: "guitar", price: 1900 },
@@ -9,9 +9,9 @@ BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/banjo.png", type_o
   {name: "mantis", image_url: "Model Silhoutte/mantis.png", type_of: "bass", price: 1800 },
   {name: "mistress", image_url: "Model Silhoutte/mistress.png", type_of: "guitar", price: 2200 },
   {name: "roller", image_url: "Model Silhoutte/roller.png", type_of: "guitar", price: 1500 },
-  {name: "twiggler", image_url: "Model Silhoutte/twiggler.png", type_of: "bass", price: 1600 },
-  {name: "waterfall", image_url: "Model Silhoutte/waterfall.png", type_of: "bass", price: 2000 },
-  {name: "custom", image_url: "Thumb H/Lap Steel 1_thumbh.jpg", type_of: "custom", price: 1800} ])
+  {name: "twiggler", image_url: "Model Silhoutte/twiggler.jpg", type_of: "bass", price: 1600 },
+  {name: "waterfall", image_url: "Model Silhoutte/waterfall.jpg", type_of: "bass", price: 2000 },
+  {name: "custom", image_url: "Thumb H/lapsteel.jpg", type_of: "custom", price: 1800} ])
 
 bt_all_array = []
 types = BodyType.all
