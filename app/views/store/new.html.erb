@@ -6,16 +6,16 @@
       <h2 class="chooseInstrument">Step 1: Choose an instrument</h2>
       <ul class="instrumentStart">
         <li class="guitarClick1">
-          <%= link_to ("-Guitar"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to ("Guitar"), {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
         <li class="bassClick1">
-          <%= link_to ("-Bass"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to ("Bass"), {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
         <li class="customClick1">
-          <%= link_to ("-Custom Instrument"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to ("Custom Instrument"), {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
         <li class="allClick1">
-          <%= link_to ("-All"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to ("All"), {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
       </ul>
     </div> <!-- tabs --> 
@@ -25,14 +25,14 @@
       <% @type_of.each do |t| %>
         <div class="showcase<%= t.capitalize %>">
           <h2> Choose a <%= t.capitalize %> Body Style </h2>
+          <div class="spinner">
           <% @products.each do |p| %>
-            <% if p.type_of == t %>
-              <div class="spinner">
-                <p><%= p.name %></p>
-                <%= link_to image_tag(p.image_url), action: "themes", id: p.id  %>
-              </div>
-            <% end %>
-          <% end %>  
+          <% if p.type_of == t %>
+            <%  spinner = "spinner#{t.capitalize}" %>
+              <%= render spinner, p: p %>
+              <% end %>
+            <% end %> 
+          </div> 
         </div> <!-- showcase -->
       <% end %>
     </div> <!-- loop -->

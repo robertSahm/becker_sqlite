@@ -5,19 +5,19 @@
     </div> <!-- tabs --> 
     
     <div class="loop">
-        <div class="showcase">
-          <h2> Choose a Theme  </h2>
-          <% @themes.each do |t| %>
-              <div id="listbox">
-                <p><%= link_to t.name, theme_path(t) %></p>
-                <% if t.name == Theme.find(t.id).name %>
-                  <%= link_to image_tag(t.image_url), action: "show_theme", theme: t %>
-                <% else %>
-                  <%= link_to image_tag(t.image_url), action: "show_theme", theme: t %>
-                <% end %>
-              </div>
-          <% end %>  
+      <% @type_of.each do |t| %>
+        <div class="showcase<%= t.capitalize %>">
+          <h2> Choose a <%= t.capitalize %> Body Style </h2>
+          <div class="spinner">
+          <% @products.each do |p| %>
+            <% if p.type_of == t %>
+              <%  spinner = "spinner#{t.capitalize}" %>
+                <%= render spinner, p: p %>
+              <% end %>
+            <% end %> 
+          </div> 
         </div> <!-- showcase -->
+      <% end %>
     </div> <!-- loop -->
 
 </div> <!-- page -->

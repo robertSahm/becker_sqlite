@@ -3,13 +3,23 @@ var parallax1 = $('#parallax1');
 var parallax2 = $('#parallax2');
 var parallax3 = $('#parallax3');
 var banjoIndex = $('.banjoIndex');
-
+var shopImage = $('img.shop');
 var header = $(".headerBackground")
 
 $(document).ready(function() {
   //call image rotator
-	$('#spinnerIndex').roundabout({
-		shape: 'lazySusan'
+	$('.spinner').roundabout({
+		//shape: 'tearDrop',
+		//duration: 1000,
+		minScale: .4, 
+		maxScale: 1,
+		focusBearing: 0,
+		tilt: 3,
+		minOpacity: .4,
+		minZ: 279,
+		maxZ: 280,
+		easing: "swing",
+
 	});
 	//Call parallax scrolling ability on elements
 	$(headerImage).scrollingParallax({
@@ -38,14 +48,22 @@ $(document).ready(function() {
 		staticSpeed: 0.6,
 		staticScrollLimit : false
 	});
+	$(shopImage).scrollingParallax({
+		reverseDirection : true,
+		staticSpeed: 0.3,
+		staticScrollLimit : false
+	});
 
 	//Store Animations
 	$(".showcaseGuitar, .showcaseBass, .showcaseCustom").hide();
 
- 
 	$('.guitarClick1 a').click(function() {
 		$('li.bassClick1 a, li.customClick1 a, li.allClick1 a').fadeOut(500);
 		$('.showcaseGuitar').delay(500).fadeIn(500);
+		$('.guitarClick1 a').animate({
+			fontSize: "1.7em",
+			marginTop: "-30px"
+		}, 500 );
 	});
 });
 
