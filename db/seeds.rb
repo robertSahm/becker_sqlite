@@ -2,7 +2,7 @@ BodyType.delete_all
 
 BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/Banjo.jpg", type_of: "custom", price: 1200 },
   {name: "castlewave", image_url: "Model Silhoutte/castlewave.png", type_of: "guitar", price: 2800 },
-  {name: "dark horse", image_url: "Model Silhoutte/darkhorse.jpg", type_of: "guitar", price: 2400 },
+  {name: "dark horse", image_url: "Model Silhoutte/darkhorse.png", type_of: "guitar", price: 2400 },
   {name: "hornet", image_url: "Model Silhoutte/hornet.png", type_of: "guitar", price: 1900 },
   {name: "imperial", image_url: "Model Silhoutte/imperial.png", type_of: "guitar", price: 1900 },
   {name: "mandolin", image_url: "Model Silhoutte/mandolin.png", type_of: "custom", price: 1500 },
