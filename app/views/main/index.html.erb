@@ -28,13 +28,7 @@
 					<p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p1>
 			<div class="bigQuoteClose"><p5>&rdquo;</p5></div>
 		</div>	
-			<div id="spinnerIndexWrapper">
-				<ul id="spinnerIndex">
-					<% @products.each do |p| %>
-					<li><%= link_to image_tag(p), class: "galleryImage"  %></li>
-					<% end %> 
-				</ul>
-			</div>
+			
 			<div class="banjoIndex">
 				<%= image_tag("webphotos/banjo1.jpg") %>
 			</div>
@@ -55,7 +49,7 @@
 					frameborder="0" 
 					allowfullscreen>
 				</iframe>
-				<%= image_tag("webphotos/castlewave.jpg", :class=>'shop') %>
+				<%= image_tag("webphotos/castlewave.jpg") %>
 			</div>
 				
 			<div class="shopImage">
@@ -64,10 +58,14 @@
 	</div> <!-- Frame 3-->
 	<div id="frame4">
 		<%= image_tag("webphotos/guy1.jpg",:class=>'guy') %>
-		<%= image_tag("webphotos/shop1.jpg",:class=>'shop') %>
+		
 		<h3 class="other">
 			Other
 		</h3>
+		<p2 class="otherTextArticle">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet. Duis tortor eros, ultricies sit amet interdum non, venenatis nec nisl. Curabitur egestas, nibh ut ultricies placerat, purus nibh bibendum nisi, et luctus ipsum est id mi. Nulla semper turpis ut nunc iaculis pharetra nec ut sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis pellentesque imperdiet.
+				</p2>
+			
 		<h3 class="repairs">
 			Repairs, etc.
 		</h3>
@@ -75,15 +73,15 @@
 			Got skillz to pay tha billz...
 		</h3>
 		
-		<h3 class="money">
-				&#36;
-		</h3>
+		<%= image_tag("webphotos/shop1.jpg", class: "shop") %>
 		<h3 class="fin">
 				Fin.
 		</h3>
+
 	</div>
-	
-	
+	<div class="shopImage">
+	<%= image_tag("webphotos/shop1.jpg", class: "shop") %>
+	</div>
 </div> <!-- page-->
 
 

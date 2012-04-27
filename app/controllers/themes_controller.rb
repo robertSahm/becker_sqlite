@@ -1,8 +1,8 @@
 class ThemesController < ApplicationController
-  # GET /themes
-  # GET /themes.json
+
   def index
     @themes = Theme.order("position ASC")
+    @features = Feature.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,8 +10,6 @@ class ThemesController < ApplicationController
     end
   end
 
-  # GET /themes/1
-  # GET /themes/1.json
   def show
     @theme = Theme.find(params[:id])
     @body_types = @theme.body_types
@@ -22,8 +20,6 @@ class ThemesController < ApplicationController
     end
   end
 
-  # GET /themes/new
-  # GET /themes/new.json
   def new
     @theme = Theme.new
     @body_types = BodyType.all
@@ -34,14 +30,11 @@ class ThemesController < ApplicationController
     end
   end
 
-  # GET /themes/1/edit
   def edit
     @theme = Theme.find(params[:id])
     @body_types = BodyType.all
   end
 
-  # POST /themes
-  # POST /themes.json
   def create
     @theme = Theme.new(params[:theme])
 
@@ -56,8 +49,6 @@ class ThemesController < ApplicationController
     end
   end
 
-  # PUT /themes/1
-  # PUT /themes/1.json
   def update
     @theme = Theme.find(params[:id])
 
@@ -79,8 +70,6 @@ class ThemesController < ApplicationController
     render nothing: true
   end
 
-  # DELETE /themes/1
-  # DELETE /themes/1.json
   def delete
     @theme = Theme.find(params[:id])
     @theme.destroy

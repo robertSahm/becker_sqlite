@@ -1,6 +1,8 @@
 /*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * This is a manifest file that'll automatically include 
+ all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide 
+ styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree .
@@ -41,7 +43,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+html, button, input, select, textarea { font-family: sans-serif; color: #999; }
 
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
@@ -294,8 +296,8 @@ a {
 
 /* - - Header  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .headerBackground {
-	width: 100%;
-	height: auto;
+	width: 800px;
+	height: 97px;
 	top: 0;
 	left: 0;
 	margin: 0;
@@ -453,7 +455,6 @@ height: 32px;
 
 #guitarNavClick a {
 	color: #7ED9D9;
-	
 }
 
 #bassNavClick a {
@@ -722,40 +723,8 @@ border-bottom: 1px solid green;
 
 /* - - Spinner INDEX - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-#spinnerIndexWrapper {
-position: absolute;
-width: 700px;
-height: 600px;
-top: 900px;
-left: 0;
-display: none;
-}
 
-.roundabout-holder {
-	position: absolute;
-   list-style: none;
-   padding: 0;
-   margin: 0;
-   height: 100px;
 
-}
-
-.roundabout-moveable-item {
-   height: 200px;
-   width: 100px;
-   cursor: pointer;
-	 img {
-		height: 300px;
-	 }
-
-}
-
-.roundabout-in-focus {
-   cursor: auto;
-}
-.galleryImage {
-	
-}
 
 .banjoIndex {
 width: 100%;
@@ -771,6 +740,14 @@ z-index: 1998;
 	}
 }
 /* - - - - - - - - - - - - - - - */
+
+
+.handle {
+    img {
+        height : 20px;
+        width: 20px;
+    }
+}
 
 
 #frame3 {
@@ -840,7 +817,7 @@ background-repeat: no-repeat;*/
 #frame4 {
 	position: absolute;
 	width: 960px;
-	height: 2211px;
+	height: 900px;
 	top: 8200px;
 	z-index: 3000;
 	background-color: black;
@@ -852,18 +829,13 @@ background-repeat: no-repeat;*/
 		width: 500px;
 		top: 30px;
 		left: -50px;
-
-	}
-	img.shop {
-		top: 850px;
-		left: 0;
 	}
 	h3 {
 		float: left;
 		width: 2.9em;
 		height: 26px;
 		top: 45px;
-		left: 205px;
+		left: 343px;
 		@include h3Index;
 		z-index: 1001;
 		padding-bottom: .3em;
@@ -878,7 +850,7 @@ background-repeat: no-repeat;*/
 		@include h3IndexHover;
 		z-index: 1001;
 		color: aquamarine;
-		letter-spacing: .3em;
+		
 	}
 	h3.repairs {
 	top: 700px;
@@ -903,31 +875,39 @@ background-repeat: no-repeat;*/
 		font-size: 56px;
 		text-shadow: 4px 4px 3px black, 6px 6px 2px white;
 		font-weight: 800;
-		
 		line-height: 1.2em;
+
 	}
-	h3.money {
-		width: 100%;
-		color: green;
-		font-size: 50em;
-		top: 1350px;
-		left: 0px;
+	p2 {
+		position: absolute;
+		top: 44px;
+		left: 486px;
+		float: right;
+		clear: both;
+		width: 373px;
+		font-size: 1.3em;
+		color: white;
 	}
-	h3.money:hover {
-		letter-spacing: normal;
-		width: 100%;
-		color: green;
-	}
+
+
+
 	h3.fin {
 		top: 1700px;
 		font-size: 10em;
 		left: 130px;
 		z-index: 1000;
+		width: 100%;
+		background-color: black;
 	}
 }
 
+#admin-navbar {
+	z-index: -3000;
+}
 
-
+.edit_body_type {
+	margin-top: 120px;
+}
 
 
 /*****         A D M I N   N A V B A R         **********************/
@@ -951,8 +931,18 @@ background-repeat: no-repeat;*/
 		}
 	}
 }
-
-
+.shopImage {
+	position: aboslute;
+	z-index: 1000;
+}
+	img.shop {
+		position: relative;
+		width: 820px;
+		height: 475px;
+		top: -1900px;
+		left: 0;
+		z-index: -1000;
+	}
 
 
 
