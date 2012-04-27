@@ -58,16 +58,21 @@ $(document).ready(function() {
 	});
 
 	//Store Animations
-	$(".showcaseGuitar, .showcaseBass, .showcaseCustom").hide();
+	$(".showcaseGuitar, .showcaseBass, .showcaseCustom, .showcaseTheme").hide();
 
 	$('.guitarClick1 a').click(function() {
-		$('li.bassClick1 a, li.customClick1 a, li.allClick1 a').fadeOut(500);
-		$('.showcaseGuitar').delay(500).fadeIn(500);
+		$('li.bassClick1 a, li.customClick1 a, li.allClick1 a').toggle(500);
+		$('.showcaseGuitar').delay(500).toggle(500);
 		$('.guitarClick1 a').animate({
 			fontSize: "1.7em",
 			marginTop: "-30px"
 		}, 500 );
+		return false;
 	});
+	
+	$('.roundabout-in-focus a.spinnerSelect').click(function() {
+		alert('you clicked spinner Select!@');
+	})
 });
 
 

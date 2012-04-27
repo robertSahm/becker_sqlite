@@ -1,8 +1,23 @@
-<li>
-	<h3><%= p.name %></h3>
-	<%= link_to image_tag(p.image_url), action: "themes", id: p.id  %>
-	
-</li>
+<div class="loop">
+  <% @type_of.each do |t| %>
+    <div class="showcase<%= t.capitalize %>">
+      <h2> Choose a <%= t.capitalize %> Body Style </h2>
+
+      <div class="spinner">
+      <% @body_types.each do |bt| %>
+      <% if bt.type_of == t %>
+        <%  spinner = "spinner#{t.capitalize}" %>
+          <li>
+          	<h3><%= bt.name %></h3>
+          	<%= link_to image_tag(bt.image_url),{ action: "themes" , id: bt.id }, {href: '#', class: "spinnerSelect"} %>	
+          </li>
+          <% end %>
+        <% end %> 
+      </div> 
+
+    </div> <!-- showcase -->
+  <% end %>
+</div> <!-- loop -->
 
 	
 
