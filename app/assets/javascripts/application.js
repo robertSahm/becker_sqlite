@@ -11,6 +11,21 @@
 //= require best_in_place
 
 
+
+
+$(function() {
+	var adminDropDown = $('.adminDropDown');
+	var codeDropDown = $('.codeDropDown');
+  $(codeDropDown).hide();
+  $(adminDropDown).hide();
+  $('.codeLink').click(function() {
+    $(this).siblings(".codeDropDown").toggle('slow');
+  })
+  $('li.tcell a').click(function() {
+    $(this).siblings("div").toggle('slow');
+  });
+})
+
 (function() {
 
   jQuery(function() {
@@ -24,5 +39,7 @@
   });
 
 }).call(this);
+
+
 
 
