@@ -1,20 +1,16 @@
 <div class="loop">
-  <% @type_of.each do |t| %>
-    <div class="showcaseTheme">
-      <h2> Choose a <%= t.capitalize %> Body Style </h2>
+    <div class="showcaseTheme <%= bt.name %>">
+      <h2> Choose a Theme </h2>
 
-      <div class="spinner">
-      <% @body_types.each do |bt| %>
-      <% if bt.type_of == t %>
-        <%  spinner = "spinner#{t.capitalize}" %>
+      <div class="spinnerTheme<%= bt.name %>">
+      <% @themes.each do |theme| %>
+        <%  spinner = "spinner#{theme.name.capitalize}" %>
           <li>
-          	<h3><%= bt.name %></h3>
-          	<%= link_to image_tag(bt.image_url), action: "themes", id: bt.id  %>	
+          	<h3><%= theme.name %></h3>
+          	<%= link_to image_tag(theme.image_url), action: "show", theme: theme.id, body_type: bt.id %>	
           </li>
-          <% end %>
         <% end %> 
       </div> 
 
     </div> <!-- showcase -->
-  <% end %>
 </div> <!-- loop -->

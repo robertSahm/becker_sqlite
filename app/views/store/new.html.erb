@@ -20,7 +20,9 @@
     </div> <!-- tabs --> 
 
     <%= render 'spinnerGuitar' %>
-    <%= render 'spinnerTheme' %>
+    <% @body_types.each do |bt| %>
+      <%= render 'spinnerTheme', bt: bt %>
+    <% end %>
 
   </div> <!-- jonBumper -->
 

@@ -19,14 +19,14 @@
     <ul>
       <% @body_types.each do |body_type| %>
         <hr />
-        <li class="tcell">
+        <li>
           <%= link_to body_type.name, edit_body_type_path(body_type)  %></li>
-        <li class="tcell">  
+        <li>  
           <%= body_type.description %> | 
           <%= body_type.type_of %> | 
           <%= body_type.price %>
           <%= link_to 'X', action: 'delete', id: body_type.id %></li>
-        <li class="tcell">
+        <li>
           <% @themes = body_type.themes %>
         
         

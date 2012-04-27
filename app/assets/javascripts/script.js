@@ -70,9 +70,6 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	$('.roundabout-in-focus a.spinnerSelect').click(function() {
-		alert('you clicked spinner Select!@');
-	})
 });
 
 

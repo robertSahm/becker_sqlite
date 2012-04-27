@@ -9,7 +9,7 @@
         <%  spinner = "spinner#{t.capitalize}" %>
           <li>
           	<h3><%= bt.name %></h3>
-          	<%= link_to image_tag(bt.image_url),{ action: "themes" , id: bt.id }, {href: '#', class: "spinnerSelect"} %>	
+          	<%= link_to image_tag(bt.image_url),{ action: "themes" , id: bt.id }, remote: true %>	
           </li>
           <% end %>
         <% end %> 
@@ -19,5 +19,5 @@
   <% end %>
 </div> <!-- loop -->
 
-	
+
 
