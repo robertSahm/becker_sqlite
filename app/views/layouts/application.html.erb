@@ -22,26 +22,25 @@
 	<%= javascript_include_tag "libs/modernizr-2.5.3.min" %>
 </head>
 <body class='<%= controller.controller_name %>'>
-
-
 <!-- ***********    HEADER NAV BAR     *************** -->
-  <%= render 'layouts/admin_navbar' %>
+  
+  <% if params[:controller] == 'main' %>
+    <% chosen_navbar = 'layouts/main_navbar' %>
+  <% elsif params[:controller] == 'store' %>
+    <% chosen_navbar = 'layouts/main_navbar' %>
+  <% else %>
+    <% chosen_navbar = 'layouts/admin_navbar' %>
+  <% end %>
+  <%= render chosen_navbar %>
+  
 
-<!-- ***********    MAIN - SIDEBAR   ///  LAYOUT     *************** -->
-<div class="jonBumper">
-  <div id="columns">
-    
-    <div id="main">
-      <%= yield %>
-    </div>
-
+<!-- ***********    MAIN  LAYOUT     *************** -->
+  <div class="jonBumper">    
+      <div id="main">
+        <%= yield %>
+      </div>
   </div>
-</div>
 
-	
-	
-	
-	
 	
 <!-- scripts concatenated and minified via build script -->
 	<%= javascript_include_tag "plugins" %>
@@ -50,11 +49,11 @@
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
-  <script>
+  <!--<script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
+  </script> -->
 </body>
 </html>

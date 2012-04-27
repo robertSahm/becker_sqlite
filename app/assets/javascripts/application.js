@@ -20,9 +20,11 @@ $(document).ready(function() {
   $(adminDropDown).hide();
   $('.codeLink').click(function() {
     $(this).siblings(".codeDropDown").toggle('slow');
+	 return false;
   })
   $('li.tcell a').click(function() {
     $(this).siblings("div").toggle('slow');
+	 return false;
   });
 })
 

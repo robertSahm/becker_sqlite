@@ -1,7 +1,7 @@
 <div class="adminBackground1"></div>
 <h2>Features At A Glance</h2>
 <%= link_to 'New Feature', new_feature_path %>
-<a href="#" class="codeLink">Code Drop Down Link</a>
+<%= link_to "Code Drop Down Link", {}, class: "codeLink" %>
 <div class="codeDropDown">
   <p>Drag-able Handle</p>
   <p>Each Body Type - Name link -> Edit detail of body type - photo_urls etc / 'X' delete link</p>
@@ -65,4 +65,3 @@
     <% end %>
   </ul>
 </div> <!-- re_order -->
-

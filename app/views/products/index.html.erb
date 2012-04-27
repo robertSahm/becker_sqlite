@@ -2,7 +2,7 @@
 <h2>Products at a Glance</h2>
 
 <%= link_to 'New Product', new_product_path %>
-<a href="#" class="codeLink">Code Drop Down Link</a>
+<%= link_to "Code Drop Down Link", {}, class: "codeLink" %>
 <div class="codeDropDown">
   <p>Drag-able Handle</p>
   <p>Each Body Type - Name link -> Edit detail of body type - photo_urls etc / 'X' delete link</p>
@@ -40,4 +40,3 @@
         </li>
       <% end %>
     </ul>
-

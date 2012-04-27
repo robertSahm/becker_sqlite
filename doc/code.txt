@@ -1,3 +1,32 @@
+BUILD CUSTOM INSTURMENT
+
+store#new
+
+choose an instrument
+make spinner of available instrument body types
+choose a body type
+make spinner of available instrument.body_type themes
+choose a theme
+render options
+'Add to Cart'
+
+store#themes
+choose an instrument
+make spinner of available instrument.body_type themes
+choose a theme
+make spinner of available instrument body types
+choose a body type
+render options
+'Add to Cart'
+
+
+
+
+
+
+
+
+
 JS SIDEBAR CART
    on page load - get the base price of the body type 
       - calculate the total prices of all the options that are default: true

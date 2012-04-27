@@ -1,4 +1,4 @@
-  <%= render 'layouts/main_navbar' %>
+  
 <h1><%= @product.name %></h1>
 <span><h3><%= link_to 'List', products_path %> |
 <%= link_to 'Detail View', product_path(@product) %> | <%= link_to "Edit Detail View", edit_product_path(@product) %> | <%= link_to "Custom Build", action: 'build', id: @product.id %></h3></span>

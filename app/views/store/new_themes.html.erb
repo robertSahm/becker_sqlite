@@ -1,19 +1,17 @@
-  <%= render 'layouts/main_navbar' %>
+  
 <div id="store-page">
     <div class="tabs">
       <h1 class="instrument">Custom Build an Instrument</h1>
     </div> <!-- tabs --> 
     
     <div class="loop">
-      <% @type_of.each do |t| %>
-        <div class="showcase<%= t.capitalize %>">
-          <h2> Choose a <%= t.capitalize %> Body Style </h2>
+      <% @themes.each do |t| %>
+        <div class="showcase<%= t.name %>">
+          <h2> Choose a <%= t.name %> Theme </h2>
           <div class="spinner">
-          <% @products.each do |p| %>
-            <% if p.type_of == t %>
-              <%  spinner = "spinner#{t.capitalize}" %>
-                <%= render spinner, p: p %>
-              <% end %>
+          <% @themes.each do |p| %>
+              <%  spinner = "spinner#{t.name}" %>
+                <%= render 'themecase', p: p %>
             <% end %> 
           </div> 
         </div> <!-- showcase -->
