@@ -1,0 +1,131 @@
+
+
+$orange: #DE6B3F;
+$red: red;
+$brightGreen: #1DDF00;
+$darkBlue: #006BEA;
+$lightBlue: #00FFEF;
+$darkPink: #FF00F4;
+$white: white;
+
+
+div#store-page a {
+	font-family: 'Ovo', serif;
+	text-decoration: none;
+}
+
+#store-page {
+	position: relative;
+	width: 100%;
+	height: auto;
+	top: 0px;
+	padding: 0;
+		h, h1, h2, h3 {
+			font: {
+				family: 'MenschMenschRegular';
+				weight: normal;
+				style: normal;
+			}
+			margin: 0;
+			padding: 0;
+			line-height: 1em;
+	}
+	p, p1, p2 {
+		font: {
+			family: 'Ovo', serif;
+			weight: normal;
+			style: normal;
+		}
+	}
+	.tabs {
+		margin-left: 20px;
+		h2 {
+			font-size: 1.3em;
+			color: white;
+			top: 5px;
+			padding: 18px 0 2px 5px;
+		}
+		h2.chooseInstrument {
+			margin-top: 20px;
+			;
+		}
+		h1 {
+			color: 
+				darken($darkBlue, 0%);
+			font: {
+				size: 4em;
+				weight: normal;
+			}
+		}
+		ul {
+			margin: 0px 0 0 5px;
+			padding: 0;
+			li {
+				display: vertical;
+				list-style-type: none;
+				padding-right: 20px;
+				margin-top: 20px;
+				a {
+					font: {
+						family: 'MenschMenschRegular';
+						size: 3em;
+					}
+					line-height: .5em;
+					color: $darkBlue;
+				}
+				a:hover {
+					color: $red;
+				}
+			}
+		}
+	}
+}
+
+.loop {
+	.showcaseGuitar h2 {
+		position: absolute;
+		top: 208px;
+		left: 25px;
+		color: $lightBlue;
+		font-size: 2.5em;
+	}
+	//Roundabout general declerations
+	.roundabout-holder {
+		position: absolute;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		height: 600px;
+		top: 50px;
+	}
+.spinner {
+	width: 650px;
+	margin-left: 60px;
+
+	.roundabout-moveable-item {
+		width: auto;
+		cursor: pointer;
+		img {
+			height: 25em;
+		}
+		h3 {
+		font-family:'MenschMenschRegular';
+		position: absolute;
+		font-size: 2em;
+		color: $darkBlue;
+		position: absolute;
+		left: 116px;
+		}	
+	}
+	.roundabout-in-focus {
+		cursor: auto;
+		height: 600px;
+	    h3 {
+	    position: absolute;
+		color: red;
+		font-size: 2.5em;
+		left: 116px;
+		}
+	}
+}
+}
