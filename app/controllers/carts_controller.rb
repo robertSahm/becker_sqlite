@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  skip_before_filter :authorize, only: [:create, :update, :destroy] 
+#  skip_before_filter :authorize, only: [:create, :update, :destroy] 
 
   def index
     @carts = Cart.all
@@ -17,7 +17,7 @@ class CartsController < ApplicationController
     rescue ActiveRecord::RecordNotFound => e
       logger.error "Attempt to access invalid cart #{params[:id]}"
       OrderNotifier.error_occured(e).deliver
-      redirect_to store_url, notice: 'Invalid cart'
+      redirect_to controller: 'store', action: 'new', notice: 'Invalid cart'
     else
       respond_to do |format|
         format.html # show.html.erb
@@ -76,7 +76,7 @@ class CartsController < ApplicationController
     @cart.destroy
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_url }
+      format.html { redirect_to carts_url }
       format.js
       format.json { head :ok }
     end

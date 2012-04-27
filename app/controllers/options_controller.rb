@@ -1,14 +1,17 @@
 class OptionsController < ApplicationController
 
   def show
-    @options = Option.order("options.product_id ASC").order("options.feature_id ASC").order("options.price ASC")
+    @options = Option.order("options.feature_id ASC").order("options.price ASC")
     @feat = feature_hash
     @prod = product_hash
+    @body_types = BodyType.all
+    @themes     = Theme.all
+    @products   = Product.all
     # @feature = Feature.order("position ASC")
     # @products = Product.order("position ASC")
     
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render 'index' }
       format.json { render json: @options }
     end
   end

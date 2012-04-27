@@ -32,9 +32,6 @@ Becker::Application.routes.draw do
 
   resources :orders
 
-
-  resources :line_items
-
   resources :carts
 
   resources :products do

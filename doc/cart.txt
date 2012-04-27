@@ -1,0 +1,20 @@
+store body_type, theme , product
+
+when add to cart
+- add to cart onLoad document.ready
+
+store the body type , theme, features /options  in to a line _item 
+calculate the cost of that collection
+	this will be the product.price
+	body type price + theme price + feature price + option prices
+	this will also be the cost of the line item
+	when do I save all this information ?
+	you must save to product
+body_type + themes + features + options  -> product
+product -> line_item
+cart -> order    through:  line_item + line_item -> cart
+order line_item-> instrument
+
+click add to cart 
+brings you to your cart page with the product in a line item in the page
+

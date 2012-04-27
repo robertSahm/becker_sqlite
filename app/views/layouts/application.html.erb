@@ -3,11 +3,10 @@
 <head>
   <title><%= @page_title || "* Becker Martin Handmade Instruments *    Guitars - Bass - Customs Builds" %></title>
   <%= stylesheet_link_tag    "application" %>
-	<%= stylesheet_link_tag  "store" %>
 	<link href='http://fonts.googleapis.com/css?family=Ovo' rel='stylesheet' type='text/css'>
 	
 	<%= javascript_include_tag "application" %>
-	<%= javascript_include_tag params[:controller] %>
+	<%= javascript_include_tag params[:controller]  if params[:controller] == 'store' %>
 
   <%= csrf_meta_tags %>
   <% Time::DATE_FORMATS[:custom] = "%B %e, %Y at %I:%M %p" %>
