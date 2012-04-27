@@ -1,44 +1,84 @@
-
-
-
-
+var headerImage = $('.headerImage');
+var parallax1 = $('#parallax1');
+var parallax2 = $('#parallax2');
+var parallax3 = $('#parallax3');
+var banjoIndex = $('.banjoIndex');
+var shopImage = $('img.shop');
+var header = $(".headerBackground")
 
 $(document).ready(function() {
   //call image rotator
-	$('#spinnerIndex').roundabout({
-		shape: 'lazySusan'
-		});
+	$('.spinner').roundabout({
+		//shape: 'tearDrop',
+		//duration: 1000,
+		minScale: .4, 
+		maxScale: 1,
+		focusBearing: 0,
+		tilt: 3,
+		minOpacity: .4,
+		minZ: 279,
+		maxZ: 280,
+		easing: "swing",
+
+	});
 	//Call parallax scrolling ability on elements
-	$('.headerImage').scrollingParallax({
-	  reverseDirection : true,
-	  staticSpeed: .2,
+	$(headerImage).scrollingParallax({
+	    reverseDirection : true,
+	    staticSpeed: .2,
 		staticScrollLimit : false
 	});
 	
-	$('#parallax1').scrollingParallax({
+	$(parallax1).scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .06,
 		staticScrollLimit : true
 	});
-		$('#parallax2').scrollingParallax({
+	$(parallax2).scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .05,
 		staticScrollLimit : true
 	});
-		$('#parallax3').scrollingParallax({
+	$(parallax3).scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .04,
 		staticScrollLimit : true
 	});
-		$('.banjoIndex').scrollingParallax({
+	$(banjoIndex).scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: 0.6,
 		staticScrollLimit : false
+	});
+	$(shopImage).scrollingParallax({
+		reverseDirection : true,
+		staticSpeed: 0.3,
+		staticScrollLimit : false
+	});
+
+	//Store Animations
+	$(".showcaseGuitar, .showcaseBass, .showcaseCustom").hide();
+
+	$('.guitarClick1 a').click(function() {
+		$('li.bassClick1 a, li.customClick1 a, li.allClick1 a').fadeOut(500);
+		$('.showcaseGuitar').delay(500).fadeIn(500);
+		$('.guitarClick1 a').animate({
+			fontSize: "1.7em",
+			marginTop: "-30px"
+		}, 500 );
+	});
 });
 
-}); //End All
+
+//Store
+
+
+
+
+
 
 /*
+ //End All
+
+
 var scroller = new StickyScroller("#frame3 h3",
 {
     start: 2530,
