@@ -3,7 +3,7 @@
   <h2>Body Type at a Glance</h2>
 
   <%= link_to 'New Body type', new_body_type_path %>
-  <a href="#" class="codeLink">Code Drop Down Link</a>
+  <%= link_to "Code Drop Down Link", {}, class: "codeLink" %>
   <div class="codeDropDown">
     <p>Drag-able Handle</p>
     <p>Each Body Type - Name link -> Edit detail of body type - photo_urls etc / 'X' delete link</p>
@@ -36,7 +36,8 @@
           <% end %> | 
           <%= link_to 'Add Themes' %>
         </li>
-        <li class="tcell"><a href="#" class="<%= body_type.name %>">Features Drop down link</a>
+        <li class="tcell">
+          <%= link_to "Features Drop down link", {}, {:href => "#", :class => body_type.name} %>
           <div class="adminDropDown <%= body_type.name %>">
             <% @options   = Option.order("options.price ASC") %>
             <%= render 'admins/cart' %>

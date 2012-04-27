@@ -7,7 +7,7 @@
     <li>Object: <%= line_item.inspect %></li>
     <li>Quantity: <%= line_item.quantity %>&nbsp;&nbsp; | &nbsp;&nbsp;
       <span class="quantity-up">
-      <%= link_to ' ^ ', line_item_path(line_item, amount: 1), 
+      <%= link_to '^', line_item_path(line_item, amount: 1), 
                       method: :put,
                       remote: true %></span>&nbsp;&nbsp; | &nbsp;&nbsp;
       <span class="quantity-down">
