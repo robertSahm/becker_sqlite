@@ -58,12 +58,24 @@ class LineItemsController < ApplicationController
     end
   end
 
-  def update
-    @line_item = LineItem.find(params[:id])
+  def update(line_item=nil)
+    if line_item.nil?
+      @line_item = LineItem.find(params[:id])
+    else
+      @line_item = line_item
+    end
+    amount = params[:amount]
+    @line_item.quantity += amount.to_i
+    if  @line_item.quantity < 0 
+      @line_item.quantity = 0
+    end
+    @cart = current_cart          #defined in application controller
+
 
     respond_to do |format|
       if @line_item.update_attributes(params[:line_item])
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        format.js  
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -71,14 +83,16 @@ class LineItemsController < ApplicationController
       end
     end
   end
-  
-  def increment_line_item_path(line_item)
+    
+  def increment(line_item, amount)
     @line_item = LineItem.find(params[:id])
-    @line_item.quantity += 1
+    @line_item.quantity += amount
+    quantity = @line_item.quantity
+    @line_item.update_attributes(:quantity => 50)
     update(@line_item)
   end
   
-  def decrement_line_item_path(line_item)
+  def decrement(line_item)
     @line_item = LineItem.find(params[:id])
     @line_item.quantity -= 1
     update(@line_item)

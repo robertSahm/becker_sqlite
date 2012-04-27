@@ -5,11 +5,18 @@
 <% end %>
     <li>Product: <%= line_item.product.name %></li>
     <li>Object: <%= line_item.inspect %></li>
-    <li>Quantity: <%= line_item.quantity %>
+    <li>Quantity: <%= line_item.quantity %>&nbsp;&nbsp; | &nbsp;&nbsp;
+      <span class="quantity-up">
+      <%= link_to ' ^ ', line_item_path(line_item, amount: 1), 
+                      method: :put,
+                      remote: true %></span>&nbsp;&nbsp; | &nbsp;&nbsp;
+      <span class="quantity-down">
+      <%= link_to ' v ', line_item_path(line_item, amount: -1), 
+                      method: :put,
+                      remote: true %></span>&nbsp;&nbsp; | &nbsp;&nbsp;                      
       <span class="delete-button"><%= link_to 'Remove', line_item, 
                       method:  :delete,
-                      remote: true,
-                      confirm: "Does this ever happen?" %>
-      </span><span class="save-button"><%= link_to 'Save in Wishlist' %></span></li>
+                      remote: true %>
+      </span>&nbsp;&nbsp; | &nbsp;&nbsp;<span class="save-button"><%= link_to 'Save in Wishlist' %></span></li>
     <li class="item_price">Total Item Price: <%= number_to_currency(line_item.total_price) %></li>
   </ul>

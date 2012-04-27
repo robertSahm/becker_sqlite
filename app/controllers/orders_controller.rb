@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     @cart = current_cart
     @page_title = "Order New"
     if @cart.line_items.empty?
-      redirect_to controller: 'store', action: 'new', notice: 'Your cart is empty'
+      redirect_to controller: 'main', action: 'new', notice: 'Your cart is empty'
       return
     end
     
@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderNotifier.received(@order).deliver
-        format.html { redirect_to store_url, notice: 'Thank you for your order!' }
+        format.html { redirect_to order_path(@order), notice: 'Thank you for your order!' }
         format.json { render json: @order, status: :created, location: @order }
       else
         @cart = current_cart
