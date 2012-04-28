@@ -26,7 +26,7 @@ $(document).ready(function() {
     $(this).siblings("div").toggle('slow');
 	 return false;
   });
-})
+});
 
 
 

@@ -39,17 +39,10 @@ div#store-page a {
 	}
 	.tabs {
 		margin-left: 20px;
-		h2 {
-			font-size: 1.3em;
-			color: white;
-			top: 5px;
-			padding: 18px 0 2px 5px;
-		}
-		h2.chooseInstrument {
-			margin-top: 20px;
-			;
-		}
-		h1 {
+		
+		h1.storeHeader {
+			position: fixed;
+			margin-top: 40px;
 			color: 
 				darken($darkBlue, 0%);
 			font: {
@@ -57,20 +50,29 @@ div#store-page a {
 				weight: normal;
 			}
 		}
-		ul {
-			margin: 0px 0 0 5px;
+		h2.chooseInstrument {
+			position: absolute;
+			font-size: 1.5em;
+			color: white;
+			top: 100px;
+			padding: 18px 0 2px 5px;
+			font-weight: normal;
+			margin-left: 5px;
+		}
+		ul.instrumentStart {
+			position: absolute;
+			top: 175px;
+			margin: 0;
 			padding: 0;
 			li {
 				display: vertical;
 				list-style-type: none;
-				padding-right: 20px;
-				margin-top: 20px;
+				padding-bottom: 20px;
 				a {
 					font: {
 						family: 'MenschMenschRegular';
 						size: 3em;
 					}
-					line-height: .5em;
 					color: $darkBlue;
 				}
 				a:hover {
@@ -82,13 +84,20 @@ div#store-page a {
 }
 
 .loop {
-	.showcaseGuitar h2 {
+	.showcaseGuitar {
 		position: absolute;
-		top: 208px;
-		left: 25px;
-		color: $lightBlue;
-		font-size: 2.5em;
+		top: 200px;
+
+		h2 {
+			position: absolute;
+			top: -30px;
+			left: 23px;
+			width: 700px;
+			color: $lightBlue;
+			font-size: 3em;
+		}
 	}
+	
 	//Roundabout general declerations
 	.roundabout-holder {
 		position: absolute;
@@ -101,7 +110,7 @@ div#store-page a {
 .spinner {
 	width: 650px;
 	margin-left: 60px;
-
+	position: absolute;
 	.roundabout-moveable-item {
 		width: auto;
 		cursor: pointer;
@@ -129,3 +138,15 @@ div#store-page a {
 	}
 }
 }
+.showcaseTheme {
+	position: absolute;
+	top: 200px;
+	left: 50px;
+	width: 650px;
+	height: 600px;
+	img {
+		height: 25em;
+		width: auto;
+	}
+}
+

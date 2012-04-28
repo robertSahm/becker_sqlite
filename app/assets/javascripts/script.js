@@ -63,9 +63,9 @@ $(document).ready(function() {
 	$('.guitarClick1 a').click(function() {
 		$('li.bassClick1 a, li.customClick1 a, li.allClick1 a').toggle(500);
 		$('.showcaseGuitar').delay(500).toggle(500);
-		$('.guitarClick1 a').animate({
-			fontSize: "1.7em",
-			marginTop: "-30px"
+		$('.guitarClick1').animate({
+			fontSize: ".8em",
+			marginTop: "-40px"
 		}, 500 );
 		return false;
 	});
@@ -73,7 +73,8 @@ $(document).ready(function() {
 });
 
 $('.guitarClick1 a').click(function() {
-	$('h2.chooseInstrument').replaceWith('<h2 class="chooseInstrument">Step 2: Choose a body style</h2>');
+	$('h2.chooseInstrument').fadeOut();
+
 });
 
 $('.roundabout-moveable-item a').click(function() {
@@ -81,7 +82,8 @@ $('.roundabout-moveable-item a').click(function() {
 			fontSize: "1.7em",
 			marginTop: "5px"
 		}, 500 );
-});
+	});
+
 //
 
 

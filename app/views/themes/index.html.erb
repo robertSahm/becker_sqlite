@@ -1,3 +1,5 @@
+
+
 <div class="adminBackground1"></div>
 <h2>Themes at a Glance</h2>
 
@@ -18,9 +20,7 @@
     <ul>
       <% @themes.each do |theme| %>
         <hr />
-        <li class="tcell">
           <%= link_to theme.name, edit_theme_path(theme)  %></li>
-        <li class="tcell">  
           <%= truncate(strip_tags(theme.description),
                 length: 50) %>
           <% if theme.thumb_url.blank? %>
