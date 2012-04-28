@@ -1,8 +1,8 @@
 
 <div class="edit">
-    <h1>Edit Detail View</h1>
+    <h2>Edit Product Detail View</h2>
     <span><h3><%= link_to 'List', products_path %> |
-     <%= link_to 'View Detail', product_path(@product) %> | <%= link_to "Edit Custom Build", controller: 'store', action: 'edit', id: @product.id %> | <%= link_to "Display Custom Build", controller: 'store', action:'build', id: @product.id %></h3></span>
+     <%= link_to 'View Detail', product_path(@product) %></h3></span>
     <div class="form">
 
         <%= render 'form' %>
