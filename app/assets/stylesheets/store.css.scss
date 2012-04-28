@@ -37,11 +37,13 @@ div#store-page a {
 			style: normal;
 		}
 	}
+
 	.tabs {
 		margin-left: 20px;
 		
 		h1.storeHeader {
 			position: fixed;
+			top: 0;
 			margin-top: 40px;
 			color: 
 				darken($darkBlue, 0%);
@@ -79,6 +81,9 @@ div#store-page a {
 					color: $red;
 				}
 			}
+		}
+		#messageReceiver {
+			display: none;
 		}
 	}
 }
@@ -130,23 +135,60 @@ div#store-page a {
 		cursor: auto;
 		height: 600px;
 	    h3 {
-	    position: absolute;
-		color: red;
-		font-size: 2.5em;
-		left: 116px;
+		    position: absolute;
+			color: red;
+			font-size: 3em;
+			left: 116px;
 		}
 	}
 }
 }
 .showcaseTheme {
 	position: absolute;
-	top: 200px;
-	left: 50px;
-	width: 650px;
-	height: 600px;
-	img {
-		height: 25em;
-		width: auto;
+	top: 270px;
+	left: 60px;
+	width: 700px;
+	height: 650px;
+	h2 {
+		position: absolute;
+		top: -58px;
+		left: -36px;
+		width: 800px;
+		color: $lightBlue;
+		font-size: 3em;
+	}
+	.spinnerTheme {
+			top: -20px;
+		img {
+			height: 20em;
+			width: auto;
+	}
+		.roundabout-in-focus {
+			h3 {
+				color: red;
+			}
+		}
 	}
 }
+.showcaseTheme h3 {
+	color: $darkBlue;
+	font-size: 1.9em;
 
+}
+
+h3#choiceReceiver {
+	font-size: 2.3em;
+	color: $darkBlue;
+	position: absolute;
+	left: 23px;
+	top: 170px;
+}
+
+#cart_sidebarReceiver {
+	position: absolute;
+
+}
+
+h3#messageReceiver2 {
+
+}

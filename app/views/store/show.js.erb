@@ -1,12 +1,13 @@
 
 $("#spinnerReceiver").fadeOut(500);
+
 $("#choiceReceiver").html("<%= @msg1_replace %>");
 $("#messageReceiver2").html("<%= @msg1 %>");
 $("#choiceReceiver2").html("<%= @msg2 %>");
 $("#messageReceiver3").html("<%= @msg3 %>");
 $('#featureReceiver').html("<%=j render 'build_type' %>");
 $('#cart_sidebarReceiver').html("<%=j render 'cart_sidebar2' %>");
-
+$("#choiceReceiver2").html("<%= @msg2 %>");
 
 $('div input').change(function() {
   	var options = $(this).parent().parent().children(":not(h3)");

@@ -1,5 +1,5 @@
 <div id="store-page">
-    <div class="tabs step1Wrapper">
+    <div class="tabs">
       <h1 class="storeHeader">Custom Build an Instrument</h1>
       <h2 class="chooseInstrument">Step 1: Choose an instrument</h2>
       <ul class="instrumentStart">
@@ -16,17 +16,19 @@
           <%= link_to "All", {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
       </ul>
-      <h2><div id="messageReceiver"></div></h2>
-      <div id="choiceReceiver"></div>
-      <h2><div id="messageReceiver2"></div></h2>
-      <div id="choiceReceiver2"></div>
-    </div> <!-- tabs --> 
-    <div id="cart_sidebarReceiver"></div>
-    <%= render 'spinnerGuitar' %>
-    <div id="spinnerReceiver"></div>
-    <h2><div id="messageReceiver3"></div></h2>
-    <div id="featureReceiver"></div>
+    
 
+      <h3 id="messageReceiver"></h3><!-- none -->
+      <h3 id="choiceReceiver"></h3> <!--    -->
+      <h3 id="messageReceiver2"></h3>
+      <h3 id="choiceReceiver2"></h3>
+    </div> <!-- tabs --> 
+    <div id="cart_sidebarReceiver"></div><!-- money/totals/minicart -->
+    <%= render 'spinnerGuitar' %>
+    <div id="spinnerReceiver"></div> <!-- spinnerTheme -->
+    <h3 id="messageReceiver3"></h3> <!-- step 4: choose your configuration -->
+    <div id="featureReceiver"></div><!-- BIG LIST -->
+</div>
 </div> <!-- store-page -->
 
 
