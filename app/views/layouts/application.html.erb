@@ -30,12 +30,17 @@
     <% chosen_navbar = 'layouts/main_navbar' %>
   <% else %>
     <% chosen_navbar = 'layouts/admin_navbar' %>
+    <div class="adminBackground1"></div>
   <% end %>
   <%= render chosen_navbar %>
   
 
 <!-- ***********    MAIN  LAYOUT     *************** -->
-  <div class="jonBumper">    
+  <% if params[:controller] == 'store'  %>
+    <div>
+  <% else %>
+    <div class="jonBumper"> 
+  <% end %>   
       <div id="main">
         <%= yield %>
       </div>

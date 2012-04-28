@@ -1,4 +1,4 @@
-<div class="headerBackground fixed">
+<div class="adminHeaderBackground fixed">
 	 <% if true #session[:user_id] %>
     <div id="admin-navbar">
       <div class="tabs">
@@ -38,7 +38,7 @@
     </div>
   <% end %>
 	<h1 id="fittext1" class="headerText">
-		<%= link_to 'Becker/Martin Instruments', controller: 'main', action: 'index' %>
+		<%= link_to 'Becker Instruments', controller: 'main', action: 'index' %>
 	</h1>
 
 		<ul id="fittext2" class="navUl">
@@ -68,9 +68,14 @@
 				<%= link_to "Artist",{ controller: 'main', action: 'artists' }, :id => "artistsClick" %>
 				</h2>
 			</li>
-			<li id="storeNavClick" class="lastLi navLi">
+			<li id="storeNavClick" class="navLi">
 				<h2>
 				<%= link_to "Store",{ controller: 'store', action: 'new'}, :id => "storeClick" %>
+				</h2>
+			</li>
+			<li id="storeNavClick" class="lastLi navLi">
+				<h2>
+				<%= link_to "LogOut",{ controller: 'main', action: 'index'}, :id => "storeClick" %>
 				</h2>
 			</li>
 		</ul>

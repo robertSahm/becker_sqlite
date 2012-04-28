@@ -252,7 +252,13 @@ td { vertical-align: top; }
 	-o-transition: width 0.6s; /* Opera */
 }
 
-
+$orange: #DE6B3F;
+$red: red;
+$brightGreen: #1DDF00;
+$darkBlue: #006BEA;
+$lightBlue: #00FFEF;
+$darkPink: #FF00F4;
+$white: white;
 
 /* - - General Page Declarations ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -315,6 +321,17 @@ a {
 	-moz-box-shadow:    0px 0px 17px 12px black;
 	-webkit-box-shadow: 0px 0px 17px 12px black;
 	box-shadow:         0px 0px 17px 12px black;
+}
+
+.adminHeaderBackground {
+	width: 800px;
+	height: 97px;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding-left: 1em;
+	padding-top: .7em;
+	z-index: 3999;
 }
 
 .logo {
@@ -405,7 +422,7 @@ h1.headerText {
 			color: #7ED9D9;
 			
 			a {
-				color: #7ED9D9;
+				color: $darkBlue;
 				text-decoration: none;
 				opacity: .4;
 			}
@@ -459,30 +476,15 @@ height: 32px;
 	}
 }
 
-#guitarNavClick a {
-	color: #7ED9D9;
-	
-}
-
-#bassNavClick a {
-	color: #7ED9D9;
-}
-
-#themesNavClick a {
-	color: #7ED9D9;;
-}
-
-#customNavClick a {
-	color: #7ED9D9;
-}
-
-#artistsNavClick a {
-	color: #7ED9D9;
-}
-
+#guitarNavClick a,
+#bassNavClick a,
+#themesNavClick a,
+#customNavClick a,
+#artistsNavClick a,
 #storeNavClick a {
 	color: #7ED9D9;
 }
+
 /*-- ----------------------------------- - - - */
 #guitarNavClick a:hover {
 	color: red;
@@ -919,6 +921,11 @@ background-repeat: no-repeat;*/
 	margin-top: 120px;
 }
 
+.jonBumper {
+	position: absolute;
+	top: 130px;
+}
+
 
 
 
@@ -963,7 +970,7 @@ background-repeat: no-repeat;*/
 
 div.adminBackground1 {
 	position: fixed;
-	top: 109px;
+	top: 0;
 	left: 0;
 	width: 100%;
 	height: 5000px;
@@ -972,6 +979,111 @@ div.adminBackground1 {
 	z-index: -1000;
 	opacity: .8;
 }
+
+li.DropDownColumn {
+	margin: 0.1em;
+	padding:.5em;
+	float: left;
+}
+
+// Guitar page
+#guitarPageWrapper {
+	width: 900px;
+	height: 100%;
+
+	.guitarHeaderText {
+		position: absolute;
+		width: 700px;
+		height: auto;
+		left: 25px;
+		top: 0;
+
+		h3 {
+			width: 700px;
+			margin: 0;
+			padding: 0;
+			left: 0;
+			line-height: 1em;
+			color: $darkBlue;
+			font: {
+				size: 2.2em;
+			}
+		}
+		p3 {
+			position: absolute;
+			width: 600px;
+			top: 50px;
+			left: 0;
+			font: {
+				family: 'Ovo', serif;
+				size: 1em;
+			}
+		}
+	}
+
+	#guitarSliderLoop {
+		position: absolute;
+		top: 200px;
+
+		ul#guitarSliderUl {
+			width: 900px;
+			padding:0;
+			margin:0;
+			height: 600px;
+			li {
+				float: left;
+				width: 170px;
+				height: 300px;
+				text-align: center;
+				h4 {
+					padding: 0;
+					margin: 0;
+					font: {
+						family: 'MenschMenschRegular';
+						weight: normal;
+						style: normal;
+						size: 1.5em;
+					}
+				}
+				img {
+					height: 300px;
+					margin-left: auto;
+					margin-right: auto;
+					
+				}	
+			}
+		}
+	}
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
