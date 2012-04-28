@@ -11,8 +11,41 @@ $(function() {
 	  	var indi_price = parseInt($(this).attr("value"));
 		calculateDelta(options, indi_price);
 		price_to_cart(feature_to_cart, text_to_cart);
-	});	
+	});
+	$('.tabClick1 a').click(function() {
+		$('h2.chooseInstrument').fadeToggle();
+		$(this).parent().siblings().fadeToggle(500,'linear');
+		if ($('.choice').length > 0) {
+			textEnlarge();			
+		} else {
+			$(this).parent().addClass('chosenLink');
+			textShrink();			
+		}
+		messageFade();
+		return false;
+	})	
 });
+
+function messageFade() {
+	$('h2.chooseBodyType').fadeToggle();
+}
+
+function textShrink() {
+	$('.chosenLink').animate({
+		fontSize: ".8em",
+		marginTop: "-40px"
+	}, 500 );
+	$('.chosenLink').removeClass('chosenLink').addClass('choice');	
+}
+
+function textEnlarge() {
+	$('.choice').animate({
+		fontSize: "1em",
+		marginTop: "0px"
+	}, 500 );
+	$('.choice').removeClass('choice');
+}
+  
 
 function calcCartPrice(base_price) {
 	$('#cart_price').html("<span> JS Value: $ " + base_price + "</span>");
@@ -44,12 +77,25 @@ function insertDom(obj) {
 	$(obj).children(".price-delta").each(function() {
 		$(this).empty();
 		if (data > 0) {
-			$(this).append("[Add $" + data + "]")
+			$(this).append("[Add $" + data + "]");
 		} else if (data < 0) {
-			$(this).append("[Subtract $" + Math.abs(data) + "]")
+			$(this).append("[Subtract $" + Math.abs(data) + "]");
 		} else {}
 	})
 }
+
+// take the type tabs and make single function process
+// forward
+// when you click on one type guitar, bass,etc
+// hide the <h2 id="chooseInstrument">
+//  hide the other type choices
+// animate the chosen type to the same DOM location with CSS changes
+// reverse
+// when you click the type
+// animate the type to its list position in the DOM
+// show the remaining list items
+// show the <h2 id="chooseInstrument">
+
 
 
 
