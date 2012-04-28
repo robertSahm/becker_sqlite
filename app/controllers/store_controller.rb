@@ -4,11 +4,12 @@ class StoreController < ApplicationController
   def new
     if params[:instrument]
       @body_types     = BodyType.where(type_of: params[:instrument]).order("position ASC")
-      @type_of      = [params[:instrument]]
+      @type_of        = [params[:instrument]]
     else
-      @type_of      = TYPE_OF
+      @type_of        = TYPE_OF
       @body_types     = BodyType.order("position ASC")
     end
+    @themes = Theme.all
   end
   
   def theme
@@ -38,6 +39,15 @@ class StoreController < ApplicationController
       @body_type = BodyType.find(params[:id])
     else 
       @body_type = BodyType.first
+    end
+    @themes = @body_type.themes
+    @msg1 = "Step 2: Choose A Body Type "
+    @msg2 = "#{@body_type.name.capitalize}"
+    
+    respond_to do |format|
+      format.html 
+      format.js 
+      format.xml  { head :ok }
     end
   end
   
@@ -75,11 +85,22 @@ class StoreController < ApplicationController
   end
 
   def show
-    @body_type  = BodyType.find(params[:body_type]) if params[:body_type]
-    @theme      = Theme.find(params[:theme]) if params[:theme]
+    # @body_type  = BodyType.last   # workaround
+    @body_type  = BodyType.find(params[:body_type]) 
+    @theme      = Theme.find(params[:theme])
     @cart_price = @body_type.price + @theme.price    
     @options    = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
     @features   = cart_builder(@options)
+    @msg1_replace = "#{@body_type.name} : $#{@body_type.price}"
+    @msg2 = "#{@theme.name} : $#{@theme.price}"
+    @msg1 = "Step 3: Choose A Theme"
+    @msg3 = "Step 4: Choose your Configuration"
+    
+    respond_to do |format|
+      format.html 
+      format.js 
+      format.xml  { head :ok }
+    end
   end
   
   def cart_builder(options)

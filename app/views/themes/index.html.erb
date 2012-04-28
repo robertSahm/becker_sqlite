@@ -1,3 +1,5 @@
+
+
 <div class="adminBackground1"></div>
 <h2>Themes at a Glance</h2>
 
@@ -18,9 +20,9 @@
     <ul>
       <% @themes.each do |theme| %>
         <hr />
-        <li class="tcell">
+        <li>
           <%= link_to theme.name, edit_theme_path(theme)  %></li>
-        <li class="tcell">  
+        <li>  
           <%= truncate(strip_tags(theme.description),
                 length: 50) %>
           <% if theme.thumb_url.blank? %>
@@ -44,7 +46,7 @@
           <%= theme.finish %> | 
           <%= theme.body %>
           <%= link_to 'X', action: 'delete', id: theme.id %></li>
-        <li class="tcell">
+        <li>
           <% @body_types = theme.body_types %>
         
         

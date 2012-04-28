@@ -37,19 +37,14 @@ div#store-page a {
 			style: normal;
 		}
 	}
+
 	.tabs {
 		margin-left: 20px;
-		h2 {
-			font-size: 1.3em;
-			color: white;
-			top: 5px;
-			padding: 18px 0 2px 5px;
-		}
-		h2.chooseInstrument {
-			margin-top: 20px;
-			;
-		}
-		h1 {
+		
+		h1.storeHeader {
+			position: fixed;
+			top: 0;
+			margin-top: 40px;
 			color: 
 				darken($darkBlue, 0%);
 			font: {
@@ -57,20 +52,29 @@ div#store-page a {
 				weight: normal;
 			}
 		}
-		ul {
-			margin: 0px 0 0 5px;
+		h2.chooseInstrument {
+			position: absolute;
+			font-size: 1.5em;
+			color: white;
+			top: 100px;
+			padding: 18px 0 2px 5px;
+			font-weight: normal;
+			margin-left: 5px;
+		}
+		ul.instrumentStart {
+			position: absolute;
+			top: 175px;
+			margin: 0;
 			padding: 0;
 			li {
 				display: vertical;
 				list-style-type: none;
-				padding-right: 20px;
-				margin-top: 20px;
+				padding-bottom: 20px;
 				a {
 					font: {
 						family: 'MenschMenschRegular';
 						size: 3em;
 					}
-					line-height: .5em;
 					color: $darkBlue;
 				}
 				a:hover {
@@ -78,17 +82,27 @@ div#store-page a {
 				}
 			}
 		}
+		#messageReceiver {
+			display: none;
+		}
 	}
 }
 
 .loop {
-	.showcaseGuitar h2 {
+	.showcaseGuitar {
 		position: absolute;
-		top: 208px;
-		left: 25px;
-		color: $lightBlue;
-		font-size: 2.5em;
+		top: 200px;
+
+		h2 {
+			position: absolute;
+			top: -30px;
+			left: 23px;
+			width: 700px;
+			color: $lightBlue;
+			font-size: 3em;
+		}
 	}
+	
 	//Roundabout general declerations
 	.roundabout-holder {
 		position: absolute;
@@ -101,7 +115,7 @@ div#store-page a {
 .spinner {
 	width: 650px;
 	margin-left: 60px;
-
+	position: absolute;
 	.roundabout-moveable-item {
 		width: auto;
 		cursor: pointer;
@@ -121,11 +135,60 @@ div#store-page a {
 		cursor: auto;
 		height: 600px;
 	    h3 {
-	    position: absolute;
-		color: red;
-		font-size: 2.5em;
-		left: 116px;
+		    position: absolute;
+			color: red;
+			font-size: 3em;
+			left: 116px;
 		}
 	}
 }
+}
+.showcaseTheme {
+	position: absolute;
+	top: 270px;
+	left: 60px;
+	width: 700px;
+	height: 650px;
+	h2 {
+		position: absolute;
+		top: -58px;
+		left: -36px;
+		width: 800px;
+		color: $lightBlue;
+		font-size: 3em;
+	}
+	.spinnerTheme {
+			top: -20px;
+		img {
+			height: 20em;
+			width: auto;
+	}
+		.roundabout-in-focus {
+			h3 {
+				color: red;
+			}
+		}
+	}
+}
+.showcaseTheme h3 {
+	color: $darkBlue;
+	font-size: 1.9em;
+
+}
+
+h3#choiceReceiver {
+	font-size: 2.3em;
+	color: $darkBlue;
+	position: absolute;
+	left: 23px;
+	top: 170px;
+}
+
+#cart_sidebarReceiver {
+	position: absolute;
+
+}
+
+h3#messageReceiver2 {
+
 }

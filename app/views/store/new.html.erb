@@ -1,44 +1,34 @@
 <div id="store-page">
-    <div class="tabs step1Wrapper">
-      <h2 class="storeHeader">Home > Store</h2>
+    <div class="tabs">
       <h1 class="storeHeader">Custom Build an Instrument</h1>
       <h2 class="chooseInstrument">Step 1: Choose an instrument</h2>
       <ul class="instrumentStart">
         <li class="guitarClick1">
-          <%= link_to ("Guitar"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to "Guitar", {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
         <li class="bassClick1">
-          <%= link_to ("Bass"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to "Bass", {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
         <li class="customClick1">
-          <%= link_to ("Custom Instrument"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to "Custom Instrument", {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
         <li class="allClick1">
-          <%= link_to ("All"), {action: 'new', instrument: 'custom'},{href: '#'} %>
+          <%= link_to "All", {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
       </ul>
+    
+
+      <h3 id="messageReceiver"></h3><!-- none -->
+      <h3 id="choiceReceiver"></h3> <!--    -->
+      <h3 id="messageReceiver2"></h3>
+      <h3 id="choiceReceiver2"></h3>
     </div> <!-- tabs --> 
-
-
-    <div class="loop">
-      <% @type_of.each do |t| %>
-        <div class="showcase<%= t.capitalize %>">
-          <h2> Choose a <%= t.capitalize %> Body Style </h2>
-
-          <div class="spinner">
-          <% @body_types.each do |p| %>
-          <% if p.type_of == t %>
-            <%  spinner = "spinner#{t.capitalize}" %>
-              <%= render spinner, p: p %>
-              <% end %>
-            <% end %> 
-          </div> 
-
-        </div> <!-- showcase -->
-      <% end %>
-    </div> <!-- loop -->
-  </div> <!-- jonBumper -->
-
+    <div id="cart_sidebarReceiver"></div><!-- money/totals/minicart -->
+    <%= render 'spinnerGuitar' %>
+    <div id="spinnerReceiver"></div> <!-- spinnerTheme -->
+    <h3 id="messageReceiver3"></h3> <!-- step 4: choose your configuration -->
+    <div id="featureReceiver"></div><!-- BIG LIST -->
+</div>
 </div> <!-- store-page -->
 
 
