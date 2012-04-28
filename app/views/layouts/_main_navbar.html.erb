@@ -1,5 +1,5 @@
 <div class="headerBackground fixed">
-	 <% if true #session[:user_id] %>
+	 <% if false #session[:user_id] %>
     <div id="admin-navbar">
       <div class="tabs">
         <ul>
@@ -71,9 +71,14 @@
 				<%= link_to "Artist",{ controller: 'main', action: 'artists' }, :id => "artistsClick" %>
 				</h2>
 			</li>
-			<li id="storeNavClick" class="lastLi navLi">
+			<li id="storeNavClick" class="navLi">
 				<h2>
 				<%= link_to "Store",{ controller: 'store', action: 'new'}, :id => "storeClick" %>
+				</h2>
+			</li>
+			<li id="storeNavClick" class="lastLi navLi">
+				<h2>
+				<%= link_to "LogIn", login_path, method: :get %>
 				</h2>
 			</li>
 		</ul>
