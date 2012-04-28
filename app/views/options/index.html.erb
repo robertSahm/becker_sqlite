@@ -3,15 +3,13 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end  %>
-<h2>Options At A Glance</h2>
+<h3>Options At A Glance</h3>
 <table>
   <tr>
     <th>Description</th>
     <th>Price</th>
     <th>Feature</th>
-    <th>Body Type</th>
-    <th>Theme</th>
-    <th>Product</th>
+    <th>Instrument Categories</th>
     <th>Default</th>
     <th>Display</th>
     <th></th>
@@ -24,18 +22,33 @@
       <td><%= best_in_place option, :description, html_attrs: { size: 34}  %></td>
       <td><%= best_in_place option, :price, display_with: :number_to_currency, helper_options: {:precision => 0} %></td>
       <td><%= best_in_place option, :feature_id, type: :select, collection: @feature_array, html_attrs: { include_blank: true } %></td>
-      <td><ul><% @body_types.each do |body_type| %>
-            <li><%= check_box_tag "option[body_type_ids][]", body_type.id, option.body_types.include?(body_type) %>
-                <%= body_type.name %></li>
-      <% end %></ul></td>
-      <td><ul><% @themes.each do |theme| %>
-            <li><%= check_box_tag "option[theme_ids][]", theme.id, option.themes.include?(theme) %>
-                <%= theme.name %></li>
-      <% end %></ul></td>
-      <td><ul><% @products.each do |product| %>
-            <li><%= check_box_tag "option[product_ids][]", product.id, option.products.include?(product) %>
-                <%= product.name %></li>
-      <% end %></ul></td>    
+      <td>
+        <li class="tcell"><a href="#" class="<%= option.id %>">Build Drop Down List</a>
+        <div class="adminDropDown <%= option.id %>">
+          <ul>
+            <li class="DropDownColumn"><strong>Body Types</strong><% @body_types.each do |body_type| %>
+              <div><%= check_box_tag "option[body_type_ids][]", body_type.id, option.body_types.include?(body_type) %>
+                  <%= body_type.name %>
+              </div>
+            <% end %>
+            </li>
+            <li class="DropDownColumn"><strong>Themes</strong>
+            <% @themes.each do |theme| %>
+              <div><%= check_box_tag "option[theme_ids][]", theme.id, option.themes.include?(theme) %>
+                  <%= theme.name %>
+              </div>
+            <% end %>
+            </li>
+            <li class="DropDownColumn"><strong>Products</strong>
+            <% @products.each do |product| %>
+              <div><%= check_box_tag "option[product_ids][]", product.id, option.products.include?(product) %>
+                  <%= product.name %>
+              </div>
+            <% end %>
+            </li>
+        </ul>
+      </div>
+      </td>    
       <td><%= best_in_place option, :default, type: :radio, collection: %w[false true] %></td>
       <td><%= best_in_place option, :display, type: :checkbox, collection: %w[false true] %></td>
       <td><%= link_to 'Edit |', edit_option_path(option) %></td>
