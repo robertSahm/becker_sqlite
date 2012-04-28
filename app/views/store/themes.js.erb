@@ -1,8 +1,8 @@
 $(".showcaseGuitar, .showcaseBass, .showcaseCustom").hide();
-$(".showcaseTheme h2").html("<%= @msg %>");
-$(".<%= @body_type.name %>").fadeIn(500);
-//alert('<%= @body_type.id %>');
-$('.spinnerTheme<%= @body_type.name %>').roundabout({
+$("#messageReceiver").html("<%= @msg1 %>");
+$("#choiceReceiver").html("<%= @msg2 %>");
+$('#spinnerReceiver').html("<%=j render 'spinnerTheme', bt: @body_type %>");
+$(".spinnerTheme").roundabout({
 	//shape: 'tearDrop',
 	//duration: 1000,
 		minScale: .4, 
@@ -15,6 +15,3 @@ $('.spinnerTheme<%= @body_type.name %>').roundabout({
 		easing: "swing",
 
 });
-//$(".showcaseTheme").fadeIn(500);
-
-

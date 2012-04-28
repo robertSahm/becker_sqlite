@@ -16,14 +16,16 @@
           <%= link_to "All", {action: 'new', instrument: 'custom'},{href: '#'} %>
         </li>
       </ul>
+      <h2><div id="messageReceiver"></div></h2>
+      <div id="choiceReceiver"></div>
+      <h2><div id="messageReceiver2"></div></h2>
+      <div id="choiceReceiver2"></div>
     </div> <!-- tabs --> 
-
+    <div id="cart_sidebarReceiver"></div>
     <%= render 'spinnerGuitar' %>
-    <% @body_types.each do |bt| %>
-      <%= render 'spinnerTheme', bt: bt %>
-    <% end %>
-
-  </div> <!-- jonBumper -->
+    <div id="spinnerReceiver"></div>
+    <h2><div id="messageReceiver3"></div></h2>
+    <div id="featureReceiver"></div>
 
 </div> <!-- store-page -->
 
