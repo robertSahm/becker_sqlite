@@ -41,7 +41,8 @@ class StoreController < ApplicationController
       @body_type = BodyType.first
     end
     @themes = @body_type.themes
-    @msg = "Step 2: #{@body_type.name.capitalize}"
+    @msg1 = "Step 2: Choose A Body Type "
+    @msg2 = "#{@body_type.name.capitalize}"
     
     respond_to do |format|
       format.html 
@@ -90,6 +91,10 @@ class StoreController < ApplicationController
     @cart_price = @body_type.price + @theme.price    
     @options    = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
     @features   = cart_builder(@options)
+    @msg1_replace = "#{@body_type.name} : $#{@body_type.price}"
+    @msg2 = "#{@theme.name} : $#{@theme.price}"
+    @msg1 = "Step 3: Choose A Theme"
+    @msg3 = "Step 4: Choose your Configuration"
     
     respond_to do |format|
       format.html 

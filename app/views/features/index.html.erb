@@ -17,9 +17,9 @@
     <ul>
       <% @features.each do |feature| %>
         <hr />
-        <li class="tcell">
+        <li>
           <%= link_to feature.name, edit_feature_path(feature)  %></li>
-        <li class="tcell">
+        <li>
           <%= feature.description %> | 
           <%= link_to 'X', action: 'delete', id: feature.id %></li>
           <li class="tcell">

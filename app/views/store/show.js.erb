@@ -1,3 +1,19 @@
+
 $("#spinnerReceiver").fadeOut(500);
+$("#choiceReceiver").html("<%= @msg1_replace %>");
+$("#messageReceiver2").html("<%= @msg1 %>");
+$("#choiceReceiver2").html("<%= @msg2 %>");
+$("#messageReceiver3").html("<%= @msg3 %>");
 $('#featureReceiver').html("<%=j render 'build_type' %>");
 $('#cart_sidebarReceiver').html("<%=j render 'cart_sidebar2' %>");
+
+
+$('div input').change(function() {
+  	var options = $(this).parent().parent().children(":not(h3)");
+	var text_to_cart = $(this).parent().text();
+  	var feature_to_cart = $(this).parent().siblings("h3").text();
+  	var indi_price = parseInt($(this).attr("value"));
+	calculateDelta(options, indi_price);
+	price_to_cart(feature_to_cart, text_to_cart);
+});
+

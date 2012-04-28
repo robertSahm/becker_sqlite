@@ -1,5 +1,6 @@
 $(".showcaseGuitar, .showcaseBass, .showcaseCustom").hide();
-$("#messageReceiver h2").html("<%=j @msg %>");
+$("#messageReceiver").html("<%= @msg1 %>");
+$("#choiceReceiver").html("<%= @msg2 %>");
 $('#spinnerReceiver').html("<%=j render 'spinnerTheme', bt: @body_type %>");
 $(".spinnerTheme").roundabout({
 	//shape: 'tearDrop',

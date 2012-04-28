@@ -19,9 +19,9 @@
     <ul>
       <% @products.each do |product| %>
         <hr />
-        <li class="tcell">
+        <li>
           <%= link_to product.name, edit_product_path(product)  %></li>
-        <li class="tcell">  
+        <li>  
           <%= raw(product.description) %> | 
           <%= product.type_of %> | 
           <%= product.price %>
