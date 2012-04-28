@@ -41,10 +41,7 @@ class StoreController < ApplicationController
       @body_type = BodyType.first
     end
     @themes = @body_type.themes
-    msg1 = "Step 1: #{@body_type.type_of}"
-    msg2 = "Step 2: #{@body_type.name.capitalize}"
-    msg3 = "Step 3: Choose A Theme"
-    @msg = msg1 + msg2 + msg3
+    @msg = "Step 2: #{@body_type.name.capitalize}"
     
     respond_to do |format|
       format.html 
@@ -87,12 +84,18 @@ class StoreController < ApplicationController
   end
 
   def show
-    @body_type  = BodyType.last   # workaround
-    # @body_type  = BodyType.find(params[:body_type]) 
+    # @body_type  = BodyType.last   # workaround
+    @body_type  = BodyType.find(params[:body_type]) 
     @theme      = Theme.find(params[:theme])
     @cart_price = @body_type.price + @theme.price    
     @options    = Option.where(display: true).order("options.feature_id ASC").order("options.price ASC")
     @features   = cart_builder(@options)
+    
+    respond_to do |format|
+      format.html 
+      format.js 
+      format.xml  { head :ok }
+    end
   end
   
   def cart_builder(options)

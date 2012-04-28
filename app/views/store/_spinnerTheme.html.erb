@@ -1,13 +1,13 @@
 <div class="loop">
-    <div class="showcaseTheme <%= bt.name %>">
+    <div class="showcaseTheme">
       <h2> Choose a Theme </h2>
 
-      <div class="spinnerTheme<%= bt.name %>">
+      <div class="spinnerTheme">
       <% @themes.each do |theme| %>
         <%  spinner = "spinner#{theme.name.capitalize}" %>
           <li>
           	<h3><%= theme.name %></h3>
-          	<%= link_to image_tag(theme.image_url), action: "show", theme: theme.id, body_type: bt.id %>	
+          	<%= link_to image_tag(theme.image_url),{ action: "show", theme: theme.id, body_type: bt.id}, remote: true %>	
           </li>
         <% end %> 
       </div> 
