@@ -1,35 +1,17 @@
 <div id="store-page">
-    <div class="tabs">
-      <h1 class="storeHeader">Custom Build an Instrument</h1>
-      <h2 class="chooseInstrument">Step 1: Choose an instrument</h2>
-      <ul class="instrumentStart">
-        <li class="guitarClick1">
-          <%= link_to "Guitar", {action: 'new', instrument: 'custom'},{href: '#'} %>
-        </li>
-        <li class="bassClick1">
-          <%= link_to "Bass", {action: 'new', instrument: 'custom'},{href: '#'} %>
-        </li>
-        <li class="customClick1">
-          <%= link_to "Custom Instrument", {action: 'new', instrument: 'custom'},{href: '#'} %>
-        </li>
-        <li class="allClick1">
-          <%= link_to "All", {action: 'new', instrument: 'custom'},{href: '#'} %>
-        </li>
-      </ul>
-    
-
-      <h3 id="messageReceiver"></h3><!-- none -->
-      <h3 id="choiceReceiver"></h3> <!--    -->
-      <h3 id="messageReceiver2"></h3>
-      <h3 id="choiceReceiver2"></h3>
-    </div> <!-- tabs --> 
-    <div id="cart_sidebarReceiver"></div><!-- money/totals/minicart -->
-    <%= render 'spinnerGuitar' %>
-    <div id="spinnerReceiver"></div> <!-- spinnerTheme -->
-    <h3 id="messageReceiver3"></h3> <!-- step 4: choose your configuration -->
-    <div id="featureReceiver"></div><!-- BIG LIST -->
+  <div class="tabs">
+    <h1 class="storeHeader">Custom Build an Instrument</h1>
+    <h2 class="chooseInstrument">Step 1: Choose an instrument</h2>
+    <%= render 'choose_type' %>
+  </div>
 </div>
-</div> <!-- store-page -->
+
+
+
+
+
+
+
 
 
 <script>
