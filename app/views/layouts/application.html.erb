@@ -36,7 +36,11 @@
   
 
 <!-- ***********    MAIN  LAYOUT     *************** -->
-  <div class="jonBumper">    
+  <% if params[:controller] == 'store'  %>
+    <div>
+  <% else %>
+    <div class="jonBumper"> 
+  <% end %>   
       <div id="main">
         <%= yield %>
       </div>

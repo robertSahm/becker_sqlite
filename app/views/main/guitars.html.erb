@@ -8,9 +8,8 @@
 	<div id="spinnerWrapper">
 		<ul id="spinner">
 		<% @products.each do |p| %>
-				<p><%= p.name %></p>
-
-				<li><%= link_to image_tag(p.image_url),{ action: "guitar", id: p.id}, class: "galleryImage"  %></li>
+				<h3><%= p.name %></h3>
+        <li><%= link_to image_tag(p.image_url),{ action: "guitar", id: p.id}, class: "galleryImage"  %></li>
 		<% end %> 
 		</ul>
 	</div>
