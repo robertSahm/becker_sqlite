@@ -1,0 +1,7 @@
+<ul class="instrumentBody">
+  <% @body_types.each do |bt| %>
+    <li class="tabClick2">
+      <%= link_to bt.name, { action: "themes" , id: bt.id }, remote: true  %>
+    </li>
+  <% end %> 
+</ul>

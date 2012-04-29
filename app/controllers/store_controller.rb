@@ -41,6 +41,7 @@ class StoreController < ApplicationController
       @body_type = BodyType.first
     end
     @themes = @body_type.themes
+    @id = @body_type.id
     @msg1 = "Step 2: Choose A Body Type "
     @msg2 = "#{@body_type.name.capitalize}"
     

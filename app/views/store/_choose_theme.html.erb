@@ -1,0 +1,7 @@
+<ul class="instrumentTheme">
+  <% @themes.each do |t| %>
+    <li class="tabClick3">
+      <%= link_to t.name, { action: "show", theme: t.id, body_type: @id}, remote: true  %>
+    </li>
+  <% end %> 
+</ul>

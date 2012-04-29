@@ -23,11 +23,31 @@ $(function() {
 		}
 		messageFade();
 		return false;
+	})
+	$('.tabClick2 a').click(function() {
+		$('.tabClick1').removeClass('choice');
+		$('h2.chooseBodyType').fadeToggle();
+		$(this).parent().siblings().fadeToggle(500,'linear');
+		if ($('.choice').length > 0) {
+			textEnlarge();	
+			$('.tabClick1:visible').addClass('choice');
+			$('h2.chooseTheme').fadeToggle();
+			$('ul.instrumentTheme').fadeOut();
+			return false;		
+		} else {
+			$(this).parent().addClass('chosenLink');
+			textShrink();
+			$('h2.chooseTheme').fadeToggle();
+			$('ul.instrumentTheme').fadeIn();
+		}
 	})	
+
+	
 });
 
 function messageFade() {
 	$('h2.chooseBodyType').fadeToggle();
+	$('.instrumentBody').fadeToggle();
 }
 
 function textShrink() {
