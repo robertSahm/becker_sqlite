@@ -988,73 +988,108 @@ li.DropDownColumn {
 
 // Guitar page
 #guitarPageWrapper {
-	width: 900px;
-	height: 100%;
+	left: 25px;
+	width: 790px;
+	height: 900px;
 
 	.guitarHeaderText {
 		position: absolute;
-		width: 700px;
-		height: auto;
 		left: 25px;
-		top: 0;
+		height: auto;
+		width: 390px;
+		float: left;
+		letter-spacing: .02em;
+		text-align: justify;
+		text-justify: newspaper;
 
 		h3 {
-			width: 700px;
+			float: left;
 			margin: 0;
-			padding: 0;
-			left: 0;
+			padding: 0 10px 0 0;
 			line-height: 1em;
-			color: $darkBlue;
+			
 			font: {
-				size: 2.2em;
+				size: 2.9em;
+
 			}
+			text-shadow: 
+			 0px
+			 0px 
+			 5px rgba(255,255,255, 1);
 		}
 		p3 {
-			position: absolute;
-			width: 600px;
-			top: 50px;
-			left: 0;
+			line-height: 1.5em;
 			font: {
-				family: 'Ovo', serif;
+				family: 'Della Respira', serif;
 				size: 1em;
+				weight: 200;
 			}
+
+
 		}
 	}
 
 	#guitarSliderLoop {
-		position: absolute;
-		top: 200px;
+		width: 320px;
+		height: 700px;
+		float: right;
+		top: 0px;
+		left: 465px;
 
 		ul#guitarSliderUl {
-			width: 900px;
+			width: 430px;
 			padding:0;
 			margin:0;
-			height: 600px;
+			height: 700px;
+			top: 200px;
+
+
 			li {
-				float: left;
-				width: 170px;
-				height: 300px;
+				position: relative;	
+				width: 300px;
+				height: 100px;
 				text-align: center;
+				padding-bottom: 30px;
+				text-align: right;
+
 				h4 {
-					padding: 0;
+					position: absolute;
+					top: 14px;
+					width: 225px;
+					clear: none;
+					float: right;
+					right: 0;
 					margin: 0;
+					word-spacing: -3px;
+					letter-spacing: .1em;
+					line-height: 1em;
+					color: $darkBlue;
+					text-shadow: 0px 0px 12px $lightBlue;
+					
 					font: {
 						family: 'MenschMenschRegular';
 						weight: normal;
 						style: normal;
-						size: 1.5em;
+						size: 1.1em;
 					}
 				}
+				h4:hover {
+						text-shadow: 0px 0px 6px $lightBlue;
+						color: #999;
+				}
+
 				img {
-					height: 300px;
-					margin-left: auto;
-					margin-right: auto;
+					width: 300px;
 					
-				}	
+					/* for firefox, safari, chrome, etc. */
+		
+				}
 			}
 		}
 	}
-}	
+}
+
+
 
 
 
