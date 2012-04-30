@@ -12,25 +12,17 @@ $(function() {
 		calculateDelta(options, indi_price);
 		price_to_cart(feature_to_cart, text_to_cart);
 	});
-	$('.tabClick1 a').click(function() {
-		$('h2.chooseInstrument').fadeToggle();
-		$(this).parent().siblings().fadeToggle(500,'linear');
-		if ($('.choice').length > 0) {
-			textEnlarge();			
-		} else {
-			$(this).parent().addClass('chosenLink');
-			textShrink();			
-		}
-		messageFade();
-		return false;
-	})
+	$('.tabClick1 a').click(typeClick);
+	
 	$('.tabClick2 a').click(function() {
-		$('.tabClick1').removeClass('choice');
+		$('.tabClick1:visible').removeClass('choice').addClass('typeClick').removeClass('tabClick1');
 		$('h2.chooseBodyType').fadeToggle();
 		$(this).parent().siblings().fadeToggle(500,'linear');
 		if ($('.choice').length > 0) {
 			textEnlarge();	
-			$('.tabClick1:visible').addClass('choice');
+			$('.typeClick a').off('click');
+			$('.typeClick a').click(typeClick);
+			$('.typeClick').addClass('tabClick1 choice').removeClass('typeClick');
 			$('h2.chooseTheme').fadeToggle();
 			$('ul.instrumentTheme').fadeOut();
 			return false;		
@@ -41,9 +33,40 @@ $(function() {
 			$('ul.instrumentTheme').fadeIn();
 		}
 	})	
-
-	
 });
+
+function typeClick() {
+	$('h2.chooseInstrument').fadeToggle();
+	$(this).parent().siblings().fadeToggle(500,'linear');
+	if ($('.choice').length > 0) {
+		textEnlarge();			
+	} else {
+		$(this).parent().addClass('chosenLink');
+		textShrink();
+	}
+	messageFade();
+	return false;	
+}
+
+function resetTypeClick() {
+	$('.tabClick2:visible').addClass('choice');
+	$('h2.chooseTheme').fadeToggle();
+	$('ul.instrumentTheme').fadeOut();
+	$('ul.instrumentBody li').fadeIn();
+	$('ul.instrumentBody').fadeOut();
+	$('.typeClick').addClass('tabClick1 choice').removeClass('typeClick');
+	textEnlarge();
+	$('.tabClick1').siblings().fadeIn();
+	$('h2.chooseInstrument').fadeIn();
+	$('.tabClick1 a').off('click');
+	$('.tabClick1 a').click(typeClick);
+	$('ul.instrumentTheme li').fadeIn();
+	$('ul.instrumentTheme').fadeOut();	
+	$('h2.chooseTheme').hide();
+	$('h2.chooseOptions').hide();
+	$('#cart_sidebarReceiver').empty();
+	$('#featureReceiver').empty();	
+}
 
 function messageFade() {
 	$('h2.chooseBodyType').fadeToggle();
