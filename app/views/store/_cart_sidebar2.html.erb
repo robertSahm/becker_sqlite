@@ -4,6 +4,5 @@
   <div id="base_price">Base Price: $ <%= @cart_price %></div>
   <div id="cart_price"></div>
   <%= button_to 'Add to Cart', line_items_path(product_id: @product), method: :post  %>
-  <% #button_to 'Add to Cart', line_items_path(product_id: @product), method: :post,remote: true  %>
   <%= render 'build_type' %>
 
