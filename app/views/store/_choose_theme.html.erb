@@ -1,7 +1,28 @@
 <ul class="instrumentTheme">
   <% @themes.each do |t| %>
-    <li class="tabClick3">
+    <li class="tabClick3 theme<%= t.id %>">
       <%= link_to t.name, { action: "show", theme: t.id, body_type: @id}, remote: true  %>
     </li>
   <% end %> 
 </ul>
+
+
+<script>
+$('.tabClick3 a').click(function() {
+	$('h2.chooseOptions').fadeToggle();
+	$('.tabClick2').removeClass('choice');
+	$('h2.chooseTheme').fadeToggle();
+	$(this).parent().siblings().fadeToggle(500,'linear');
+	if ($('.choice').length > 0) {
+		textEnlarge();	
+		$('.tabClick2:visible').addClass('choice');
+		$('ul.instrumentTheme').fadeIn();
+		return false;		
+	} else {
+		$(this).parent().addClass('chosenLink');
+		textShrink();
+		$('ul.instrumentTheme').fadeIn();
+	}	
+})
+
+</script>
