@@ -17,6 +17,8 @@ $('.tabClick3 a').click(function() {
 		textEnlarge();	
 		$('.tabClick2:visible').addClass('choice');
 		$('ul.instrumentTheme').fadeIn();
+		$('#cart_sidebarReceiver').empty();
+		$('#featureReceiver').empty();
 		return false;		
 	} else {
 		$(this).parent().addClass('chosenLink');

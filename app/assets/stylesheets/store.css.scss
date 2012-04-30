@@ -91,6 +91,16 @@ div#store-page a {
 			font-weight: normal;
 			margin-left: 5px;
 		}
+		#cart_sidebarReceiver {
+			position: absolute;
+			font-size: 1.5em;
+			color: gray;
+			top: 280px;
+			right : 100px;
+			padding: 18px 0 2px 5px;
+			font-weight: normal;
+			margin-left: 5px;
+		}
 		ul.instrumentStart {
 			position: absolute;
 			top: 175px;
@@ -155,6 +165,28 @@ div#store-page a {
 				}
 			}
 		}
+		#featureReceiver {
+			position: absolute;
+			top: 350px;
+			margin: 0;
+			padding: 0;
+			li {
+				display: vertical;
+				list-style-type: none;
+				padding-bottom: 20px;
+				a {
+					font: {
+						family: 'MenschMenschRegular';
+						size: 3em;
+					}
+					color: $darkBlue;
+				}
+				a:hover {
+					color: $red;
+				}
+			}
+		}
+		
 		#messageReceiver {
 			display: none;
 		}
