@@ -69,6 +69,13 @@ $(document).ready(function() {
 		}, 500 );
 		return false;
 	});
+
+	$(".scrollableArea").smoothDivScroll({ 
+			mousewheelScrolling: true,
+			manualContinuousScrolling: false,
+			visibleHotSpotBackgrounds: "never",
+			
+		});
 	
 });
 
