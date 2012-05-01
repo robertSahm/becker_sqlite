@@ -73,9 +73,10 @@ $(document).ready(function() {
 	$(".scrollableArea").smoothDivScroll({ 
 			mousewheelScrolling: true,
 			manualContinuousScrolling: false,
-			visibleHotSpotBackgrounds: "never",
+			visibleHotSpotBackgrounds: "always",
 			
 		});
+
 	
 });
 
