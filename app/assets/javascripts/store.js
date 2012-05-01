@@ -11,8 +11,84 @@ $(function() {
 	  	var indi_price = parseInt($(this).attr("value"));
 		calculateDelta(options, indi_price);
 		price_to_cart(feature_to_cart, text_to_cart);
-	});	
+	});
+	$('.tabClick1 a').click(typeClick);
+	
+	$('.tabClick2 a').click(function() {
+		$('.tabClick1:visible').removeClass('choice').addClass('typeClick').removeClass('tabClick1');
+		$('h2.chooseBodyType').fadeToggle();
+		$(this).parent().siblings().fadeToggle(500,'linear');
+		if ($('.choice').length > 0) {
+			textEnlarge();	
+			$('.typeClick a').off('click');
+			$('.typeClick a').click(typeClick);
+			$('.typeClick').addClass('tabClick1 choice').removeClass('typeClick');
+			$('h2.chooseTheme').fadeToggle();
+			$('ul.instrumentTheme').fadeOut();
+			return false;		
+		} else {
+			$(this).parent().addClass('chosenLink');
+			textShrink();
+			$('h2.chooseTheme').fadeToggle();
+			$('ul.instrumentTheme').fadeIn();
+		}
+	})	
 });
+
+function typeClick() {
+	$('h2.chooseInstrument').fadeToggle();
+	$(this).parent().siblings().fadeToggle(500,'linear');
+	if ($('.choice').length > 0) {
+		textEnlarge();			
+	} else {
+		$(this).parent().addClass('chosenLink');
+		textShrink();
+	}
+	messageFade();
+	return false;	
+}
+
+function resetTypeClick() {
+	$('.tabClick2:visible').addClass('choice');
+	$('h2.chooseTheme').fadeToggle();
+	$('ul.instrumentTheme').fadeOut();
+	$('ul.instrumentBody li').fadeIn();
+	$('ul.instrumentBody').fadeOut();
+	$('.typeClick').addClass('tabClick1 choice').removeClass('typeClick');
+	textEnlarge();
+	$('.tabClick1').siblings().fadeIn();
+	$('h2.chooseInstrument').fadeIn();
+	$('.tabClick1 a').off('click');
+	$('.tabClick1 a').click(typeClick);
+	$('ul.instrumentTheme li').fadeIn();
+	$('ul.instrumentTheme').fadeOut();	
+	$('h2.chooseTheme').hide();
+	$('h2.chooseOptions').hide();
+	$('#cart_sidebarReceiver').empty();
+	$('#featureReceiver').empty();	
+}
+
+function messageFade() {
+	$('h2.chooseBodyType').fadeToggle();
+	$('.instrumentBody').fadeToggle();
+}
+
+function textShrink() {
+	$('.chosenLink').animate({
+		fontSize: ".8em",
+		marginTop: "-40px"
+	}, 500 );
+	$('.chosenLink').removeClass('chosenLink').addClass('choice');	
+}
+
+function textEnlarge() {
+	$('.choice').animate({
+		fontSize: "1em",
+		marginTop: "0px"
+	}, 500 );
+	$('.choice').removeClass('choice');
+}
+  
 
 function calcCartPrice(base_price) {
 	$('#cart_price').html("<span> JS Value: $ " + base_price + "</span>");
@@ -44,12 +120,25 @@ function insertDom(obj) {
 	$(obj).children(".price-delta").each(function() {
 		$(this).empty();
 		if (data > 0) {
-			$(this).append("[Add $" + data + "]")
+			$(this).append("[Add $" + data + "]");
 		} else if (data < 0) {
-			$(this).append("[Subtract $" + Math.abs(data) + "]")
+			$(this).append("[Subtract $" + Math.abs(data) + "]");
 		} else {}
 	})
 }
+
+// take the type tabs and make single function process
+// forward
+// when you click on one type guitar, bass,etc
+// hide the <h2 id="chooseInstrument">
+//  hide the other type choices
+// animate the chosen type to the same DOM location with CSS changes
+// reverse
+// when you click the type
+// animate the type to its list position in the DOM
+// show the remaining list items
+// show the <h2 id="chooseInstrument">
+
 
 
 
