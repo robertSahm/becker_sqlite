@@ -8,6 +8,9 @@
 
 
 <script>
+
+$('.typeClick a').off('click');
+$('.typeClick a').click(resetTypeClick);
 $('.tabClick3 a').click(function() {
 	$('h2.chooseOptions').fadeToggle();
 	$('.tabClick2').removeClass('choice');
