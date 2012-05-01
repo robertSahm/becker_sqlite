@@ -1,14 +1,44 @@
+<div id="guitarPageWrapper">
+  <div class="guitarHeaderText">
+      <h3>
+        Bass
+      </h3>
+      <p3>
+      Peruse our models. Our website is designed so you may add custom effects to every shape and style that we offer. All to give you the stunning guitar you seek with tone for days. If you find yourself wanting something that is not offered here, <a href="#">please inquire</a>.
+    </p3>
+  </div>
 
-<div id="page">
-    <h3>Welcome to the Becker Family of Bass.</h3>
-       <p2> Peruse our models.  Our website is designed so you may add custom effects to every shape and style that we offer.  All to give you the badass Bass you desire with the huge thumping low end.
-           If you find yourself wanting something that is not offered here, please inquire.  </p2>
-       
-   		<div id="spinnerWrapper">
-   			<ul id="spinner">
-   			<% @products.each do |p| %>
-   					<h3><%= p.name %></h3>
-   					<li><%= link_to image_tag(p.image_url), {action: "bass", id: p.id}, class: "galleryImage"  %></li>
-   			<% end %> 
-   			</ul>
-   		</div>
+
+  <div id="guitarSliderLoop">
+    <ul id="guitarSliderUl">
+    <% @products.each do |p| %>
+      <li> 
+        <h4><%= p.name %></h4>
+        <div class="image<%= p.name %>">
+            <%= link_to image_tag(p.image_url),{ action: "guitar", id: p.id}, class: "galleryImage"  %>
+        </div>
+           </li>
+      <% end %> 
+    </ul>
+  </div>
+  <div class="guitarSliderFade"></div>
+    <div class="guitarSlider">
+      <div class="scrollableArea">
+        <%= image_tag("webphotos/darkhorse.png") %>
+        <%= image_tag("webphotos/castlewave.png") %>
+        <%= image_tag("webphotos/roller.png") %>
+        <%= image_tag("webphotos/hornet.png") %>
+        <%= image_tag("webphotos/hornet.png") %>
+        <%= image_tag("webphotos/darkhorse.png") %>
+        <%= image_tag("webphotos/castlewave.png") %>
+        <%= image_tag("webphotos/roller.png") %>
+        <%= image_tag("webphotos/hornet.png") %>
+        <%= image_tag("webphotos/hornet.png") %>
+        <%= image_tag("webphotos/darkhorse.png") %>
+        <%= image_tag("webphotos/castlewave.png") %>
+        <%= image_tag("webphotos/roller.png") %>
+        <%= image_tag("webphotos/hornet.png") %>
+        <%= image_tag("webphotos/hornet.png", :class=>'lastSlider') %>
+      </div>
+    </div>
+</div>
