@@ -2,5 +2,8 @@
   <% if notice %>
       <p id="notice"><%= notice %></p>
   <% end %>
+  <%= link_to 'Edit ', edit_theme_path(@theme) %> |
+  <%= link_to ' <- Back to List', themes_path %>
+    <p>Display:<%= @theme.display %></p>
   <%= render 'main/theme_view' %>
 

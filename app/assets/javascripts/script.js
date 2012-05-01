@@ -5,7 +5,7 @@ var parallax2 = $('#parallax2');
 var parallax3 = $('#parallax3');
 var banjoIndex = $('.banjoIndex');
 var shopImage = $('img.shop');
-var header = $(".headerBackground")
+var header = $(".headerBackground");
 
 $(document).ready(function() {
   //call image rotator
@@ -58,15 +58,15 @@ $(document).ready(function() {
 	});
 
 	//Store Animations
-	$(".showcaseGuitar, .showcaseBass, .showcaseCustom, .showcaseTheme").hide();
+	//$(".showcaseGuitar, .showcaseBass, .showcaseCustom, .showcaseTheme").hide();
 
-	$('.guitarClick1 a').click(function() {
-		$('li.bassClick1 a, li.customClick1 a, li.allClick1 a').toggle(500);
-		$('.showcaseGuitar').delay(500).toggle(500);
-		$('.guitarClick1').animate({
-			fontSize: ".8em",
-			marginTop: "-40px"
-		}, 500 );
+	$('.bassClick1 a').click(function() {
+		$('li.guitarClick1 a, li.customClick1 a, li.allClick1 a').toggle(500);
+		//$('.showcaseGuitar').delay(500).toggle(500);
+		//$('.bassClick1').animate({
+		//	fontSize: ".8em",
+		//	marginTop: "-40px"
+		//}, 500 );
 		return false;
 	});
 
@@ -80,10 +80,8 @@ $(document).ready(function() {
 	
 });
 
-$('.guitarClick1 a').click(function() {
-	$('h2.chooseInstrument').fadeOut();
-
-});
+//$('.bassClick1 a').click(function() {
+//	$('h2.chooseInstrument').fadeOut() });
 
 $('.roundabout-moveable-item a').click(function() {
 	$('.showcaseGuitar h2').animate({

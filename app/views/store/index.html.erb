@@ -2,7 +2,7 @@
 <% if notice %>
     <p id="notice"><%= notice %></p>
 <% end %>
-<div class="jonBumper">
+
 <h1>Catalog</h1>
 <% @products.each do |product| %>
   <div class="entry">
@@ -13,7 +13,7 @@
       <span class="price"><%= number_to_currency(product.price) %></span>
       <%= button_to 'Select', controller: 'store', action:'build', id: product.id %></h2>
     </div>
-  </div>
+
 <% end %>
 </div>
 
