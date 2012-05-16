@@ -7,7 +7,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Ovo' rel='stylesheet' type='text/css'>
 	
 	<%= javascript_include_tag "application" %>
-	<%= javascript_include_tag params[:controller]  if params[:controller] == 'store' %>
+	<%= javascript_include_tag 'store' %>
 
   <%= csrf_meta_tags %>
   <% Time::DATE_FORMATS[:custom] = "%B %e, %Y at %I:%M %p" %>
