@@ -2,10 +2,15 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+group :production do
+	gem 'pg', '0.12.2'
+	gem 'thin'
+end
 
-gem 'sqlite3'
+group :development do
+	gem 'annotate', '~> 2.4.1.beta'
+	gem 'sqlite3'
+end
 
 
 # Gems used only for assets and not required
@@ -22,18 +27,6 @@ gem 'minitest'
 gem 'jquery-rails'
 gem 'acts_as_list'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
@@ -42,5 +35,4 @@ end
 gem 'will_paginate', '~> 3.0'
 
 gem 'best_in_place'
-gem 'compass'
 
