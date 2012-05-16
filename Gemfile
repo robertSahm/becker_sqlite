@@ -18,8 +18,8 @@ end
 group :assets do
 	gem 'compass'
   	gem 'sass-rails',   '~> 3.1.4'
-#  	gem 'coffee-rails', '~> 3.1.1'
-#  	gem 'uglifier', '>= 1.0.3'
+  	gem 'coffee-rails', '~> 3.1.1'
+  	gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
