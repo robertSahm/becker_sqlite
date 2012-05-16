@@ -1,5 +1,9 @@
 class RemoveFeatureFromBodyTypes < ActiveRecord::Migration
-  def change
-    remove_column :body_types, :feature, :string
+  def up
+    remove_column :body_types, :feature
+  end
+  
+  def down
+    add_column :body_types, :feature, :string    
   end
 end
