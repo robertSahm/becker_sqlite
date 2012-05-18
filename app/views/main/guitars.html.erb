@@ -7,20 +7,20 @@
 			Peruse our models. Our website is designed so you may add custom effects to every shape and style that we offer. All to give you the stunning guitar you seek with tone for days. If you find yourself wanting something that is not offered here, <a href="#">please inquire</a>.
 		</p3>
 	</div>
-
+	
 	<div id="guitarSliderLoop">
 		<ul id="guitarSliderUl">
 		<% @products.each do |p| %>
 			<li> 
 				<h4><%= p.name %></h4>
-				<div class="image<%= p.name %>">
-			   		<%= link_to image_tag(p.image_url),{ action: "guitar", id: p.id}, class: "galleryImage"  %>
-				</div>
+					<div class="image<%= p.name %>">
+				   		<%= link_to image_tag(p.x_image_url),{ action: "guitar", id: p.id}, class: "galleryImage"  %>
+					</div>
 		       </li>
 			<% end %> 
 		</ul>
 	</div>
-	<div class="guitarSliderFade"></div>
+	<!-- <div class="guitarSliderFade"></div>
 		<div class="guitarSlider">
 			<div class="scrollableArea">
 				<%= image_tag("webphotos/darkhorse.png") %>
@@ -39,7 +39,7 @@
 				<%= image_tag("webphotos/hornet.png") %>
 				<%= image_tag("webphotos/hornet.png", :class=>'lastSlider') %>
 			</div>
-		</div>
+		</div> -->
 		<!-- 
 		<div class="guitarSliderFade guitarSliderFade2"></div>
 		<div class="guitarSlider guitarSlider2">
