@@ -1,17 +1,17 @@
 BodyType.delete_all
 
-BodyType.create([ {name: "banjo", image_url: "Model Silhoutte/Banjo.jpg", type_of: "custom", price: 1200 },
-  {name: "castlewave", image_url: "Model Silhoutte/castlewave.png", type_of: "guitar", price: 2800 },
-  {name: "dark horse", image_url: "Model Silhoutte/darkhorse.png", type_of: "guitar", price: 2400 },
-  {name: "hornet", image_url: "Model Silhoutte/hornet.png", type_of: "guitar", price: 1900 },
-  {name: "imperial", image_url: "Model Silhoutte/imperial.png", type_of: "guitar", price: 1900 },
-  {name: "mandolin", image_url: "Model Silhoutte/mandolin.png", type_of: "custom", price: 1500 },
-  {name: "mantis", image_url: "Model Silhoutte/mantis.png", type_of: "bass", price: 1800 },
-  {name: "mistress", image_url: "Model Silhoutte/mistress.png", type_of: "guitar", price: 2200 },
-  {name: "roller", image_url: "Model Silhoutte/roller.png", type_of: "guitar", price: 1500 },
-  {name: "twiggler", image_url: "Model Silhoutte/twiggler.jpg", type_of: "bass", price: 1600 },
-  {name: "waterfall", image_url: "Model Silhoutte/waterfall.jpg", type_of: "bass", price: 2000 },
-  {name: "custom", image_url: "Thumb H/lapsteel.jpg", type_of: "custom", price: 1800} ])
+BodyType.create([ {name: "banjo", image_url: "webphotos/roller.png", type_of: "custom", price: 1200 },
+  {name: "castlewave", image_url: "webphotos/castlewave.png", type_of: "guitar", price: 2800 },
+  {name: "dark horse", image_url: "webphotos/darkhorse.png", type_of: "guitar", price: 2400 },
+  {name: "hornet", image_url: "webphotos/imperialBrown.png", type_of: "guitar", price: 1900 },
+  {name: "imperial", image_url: "webphotos/imperialBrown.png", type_of: "guitar", price: 1900 },
+  {name: "mandolin", image_url: "webphotos/mando.png", type_of: "custom", price: 1500 },
+  {name: "mantis", image_url: "webphotos/roller.png", type_of: "bass", price: 1800 },
+  {name: "mistress", image_url: "webphotos/mistressH.png", type_of: "guitar", price: 2200 },
+  {name: "roller", image_url: "webphotos/roller.png", type_of: "guitar", price: 1500 },
+  {name: "twiggler", image_url: "webphotos/redBass.png", type_of: "bass", price: 1600 },
+  {name: "waterfall", image_url: "webphotos/greenThing.png", type_of: "bass", price: 2000 },
+  {name: "custom", image_url: "webphotos/greenThing.png", type_of: "custom", price: 1800} ])
 
 bt_all_array = []
 types = BodyType.all
@@ -21,18 +21,18 @@ end
 
 Theme.delete_all
 
-Theme.create(name: "Custom", price: 1500, display: true, body_type_ids: bt_all_array)
-Theme.create( name: "Natural", finish: "Oil", body: "Mahogany", neck: "Mahogany, neck-through 24.625' scale", headstock: "Matched to body", frets: "Bloodwood, purpleheart, ziricote, or cocobolo, 24 frets", electronics: "2 humbuckers, Master Volume, Master Tone, 3-way switch", hardware: "Chrome, tune-o-matic bridge, stop tailpiece", price: 2200, display: true, body_type_ids: bt_all_array)
+Theme.create(name: "Custom", price: 1500, display: true, image_url: "webphotos/greenThing.png", body_type_ids: bt_all_array)
+Theme.create( name: "Natural", finish: "Oil", body: "Mahogany", neck: "Mahogany, neck-through 24.625' scale", headstock: "Matched to body", frets: "Bloodwood, purpleheart, ziricote, or cocobolo, 24 frets", electronics: "2 humbuckers, Master Volume, Master Tone, 3-way switch", hardware: "Chrome, tune-o-matic bridge, stop tailpiece", price: 2200, display: true, image_url: "webphotos/roller.png", body_type_ids: bt_all_array)
 Theme.create(name: "GhostRider", finish: "Satin Lacquer", body: "Mahogany or Alder", neck: "Mahogany \-for mahogany body-\ or Maple \-for Alder body-\, neck-through 25 scale", headstock: "Matched to body", frets: "Bloodwood, Purpleheart, Ziricote or Cocobolo : 24 frets  + stainless zero Fret", electronics: "Two ndy Fran hot humbuckers with two volume and two tone controls,  two coil cuts and a three-way switch 
-Two P90s with master volume, master tone, and a three-way switch", hardware: "Chrome, tune-o-matic  bridge, stop tailpiece", price: 2600, display: true, body_type_ids: bt_all_array)
-Theme.create(name: "HeadHunter", finish: "high gloss burst", body: "Mahogany w/Maple top", color: "BlackCherry Burst, Greenburst, Blueberry burst, Blackberry burst, Honey Nut burst, Seaburst, Chestnut burst, Natural" , neck: "Mahogany, neck-through 24.625 scale", headstock: "Ebony or Ziricote",  electronics: "two humbuckers with two volume and two tone controls with a three-way switch", hardware: "chrome, tune-o-matic bridge, stop tailpiece, knobs and pickup rings", price: 3600, display: true, image_url: "Retro/1black.jpg", x_image_url: "Retro/1blackh.jpg", thumb_url: "Thumb H/1black_thumbh.jpg", body_type_ids: bt_all_array)
-Theme.create( name: "Chameleon", finish: "natural high gloss", body: "Mahogany", top: "Bookmatched or three-piece Bloodwood, Purpleheart, Ziricote, or Cocobolo" , neck: "Unaccented Mahogany or Maple, neck-through 25' scale", headstock: "", frets: "24 frets stainless zero fret", electronics: "Two humbuckers with two volume and two tone controls and a three-way switch", hardware: "matched wood hardware", price: 4500, display: true, image_url: "Jetson/Jetson 1.jpg", x_image_url: "Jetson/Jetson 12.jpg", thumb_url: "Thumb H/Jetson 1_thumbh.jpg", body_type_ids: bt_all_array)
-Theme.create(name: "Nashville", finish: "natural", body: "Chambered Curly Maple with laminate accents", top: "three piece with Birdseye Maple sides and Cocobolo, Ziricote, Purpleheart, or Bloodwood center section" , neck: "seven piece Mahogany neck-through", headstock: "matched to top", frets: " Birdseye Maple bound with matching exotic choice: 24 frets +stainless zero fret", electronics: "Two humbuckers with two volume and two tone controls , two coil cuts and a three-way switch ", hardware: "Contrasting accented wood hardware", price: 6200, display: true, image_url: "Nashville Roller/Nashville 1.jpg", x_image_url: "Nashville Roller/Nashville2.jpg", thumb_url: "Thumb H/Nashville 1_thumbh.jpg", body_type_ids: bt_all_array)
-Theme.create( name: "House", finish: "Natural high gloss", body: "Mahogany or Ash with laminate accents", top: "Bookmatched or Three-Piece with Maple center section and Cocobolo, Ziricote, Purpleheart, Walnut, or Bloodwood sides" , neck: "seven piece Mahogany \with mahogany bodies\ or Maple \with Ash bodies\, neck-through", headstock: "matched to top", frets: "Bloodwood, Purpleheart, Ziricote, or Cocobolo: 24 frets ", electronics: "Two humbuckers with two volume and two tone controls and a three-way switch", hardware: "Matched wood hardware", price: 5400, display: true, image_url: "houseimperial/houseimperial3.jpg", x_image_url: "houseimperial/houseimperial3.jpg", thumb_url: "Thumb H/houseimperial3_thumbh.jpg", body_type_ids: bt_all_array)
+Two P90s with master volume, master tone, and a three-way switch", hardware: "Chrome, tune-o-matic  bridge, stop tailpiece", price: 2600, image_url: "webphotos/roller.png", display: true, body_type_ids: bt_all_array)
+Theme.create(name: "HeadHunter", finish: "high gloss burst", body: "Mahogany w/Maple top", color: "BlackCherry Burst, Greenburst, Blueberry burst, Blackberry burst, Honey Nut burst, Seaburst, Chestnut burst, Natural" , neck: "Mahogany, neck-through 24.625 scale", headstock: "Ebony or Ziricote",  electronics: "two humbuckers with two volume and two tone controls with a three-way switch", hardware: "chrome, tune-o-matic bridge, stop tailpiece, knobs and pickup rings", price: 3600, display: true, image_url: "webphotos/roller.png", x_image_url: "webphotos/imperialH.png", thumb_url: "Thumb H/1black_thumbh.jpg", body_type_ids: bt_all_array)
+Theme.create( name: "Chameleon", finish: "natural high gloss", body: "Mahogany", top: "Bookmatched or three-piece Bloodwood, Purpleheart, Ziricote, or Cocobolo" , neck: "Unaccented Mahogany or Maple, neck-through 25' scale", headstock: "", frets: "24 frets stainless zero fret", electronics: "Two humbuckers with two volume and two tone controls and a three-way switch", hardware: "matched wood hardware", price: 4500, display: true, image_url: "webphotos/roller.png", x_image_url: "webphotos/imperialH.png", thumb_url: "Thumb H/Jetson 1_thumbh.jpg", body_type_ids: bt_all_array)
+Theme.create(name: "Nashville", finish: "natural", body: "Chambered Curly Maple with laminate accents", top: "three piece with Birdseye Maple sides and Cocobolo, Ziricote, Purpleheart, or Bloodwood center section" , neck: "seven piece Mahogany neck-through", headstock: "matched to top", frets: " Birdseye Maple bound with matching exotic choice: 24 frets +stainless zero fret", electronics: "Two humbuckers with two volume and two tone controls , two coil cuts and a three-way switch ", hardware: "Contrasting accented wood hardware", price: 6200, display: true, image_url: "webphotos/roller.png", x_image_url: "webphotos/imperialH.png", thumb_url: "Thumb H/Nashville 1_thumbh.jpg", body_type_ids: bt_all_array)
+Theme.create( name: "House", finish: "Natural high gloss", body: "Mahogany or Ash with laminate accents", top: "Bookmatched or Three-Piece with Maple center section and Cocobolo, Ziricote, Purpleheart, Walnut, or Bloodwood sides" , neck: "seven piece Mahogany \with mahogany bodies\ or Maple \with Ash bodies\, neck-through", headstock: "matched to top", frets: "Bloodwood, Purpleheart, Ziricote, or Cocobolo: 24 frets ", electronics: "Two humbuckers with two volume and two tone controls and a three-way switch", hardware: "Matched wood hardware", price: 5400, display: true, image_url: "webphotos/imperialBrown.png", x_image_url: "webphotos/imperialH.png", thumb_url: "Thumb H/houseimperial3_thumbh.jpg", body_type_ids: bt_all_array)
 
-Theme.create( name: "Native", finish: "Hand Rubbed Oil finish.", body: "Unaccented Mahogany Body", neck: "neck-through", headstock: "matched to top", frets: "Bloodwood, Purpleheart, Ziricote, or Cocobolo: 24 frets ", electronics: "lindy Fran passive 'Jazz' style pickups", price: 5400, display: true, image_url: "Bloodwood bass/Bloodwood Bass 1.jpg", x_image_url: "Bloodwood bass/Bloodwood Bass 1 copy.jpg", thumb_url: "Thumb H/Bloodwood Bass 1_thumbh.jpg", body_type_ids: bt_all_array)
+Theme.create( name: "Native", finish: "Hand Rubbed Oil finish.", body: "Unaccented Mahogany Body", neck: "neck-through", headstock: "matched to top", frets: "Bloodwood, Purpleheart, Ziricote, or Cocobolo: 24 frets ", electronics: "lindy Fran passive 'Jazz' style pickups", price: 5400, display: true, image_url: "webphotos/mistressH.png", x_image_url: "webphotos/mistressH.png", thumb_url: "Thumb H/Bloodwood Bass 1_thumbh.jpg", body_type_ids: bt_all_array)
 
-Theme.create( name: "Cosmic", finish: "High gloss lacquer finish", body: "Unaccented Mahogany Body", neck: "neck-through", top: "3pc. exotic wood", headstock: "matched to top", frets: "Bound figured Maple fretboard with matching position markers ", hardware: "Figured Maple pickup covers, bridge and knobs", electronics: "Active Bartoni pickups/circuit with PushButton rear access", price: 5400, display: true, image_url: "6 string mantis/gal front copy.jpg", x_image_url: "6 string mantis/gal front copy 2.jpg", thumb_url: "Thumb H/gal front copy_thumbh.jpg", body_type_ids: bt_all_array)
+Theme.create( name: "Cosmic", finish: "High gloss lacquer finish", body: "Unaccented Mahogany Body", neck: "neck-through", top: "3pc. exotic wood", headstock: "matched to top", frets: "Bound figured Maple fretboard with matching position markers ", hardware: "Figured Maple pickup covers, bridge and knobs", electronics: "Active Bartoni pickups/circuit with PushButton rear access", price: 5400, display: true, image_url: "webphotos/redBass.png", x_image_url: "webphotos/redBass.png", thumb_url: "Thumb H/gal front copy_thumbh.jpg", body_type_ids: bt_all_array)
 
 theme_all_array = []
 types = Theme.all
@@ -66,12 +66,12 @@ Product.create(name: 'House Imperial',
             - 24.625" scale length\
             - Finished natural in high gloss\
             </p>},
-    image_url: 'houseimperial/houseimperial3.jpg',
+    image_url: 'webphotos/imperialBrown.png',
     price: 5499.00,
     type_of: 'guitar',
     feature: 'all',
     position: 2,
-    x_image_url: 'houseimperial/houseimperial32.jpg',
+    x_image_url: 'webphotos/imperialH.png',
     body_type_id: BodyType.find_by_name("imperial").id,
     theme_id: Theme.find_by_name("House").id)
 
@@ -97,19 +97,45 @@ Product.create(name: 'Nashville',
     - 25" scale length\
     - Finished natural in high gloss\
     </p>},
-  image_url: 'Nashville Roller/Nashville 1.jpg',
+  image_url: 'webphotos/roller.png',
   price: 6000.00,
   type_of: 'guitar',
   feature: 'all',
-  x_image_url: 'Nashville Roller/Nashville2.jpg',
+  x_image_url: 'webphotos/rollerH.png',
   position: 3,
-  photo_url_1: 'Nashville Roller/Nashville 3.jpg',
-  photo_url_2: 'Nashville Roller/Nashville 10.jpg',
-  photo_url_3: 'Nashville Roller/Nashville 11.jpg',
-  photo_url_4: 'Nashville Roller/Nashville 12.jpg',
-  photo_url_5: 'Nashville Roller/Nashville 13.jpg',
   body_type_id: BodyType.find_by_name("roller").id,
   theme_id: Theme.find_by_name("Nashville").id)
+
+Product.create(name: 'CastleWave',
+  description: %{<p>
+    -9 Pc. Mahogany Thru-Neck Reinforced with cocobolo and Maple Accents\
+    -Chambered curly maple body sides\
+    - 3 Pc. Birdseye Maple/ Cocobolo top and matching headplate\
+    - 24 fret cocobolo bound BirdsEye Maple fret-board with 16" Radius\
+    - 2 cocobolo volume knobs with pearl position markers\
+    - stacked tone knobs in cocobolo and curly maple \
+    - Nashville style Cocobolo/ BirdsEye Maple Tailpiece\
+    -Cocobolo/ BirdsEye maple bridge with compensated bone saddles\
+    - Cocobolo/ Birdseye Maple pickup mounting rings\
+    -2 Seymour Duncan custom shop Becker- Buckers\
+    -3 way pickup selector switch with cocobolo knob\
+    - 2 Mini coil cut switches\
+    - Gotoh 510 tuners\
+    - Cocobolo position markers\
+    - pearl side markers and emblem\
+    - bone nut and saddles\
+    -Hotrod dual action trussrod with coverless headstock access\
+    - 25" scale length\
+    - Finished natural in high gloss\
+    </p>},
+  image_url: 'webphotos/castlewave.png',
+  price: 6000.00,
+  type_of: 'guitar',
+  feature: 'all',
+  x_image_url: 'webphotos/castlewaveH.png',
+  position: 3,
+  body_type_id: BodyType.find_by_name("castlewave").id,
+  theme_id: Theme.find_by_name("Custom").id)
 
 Product.create(name: 'Jetson',
   description: %{<p>
@@ -129,22 +155,14 @@ Product.create(name: 'Jetson',
     -25.5" scale length \
     -Natural Finish in high gloss\
     </p>},
-  image_url: 'Jetson/Jetson 1.jpg',
+  image_url: 'webphotos/rollerBlueCustom.png',
   price: 4599.00,
   type_of: 'guitar',
   feature: 'all',
-  x_image_url: 'Jetson/Jetson 12.jpg',
+  x_image_url: 'webphotos/castlewaveH.png',
   position: 1,
-  photo_url_1: 'Jetson/Jetson 2.jpg',
-  photo_url_2: 'Jetson/Jetson 3.jpg',
-  photo_url_3: 'Jetson/Jetson 4.jpg',
-  photo_url_4: 'Jetson/Jetson 5.jpg',
-  photo_url_5: 'Jetson/Jetson 6.jpg',
-  photo_url_6: 'Jetson/Jetson 7.jpg',
-  photo_url_7: 'Jetson/Jetson 8.jpg',
-  photo_url_8: 'Jetson/Jetson 9.jpg',
   body_type_id: BodyType.find_by_name("roller").id,
-  theme_id: Theme.find_by_name("House").id)
+  theme_id: Theme.find_by_name("Custom").id)
   
 Product.create(name: 'Darkhorse',
   description: %{<p>
@@ -169,15 +187,8 @@ Product.create(name: 'Darkhorse',
     price: 5299.00,
     type_of: 'guitar',
     feature: 'all',
-    x_image_url: 'DarkHorse/Dark Horse 1h.jpg',
+    x_image_url: 'webphotos/darkhorseH.png',
     position: 4,
-    photo_url_1: 'DarkHorse/Dark Horse 2.jpg',
-    photo_url_2: 'DarkHorse/Dark Horse 3.jpg',
-    photo_url_3: 'DarkHorse/Dark Horse 4.jpg',
-    photo_url_4: 'DarkHorse/Dark Horse 5.jpg',
-    photo_url_5: 'DarkHorse/Dark Horse 6.jpg',
-    photo_url_6: 'DarkHorse/Dark Horse 7.jpg',
-    photo_url_7: 'DarkHorse/Dark Horse 8.jpg',
     body_type_id: BodyType.find_by_name("dark horse").id,
     theme_id: Theme.find_by_name("Chameleon").id)
 
@@ -197,10 +208,10 @@ Product.create(name: 'Retro-Grad',
       -available in a variety of colors\
       -Smooth Satin finish\
       </p>},
-    image_url: 'Retro/1black.jpg',
+    image_url: 'webphotos/darkhorse.png',
     price: 2299.00,
     type_of: 'guitar',
-    x_image_url: 'Retro/1black.jpg',
+    x_image_url: 'webphotos/darkhorseH.png',
     feature: 'all',
     position: 5,
     body_type_id: BodyType.find_by_name("roller").id,
@@ -218,7 +229,7 @@ Product.create(name: 'Banjo',
   -pearl position markers on a purpleheart fretboard\
   -bone nut and saddles\
   -finished in high  gloss with bursted back</p>},
-    image_url: 'Banjo/Banjo3.jpg',
+    image_url: 'webphotos/darkhorse.png',
     price: 3599.00,
     type_of: 'custom',
     feature: 'all',
@@ -228,15 +239,12 @@ Product.create(name: 'Banjo',
 
 Product.create(name: 'LapSteel',
   description: %{ add description here ...},
-    image_url: 'LapSteel/lapsteel1 copy.jpg',
+    image_url: 'webphotos/darkhorse.png',
     price: 2900.00,
     type_of: 'custom',
     feature: 'all',
-    x_image_url: 'LapSteel/lapsteel1.jpg',
+    x_image_url: 'webphotos/darkhorseH.png',
     position: 7,
-    photo_url_1: 'LapSteel/lapsteel2.jpg',
-    photo_url_2: 'LapSteel/lapsteel3.jpg',
-    photo_url_3: 'LapSteel/lapsteel4.jpg',
     body_type_id: BodyType.find_by_name("custom").id,
     theme_id: Theme.find_by_name("Custom").id)
 
@@ -253,21 +261,14 @@ Product.create(name: 'Bloodwood',
   -pearl position markers on a purpleheart fretboard\
   -bone nut and saddles\
   -finished in high  gloss with bursted back</p>},
-    image_url: 'Bloodwood bass/Bloodwood Bass 1.jpg',
+    image_url: 'webphotos/redBass.png',
     price: 2600,
     type_of: 'bass',
     feature: 'all',
-    x_image_url: 'Bloodwood Bass 1 copy.jpg',
+    x_image_url: 'webphotos/redBass.png',
     position: 9,
-    photo_url_1: 'Bloodwood bass/Bloodwood Bass 2.jpg',
-    photo_url_2: 'Bloodwood bass/Bloodwood Bass 3.jpg',
-    photo_url_3: 'Bloodwood bass/Bloodwood Bass 4.jpg',
-    photo_url_4: 'Bloodwood bass/Bloodwood Bass 5.jpg',
-    photo_url_5: 'Bloodwood bass/Bloodwood Bass 6.jpg',
-    photo_url_6: 'Bloodwood bass/Bloodwood Bass 7.jpg',
-    photo_url_7: 'Bloodwood bass/Bloodwood Bass 8.jpg',
     body_type_id: BodyType.find_by_name("twiggler").id,
-    theme_id: Theme.find_by_name("Native").id)
+    theme_id: Theme.find_by_name("Custom").id)
       
         
 Product.create(name: 'Mantis',
@@ -282,20 +283,36 @@ Product.create(name: 'Mantis',
   -pearl position markers on a purpleheart fretboard\
   -bone nut and saddles\
   -finished in high  gloss with bursted back</p>},
-    image_url: '6 string mantis/gal front copy.jpg',
+    image_url: 'webphotos/redBass.png',
     price: 6900.0,
     type_of: 'bass',
-    x_image_url: '6 string mantis/gal front copy 2.jpg',
+    x_image_url: 'webphotos/redBass.png',
     feature: 'all',
     position: 8,
-    photo_url_1: '6 string mantis/back gal (1).jpg',
-    photo_url_2: '6 string mantis/half back vert.jpg',
-    photo_url_3: '6 string mantis/half front vert (2).jpg',
-    photo_url_4: '6 string mantis/half_front.jpg',
-    photo_url_5: '6 string mantis/headstock back (2).jpg',
-    photo_url_6: '6 string mantis/headstock front.jpg',
     body_type_id: BodyType.find_by_name("mantis").id,
     theme_id: Theme.find_by_name("Cosmic").id)
+
+Product.create(name: 'Thing',
+  description: %{<p>- available in Purpleheart, bloodwood, cocobolo, or zircote\
+  -available as a mandolin with a 14" scale or mandola with a 17" scale\
+  -mahogany thru-neck and fully hollow mahogany body\
+  -3 pc. purple heart and birdseye maple top\
+  -22 fret bound purpleheart fretboard with a 14" radius and zero fret\
+  -Purpleheart finger rest with "B" inlaw\
+  -mistress style bridge and tailpiece with compensated bone saddle\
+  -grover and rotomatics tuners\
+  -pearl position markers on a purpleheart fretboard\
+  -bone nut and saddles\
+  -finished in high  gloss with bursted back</p>},
+    image_url: 'webphotos/greenThing.png',
+    price: 6900.0,
+    type_of: 'bass',
+    x_image_url: 'webphotos/greenThing.png',
+    feature: 'all',
+    position: 8,
+    body_type_id: BodyType.find_by_name("custom").id,
+    theme_id: Theme.find_by_name("Natural").id) #DONE
+
 
 Product.create(name: 'Ghost',
   description: %{<p>- available in Purpleheart, bloodwood, cocobolo, or zircote\
@@ -309,19 +326,35 @@ Product.create(name: 'Ghost',
   -pearl position markers on a purpleheart fretboard\
   -bone nut and saddles\
   -finished in high  gloss with bursted back</p>},
-    image_url: 'Ghost Mando/Ghost 1.jpg',
+    image_url: 'webphotos/mando.png',
     price: 4100,
     type_of: 'custom',
     feature: 'all',
-    x_image_url: 'Ghost Mando/Ghost 7.jpg',
+    x_image_url: 'webphotos/mando.png',
     position: 10,
-    photo_url_1: 'Ghost Mando/Ghost 2.jpg',
-    photo_url_2: 'Ghost Mando/Ghost 3.jpg',
-    photo_url_3: 'Ghost Mando/Ghost 4.jpg',
-    photo_url_4: 'Ghost Mando/Ghost 5.jpg',
-    photo_url_6: 'Ghost Mando/Ghost 6.jpg',
     body_type_id: BodyType.find_by_name("mandolin").id,
     theme_id: Theme.find_by_name("GhostRider").id)
+
+Product.create(name: 'Hornet',
+  description: %{<p>- available in Purpleheart, bloodwood, cocobolo, or zircote\
+  -available as a mandolin with a 14" scale or mandola with a 17" scale\
+  -mahogany thru-neck and fully hollow mahogany body\
+  -3 pc. purple heart and birdseye maple top\
+  -22 fret bound purpleheart fretboard with a 14" radius and zero fret\
+  -Purpleheart finger rest with "B" inlaw\
+  -mistress style bridge and tailpiece with compensated bone saddle\
+  -grover and rotomatics tuners\
+  -pearl position markers on a purpleheart fretboard\
+  -bone nut and saddles\
+  -finished in high  gloss with bursted back</p>},
+    image_url: 'webphotos/hornet.png',
+    price: 4100,
+    type_of: 'custom',
+    feature: 'all',
+    x_image_url: 'webphotos/hornet.png',
+    position: 10,
+    body_type_id: BodyType.find_by_name("hornet").id,
+    theme_id: Theme.find_by_name("Natural").id) # DONE
 
 product_all_array = []
 types = Product.all
