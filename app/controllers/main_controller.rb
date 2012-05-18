@@ -17,6 +17,11 @@ class MainController < ApplicationController
     @products = Product.where(type_of: "guitar").order("products.position ASC")
     @type_of  = params[:instrument]
   end
+
+  def instruments
+    @products = Product.order("products.position ASC")
+    @type_of  = params[:instrument]
+  end
   
 
   def basses

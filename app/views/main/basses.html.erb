@@ -14,10 +14,10 @@
     <% @products.each do |p| %>
       <li> 
         <h4><%= p.name %></h4>
-        <div class="image<%= p.name %>">
-            <%= link_to image_tag(p.x_image_url),{ action: "bass", id: p.id}, class: "galleryImage"  %>
-        </div>
-           </li>
+          <div class="image<%= p.name %>">
+              <%= link_to image_tag(p.x_image_url),{ action: "bass", id: p.id}, class: "galleryImage"  %>
+          </div>
+        </li>
       <% end %> 
     </ul>
   </div>

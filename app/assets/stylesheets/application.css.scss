@@ -1027,28 +1027,7 @@ li.DropDownColumn {
 	}
 
 	#guitarSliderLoop {
-		width: 320px;
-		height: 700px;
-		float: left;
-		clear: both;
-		margin-top: 23px;
-		
 
-		ul#guitarSliderUl {
-			width: 430px;
-			padding:0;
-			margin:0;
-			height: 700px;
-			top: 200px;
-
-
-			li {
-				position: relative;	
-				width: 300px;
-				height: 70px;
-				text-align: center;
-				padding-bottom: 30px;
-				text-align: right;
 
 				h4 {
 					position: absolute;
@@ -1076,12 +1055,6 @@ li.DropDownColumn {
 						color: #999;
 				}
 
-				img {
-					width: 260px;
-					
-					/* for firefox, safari, chrome, etc. */
-		
-				}
 			}
 		}
 	}
@@ -1098,26 +1071,26 @@ li.DropDownColumn {
 /* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
 
 /* Invisible left hotspot */
-div.scrollingHotSpotLeft {
+//div.scrollingHotSpotLeft {
 	/* The hotspots have a minimum width of 100 pixels and if there is room the will grow
     and occupy 15% of the scrollable area (30% combined). Adjust it to your own taste. */
-	width: 60px;
+	//width: 60px;
 	width: 40%;
-	height: 100%;
+	//height: 100%;
 	/* There is a big background image and it's used to solve some problems I experienced
     in Internet Explorer 6. */
 	//background-image: url(webphotos/big_transparent.gif);
-	background-repeat: repeat;
-	background-position: center center;
-	position: absolute;
-	z-index: 201;
-	left: 0;
+	//background-repeat: repeat;
+	//background-position: center center;
+	//position: absolute;
+	//z-index: 201;
+	//left: 0;
 	/*  The first url is for Firefox and other browsers, the second is for Internet Explorer */
-	cursor: url(webphotos/cursor_arrow_left.png), url(webphotos/cursor_arrow_left.cur),w-resize;
+	//cursor: url(webphotos/cursor_arrow_left.png), url(webphotos/cursor_arrow_left.cur),w-resize;
 }
 
 /* Visible left hotspot */
-div.scrollingHotSpotLeftVisible {
+/*div.scrollingHotSpotLeftVisible {
 	background-image: url(webphotos/arrow_left.gif);				
 	background-color: none;
 	background-repeat: no-repeat;
@@ -1128,8 +1101,8 @@ div.scrollingHotSpotLeftVisible {
 
 }
 
-/* Invisible right hotspot */
-div.scrollingHotSpotRight {
+//* Invisible right hotspot */
+/*div.scrollingHotSpotRight {
 	min-width: 60px;
 	width: 40%;
 	height: 100%;
@@ -1143,7 +1116,7 @@ div.scrollingHotSpotRight {
 }
 
 /* Visible right hotspot */
-div.scrollingHotSpotRightVisible {
+/*div.scrollingHotSpotRightVisible {
 	background-image: url(webphotos/arrow_right.gif);
 	background-color: none;
 	background-repeat: no-repeat;
@@ -1157,7 +1130,7 @@ div.scrollingHotSpotRightVisible {
    Overflow is hidden because you don't want to show all of the scrollable area.
 */
 
-div.guitarSliderFade {
+/*div.guitarSliderFade {
 	position: absolute;
 	top: -65px;
 	width: 500px;
@@ -1169,7 +1142,7 @@ div.guitarSliderFade {
 	left: 420px;
 	opacity: 1;
 }
- 
+/* 
 .guitarSlider {
 
 	position: absolute;
@@ -1249,7 +1222,7 @@ div.scrollableArea2 {
 	height: 100%;
 }
 
-
+*/
 
 
 
