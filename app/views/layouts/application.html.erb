@@ -35,12 +35,8 @@
   
 
 <!-- ***********    MAIN  LAYOUT     *************** -->
-  <% if params[:controller] == 'store'  %>
-    <div>
-  <% else %>
+
     <div class="jonBumper"> 
-      
-  <% end %>   
       <div id="main">
         <%= render admin_chat if admin_chat %>
         <%= yield %>
