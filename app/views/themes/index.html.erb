@@ -53,8 +53,7 @@
           <% @body_types.each do |t| %>
           <%= check_box_tag "theme[body_type_ids][]", t.id, @body_types.include?(t) %>
           <%= link_to t.name, body_type_path(t) %>
-          <% end %> | 
-          <%= link_to 'Add Body Types' %>
+          <% end %>
         </li>
         <li class="tcell"><a href="#" class="<%= theme.name %>">Features Drop down link</a>
           <div class="adminDropDown <%= theme.name %>">

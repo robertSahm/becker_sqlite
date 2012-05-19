@@ -33,8 +33,8 @@
           <% body_type.themes.each do |t| %>
           <%= check_box_tag "body_type[theme_ids][]", t.id, body_type.themes.include?(t) %>
           <%= link_to t.name, theme_path(t) %>
-          <% end %> | 
-          <%= link_to 'Add Themes' %>
+          <% end %> 
+          <% # link_to 'Add Themes' %>
         </li>
         <li class="tcell">
           <%= link_to "Features Drop down link", {}, {:href => "#", :class => body_type.name} %>
