@@ -1138,7 +1138,8 @@ li.DropDownColumn {
 		  		border: 2px solid $lightBlue;
 		  		border-right: 0;
 		  		border-bottom: 0;
-		  			p {
+
+		  		p {
 		  			text-shadow: 0px 0px 6px $lightBlue;
 					color: #999;
 					}
@@ -1146,6 +1147,117 @@ li.DropDownColumn {
 		}
 	}
 }
+
+#instrumentWrapper {
+	max-width: 780px;
+	height: 100%;
+	margin: 15px 25px 25px 25px;
+	padding: 0;
+
+	.instrumentHeaderBox {
+		width: 400px;
+		height: 180px;
+		float: left;
+		clear: both;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: black;
+		z-index: 100;
+		-moz-box-shadow:    0px 0px 17px 12px black;
+		-webkit-box-shadow: 0px 0px 17px 12px black;
+		box-shadow:         0px 0px 17px 12px black;
+		z-index: 100;
+
+			h3 {
+			white-space: nowrap;
+			width: 100%;
+			position: absolute;
+			color: white;
+	    	font-size: 2.7em;
+	    	padding: 0;
+	    	margin:  0 0 5px 0;
+	    	float: left;
+	    	line-height: 1em;
+			clear: both;
+			word-spacing: -.2em;
+			bottom: 0;
+			left: 25px;
+			
+
+			&:hover {
+				color: $darkBlue;
+				cursor: default;
+			}
+		}
+	}
+
+	#featurebox {
+		margin-top: 75px;
+		margin-left: 15px;
+		padding: 5px;
+		width: 300px;
+		height: 600px;
+		float: left;
+
+		h3 {
+			color: #FEDBC1;
+			font-size: 1.5em;
+			height: auto;
+			width: auto;
+			border: 0;
+			padding: 0;
+			margin: 0;
+			line-height: 1em;
+		}
+
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style-type: disk;
+
+
+			li {
+				height: auto;
+				padding: 0;
+				margin: 0;
+			
+
+				p3.featureItem {
+					color: #FEDBC1;
+					font-size: .9em;
+					line-height: .7em;
+
+					span {
+						font-size: 1.8em;
+						color: red;
+						line-height: .5em;
+					}
+				}
+			}
+
+			.divider {
+				//width: 70%;
+				//border-bottom: 1px dotted #333;
+			}
+		}
+	}
+
+	#photo_gallery {
+		margin-top: 0px;
+		float: left;
+		height: 100%;
+		width: 100%;
+		border: 1px solid red;
+		float: right;
+
+			img {
+				float: right;
+				height: 100%;
+			}
+	}
+}
+
 
 
 

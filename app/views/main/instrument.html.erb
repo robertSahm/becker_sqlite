@@ -1,7 +1,29 @@
+<div id="instrumentWrapper">
+  <div class="instrumentHeaderBox">
+    <h3 class="instrumentHeader">
+      <%= @product.name %>&nbsp;<%= @product.type_of.capitalize %>
+    </h3>
+  </div>
 
-<div id="page">
-  <%= render 'go_to_cart' %>
-  <%= render 'display' %>
 
+  <div id="featurebox">
+    <!-- <h3 class="features">Features:</h3><br /> -->
+    <% feature = strip_tags(@product.description).split('-') %>
+    <ul id="features_box">
+      <% feature.each do |f| %>
+        <% if !f.blank? %>
+          <li id="features_box"><p3 class="featureItem"><span>-&nbsp;</span><%= f %></p3></li>
+          <li><div class="divider"></div></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 
-</div> <!-- page -->
+  <div id="photo_gallery">
+    <div class="main_image">
+      <% main_image =  @image[0] + ".png" if @image[0] %>
+      <%= image_tag(main_image) %>
+    </div>
+  </div> <!-- photo_gallery -->
+  
+</div><!-- instrumentWrapper -->
