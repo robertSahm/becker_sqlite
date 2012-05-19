@@ -1,36 +1,36 @@
+
+
+<div id="showroomWrapper">
+  <div class="showroomNav">
+    <!-- <h3 class="showroomHeadline">
+      B.B.F.B
+    </h3>
+    <p3 class="showroomByline">
+      (By Bosses For Bosses)
+    </p3> -->
   
-<div id="artists">
 
+    <div class="showroomButtonContainer">
+      <h3>Filter:</h3>
+      <ul class="showroomButtonUl">
+        <li>Artists</li>
+        <li>Signature Models</li>
+        <li>Videos</li>
+      </ul>
+    </div>
+  </div>
+  <div class="cellsWrapper">
+    <ul id="allInstrumentsUl">
+    <% @tile.each do |p| %>
+    		
+    		<li><p class="liHeader"><%= p.name %></p><%= link_to image_tag(p.image_url), action: 'artist', id: p.id, class: "cellImage"  %></li>
+        <% if false#!p.youtube_1.blank? %>
+          <li><%= link_to p.name, action: 'artist', id: p.id  %></li>
+          <li><%= p.youtube_1.html_safe %></li>
+        <% end %>    
+    <% end %> 
 
-
-  <div id="artists_side"><h4>Becker Artists</h4>
-    <ul>
-    <% @artists.each do |a| %>
-      <li><%= link_to a.name, action: 'artist', id: a.id  %></li>
-    <% end %>
-    </ul>
-    
-    </div> <!-- artists_side -->
-  <div id="signature"><h4>Signature models</h4>
-    <ul>
-    <% @products.each do |p| %>
-      <li><%= link_to p.name, action: 'instrument', id: p.id  %></li>
-    <% end %>
-    </ul>
-    
-    </div> <!-- signature -->
-  <div id="twitter_home"><p>Artist videos  in center
-  News items about artist
-  Product demos discussing guitars</p>
-    <ul>
-      <% @artists.each do |a| %>
-        <% if !a.youtube_1.blank? %>
-          <li><%= link_to a.name, action: 'artist', id: a.id  %></li>
-          <li><%= a.youtube_1.html_safe %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div> <!-- twitter_home -->
+</div> <!-- page -->
 
 
 
@@ -40,4 +40,14 @@
 
 
 
-</div> <!-- artists -->
+
+
+    <!--
+    <h1 class="instrument">Custom Instruments</h1>
+    <p>
+      In addition to our instrument lines, we also do fully custom work. Custom instruments are built to order and pricing will vary based on specifications. These orders have included lap steel guitars, banjos, mandolas, upright basses, and doubleneck mandolin and guitars. If interested in a project of this nature, please inquire or, build using one of the body types below.
+      </p>
+      <h3>Ordering an Instrument</h3>
+      <p>Our instruments can be ordered by selecting <span>Add to Cart</span> from the desired model page. Once an instrument has been added to the cart, themes can be applied and options for specifications can be selected. For fully custom inquiries, please contact by phone or email. Our <span>Available Now</span> page features completed instruments ready for purchase as well.</p>
+      <h2>ECL Custom Instruments</h2>
+      -->  

@@ -67,6 +67,8 @@ class MainController < ApplicationController
   def artists
     @artists = Artist.order("artists.position ASC")
     @products = Product.order("products.type_of DESC")
+    @tile = shuffle(@artists, @products)
+    
     @vid = " width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/-sxUX3CNjmg\" frameborder=\"0\" allowfullscreen"
     
   end
@@ -114,6 +116,21 @@ class MainController < ApplicationController
   
   def make_page_title(object)
     page_title = object.name + " " + object.type_of.capitalize
+  end
+  
+  def shuffle(artists, products)
+    count = artists.count
+    if products.count > count
+      count = products.count
+    end
+    i = 0
+    total = []
+    while i < count
+      total << artists[i] if artists[i]
+      total << products[i] if products[i]
+      i += 1
+    end
+    return total
   end
 
   
