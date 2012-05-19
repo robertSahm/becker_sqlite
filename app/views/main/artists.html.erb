@@ -22,12 +22,7 @@
     		  <% else %>
     		    <%= link_to image_tag(p.image_url), { action: 'instrument', id: p.id}, class: "cellImage"  %>
   		    <% end %>
-    		</li>
-    		
-        <% if false#!p.youtube_1.blank? %>
-          <li><%= link_to p.name, {action: 'artist', id: p.id } %></li>
-          <li><%= p.youtube_1.html_safe %></li>
-        <% end %>    
+    		</li>  
     <% end %> 
     </ul>
   </div>

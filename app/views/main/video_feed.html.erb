@@ -15,12 +15,15 @@
 
 <div>
   <ul>
-  <% @artists.each do |p| %>
-		
-  		<li><p class="liHeader"><%= p.name %></p><%= link_to image_tag(p.image_url), action: 'artist', id: p.id, class: "cellImage"  %></li>
+  <% @artists.each do |p| %>	
       <% if !p.youtube_1.blank? %>
-        <li><%= link_to p.name, action: 'artist', id: p.id  %></li>
-        <li><%= p.youtube_1.html_safe %></li>
+        <li><p class="liHeader"><%= p.name %></p></li>
+        <li><iframe 
+					width="400" height="233"  
+					src="<%= p.youtube_1 %>" 
+					frameborder="0" 
+					allowfullscreen>
+				</iframe></li>
       <% end %>    
   <% end %>
   </ul>

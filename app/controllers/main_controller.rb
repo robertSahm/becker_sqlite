@@ -82,7 +82,7 @@ class MainController < ApplicationController
     when 'instrument'  
       @tile = Product.order("products.position ASC")
     when 'video'  
-      @tile = Artist.where(type_of: "custom").order("products.position ASC")
+      @tile = Artist.order("products.position ASC")
     else
       @artists = Artist.order("artists.position ASC")
       @products = Product.order("products.type_of DESC")
