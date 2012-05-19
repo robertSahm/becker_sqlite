@@ -12,10 +12,7 @@ class MainController < ApplicationController
     @options = Option.where(product_id: @product.id).order("options.feature_id ASC").order("options.price ASC")
   end
 
-  def instruments
-    @products = Product.order("products.position ASC")
-    @type_of  = params[:instrument]
-  end
+
 
   def guitars
     @products = Product.where(type_of: "guitar").order("products.position ASC")
@@ -23,7 +20,16 @@ class MainController < ApplicationController
   end
 
   def instruments
-    @products = Product.order("products.position ASC")
+    case params[:type_of]
+    when 'guitar'  
+      @products = Product.where(type_of: "guitar").order("products.position ASC")
+    when 'bass'  
+      @products = Product.where(type_of: "bass").order("products.position ASC")
+    when 'custom'  
+      @products = Product.where(type_of: "custom").order("products.position ASC")
+    else
+      @products = Product.order("products.position ASC")
+    end
     @type_of  = params[:instrument]
   end
   
@@ -70,6 +76,25 @@ class MainController < ApplicationController
     @tile = shuffle(@artists, @products)
     
     @vid = " width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/-sxUX3CNjmg\" frameborder=\"0\" allowfullscreen"
+    case params[:type_of]
+    when 'artist'  
+      @tile = Artist.order("artists.position ASC")
+    when 'instrument'  
+      @tile = Product.order("products.position ASC")
+    when 'video'  
+      @tile = Artist.where(type_of: "custom").order("products.position ASC")
+    else
+      @artists = Artist.order("artists.position ASC")
+      @products = Product.order("products.type_of DESC")
+      @tile = shuffle(@artists, @products)
+    end
+    @type_of  = params[:type_of] 
+    
+    if @type_of == 'video'
+     render 'video_feed', :artists => @artists
+    else
+      render 'artists'
+    end   
     
   end
   

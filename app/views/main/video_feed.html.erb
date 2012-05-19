@@ -10,24 +10,21 @@
     </p3> -->
   
 
-    <div class="showroomButtonContainer">
-      <h3>Filter:</h3>
-      <ul class="showroomButtonUl">
-        <li><%= link_to 'Guitar', action: 'instruments', type_of: 'guitar' %></li>
-        <li><%= link_to 'Bass', action: 'instruments', type_of: 'bass' %></li>
-        <li><%= link_to 'Other', action: 'instruments', type_of: 'custom' %></li>
-        <li><%= link_to 'All', action: 'instruments' %></li>
-      </ul>
-    </div>
-  </div>
-  <div class="cellsWrapper">
-    <ul id="allInstrumentsUl">
-    <% @products.each do |p| %>
-    		
-    		<li><p class="liHeader"><%= p.name %></p><%= link_to image_tag(p.image_url), action: 'instrument', id: p.id, class: "cellImage"  %></li>
-    <% end %> 
-    </ul>
-  </div>
+
+<%= render :partial => 'artist_tile_header' %>
+
+<div>
+  <ul>
+  <% @artists.each do |p| %>
+		
+  		<li><p class="liHeader"><%= p.name %></p><%= link_to image_tag(p.image_url), action: 'artist', id: p.id, class: "cellImage"  %></li>
+      <% if !p.youtube_1.blank? %>
+        <li><%= link_to p.name, action: 'artist', id: p.id  %></li>
+        <li><%= p.youtube_1.html_safe %></li>
+      <% end %>    
+  <% end %>
+  </ul>
+</div>
 
 </div> <!-- page -->
 

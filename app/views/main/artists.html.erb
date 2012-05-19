@@ -10,15 +10,8 @@
     </p3> -->
   
 
-    <div class="showroomButtonContainer">
-      <h3>Filter:</h3>
-      <ul class="showroomButtonUl">
-        <li>Artists</li>
-        <li>Signature Models</li>
-        <li>Videos</li>
-      </ul>
-    </div>
-  </div>
+    <%= render :partial => 'artist_tile_header' %>
+
   <div class="cellsWrapper">
     <ul id="allInstrumentsUl">
     <% @tile.each do |p| %>
@@ -29,7 +22,8 @@
           <li><%= p.youtube_1.html_safe %></li>
         <% end %>    
     <% end %> 
-
+    </ul>
+  </div>
 </div> <!-- page -->
 
 
