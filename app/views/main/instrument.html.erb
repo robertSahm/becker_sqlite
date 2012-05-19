@@ -21,9 +21,18 @@
 
   <div id="photo_gallery">
     <div class="main_image">
-      <% main_image =  @image[0] + ".png" if @image[0] %>
-      <%= image_tag(main_image) %>
+      <div id="galleria">
+        <% main_image =  @image[0] + ".png" if @image[0] %>
+        <%= image_tag(main_image) %>
+      </div>
     </div>
   </div> <!-- photo_gallery -->
   
 </div><!-- instrumentWrapper -->
+
+
+<script>
+    Galleria.loadTheme('themes/classic/galleria.classic.min.js');
+    Galleria.run('#galleria');
+
+</script>
