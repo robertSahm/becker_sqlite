@@ -1,0 +1,35 @@
+<h2>Shipping Information</h2>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name_ship, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name_ship, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br />
+    <%= f.text_field :company_ship %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address_ship, rows: 3, cols: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.email_field :city_ship %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.email_field :state_ship %>
+  </div>
+  <div class="field">
+    <%= f.label :zip_code %><br />
+    <%= f.email_field :zip_code_ship %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.email_field :country_ship %>
+  </div>
+  
+  <%= render 'button' %>

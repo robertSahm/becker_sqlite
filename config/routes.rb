@@ -1,5 +1,7 @@
 Becker::Application.routes.draw do
 
+  resources :checkouts
+
   resources :themes do
     collection { post :sort }
   end

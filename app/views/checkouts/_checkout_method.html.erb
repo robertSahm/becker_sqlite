@@ -1,0 +1,15 @@
+<h2>Checkout Method</h2>
+  <h3>New Customers</h3>
+    <p>Fast and easy</p>
+    <div><%= button_to 'Continue', action: :create  %></div>
+    
+  <h3>Returning Customers</h3>    
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, size: 40 %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_area :address, rows: 3, cols: 40 %>
+    </div>
+    <div><%= button_to 'Login', action: :create  %><%= link_to "Forgot your password?" %></div>

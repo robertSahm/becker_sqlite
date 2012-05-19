@@ -1,0 +1,22 @@
+<h2>Order Review</h2>
+    <h3>Place Order info - Form Invoice Here</h3>
+      <p>
+        <h4>Name:</h4>
+        <%=h @checkout.first_name  %>
+      </p>
+      <p>
+        <h4>Email:</h4>
+        <%=h @checkout.email %>
+      </p>
+      <p>
+        <h4>Billing Address:</h4>
+        <%=h @checkout.address %>
+      </p>
+      <p>
+        <h4>Shipping Address:</h4>
+        <%=h @checkout.address_ship %>
+      </p>
+      
+      <div class="actions">
+        <p><%= f.submit "Complete", action: :thankyou %></p> 
+      </div>

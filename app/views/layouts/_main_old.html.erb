@@ -1,0 +1,47 @@
+<div class="headerBackground fixed">
+
+	<h1 id="fittext1" class="headerText">
+		<%= link_to 'Becker Instruments', controller: 'main', action: 'index' %>
+	</h1>
+
+		<ul id="fittext2" class="navUl">
+			<li id="guitarNavClick" class="firstLi navLi">
+				<h2>
+				<%= link_to "Guitars", { controller: 'main', action: 'guitars'}, :id => "guitarsClick" %>
+				</h2>
+			</li>
+			<li id="bassNavClick" class="navLi">
+				<h2>
+					<%= link_to 'Bass', { controller: 'main', action: 'basses'}, :id => "bassClick"%>
+				</h2>
+			</li>
+			<li id="themesNavClick" class="navLi">
+				<h2>
+				<%= link_to "Theme", { controller: 'main', action: 'themes'}, :id => "themesClick"%>
+				</h2>
+			</li>
+
+			<li id="customNavClick" class="navLi">
+				<h2>
+				<%= link_to "Custom",  { controller: 'main', action: 'customs'}, :id => "customClick" %>
+				</h2>
+
+			<li id="artistsNavClick" class="navLi">
+				<h2>
+				<%= link_to "Artist",{ controller: 'main', action: 'artists' }, :id => "artistsClick" %>
+				</h2>
+			</li>
+			<li id="storeNavClick" class="navLi">
+				<h2>
+				<%= link_to "Store",{ controller: 'store', action: 'new'}, :id => "storeClick" %>
+				</h2>
+			</li>
+			<li id="storeNavClick" class="lastLi navLi">
+				<h2>
+				<%= link_to "LogIn", controller: 'admins', action: 'index', notice: "welcome" %>
+				</h2>
+			</li>
+		</ul>
+		
+</div>
+<div class="topLine"></div>

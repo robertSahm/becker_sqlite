@@ -1,3 +1,32 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id           :integer         not null, primary key
+#  name         :string(255)
+#  description  :text
+#  image_url    :string(255)
+#  price        :decimal(8, 2)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  type_of      :string(255)
+#  feature      :string(255)
+#  position     :integer
+#  body_url     :string(255)
+#  photo_url_1  :string(255)
+#  photo_url_2  :string(255)
+#  photo_url_3  :string(255)
+#  photo_url_4  :string(255)
+#  photo_url_5  :string(255)
+#  photo_url_6  :string(255)
+#  photo_url_7  :string(255)
+#  photo_url_8  :string(255)
+#  x_image_url  :string(255)
+#  theme_id     :integer
+#  body_type_id :integer
+#  display      :boolean
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
