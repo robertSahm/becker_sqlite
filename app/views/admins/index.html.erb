@@ -1,10 +1,8 @@
 
   
 
-<h1>Welcome</h1>
 
-  <p><%= link_to 'Users',     users_path %></p>
-It's <%= Time.now.to_formatted_s(:custom) %><br />
-We have <%= pluralize(@total_orders, "order") %>.
-
-<%= render 'layouts/login' %>
+<p><%= link_to 'Sales Report', orders_path %></p>
+<p><%= link_to 'Help Customers', :action => 'service' %></p>
+<p><%= link_to 'Woodshop', :action => 'woodshop' %></p>
+<p><%= link_to 'Walkie Talkie', orders_path %></p>

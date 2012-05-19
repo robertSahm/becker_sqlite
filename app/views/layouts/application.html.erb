@@ -27,9 +27,11 @@
       <% chosen_navbar = 'layouts/main_navbar' %>
   <% else %>
       <% chosen_navbar = 'layouts/admin_navbar' %>
+      <% admin_chat = 'admins/admin_daily' %>
       <div class="adminBackground1"></div>
   <% end %>  
   <%= render chosen_navbar %>
+  
   
 
 <!-- ***********    MAIN  LAYOUT     *************** -->
@@ -37,6 +39,7 @@
     <div>
   <% else %>
     <div class="jonBumper"> 
+      <%= render admin_chat if admin_chat %>
   <% end %>   
       <div id="main">
         <%= yield %>

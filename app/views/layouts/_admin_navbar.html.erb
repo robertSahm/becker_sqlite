@@ -1,5 +1,5 @@
 <div class="adminHeaderBackground fixed">
-	 <% if true #session[:user_id] %>
+	 <% if false #session[:user_id] %>
     <div id="admin-navbar">
       <div class="tabs">
         <ul>
@@ -25,9 +25,6 @@
             <p><%= link_to 'Orders',    orders_path %></p>
           </li>
           <li class="adminButtons">
-            <p><%= link_to 'Front',     'admins' %></p>
-          </li>
-          <li class="adminButtons">
             <p><%= link_to 'Artists',     artists_path %></p>
           </li>
           <li class="adminButtons">
@@ -38,7 +35,7 @@
     </div>
   <% end %>
 	<h1 id="fittext1" class="headerText">
-		<%= link_to 'Becker Instruments', controller: 'main', action: 'index' %>
+		<%= link_to 'Becker Instruments', controller: 'admins', action: 'index' %>
 	</h1>
 
 		<ul id="fittext2" class="navUl">
@@ -82,3 +79,5 @@
 		
 </div>
 <div class="topLine"></div>
+
+
