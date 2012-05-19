@@ -3,6 +3,7 @@ class ThemesController < ApplicationController
   def index
     @themes = Theme.order("position ASC")
     @features = Feature.all
+    @body_types = BodyType.all
 
     respond_to do |format|
       format.html # index.html.erb
