@@ -1118,7 +1118,7 @@ li.DropDownColumn {
 					font-size: .83em;
 					line-height: 1em;
 					margin: 0;
-					padding: 0;
+					padding: 3px;
 					color: $darkBlue;
 					text-shadow: 0px 0px 12px $lightBlue;	
 				}
@@ -1127,6 +1127,7 @@ li.DropDownColumn {
 					position: relative;
 					height: 200%;
 					margin-left: 15px;
+					margin-top: 5px;
 					//padding-top: ;
 					
 					
