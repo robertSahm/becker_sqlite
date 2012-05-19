@@ -23,8 +23,9 @@
   <div class="cellsWrapper">
     <ul id="allInstrumentsUl">
     <% @products.each do |p| %>
-    		
-    		<li><p class="liHeader"><%= p.name %></p><%= link_to image_tag(p.image_url), action: 'instrument', id: p.id, class: "cellImage"  %></li>
+    	
+    		<li>
+          <p class="liHeader"><%= p.name %></p><%= link_to image_tag(p.image_url), action: 'instrument', id: p.id, class: "cellImage"  %></li>
     <% end %> 
     </ul>
   </div>
