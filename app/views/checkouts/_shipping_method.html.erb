@@ -1,0 +1,17 @@
+<h2>Shipping Method</h2>
+  <h3>Get it Monday</h3>
+    <div class="field">
+      <%= radio_button("f", "category", "rails") %><br />
+      <%= radio_button("f", "category", "rails") %><br />
+      <%= radio_button("f", "category", "rails") %><br />
+    </div>
+    <div class="field">
+      <%= f.label :delivery_type %><br />
+      <%= f.select :delivery_type, Order::PAYMENT_TYPES,
+                              prompt: 'Select a payment method' %>
+    </div>
+    <div class="field">
+      <%= f.label :ship_date %><br />
+      <%= f.date_select :ship_date, :order => [:month, :day, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => "Select year" } %>
+    </div>
+  <%= render 'button' %>

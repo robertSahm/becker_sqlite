@@ -1,0 +1,10 @@
+layer style - blend if gray -  this layer = 1 
+crop outline image
+add black to background layer
+resize to : 
+	image : 1000px height
+	x-image : turn clockwise 90 - 1000px width
+	2-image : 500px height
+	thumbs : 100px height
+
+

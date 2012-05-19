@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: carts
+#
+#  id          :integer         not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  customer_id :integer
+#
+
 class Cart < ActiveRecord::Base
   has_many    :line_items, dependent: :destroy
   belongs_to  :customer

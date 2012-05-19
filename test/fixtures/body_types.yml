@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: body_types
+#
+#  id          :integer         not null, primary key
+#  name        :string(255)
+#  description :text
+#  image_url   :string(255)
+#  x_image_url :string(255)
+#  position    :integer
+#  type_of     :string(255)
+#  price       :decimal(, )
+#  created_at  :datetime
+#  updated_at  :datetime
+#  display     :boolean
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:

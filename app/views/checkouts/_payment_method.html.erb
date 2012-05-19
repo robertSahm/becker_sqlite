@@ -1,0 +1,7 @@
+<h2>Payment Method</h2>
+    <div class="field">
+      <%= f.label :delivery_type %><br />
+      <%= f.select :delivery_type, Order::PAYMENT_TYPES,
+                              prompt: 'Select a payment method' %>
+    </div>
+    <%= render 'button' %>

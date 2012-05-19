@@ -1,0 +1,10 @@
+<% if notice %>
+  <p id="notice">
+    <h2><%= notice %></h2>
+  </p>
+<% end %>
+<%= Time.now.to_formatted_s(:custom) %><br />
+We have <%= pluralize(Order.count, "order") %>.
+<% if !@home %>
+  <p><%= link_to 'main menu', admins_path %></p>
+<% end %>

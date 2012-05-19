@@ -17,15 +17,21 @@
 <body class='<%= controller.controller_name %>'>
 <!-- ***********    HEADER NAV BAR     *************** -->
   
-  <% if params[:controller] == 'main' %>
-    <% chosen_navbar = 'layouts/main_navbar' %>
-  <% elsif params[:controller] == 'store' %>
-    <% chosen_navbar = 'layouts/main_navbar' %>
+
+  <% case params[:controller] %>
+  <% when 'main' %>
+      <% chosen_navbar = 'layouts/main_navbar' %>
+  <% when 'store' %>
+      <% chosen_navbar = 'layouts/main_navbar' %>
+  <% when 'checkouts' %>
+      <% chosen_navbar = 'layouts/main_navbar' %>
   <% else %>
-    <% chosen_navbar = 'layouts/admin_navbar' %>
-    <div class="adminBackground1"></div>
-  <% end %>
+      <% chosen_navbar = 'layouts/admin_navbar' %>
+      <% admin_chat = 'admins/admin_daily' %>
+      <div class="adminBackground1"></div>
+  <% end %>  
   <%= render chosen_navbar %>
+  
   
 
 <!-- ***********    MAIN  LAYOUT     *************** -->
@@ -33,6 +39,7 @@
     <div>
   <% else %>
     <div class="jonBumper"> 
+      <%= render admin_chat if admin_chat %>
   <% end %>   
       <div id="main">
         <%= yield %>
