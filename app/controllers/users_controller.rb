@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) || User.first
 
     respond_to do |format|
       format.html # show.html.erb

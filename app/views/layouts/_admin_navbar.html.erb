@@ -1,45 +1,11 @@
 <div class="adminHeaderBackground fixed">
-	 <% if false #session[:user_id] %>
-    <div id="admin-navbar">
-      <div class="tabs">
-        <ul>
-          <li class="adminButtons">
-            <p><%= link_to 'Body Types',  body_types_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Themes', themes_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Products',  products_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Features',  features_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Options',   options_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Customers',  customers_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Orders',    orders_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Artists',     artists_path %></p>
-          </li>
-          <li class="adminButtons">
-            <p><%= link_to 'Admin',     admins_url %></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+
 	<h1 id="fittext1" class="headerText">
-		<%= link_to 'Becker Instruments', controller: 'admins', action: 'index' %>
+		<%= link_to 'Becker Instruments', controller: 'main', action: 'index' %>
 	</h1>
 
-		<%= render 'layouts/admin_new' %>
-
+		<%= render 'admins/main_menu' %>
+    
 			<li id="storeNavClick" class="lastLi navLi">
 				<h2>
 				<%= link_to "LogOut",{ controller: 'main', action: 'index'}, :id => "storeClick" %>

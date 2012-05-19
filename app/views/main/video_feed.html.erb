@@ -10,22 +10,25 @@
     </p3> -->
   
 
-    <%= render :partial => 'artist_tile_header' %>
 
-  <div class="cellsWrapper">
-    <ul id="allInstrumentsUl">
-    <% @tile.each do |p| %>
-    		
-    		<li><p class="liHeader"><%= p.name %></p>
-    		  <% if p.class.to_s == 'Artist' %>
-    		    <%= link_to image_tag(p.image_url), {action: 'artist', id: p.id}, class: "cellImage"  %>
-    		  <% else %>
-    		    <%= link_to image_tag(p.image_url), { action: 'instrument', id: p.id}, class: "cellImage"  %>
-  		    <% end %>
-    		</li>  
-    <% end %> 
-    </ul>
-  </div>
+<%= render :partial => 'artist_tile_header' %>
+
+<div>
+  <ul>
+  <% @artists.each do |p| %>	
+      <% if !p.youtube_1.blank? %>
+        <li><p class="liHeader"><%= p.name %></p></li>
+        <li><iframe 
+					width="400" height="233"  
+					src="<%= p.youtube_1 %>" 
+					frameborder="0" 
+					allowfullscreen>
+				</iframe></li>
+      <% end %>    
+  <% end %>
+  </ul>
+</div>
+
 </div> <!-- page -->
 
 
@@ -46,4 +49,4 @@
       <h3>Ordering an Instrument</h3>
       <p>Our instruments can be ordered by selecting <span>Add to Cart</span> from the desired model page. Once an instrument has been added to the cart, themes can be applied and options for specifications can be selected. For fully custom inquiries, please contact by phone or email. Our <span>Available Now</span> page features completed instruments ready for purchase as well.</p>
       <h2>ECL Custom Instruments</h2>
-      -->  
+      -->
