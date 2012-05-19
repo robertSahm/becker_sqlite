@@ -17,7 +17,7 @@
     <% @tile.each do |p| %>
     		
     		<li><p class="liHeader"><%= p.name %></p>
-    		  <% if false #p.class.to_s == 'Artist' %>
+    		  <% if p.class.to_s == 'Artist' %>
     		    <%= link_to image_tag(p.image_url), {action: 'artist', id: p.id}, class: "cellImage"  %>
     		  <% else %>
     		    <%= link_to image_tag(p.image_url), { action: 'instrument', id: p.id}, class: "cellImage"  %>
