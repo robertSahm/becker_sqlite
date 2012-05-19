@@ -1,0 +1,62 @@
+
+<div id="page">
+
+
+   
+  <% case @type_of %>
+  <% when "guitar" %>
+    <h1 class="instrument">Guitars</h1>
+    <h3>Welcome to the Becker Martin Family of Guitars.</h3>
+    <p>
+			Peruse our models.  Our website is designed so you may add custom effects to every shape and style that we offer.  All to give you the stunning guitar you seek with tone for days.  If you find yourself wanting something that is not offered here, please inquire.
+		</p>
+		
+		<div id="spinnerWrapper">
+			<ul id="spinner">
+			<% @products.each do |p| %>
+					<p><%= p.name %></p>
+					<li><%= link_to image_tag(p.image_url), action: "guitars", id: p.id, class: "galleryImage"  %></li>
+			<% end %> 
+			</ul>
+		</div>
+
+  <% when "bass" %>
+    <h1 class="instrument">Bass</h1>
+
+      <h3>Welcome to the Becker Martin Family of Bass.</h3>
+         <p> Peruse our models.  Our website is designed so you may add custom effects to every shape and style that we offer.  All to give you the badass Bass you desire with the huge thumping low end.  If you find yourself wanting something that is not offered here, please inquire.  </p>
+         
+     		<div id="spinnerWrapper">
+     			<ul id="spinner">
+     			<% @products.each do |p| %>
+     					<p><%= p.name %></p>
+     					<li><%= link_to image_tag(p.image_url), action: "bass", id: p.id, class: "galleryImage"  %></li>
+     			<% end %> 
+     			</ul>
+     		</div>
+  <% else %>
+    <h1 class="instrument">Custom Instruments</h1>
+    <p>
+      In addition to our instrument lines, we also do fully custom work. Custom instruments are built to order and pricing will vary based on specifications. These orders have included lap steel guitars, banjos, mandolas, upright basses, and doubleneck mandolin and guitars. If interested in a project of this nature, please inquire or, build using one of the body types below.
+      </p>
+      <h3>Ordering an Instrument</h3>
+      <p>Our instruments can be ordered by selecting <span>Add to Cart</span> from the desired model page. Once an instrument has been added to the cart, themes can be applied and options for specifications can be selected. For fully custom inquiries, please contact by phone or email. Our <span>Available Now</span> page features completed instruments ready for purchase as well.</p>
+      <h2>ECL Custom Instruments</h2>
+      
+  		<div id="spinnerWrapper">
+  			<ul id="spinner">
+  			<% @products.each do |p| %>
+  					<p><%= p.name %></p>
+  					<li><%= link_to image_tag(p.image_url), action: "customs", id: p.id, class: "galleryImage"  %></li>
+  			<% end %> 
+  			</ul>
+  		</div>
+  <% end %>
+
+<!--
+  <div id="sidebox1">
+    <%= render 'sidecart2' %>
+  </div> -->
+	<!-- sidebox1-->
+
+</div> <!-- page -->
