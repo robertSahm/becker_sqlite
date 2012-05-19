@@ -8,12 +8,12 @@ class OrderNotifier < ActionMailer::Base
   #
   def received(order)
     @order = order
-    mail to: order.email, :subject => "Thank you for Ordering a Becker Martin Handmade Instrument!"
+    mail to: order.email, :subject => "Thank you for Ordering a Becker Custom Built Instrument!"
   end
 
   def shipped(order)
     @order = order
-    mail to: order.email, subject: "Your Becker Martin Instrument has shipped!"
+    mail to: order.email, subject: "Your Becker Instrument has shipped!"
   end
   
   def error_occured(error)
