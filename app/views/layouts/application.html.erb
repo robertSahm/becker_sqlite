@@ -20,11 +20,11 @@
 
   <% case params[:controller] %>
   <% when 'main' %>
-      <% chosen_navbar = 'layouts/main_navbar' %>
+      <% chosen_navbar = 'layouts/main_new' %>
   <% when 'store' %>
-      <% chosen_navbar = 'layouts/main_navbar' %>
+      <% chosen_navbar = 'layouts/main_new' %>
   <% when 'checkouts' %>
-      <% chosen_navbar = 'layouts/main_navbar' %>
+      <% chosen_navbar = 'layouts/main_new' %>
   <% else %>
       <% chosen_navbar = 'layouts/admin_navbar' %>
       <% admin_chat = 'admins/admin_daily' %>
@@ -39,9 +39,10 @@
     <div>
   <% else %>
     <div class="jonBumper"> 
-      <%= render admin_chat if admin_chat %>
+      
   <% end %>   
       <div id="main">
+        <%= render admin_chat if admin_chat %>
         <%= yield %>
       </div>
   </div>

@@ -1,23 +1,20 @@
 
-<ul id="fittext2" class="navUl">
-	<li id="guitarNavClick" class="firstLi navLi">
-		<h2>
-    <%= link_to 'Body Types',  body_types_path %>		</h2>
-	</li>
-	<li id="bassNavClick" class="navLi">
-		<h2>
-      <%= link_to 'Themes', themes_path %>		</h2>
-	</li>
-	<li id="customNavClick" class="navLi">
-		<h2>
-      <%= link_to 'Features',  features_path %>		</h2>
+
+<ul>
+  <li class="adminButtons">
+    <p><%= link_to 'Body Types',  body_types_path %>	</p>
   </li>
-	<li id="artistsNavClick" class="navLi">
-		<h2>
-      <%= link_to 'Options',   options_path %>		</h2>
-	</li>
-	<li id="storeNavClick" class="navLi">
-		<h2>
-      <%= link_to 'Products',  products_path %>		</h2>
-	</li>
+  <li class="adminButtons">
+    <p><%= link_to 'Themes', themes_path %>	</p>
+  </li>
+  <li class="adminButtons">
+    <p><%= link_to 'Options',   options_path %></p>
+  </li>
+  <li class="adminButtons">
+    <p><%= link_to 'Products',  products_path %></p>
+  </li>
+  <li class="adminButtons">
+    <p><%= 'Site Feedback' %></p>
+  </li>
 </ul>
+
