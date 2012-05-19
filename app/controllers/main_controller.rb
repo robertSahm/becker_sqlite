@@ -10,7 +10,11 @@ class MainController < ApplicationController
     @image, @tag, @thumb_folder = image_booth(@product)
     @image = change_image(@image, params[:image], @product.image_url) if params[:image]
     @options = Option.where(product_id: @product.id).order("options.feature_id ASC").order("options.price ASC")
+  end
 
+  def instruments
+    @products = Product.order("products.position ASC")
+    @type_of  = params[:instrument]
   end
 
   def guitars
