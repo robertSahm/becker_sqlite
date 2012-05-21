@@ -1011,6 +1011,10 @@ li.DropDownColumn {
 		-moz-box-shadow:    0px 0px 17px 12px black;
 		-webkit-box-shadow: 0px 0px 17px 12px black;
 		box-shadow:         0px 0px 17px 12px black;
+
+		a {
+			text-decoration: none;
+		}
 		
     	.showroomHeadline {
    		font-family: 'ovo', sans-serif;
@@ -1087,7 +1091,7 @@ li.DropDownColumn {
 	}
 
 	.cellsWrapper {
-		max-width: 780px;
+		max-width: 880px;
 		height: auto;
 		float: left;
 		margin: 88px 0 0 0;
@@ -1130,8 +1134,6 @@ li.DropDownColumn {
 					margin-left: 15px;
 					margin-top: 5px;
 					//padding-top: ;
-					
-					
 				}
 			}
 
@@ -1248,9 +1250,8 @@ li.DropDownColumn {
 		margin-top: 10px;
 		float: left;
 		height: 100%;
-		position: fixed;
-		left: 350px;
-		border: 1px solid red;
+		position: absolute;
+		left: 400px;
 
 		.main_image {
 			width: 500px;
