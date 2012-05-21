@@ -8,7 +8,7 @@
 
   <div id="featurebox">
     <!-- <h3 class="features">Features:</h3><br /> -->
-    <% feature = strip_tags(@product.description).split('-') %>
+    <% feature = strip_tags(@product.description).split("-") %>
     <ul id="features_box">
       <% feature.each do |f| %>
         <% if !f.blank? %>
