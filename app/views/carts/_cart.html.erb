@@ -4,7 +4,7 @@
     <table>
       <% if cart.line_items.empty? %>
           <p>You have nothing in your cart</p>
-          <%= link_to 'Continue Shopping',{ controller: 'store', action: 'new'}, :id => "storeClick"   %>
+         
         </table>
       <% else %>
           <%= render cart.line_items %>
@@ -17,6 +17,7 @@
           <%= button_to 'Check Out Now', new_checkout_path, method: :get, id: cart.id, session[:checkout_params] => nil  %>
         <% end %>
       <% end %>
+      <%= link_to 'Continue Shopping',{ controller: 'store', action: 'new'}, :id => "storeClick"   %>
   </div><!-- cart -->
 </div><!-- cartHolder -->
 
