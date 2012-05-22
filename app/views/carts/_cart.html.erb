@@ -1,19 +1,24 @@
 <div id="cartHolder">
-<div id="cart">
-<h2 class="cart-title">Your Cart</h2>
-<table>
-  
-  <%= render cart.line_items %>
-  
-  <tr class="total_line">
-    <td colspan="4">Total</td>
-    <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
-  </tr>
-</table>
-<% if (@order.nil?) %>
-  <%= button_to 'Check Out Now', new_checkout_path, method: :get, id: cart.id, session[:checkout_params] => nil  %>
-<% end %>
-</div><!-- cart -->
+  <div id="cart">
+    <h2 class="cart-title">Your Cart</h2>
+    <table>
+      <% if cart.line_items.empty? %>
+          <p>You have nothing in your cart</p>
+         
+        </table>
+      <% else %>
+          <%= render cart.line_items %>
+          <tr class="total_line">
+            <td colspan="4">Total</td>
+            <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+          </tr>
+        </table>
+        <% if (@order.nil?) %>
+          <%= button_to 'Check Out Now', new_checkout_path, method: :get, id: cart.id, session[:checkout_params] => nil  %>
+        <% end %>
+      <% end %>
+      <%= link_to 'Continue Shopping',{ controller: 'store', action: 'new'}, :id => "storeClick"   %>
+  </div><!-- cart -->
 </div><!-- cartHolder -->
 
 

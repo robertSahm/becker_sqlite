@@ -1,0 +1,24 @@
+<li class="tcell"><a href="#" class="<%= option.id %>">Associations</a>
+<div class="adminDropDown <%= option.id %>">
+  <ul>
+    <li class="DropDownColumn"><strong>Body Types</strong><% @body_types.each do |body_type| %>
+      <div><%= check_box_tag "option[body_type_ids][]", body_type.id, option.body_types.include?(body_type) %>
+          <%= body_type.name %>
+      </div>
+    <% end %>
+    </li>
+    <li class="DropDownColumn"><strong>Themes</strong>
+    <% @themes.each do |theme| %>
+      <div><%= check_box_tag "option[theme_ids][]", theme.id, option.themes.include?(theme) %>
+          <%= theme.name %>
+      </div>
+    <% end %>
+    </li>
+    <li class="DropDownColumn"><strong>Products</strong>
+    <% @products.each do |product| %>
+      <div><%= check_box_tag "option[product_ids][]", product.id, option.products.include?(product) %>
+          <%= product.name %>
+      </div>
+    <% end %>
+    </li>
+</ul>

@@ -23,30 +23,33 @@
     <%= f.label :feature_id %><br />
     <%= f.select :feature_id, @feat %>
   </div>
-  <div class="field">
-  <%= f.label :body_types %><br />
-  <%= hidden_field_tag "option[body_type_ids][]", nil %>
-  <% @body_types.each do |body_type| %>
-      <%= check_box_tag "option[body_type_ids][]", body_type.id, @option.body_types.include?(body_type) %>
-      <%= body_type.name %>
-  <% end %>
-  </div>
-  <div class="field">
-  <%= f.label :themes %><br />
-  <%= hidden_field_tag "option[theme_ids][]", nil %>
-  <% @themes.each do |theme| %>
-      <%= check_box_tag "option[theme_ids][]", theme.id, @option.themes.include?(theme) %>
-      <%= theme.name %>
-  <% end %>
-  </div>
-  <div class="field">
-  <%= f.label :products %><br />
-  <%= hidden_field_tag "option[product_ids][]", nil %>
-  <% @products.each do |product| %>
-      <%= check_box_tag "option[product_ids][]", product.id, @option.products.include?(product) %>
-      <%= product.name %>
-  <% end %>
-  </div>
+
+    <li class="tcell"><a href="#" class="<%= @option.id %>">Build Drop Down List</a>
+    <div class="adminDropDown <%= @option.id %>">
+      <ul>
+        <li class="DropDownColumn"><strong>Body Types</strong><% @body_types.each do |body_type| %>
+          <div><%= check_box_tag "@option[body_type_ids][]", body_type.id, @option.body_types.include?(body_type) %>
+              <%= body_type.name %>
+          </div>
+        <% end %>
+        </li>
+        <li class="DropDownColumn"><strong>Themes</strong>
+        <% @themes.each do |theme| %>
+          <div><%= check_box_tag "@option[theme_ids][]", theme.id, @option.themes.include?(theme) %>
+              <%= theme.name %>
+          </div>
+        <% end %>
+        </li>
+        <li class="DropDownColumn"><strong>Products</strong>
+        <% @products.each do |product| %>
+          <div><%= check_box_tag "@option[product_ids][]", product.id, @option.products.include?(product) %>
+              <%= product.name %>
+          </div>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+
 
 
   <div class="field">

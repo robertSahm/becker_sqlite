@@ -57,7 +57,7 @@ Product.create(name: 'House Imperial',
             - cocobolo bridge with dual compensated bone saddles \
             - cocobolo 'HotDog' tailpiece\
             - cocobolo pickup mounting rings\
-            - 2-seymour Duncan custom shop Becker-Buckers with etched covers\
+            - 2 seymour Duncan custom shop Becker-Buckers with etched covers\
             - 3 way pickup selector switch with cocobolo knob\
             - Gotoh 510 tuners\
             -pearl position markers and emblem\
@@ -141,7 +141,7 @@ Product.create(name: 'Jetson',
   description: %{<p>
     5 pc. rock maple thruneck reinforced with bloodwood accents\
     -solid ash body sides with bloodwood accents\
-    - 3pc. bloodwood/ curly maple top and matching headplate\
+    - 3pc. bloodwood/curly maple top and matching headplate\
     - 24 fret bound bloodwood fretboard with 16" radius\
     -2 curly maple volume knobs with bloodwood position markers\
     -2 stacked tone knobs in curly maple and bloodwood\
@@ -174,7 +174,7 @@ Product.create(name: 'Darkhorse',
         - cocobolo bridge with dual compensated bone saddles\
         -cocobolo tailpiece\
         -cocobolo pickup mounting rings\
-        -2- Seymour duncan custom shop Becker- Buckers with etched covers\
+        -2 Seymour duncan custom shop Becker- Buckers with etched covers\
         -3 way pickup selector switch with cocobolo knob\
         - Gotoh 510 tuners\
         - Pearl position markers and emblem\
@@ -195,13 +195,13 @@ Product.create(name: 'Darkhorse',
 Product.create(name: 'Retro-Grad',
   description: %{<p>
       - Fully Contoured Mahogany body with mahogany  neck or adler body with maple neck\
-      -0-22 Fret bolt-on (not screwed on) neck with 16" radius \
+      -0 to 22 Fret bolt-on (not screwed on) neck with 16" radius \
       -curly maple fretboard and pickguard\
       -Hotrod dual action truss rod with coverless headstock access\
       -2 Lindy Fralin Humbuckers\
       - Individual Volume and tone controls for each pickup\
       -3 way pickup selector switch \
-      - 2- mini coil cut switches\
+      - 2 mini coil cut switches\
       -chrome hardware\
       -Grover mini rotomatic tuners\
       -Bone nut\

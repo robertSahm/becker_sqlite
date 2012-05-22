@@ -2,6 +2,9 @@ class FeaturesController < ApplicationController
 
   def index
     @features = Feature.order("position ASC")
+    @body_types = BodyType.all
+    @themes     = Theme.all
+    @products   = Product.all
 
     respond_to do |format|
       format.html # index.html.erb
