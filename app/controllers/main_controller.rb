@@ -83,10 +83,12 @@ class MainController < ApplicationController
       @tile = Product.order("products.position ASC")
     when 'video'  
       @tile = Artist.order("products.position ASC")
+
     else
       @artists = Artist.order("artists.position ASC")
       @products = Product.order("products.type_of DESC")
-      @tile = shuffle(@artists, @products)
+     # @tile = shuffle(@artists, @products)
+     @tile = @artists
     end
     @type_of  = params[:type_of] 
     

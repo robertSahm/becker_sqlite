@@ -2,30 +2,19 @@
 
 <div id="showroomWrapper">
   <div class="showroomNav">
-    <!-- <h3 class="showroomHeadline">
-      B.B.F.B
-    </h3>
-    <p3 class="showroomByline">
-      (By Bosses For Bosses)
-    </p3> -->
-  
-
-    <%= render :partial => 'artist_tile_header' %>
-
-  <div class="cellsWrapper">
-    <ul id="allInstrumentsUl">
-    <% @tile.each do |p| %>
-    		
-    		<li><p class="liHeader"><%= p.name %></p>
-    		  <% if p.class.to_s == 'Artist' %>
-    		    <%= link_to image_tag(p.image_url), {action: 'artist', id: p.id}, class: "cellImage"  %>
-    		  <% else %>
-    		    <%= link_to image_tag(p.image_url), { action: 'instrument', id: p.id}, class: "cellImage"  %>
-  		    <% end %>
-    		</li>  
-    <% end %> 
-    </ul>
-  </div>
+    <div class="cellsWrapper cellsWrapperArtists">
+      <ul id="allInstrumentsUl">
+      <% @tile.each do |p| %>
+      		<li><p class="liHeader"><%= p.name %></p>
+      		  <% if p.class.to_s == 'Artist' %>
+      		    <%= link_to image_tag(p.image_url), {action: 'artist', id: p.id},   class: "cellImage"  %>
+      		  <% else %>
+      		    <%= link_to image_tag(p.image_url), { action: 'instrument', id: p.id} , class: "cellImage"  %>
+    		    <% end %>
+      		</li>  
+      <% end %> 
+      </ul>
+    </div>
 </div> <!-- page -->
 
 
