@@ -1,7 +1,7 @@
 
 <%= render 'store_breadcrumbs' %>
-<%= link_to @type %>
-<%= link_to @body %>
+<%= link_to @type, action: 'body', type: @type%>
+<%= link_to @body, action: 'customize', body: @body, instrument: @type  %>
 <span>></span>
 <%= render 'store_breadcrumbs_post' %>
 <div id="store-page">

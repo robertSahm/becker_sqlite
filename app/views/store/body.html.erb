@@ -1,6 +1,6 @@
 
 <%= render 'store_breadcrumbs' %>
-<%= link_to @type %>
+<%= link_to @type, action: 'body', type: @type%>
 <span>></span>
 <%= render 'store_breadcrumbs_post' %>
 <div id="store-page">
