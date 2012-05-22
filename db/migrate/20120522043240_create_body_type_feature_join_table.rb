@@ -7,6 +7,6 @@ class CreateBodyTypeFeatureJoinTable < ActiveRecord::Migration
   end
 
   def down
-    drop_table :body_type_features
+    drop_table :body_types_features
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522043240) do
+ActiveRecord::Schema.define(:version => 20120522062524) do
 
   create_table "artists", :force => true do |t|
     t.string  "name"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20120522043240) do
     t.integer "position"
     t.string  "description"
     t.string  "category"
-    t.string  "type"
+    t.string  "type_of"
   end
 
   create_table "instruments", :force => true do |t|
