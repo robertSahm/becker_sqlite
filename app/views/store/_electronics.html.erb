@@ -1,0 +1,7 @@
+<h2>Step 6: Choose Electronics</h2>
+<ul>
+  <% electronics.each do |w| %>
+    <li><%= w.name %></li>
+    <li><%= render 'feature_options', feature: w %></li>
+  <% end %>
+</ul>

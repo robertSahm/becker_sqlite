@@ -1,20 +1,142 @@
-store body_type, theme , product
+Feature
+	category - wood, paint, neck, hardware, electronics , accessories
+	body_types_id
+	type - guitar , bass , mandolin , banjo , lap_steel
+	name 
+	description
+Feature.create([
+  {name: "Body Style", position: 1 , description: "This is the basic build of the body", category: "wood"},
+  {name: "Wood", position: 2 , description: "Wood of the main body", category: "wood"},
+  {name: "Headstock", position: 3 , description: "Style of the headstock", category: "wood"},
+  {name: "Top", position: 4 , description: "Wood inlay attached to body and heastock", category: "wood"},
+  {name: "Trimlays", position: 5 , description: "Vertical wood accents", category: "wood"},
+  {name: "Color", position: 6, description: "Paint color", category: "paint"},
+  {name: "Finish", position: 7 , description: "Paint finish", category: "paint"},
+  {name: "Layout", position: 8, description: "number of frets and inlays", category: "neck"},
+  {name: "Strings", position: 9, description: "Paint", category: "neck"},
+  {name: "Scale Length", position: 10, description: "scale length of the neck in inches", category: "neck"},
+  {name: "Neck", position: 11, description: "curvature of the back of the neck", category: "neck"},
+  {name: "Fingerboard", position: 12, description: "wood choices for the fingerboard", category: "neck"},
+  {name: "Frets", position: 13, description: "metal options for frets", category: "neck"},
+  {name: "Pickups", position: 14, description: "pickup options", category: "electronics"},
+  {name: "Acoustic Pickup", position: 15, description: "Piezo pickup for cavity bodies", category: "electronics"},
+  {name: "Computer Pickup", position: 16, description: "Digital guitar translator for computer", category: "electronics"},
+  {name: "Electronics", position: 17, description: "curvature of the back of the neck", category: "electronics"},
+  {name: "Hardware", position: 18, description: "ardtype of wood on the fingerbo", category: "electronics"},
+  {name: "Case", position: 19, description: "choose a custom case for your instrument", category: "accessories"},
+  {name: "Insurance", position: 20, description: "insurance helps with any repairs or breaks if they should happen", category: "accessories"},
+  {name: "Play Pack", position: 21, description: "strap , picks , strings and towel for your instrument", category: "accessories"} ])
 
-when add to cart
-- add to cart onLoad document.ready
 
-store the body type , theme, features /options  in to a line _item 
-calculate the cost of that collection
-	this will be the product.price
-	body type price + theme price + feature price + option prices
-	this will also be the cost of the line item
-	when do I save all this information ?
-	you must save to product
-body_type + themes + features + options  -> product
-product -> line_item
-cart -> order    through:  line_item + line_item -> cart
-order line_item-> instrument
+BODY TYPE
+body type - mistress roller
 
-click add to cart 
-brings you to your cart page with the product in a line item in the page
+WOOD
+body style - neckthru / cavity
+body - wood in the body
+headstock - style of headstock
+top - wood top of body and headstock
+trimlays - verticale wood accents
 
+PAINT
+color - sunburst lemon-lime clear
+finish - gloss matte stain
+
+NECK
+frets - 22 24 / inlays
+strings - 4 5 6 (for bass) 6 or 12 (for guitar)
+scale length - 30" to 35" to standard
+neck  - flat or round
+fingerboard - standard gloss rosewood ebony
+frets - stainless + 0 fret 
+
+ELECTRONICS
+pickups - single coil / double coil
+acoustic pickups - piezo added
+computer pickups - roland g3
+electronics - switches and knob style
+hardware - metal wood bone
+
+ACCESSORIES
+case - hard soft no
+insurance - yes no
+becker play pack - yes no
+/========================================================/
+@instrument = Instrument.new
+
+window 1 - choose instrument
+@instrument.type 
+select  = guitar / bass / mandolin / banjo / lapsteel / double neck
+
+window 2 - choose body style (type)
+@instrument.body_type
+select = get specific body_types avail for the chosen type
+
+window 3 - choose wood (type , body_type)
+list = get specific woods for type and body_type
+radio list = body style - neckthru / cavity
+	dependency - type, body type
+		not all instruments will have cavity possible or even bolt on options
+radio list = body - wood in the body
+radio list = headstock - style of headstock
+	dependency - type
+		each type has its own headstock requirements
+radio list = top - wood top of body and headstock
+	dependency - internal
+		cavity guitars 
+radio list = trimlays - verticale wood accents
+	dependency - type , body type
+		only avail on some models
+
+window 4 - choose paint (wood , type)
+radio list = color - sunburst lemon-lime clear
+	dependency - (wood)
+		top 
+radio list = finish - gloss matte stain
+
+window 5 - choose neck (type)
+radio list = frets - 22 24 / inlays
+radio list = strings - 4 5 6 (for bass) 6 or 12 (for guitar)
+	dependency - (type)
+		type
+radio list = scale length - 30" to 35" to standard
+	dependency - internal
+		frets
+		type
+radio list = neck  - flat or round
+radio list = fretboard - standard gloss rosewood ebony
+radio list = frets - stainless + 0 fret
+
+window 6 - choose electronics (type, wood)
+radio list = pickups - single coil / double coil
+	dependency - (type , wood)
+		type - each instrument has own pickups
+		body style - cavity or no cavity leads to differen pickup options
+radio list = acoustic pickups - piezo added
+	dependency - ( wood )
+		body style - cavity or no cavity
+radio list = computer pickups - roland g3
+	dependency - ( type )
+		type - only available on some instrument
+radio list = electronics - switches and knob style
+	dependency - (type , wood)
+		type - each instrument has own pickups
+		body style - cavity or no cavity leads to differen pickup options
+radio list = hardware - metal wood bone
+	dependency - (type , wood)
+		type - each instrument has own pickups
+		body style - cavity or no cavity leads to differen pickup options
+
+window 7 - choose accessories (type, insurance)
+radio list = case - hard soft no
+	dependency - (type)
+		type - some instruments will not have hardshell or softshell options
+			call to discuss for those ?
+radio list = insurance - yes no
+	dependency - ( all or total price )
+		all - insurance cost must depend on the intesity of the design 
+			maybe just a factor of price ? 
+radio list = becker play pack - yes no
+	dependency - (type)
+		type - different play pack for each instrument
+/========================================================/

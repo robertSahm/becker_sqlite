@@ -1,0 +1,8 @@
+<h2>Step 3: Choose Wood</h2>
+
+<ul>
+  <% woods.each do |w| %>
+    <li><%= w.name %></li>
+    <li><%= render 'feature_options', feature: w %></li>
+  <% end %>
+</ul>

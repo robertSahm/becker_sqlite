@@ -1,5 +1,5 @@
 class RemoveIdsFromOptions < ActiveRecord::Migration
-  def change
+  def up
     remove_column :options, :body_type_id
     remove_column :options, :theme_id
     remove_column :options, :product_id 

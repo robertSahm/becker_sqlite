@@ -1,0 +1,7 @@
+<h2>Step 7: Choose Accessories</h2>
+<ul>
+  <% accessories.each do |w| %>
+    <li><%= w.name %></li>
+    <li><%= render 'feature_options', feature: w %></li>
+  <% end %>
+</ul> 

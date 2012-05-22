@@ -53,15 +53,40 @@ class StoreController < ApplicationController
   end
   
   def index
-    if params[:instrument]
-      @products = Product.where(type_of: params[:instrument]).order("products.position ASC")
-    else
-      @products = Product.order(:name)
-    end
+    @page_title = "Shop"
     @cart = current_cart
-    @page_title = "Main store"
+    
+    
   end
 
+  def body
+    @cart = current_cart
+    @type = params[:type]
+    case @type
+    when 'mandolin'
+      @body = BodyType.where(type_of: 'custom')
+    when 'banjo' 
+      @body = BodyType.where(type_of: 'custom')
+    when 'lap_steel'
+      @body = BodyType.where(type_of: 'custom')
+    when 'guitar'
+      @body = BodyType.where(type_of: @type)
+    when 'bass'
+      @body = BodyType.where(type_of: @type)
+    end
+  end
+  
+  def customize
+    @type = params[:instrument]
+    @body = params[:body]
+    @woods = Feature.where(type_of: @type).where(category: 'wood')
+    @paints = Feature.where(type_of: @type).where(category: 'paint')
+    @necks = Feature.where(type_of: @type).where(category: 'neck')
+    @electronics = Feature.where(type_of: @type).where(category: 'electronics')
+    @accessories = Feature.where(type_of: @type).where(category: 'accessories')
+    @options = Option.all
+  end
+  
   
   def build
     @product    = Product.find(params[:id])
@@ -120,11 +145,6 @@ class StoreController < ApplicationController
       @features  = cart_builder(@options)
     end  
   end
-  
-  # get you have the body type and theme id's or you have the product id's
-  #  ask the options to get all the options for either of those combo's
-  # sort those options first by feature then by price ASC
-  #  remove unused features 
-  #  send @features and @options to the html.erb view
+
   
 end
