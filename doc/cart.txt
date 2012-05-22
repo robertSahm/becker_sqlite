@@ -4,7 +4,28 @@ Feature
 	type - guitar , bass , mandolin , banjo , lap_steel
 	name 
 	description
-
+Feature.create([
+  {name: "Body Style", position: 1 , description: "This is the basic build of the body", category: "wood"},
+  {name: "Wood", position: 2 , description: "Wood of the main body", category: "wood"},
+  {name: "Headstock", position: 3 , description: "Style of the headstock", category: "wood"},
+  {name: "Top", position: 4 , description: "Wood inlay attached to body and heastock", category: "wood"},
+  {name: "Trimlays", position: 5 , description: "Vertical wood accents", category: "wood"},
+  {name: "Color", position: 6, description: "Paint color", category: "paint"},
+  {name: "Finish", position: 7 , description: "Paint finish", category: "paint"},
+  {name: "Layout", position: 8, description: "number of frets and inlays", category: "neck"},
+  {name: "Strings", position: 9, description: "Paint", category: "neck"},
+  {name: "Scale Length", position: 10, description: "scale length of the neck in inches", category: "neck"},
+  {name: "Neck", position: 11, description: "curvature of the back of the neck", category: "neck"},
+  {name: "Fingerboard", position: 12, description: "wood choices for the fingerboard", category: "neck"},
+  {name: "Frets", position: 13, description: "metal options for frets", category: "neck"},
+  {name: "Pickups", position: 14, description: "pickup options", category: "electronics"},
+  {name: "Acoustic Pickup", position: 15, description: "Piezo pickup for cavity bodies", category: "electronics"},
+  {name: "Computer Pickup", position: 16, description: "Digital guitar translator for computer", category: "electronics"},
+  {name: "Electronics", position: 17, description: "curvature of the back of the neck", category: "electronics"},
+  {name: "Hardware", position: 18, description: "ardtype of wood on the fingerbo", category: "electronics"},
+  {name: "Case", position: 19, description: "choose a custom case for your instrument", category: "accessories"},
+  {name: "Insurance", position: 20, description: "insurance helps with any repairs or breaks if they should happen", category: "accessories"},
+  {name: "Play Pack", position: 21, description: "strap , picks , strings and towel for your instrument", category: "accessories"} ])
 
 
 BODY TYPE
@@ -26,7 +47,7 @@ frets - 22 24 / inlays
 strings - 4 5 6 (for bass) 6 or 12 (for guitar)
 scale length - 30" to 35" to standard
 neck  - flat or round
-fretboard - standard gloss rosewood ebony
+fingerboard - standard gloss rosewood ebony
 frets - stainless + 0 fret 
 
 ELECTRONICS

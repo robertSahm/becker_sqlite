@@ -13,7 +13,7 @@ class Feature < ActiveRecord::Base
   has_many :options
   has_and_belongs_to_many :body_types
   
-
+  FEATURE_TYPES = [ 'wood' , 'paint' , 'neck' , 'electronics' , 'accessories' ]
 end
 
 
