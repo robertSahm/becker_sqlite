@@ -140,3 +140,19 @@ radio list = becker play pack - yes no
 	dependency - (type)
 		type - different play pack for each instrument
 /========================================================/
+
+Instrument Schema
+create_table "instruments", :force => true do |t|
+  t.integer  "artist_id"
+  t.integer  "customer_id"
+  t.integer  "line_item_id"
+  t.text     "note"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  24 options description / feature name / price
+  body_type_id
+  type_of
+end
+
+
+
