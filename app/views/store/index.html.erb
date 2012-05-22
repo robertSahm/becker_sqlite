@@ -1,14 +1,16 @@
-<div id="store-page">
+
   <%= render 'store_breadcrumbs' %>
   <%= render 'store_breadcrumbs_post' %>
-  <div class="tabs">
-    <h1>Custom Build an Instrument</h1>
-    <%= render 'choose_instrument' %>
-    <h2>Step 2: Choose Body Type</h2>
-    <h2>Step 3: Choose Wood</h2>
-    <h2>Step 4: Choose Paint</h2>
-    <h2>Step 5: Choose Neck</h2>
-    <h2>Step 6: Choose Electronics</h2>
-    <h2>Step 7: Choose Accessories</h2>    
+  <div id="store-page">
+    <div class="tabs">
+      <h1>Custom Build an Instrument</h1>
+      <h2>Step 1: Choose an instrument</h2>
+      <ul>
+        <li><%= link_to 'Guitar',    action: 'body', type: 'guitar' %></li>
+        <li><%= link_to 'Bass',      action: 'body', type: 'bass' %></li>
+        <li><%= link_to 'Banjo',     action: 'body', type: 'banjo' %></li>
+        <li><%= link_to 'Mandolin',  action: 'body', type: 'mandolin' %></li>
+        <li><%= link_to 'Lap Steel', action: 'body', type: 'lap_steel' %></li>
+      </ul>
+    </div>
   </div>
-</div>
