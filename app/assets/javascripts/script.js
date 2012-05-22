@@ -51,12 +51,15 @@ $(document).ready(function() {
 		staticScrollLimit : false
 
 	});
-	$(shopImage).scrollingParallax({
+
+	/*
+	$('.thankYou').scrollingParallax({
 		reverseDirection : true,
 		staticSpeed: 0.3,
-		staticScrollLimit : false
+		staticScrollLimit : true
 	});
-
+	*/
+	
 	//Store Animations
 	//$(".showcaseGuitar, .showcaseBass, .showcaseCustom, .showcaseTheme").hide();
 
@@ -71,13 +74,10 @@ $(document).ready(function() {
 	});
 
 	$(".scrollableArea").smoothDivScroll({ 
-			mousewheelScrolling: true,
-			manualContinuousScrolling: false,
-			visibleHotSpotBackgrounds: "always",
-			
+		mousewheelScrolling: true,
+		manualContinuousScrolling: false,
+		visibleHotSpotBackgrounds: "always",
 		});
-
-	
 });
 
 //$('.bassClick1 a').click(function() {
