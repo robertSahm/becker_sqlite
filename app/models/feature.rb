@@ -11,6 +11,7 @@
 class Feature < ActiveRecord::Base
   acts_as_list
   has_many :options
+  has_and_belongs_to_many :body_types
   
 
 end
