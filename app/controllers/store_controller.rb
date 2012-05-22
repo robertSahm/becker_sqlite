@@ -62,12 +62,25 @@ class StoreController < ApplicationController
   def body
     @cart = current_cart
     @type = params[:type]
-    @body = BodyType.where(type_of: @type)
+    case @type
+    when 'mandolin'
+      @body = BodyType.where(type_of: 'custom')
+    when 'banjo' 
+      @body = BodyType.where(type_of: 'custom')
+    when 'lap_steel'
+      @body = BodyType.where(type_of: 'custom')
+    when 'guitar'
+      @body = BodyType.where(type_of: @type)
+    when 'bass'
+      @body = BodyType.where(type_of: @type)
+    end
   end
   
   def customize
-    
+    @type = params[:instrument]
+    @body = params[:body]
   end
+  
   
   def build
     @product    = Product.find(params[:id])
