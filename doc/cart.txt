@@ -18,3 +18,115 @@ order line_item-> instrument
 click add to cart 
 brings you to your cart page with the product in a line item in the page
 
+BODY TYPE
+body type - mistress roller
+
+WOOD
+body style - neckthru / cavity
+body - wood in the body
+headstock - style of headstock
+top - wood top of body and headstock
+trimlays - verticale wood accents
+
+PAINT
+color - sunburst lemon-lime clear
+finish - gloss matte stain
+
+NECK
+frets - 22 24 / inlays
+strings - 4 5 6 (for bass) 6 or 12 (for guitar)
+scale length - 30" to 35" to standard
+neck  - flat or round
+fretboard - standard gloss rosewood ebony
+frets - stainless + 0 fret 
+
+ELECTRONICS
+pickups - single coil / double coil
+acoustic pickups - piezo added
+computer pickups - roland g3
+electronics - switches and knob style
+hardware - metal wood bone
+
+ACCESSORIES
+case - hard soft no
+insurance - yes no
+becker play pack - yes no
+/========================================================/
+@instrument = Instrument.new
+
+window 1 - choose instrument
+@instrument.type 
+select  = guitar / bass / mandolin / banjo / lapsteel / double neck
+
+window 2 - choose body style (type)
+@instrument.body_type
+select = get specific body_types avail for the chosen type
+
+window 3 - choose wood (type , body_type)
+list = get specific woods for type and body_type
+radio list = body style - neckthru / cavity
+	dependency - type, body type
+		not all instruments will have cavity possible or even bolt on options
+radio list = body - wood in the body
+radio list = headstock - style of headstock
+	dependency - type
+		each type has its own headstock requirements
+radio list = top - wood top of body and headstock
+	dependency - internal
+		cavity guitars 
+radio list = trimlays - verticale wood accents
+	dependency - type , body type
+		only avail on some models
+
+window 4 - choose paint (wood , type)
+radio list = color - sunburst lemon-lime clear
+	dependency - (wood)
+		top 
+radio list = finish - gloss matte stain
+
+window 5 - choose neck (type)
+radio list = frets - 22 24 / inlays
+radio list = strings - 4 5 6 (for bass) 6 or 12 (for guitar)
+	dependency - (type)
+		type
+radio list = scale length - 30" to 35" to standard
+	dependency - internal
+		frets
+		type
+radio list = neck  - flat or round
+radio list = fretboard - standard gloss rosewood ebony
+radio list = frets - stainless + 0 fret
+
+window 6 - choose electronics (type, wood)
+radio list = pickups - single coil / double coil
+	dependency - (type , wood)
+		type - each instrument has own pickups
+		body style - cavity or no cavity leads to differen pickup options
+radio list = acoustic pickups - piezo added
+	dependency - ( wood )
+		body style - cavity or no cavity
+radio list = computer pickups - roland g3
+	dependency - ( type )
+		type - only available on some instrument
+radio list = electronics - switches and knob style
+	dependency - (type , wood)
+		type - each instrument has own pickups
+		body style - cavity or no cavity leads to differen pickup options
+radio list = hardware - metal wood bone
+	dependency - (type , wood)
+		type - each instrument has own pickups
+		body style - cavity or no cavity leads to differen pickup options
+
+window 7 - choose accessories (type, insurance)
+radio list = case - hard soft no
+	dependency - (type)
+		type - some instruments will not have hardshell or softshell options
+			call to discuss for those ?
+radio list = insurance - yes no
+	dependency - ( all or total price )
+		all - insurance cost must depend on the intesity of the design 
+			maybe just a factor of price ? 
+radio list = becker play pack - yes no
+	dependency - (type)
+		type - different play pack for each instrument
+/========================================================/
