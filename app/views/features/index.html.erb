@@ -1,67 +1,34 @@
  
-<h3>Features At A Glance</h3>
-<%= link_to 'New Feature', new_feature_path %> &nbsp;&nbsp; | &nbsp;&nbsp;
-<%= link_to "Code Drop Down Link", {}, class: "codeLink" %>
-<div class="codeDropDown">
-  <p>Drag-able Handle</p>
-  <p>Each Body Type - Name link -> Edit detail of body type - photo_urls etc / 'X' delete link</p>
-  <p>themes - radio list - checked when available - could show avails and have "add new theme" and it shows a list of other themes</p>
-  <p>List Products that have this body type ?</p>
-  <p>Body Type and Theme divs load from server - features div load via ajax at document ready</p>
-  <p>Options available for each feature - checked when available for body type</p>
-  <p>Themes for each option avail show, add theme button shows unchecked list of other themes</p>
-  <p>if you check a theme that is on a same option earlier it should prompt a box to alert the user</p>
-  <p1>Code to call the options for this body type in each feature</p1><br />
-  <p1>Code to put a theme check box next to each group of options with add theme</p1>
-</div>
+<h3>Features</h3>
+
+
+
+<%= link_to 'New Feature', new_feature_path %> 
     <ul>
       <% @features.each do |feature| %>
         <hr />
         <li>
           <%= link_to feature.name, edit_feature_path(feature)  %></li>
-        <li>
-          <%= feature.description %> | 
-          <%= link_to 'X', action: 'delete', id: feature.id %></li>
-          <li>
-            <% @body_types = BodyType.all %>
-
-
-            <% @body_types.each do |t| %>
-              <%= check_box_tag "t.name" %>
-              <%= link_to t.name, theme_path(t) %>
-            <% end %> | 
-            <%= link_to 'Add Body Types' %>
-          </li>
         <li class="tcell">
-          <% @themes = Theme.all %>
-        
-        
-          <% @themes.each do |t| %>
-            <%= check_box_tag "t.name" %>
-            <%= link_to t.name, theme_path(t) %>
-          <% end %> | 
-          <%= link_to 'Add Themes' %>
+          <% @options = Option.where(feature_id: feature.id).order("options.price ASC") %>
+          <%= render 'options', feature: feature %>
         </li>
-        <li class="tcell"><a href="#" class="<%= feature.name %>">Options Drop down link</a>
-        <div class="adminDropDown <%= feature.name %>">
-          <% @options   = Option.where(feature_id: feature.id).order("options.price ASC") %>
-          <%= render 'admins/options', feature: feature %>
-        </li>
+        <li>Add Option</li>
       <% end %>
     </ul>
 
-<div class="re_order">
-  <h2>Order Features on site</h2>
-  <ul id="faqs" data-update-url="<%= sort_features_url %>">
-    <% @features.each do |feature| %>
-      <%= content_tag_for :li, feature do %>
-        <tr id="rows">
-          <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
-          <td><%= link_to feature.name, edit_feature_path(feature) %></td>
-          <td><%= feature.description %></td>
-          <td><%= link_to 'Delete', action: 'delete', id: feature.id %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </ul>
-</div> <!-- re_order -->
+
+    <div class="re_order">
+      <h2>Order Features on site</h2>
+      <ul id="faqs" data-update-url="<%= sort_features_url %>">
+        <% @features.each do |feature| %>
+          <%= content_tag_for :li, feature do %>
+            <tr id="rows">
+              <td><span class="handle"><%= image_tag("webphotos/transfer_down_up.png") %></span></td>
+              <td><%= link_to feature.name, edit_feature_path(feature) %></td>
+              <td><%= feature.description %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </ul>
+    </div> <!-- re_order -->
