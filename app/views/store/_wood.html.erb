@@ -1,8 +1,8 @@
 <h2>Step 3: Choose Wood</h2>
+
 <ul>
-  <li>Construction</li>
-  <li>Body</li>
-  <li>Headstock</li>
-  <li>Top</li>
-  <li>Trimlays</li>
+  <% woods.each do |w| %>
+    <li><%= w.name %></li>
+    <li><%= render 'feature_options', feature: w %></li>
+  <% end %>
 </ul>

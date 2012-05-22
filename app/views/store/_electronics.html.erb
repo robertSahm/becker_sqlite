@@ -1,8 +1,7 @@
 <h2>Step 6: Choose Electronics</h2>
 <ul>
-  <li>Pickups</li>
-  <li>Acoustic Pickups</li>
-  <li>Computer Connector</li>
-  <li>Electronics</li>
-  <li>Hardware</li>
+  <% electronics.each do |w| %>
+    <li><%= w.name %></li>
+    <li><%= render 'feature_options', feature: w %></li>
+  <% end %>
 </ul>

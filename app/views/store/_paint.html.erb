@@ -1,5 +1,7 @@
 <h2>Step 4: Choose Paint</h2>
 <ul>
-  <li>Color</li>
-  <li>Finish</li>
+  <% paints.each do |w| %>
+    <li><%= w.name %></li>
+    <li><%= render 'feature_options', feature: w %></li>
+  <% end %>
 </ul>

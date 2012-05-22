@@ -79,6 +79,12 @@ class StoreController < ApplicationController
   def customize
     @type = params[:instrument]
     @body = params[:body]
+    @woods = Feature.where(type_of: @type).where(category: 'wood')
+    @paints = Feature.where(type_of: @type).where(category: 'paint')
+    @necks = Feature.where(type_of: @type).where(category: 'neck')
+    @electronics = Feature.where(type_of: @type).where(category: 'electronics')
+    @accessories = Feature.where(type_of: @type).where(category: 'accessories')
+    @options = Option.all
   end
   
   

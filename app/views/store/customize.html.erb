@@ -4,16 +4,20 @@
 <%= link_to @body, action: 'customize', body: @body, instrument: @type  %>
 <span>></span>
 <%= render 'store_breadcrumbs_post' %>
+    <%= render 'cart_sidebar2' %>
 <div id="store-page">
   <div class="tabs">
+
+
     <h1>Custom Build an Instrument</h1>
-    <%= render 'wood' %>
+    <%= render 'wood', woods: @woods %>
                
-    <%= render 'paint' %>
+    <%= render 'paint', paints: @paints %>
                
-    <%= render 'neck' %>
+    <%= render 'neck', necks: @necks %>
                
-    <%= render 'electronics' %>
+    <%= render 'electronics', electronics: @electronics %>
                
-    <%= render 'accessories' %>
+    <%= render 'accessories', accessories: @accessories %>
+
    

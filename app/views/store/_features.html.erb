@@ -1,0 +1,10 @@
+
+<fieldset id="custom_build">
+    <% @features.each do |feature| %>
+    <fieldset>
+        <h3 id="feature" value="1000"><%= feature.name %></h3>
+        <% feature.name.gsub!(" ", "-") %>
+        <%= render 'feature_options' %>
+        </fieldset>
+      <% end %>
+</fieldset>
