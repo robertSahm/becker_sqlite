@@ -1,7 +1,6 @@
 $(function() {
-	var body_type_price = parseInt($('#body_type').attr("value"));
-	var theme_price = parseInt($('#theme').attr("value"));
-	var base_price = theme_price + body_type_price;
+	var body_type_price = parseInt($('#base_price').attr("value"));
+	var base_price = body_type_price;
 	calcCartPrice(base_price);
 	
 	$('div input').change(function() {
@@ -12,86 +11,10 @@ $(function() {
 		calculateDelta(options, indi_price);
 		price_to_cart(feature_to_cart, text_to_cart);
 	});
-	$('.tabClick1 a').click(typeClick);
-	
-	$('.tabClick2 a').click(function() {
-		$('.tabClick1:visible').removeClass('choice').addClass('typeClick').removeClass('tabClick1');
-		$('h2.chooseBodyType').fadeToggle();
-		$(this).parent().siblings().fadeToggle(500,'linear');
-		if ($('.choice').length > 0) {
-			textEnlarge();	
-			$('.typeClick a').off('click');
-			$('.typeClick a').click(typeClick);
-			$('.typeClick').addClass('tabClick1 choice').removeClass('typeClick');
-			$('h2.chooseTheme').fadeToggle();
-			$('ul.instrumentTheme').fadeOut();
-			return false;		
-		} else {
-			$(this).parent().addClass('chosenLink');
-			textShrink();
-			$('h2.chooseTheme').fadeToggle();
-			$('ul.instrumentTheme').fadeIn();
-		}
-	})	
 });
 
-function typeClick() {
-	$('h2.chooseInstrument').fadeToggle();
-	$(this).parent().siblings().fadeToggle(500,'linear');
-	if ($('.choice').length > 0) {
-		textEnlarge();			
-	} else {
-		$(this).parent().addClass('chosenLink');
-		textShrink();
-	}
-	messageFade();
-	return false;	
-}
-
-function resetTypeClick() {
-	$('.tabClick2:visible').addClass('choice');
-	$('h2.chooseTheme').fadeToggle();
-	$('ul.instrumentTheme').fadeOut();
-	$('ul.instrumentBody li').fadeIn();
-	$('ul.instrumentBody').fadeOut();
-	$('.typeClick').addClass('tabClick1 choice').removeClass('typeClick');
-	textEnlarge();
-	$('.tabClick1').siblings().fadeIn();
-	$('h2.chooseInstrument').fadeIn();
-	$('.tabClick1 a').off('click');
-	$('.tabClick1 a').click(typeClick);
-	$('ul.instrumentTheme li').fadeIn();
-	$('ul.instrumentTheme').fadeOut();	
-	$('h2.chooseTheme').hide();
-	$('h2.chooseOptions').hide();
-	$('#cart_sidebarReceiver').empty();
-	$('#featureReceiver').empty();	
-}
-
-function messageFade() {
-	$('h2.chooseBodyType').fadeToggle();
-	$('.instrumentBody').fadeToggle();
-}
-
-function textShrink() {
-	$('.chosenLink').animate({
-		fontSize: ".8em",
-		marginTop: "-40px"
-	}, 500 );
-	$('.chosenLink').removeClass('chosenLink').addClass('choice');	
-}
-
-function textEnlarge() {
-	$('.choice').animate({
-		fontSize: "1em",
-		marginTop: "0px"
-	}, 500 );
-	$('.choice').removeClass('choice');
-}
-  
-
 function calcCartPrice(base_price) {
-	$('#cart_price').html("<span> JS Value: $ " + base_price + "</span>");
+	$('#cart_price').html("<span> Price: $ " + base_price + "</span>");
 };
 
 function price_to_cart(feature_to_cart, text_to_cart) {
@@ -101,7 +24,7 @@ function price_to_cart(feature_to_cart, text_to_cart) {
    });
 	total_price += parseInt($('#body_type').attr("value")) + parseInt($('#theme').attr("value"));
 	$("#cart_price span").empty();
-  	$("#cart_price").append("<span> JS Price: $ " + total_price + "</span>");
+  	$("#cart_price").append("<span> Price: $ " + total_price + "</span>");
 	$("#feature_adds").append('<fieldset>' + feature_to_cart + " - " + text_to_cart + "</fieldset>");
 }
 
@@ -126,19 +49,4 @@ function insertDom(obj) {
 		} else {}
 	})
 }
-
-// take the type tabs and make single function process
-// forward
-// when you click on one type guitar, bass,etc
-// hide the <h2 id="chooseInstrument">
-//  hide the other type choices
-// animate the chosen type to the same DOM location with CSS changes
-// reverse
-// when you click the type
-// animate the type to its list position in the DOM
-// show the remaining list items
-// show the <h2 id="chooseInstrument">
-
-
-
 
