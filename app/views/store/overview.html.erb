@@ -10,30 +10,6 @@
 
     <h1>Custom Build an Instrument</h1>
   <fieldset id="custom_build">
-    <h3>Your <%= @instrument.body.capitalize %> &nbsp; <%= @instrument.type_of.capitalize %></h3>
-    <ul>
-      <li>Price: $<%= @instrument.price %> </li>
-      <li>Construction: <%= Option.find(@instrument.construction).description if @instrument.construction  %></li>
-      <li>Wood: <%= Option.find(@instrument.wood).description if @instrument.wood %></li>
-      <li>Headstock: <%= Option.find(@instrument.headstock).description if @instrument.headstock %></li>
-      <li>Top: <%= Option.find(@instrument.top).description if @instrument.top %></li>
-      <li>Trimlays: <%= Option.find(@instrument.trimlays).description if @instrument.trimlays %></li>
-      <li>Color: <%= Option.find(@instrument.color).description if @instrument.color %></li>
-      <li>Finish: <%= Option.find(@instrument.finish).description if @instrument.finish %></li>
-      <li>Neck: <%= Option.find(@instrument.neck).description if @instrument.neck %></li>
-      <li>Strings: <%= Option.find(@instrument.strings).description if @instrument.strings %></li>
-      <li>Scale Length: <%= Option.find(@instrument.scale).description if @instrument.scale %></li>
-      <li>Curvature: <%= Option.find(@instrument.curvature).description if @instrument.curvature %></li>
-      <li>Fingerboard: <%= Option.find(@instrument.fingerboard).description if @instrument.fingerboard %></li>
-      <li>Frets: <%= Option.find(@instrument.frets).description if @instrument.frets %></li>
-      <li>Pickups: <%= Option.find(@instrument.pickups).description if @instrument.pickups %></li>
-      <li>Acoustic Pickups: <%= Option.find(@instrument.acoustic).description if @instrument.acoustic %></li>
-      <li>Computer Pickups: <%= Option.find(@instrument.computer).description if @instrument.computer %></li>
-      <li>Electronics: <%= Option.find(@instrument.electronics).description if @instrument.electronics %></li>
-      <li>Hardware: <%= Option.find(@instrument.hardware).description if @instrument.hardware %></li>
-      <li>Case: <%= Option.find(@instrument.case).description if @instrument.case %></li>
-      <li>Insurance: <%= Option.find(@instrument.insurance).description if @instrument.insurance  %></li>
-      <li>Play Pack: <%= Option.find(@instrument.play_pack).description if @instrument.play_pack %></li>
-    </ul>
+    <%= render 'instrument' %>
   </fieldset>
   <%= render 'add_to_cart' %>

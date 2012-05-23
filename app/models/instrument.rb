@@ -14,10 +14,11 @@
 class Instrument < ActiveRecord::Base
   attr_writer :current_step
   
-  belongs_to :artist
-  belongs_to :customer
-  belongs_to :line_item
-  belongs_to :body_type
+  belongs_to  :artist
+  belongs_to  :customer
+  has_many    :line_items
+  belongs_to  :body_type
+  has_many    :orders, through: :line_items
 
   def current_step
     @current_step || steps.first 

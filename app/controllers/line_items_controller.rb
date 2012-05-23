@@ -11,7 +11,7 @@ class LineItemsController < ApplicationController
   end
 
   def show
-    @line_item = LineItem.find(params[:product_id])
+    @line_item = LineItem.find(params[:instrument_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,24 +29,15 @@ class LineItemsController < ApplicationController
   end
 
   def edit
-    @line_item = LineItem.find(params[:product_id])
+    @line_item = LineItem.find(params[:instrument_id])
   end
 
   def create
-    @cart = current_cart          #defined in application controller
-    if params[:product_id].nil?
-      # !! work around
-      # save a product with the body_type and theme and the options
-      # display: false
-      # then create that product in the line items here
-      product = Product.first
-      
-      # work around !!
-    else
-      product = Product.find(params[:product_id])
-    end
-    @line_item = @cart.add_product(product.id, product.price)   # defined in cart.rb model
-
+    @cart = current_cart                                                 # defined in application controller
+    instrument = Instrument.find(params[:instrument_id])
+    @line_item = @cart.add_instrument(instrument.id, instrument.price)   # defined in cart.rb model 
+    #product = Product.first
+    #@line_item = @cart.add_product(product.id, product.price)
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to controller: 'carts', action: 'show', id: @cart.id }
