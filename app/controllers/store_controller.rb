@@ -80,16 +80,43 @@ class StoreController < ApplicationController
     @instrument = Instrument.find(params[:id])
     @body = params[:body]
     body_type = BodyType.find_by_name(@body)
-    @instrument.update_attributes(body_type_id: body_type.id, price: body_type.price)
+    @step = 'wood'
+    @next_step = 'paint'
+    @instrument.update_attributes(body_type_id: body_type.id, body: @body, price: body_type.price, step: @step)
     @type = @instrument.type_of
-    @woods = Feature.where(type_of: @type).where(category: 'wood')
-    @paints = Feature.where(type_of: @type).where(category: 'paint')
-    @necks = Feature.where(type_of: @type).where(category: 'neck')
-    @electronics = Feature.where(type_of: @type).where(category: 'electronics')
-    @accessories = Feature.where(type_of: @type).where(category: 'accessories')
     @options = Option.all
+    @features = Feature.where(type_of: @type).where(category: "#{@step}")
   end
   
+  def paint
+    # know the category and @instrument.id
+    # get the instrument from the id
+    stepper = [ 'wood' , 'paint' , 'neck', 'electronics' , 'accessories' ]
+
+    @instrument = Instrument.find(params[:id])
+    @type = @instrument.type_of
+    step = @instrument.step
+    index = stepper.index(step) + 1
+    next_index = index + 1
+    @step = stepper[index]
+    @next_step = stepper[next_index]
+    
+    @body = BodyType.find(@instrument.body_type_id).name
+    
+    # find the features for that category & type_of
+    @features = Feature.where(type_of: @type).where(category: "#{@step}")
+    #  get just the right @options for the feature , body_type, type_of
+    @options = Option.all
+    # update the instrument with the defaults from those options
+    # send @instrument @features @options -> to a form view
+    #     the features are all the same for now , just make the options dynamic
+    # have the form view ONLY render the proper radio buttons for the incoming info
+    # have an update button on the bottom as 'continue'
+    # receive that form and update_attributes on the @instrument.id
+    # re-loop with new category
+    render 'store/customize'
+    
+  end
   
   def build
     @product    = Product.find(params[:id])

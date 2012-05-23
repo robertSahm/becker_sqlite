@@ -7,7 +7,7 @@ $(function() {
 	  	var options = $(this).parent().parent().children(":not(h3)");
 		var text_to_cart = $(this).parent().text();
 	  	var feature_to_cart = $(this).parent().siblings("h3").text();
-	  	var indi_price = parseInt($(this).attr("value"));
+	  	var indi_price = parseInt($(this).attr("price"));
 		calculateDelta(options, indi_price);
 		price_to_cart(feature_to_cart, text_to_cart);
 	});
@@ -20,7 +20,7 @@ function calcCartPrice(base_price) {
 function price_to_cart(feature_to_cart, text_to_cart) {
 	var total_price = 0;
   	$("div input:checked").each(function() {
-        	total_price += parseInt($(this).attr("value"));
+        	total_price += parseInt($(this).attr("price"));
    });
 	total_price += parseInt($('#base_price').attr("value"));
 	$("#cart_price span").empty();
@@ -31,7 +31,7 @@ function price_to_cart(feature_to_cart, text_to_cart) {
 function calculateDelta(options, indi_price) {
 	var tally = 0;
 	options.each(function() {
-		tally = parseInt($(this).children().attr("value"));
+		tally = parseInt($(this).children().attr("price"));
 		new_price = tally - indi_price;
 		$(this).data("new_price", new_price);
 		insertDom(this);

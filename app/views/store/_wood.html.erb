@@ -1,7 +1,7 @@
 
 <fieldset id="custom_build">
   <h2>Step 3: Choose Wood</h2>
-    <% woods.each do |feature| %>
+    <% @features.each do |feature| %>
     <ul>
         <li><h3 id="feature" value="1000"><%= feature.name %></h3></li>
         <% feature.name.gsub!(" ", "-") %>
@@ -9,3 +9,4 @@
     </ul>
     <% end %>
 </fieldset>
+

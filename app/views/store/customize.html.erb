@@ -10,14 +10,15 @@
 
 
     <h1>Custom Build an Instrument</h1>
-    <%= render 'wood', woods: @woods %>
-               
-    <%= render 'paint', paints: @paints %>
-               
-    <%= render 'neck', necks: @necks %>
-               
-    <%= render 'electronics', electronics: @electronics %>
-               
-    <%= render 'accessories', accessories: @accessories %>
+    <%= form_for(@instrument) do |f| %>
+      <%= render "#{@instrument.step}", collection: @features %>
+    
+      <div>
+        <input type="hidden" name="step" value="<%= @next_step %>" />
+      </div>
+      <div class="actions">
+        <p><%= f.submit "Continue" %></p> 
+      </div>
+    <% end %>
 
    

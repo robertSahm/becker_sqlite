@@ -22,6 +22,7 @@ class BodyType < ActiveRecord::Base
   has_and_belongs_to_many :options
   has_many :line_items
   has_and_belongs_to_many :features
+  has_many :instruments
   
 
 end

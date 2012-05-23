@@ -3,9 +3,9 @@
     <div class="option <%= feature.name.downcase %>">
         <% option_value = number_with_precision(option.price, :precision => 0) %>
         <% if option.default %>
-          <input name="<%= feature.name.downcase %>" type="radio" checked="checked" price="<%= option_value %>" value="<%= option.id %>"/>
-        <% else %>     
-          <input name="<%= feature.name.downcase %>" type="radio" price="<%= option_value %>"  value="<%= option.id %>"/>
+              <input name="option.<%= feature.name %>" type="radio" checked="checked" value="<%= option_value %>">
+        <% else %>
+              <input name="option.<%= feature.name %>" type="radio" value="<%= option_value %>"/>        
         <% end %>
         <p3><%= option.description %></p3>
         
@@ -20,3 +20,4 @@
     </div>
 <% end %>
 <% end %>
+        
