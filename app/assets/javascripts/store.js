@@ -14,7 +14,7 @@ $(function() {
 });
 
 function calcCartPrice(base_price) {
-	$('#cart_price').html("<span> Price: $ " + base_price + "</span>");
+	$('#cart_price').html("<span>$ " + base_price + "</span>");
 };
 
 function price_to_cart(feature_to_cart, text_to_cart) {
@@ -22,9 +22,9 @@ function price_to_cart(feature_to_cart, text_to_cart) {
   	$("div input:checked").each(function() {
         	total_price += parseInt($(this).attr("value"));
    });
-	total_price += parseInt($('#body_type').attr("value")) + parseInt($('#theme').attr("value"));
+	total_price += parseInt($('#base_price').attr("value"));
 	$("#cart_price span").empty();
-  	$("#cart_price").append("<span> Price: $ " + total_price + "</span>");
+  	$("#cart_price").append("<span>$ " + total_price + "</span>");
 	$("#feature_adds").append('<fieldset>' + feature_to_cart + " - " + text_to_cart + "</fieldset>");
 }
 
