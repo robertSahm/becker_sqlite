@@ -1,7 +1,10 @@
-<h2>Step 7: Choose Accessories</h2>
-<ul>
-  <% accessories.each do |w| %>
-    <li><%= w.name %></li>
-    <li><%= render 'feature_options', feature: w %></li>
-  <% end %>
-</ul> 
+<fieldset id="custom_build">
+  <h2>Step 7: Choose Accessories</h2>
+    <% accessories.each do |feature| %>
+    <ul>
+        <li><h3 id="feature" value="1000"><%= feature.name %></h3></li>
+        <% feature.name.gsub!(" ", "-") %>
+        <li><%= render 'feature_options', feature: feature %></li>
+    </ul>
+    <% end %>
+</fieldset>

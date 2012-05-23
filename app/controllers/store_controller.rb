@@ -54,14 +54,14 @@ class StoreController < ApplicationController
   
   def index
     @page_title = "Shop"
-    @cart = current_cart
-    
-    
+    @cart = current_cart    
   end
 
   def body
     @cart = current_cart
     @type = params[:type]
+    @instrument = Instrument.create(type_of: @type)
+    
     case @type
     when 'mandolin'
       @body = BodyType.where(type_of: 'custom')
@@ -77,8 +77,11 @@ class StoreController < ApplicationController
   end
   
   def customize
-    @type = params[:instrument]
+    @instrument = Instrument.find(params[:id])
     @body = params[:body]
+    body_type = BodyType.find_by_name(@body)
+    @instrument.update_attributes(body_type_id: body_type.id, price: body_type.price)
+    @type = @instrument.type_of
     @woods = Feature.where(type_of: @type).where(category: 'wood')
     @paints = Feature.where(type_of: @type).where(category: 'paint')
     @necks = Feature.where(type_of: @type).where(category: 'neck')

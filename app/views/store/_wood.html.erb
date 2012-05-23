@@ -1,8 +1,11 @@
-<h2>Step 3: Choose Wood</h2>
 
-<ul>
-  <% woods.each do |w| %>
-    <li><%= w.name %></li>
-    <li><%= render 'feature_options', feature: w %></li>
-  <% end %>
-</ul>
+<fieldset id="custom_build">
+  <h2>Step 3: Choose Wood</h2>
+    <% woods.each do |feature| %>
+    <ul>
+        <li><h3 id="feature" value="1000"><%= feature.name %></h3></li>
+        <% feature.name.gsub!(" ", "-") %>
+        <li><%= render 'feature_options', feature: feature %></li>
+    </ul>
+    <% end %>
+</fieldset>

@@ -5,11 +5,11 @@
 <%= render 'store_breadcrumbs_post' %>
 <div id="store-page">
   <div class="tabs">
-    <h1>Custom Build an Instrument</h1>
+    <h1>Custom Build an Instrument <%= @instrument.type_of %></h1>
     <h2>Step 2: Choose Body Type</h2>
     <ul>
       <% @body.each do |b| %>
-        <li><%= link_to b.name, action: 'customize', body: b.name, instrument: @type %></li>
+        <li><%= button_to b.name, action: 'customize', body: b.name, id: @instrument.id %>$<%= b.price %>0</li>
       <% end %>
     </ul>
 
