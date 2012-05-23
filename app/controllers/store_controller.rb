@@ -95,11 +95,9 @@ class StoreController < ApplicationController
 
     @instrument = Instrument.find(params[:id])
     @type = @instrument.type_of
-    step = @instrument.step
-    index = stepper.index(step) + 1
-    next_index = index + 1
-    @step = stepper[index]
-    @next_step = stepper[next_index]
+    @step = @instrument.step
+    index = stepper.index(@step) + 1
+    @next_step = stepper[index]
     
     @body = BodyType.find(@instrument.body_type_id).name
     
