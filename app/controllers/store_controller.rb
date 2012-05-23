@@ -53,15 +53,73 @@ class StoreController < ApplicationController
   end
   
   def index
-    if params[:instrument]
-      @products = Product.where(type_of: params[:instrument]).order("products.position ASC")
-    else
-      @products = Product.order(:name)
-    end
-    @cart = current_cart
-    @page_title = "Main store"
+    @page_title = "Shop"
+    @cart = current_cart    
   end
 
+  def body
+    @cart = current_cart
+    @type = params[:type]
+    @instrument = Instrument.create(type_of: @type)
+    
+    case @type
+    when 'mandolin'
+      @body = BodyType.where(type_of: 'custom')
+    when 'banjo' 
+      @body = BodyType.where(type_of: 'custom')
+    when 'lap_steel'
+      @body = BodyType.where(type_of: 'custom')
+    when 'guitar'
+      @body = BodyType.where(type_of: @type)
+    when 'bass'
+      @body = BodyType.where(type_of: @type)
+    end
+  end
+  
+  def customize
+    @instrument = Instrument.find(params[:id])
+    @body = params[:body]
+    body_type = BodyType.find_by_name(@body)
+    @step = 'wood'
+    @next_step = 'paint'
+    @instrument.update_attributes(body_type_id: body_type.id, body: @body, price: body_type.price, step: @step)
+    @type = @instrument.type_of
+    @options = Option.all
+    @features = Feature.where(type_of: @type).where(category: "#{@step}")
+  end
+  
+  def paint
+    # know the category and @instrument.id
+    # get the instrument from the id
+    stepper = [ 'wood' , 'paint' , 'neck', 'electronics' , 'accessories' , 'complete' ]
+
+    @instrument = Instrument.find(params[:id])
+    @type = @instrument.type_of
+    @step = @instrument.step
+    index = stepper.index(@step) + 1
+    @next_step = stepper[index]
+    
+    @body = BodyType.find(@instrument.body_type_id).name
+    
+    # find the features for that category & type_of
+    @features = Feature.where(type_of: @type).where(category: "#{@step}")
+    #  get just the right @options for the feature , body_type, type_of
+    @options = Option.all
+    # update the instrument with the defaults from those options
+    # send @instrument @features @options -> to a form view
+    #     the features are all the same for now , just make the options dynamic
+    # have the form view ONLY render the proper radio buttons for the incoming info
+    # have an update button on the bottom as 'continue'
+    # receive that form and update_attributes on the @instrument.id
+    # re-loop with new category
+    render 'store/customize'  
+  end
+  
+  def overview
+     @instrument = Instrument.find(params[:id])
+     @body = @instrument.body
+     @type = @instrument.type_of
+  end
   
   def build
     @product    = Product.find(params[:id])
@@ -120,11 +178,6 @@ class StoreController < ApplicationController
       @features  = cart_builder(@options)
     end  
   end
-  
-  # get you have the body type and theme id's or you have the product id's
-  #  ask the options to get all the options for either of those combo's
-  # sort those options first by feature then by price ASC
-  #  remove unused features 
-  #  send @features and @options to the html.erb view
+
   
 end

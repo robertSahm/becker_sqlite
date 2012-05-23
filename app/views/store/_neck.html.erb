@@ -1,0 +1,12 @@
+<fieldset id="custom_build">
+  <h2>Step 5: Choose Neck</h2>
+    <% @features.each do |feature| %>
+    <ul>
+        <li><h3 id="feature" value="1000"><%= feature.name %></h3></li>
+        <% feature.name.gsub!(" ", "-") %>
+        <li><%= render 'feature_options', feature: feature %></li>
+    </ul>
+    <% end %>
+</fieldset>
+
+

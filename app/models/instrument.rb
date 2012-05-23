@@ -12,11 +12,24 @@
 #
 
 class Instrument < ActiveRecord::Base
+  attr_writer :current_step
+  
+  belongs_to  :artist
+  belongs_to  :customer
+  has_many    :line_items
+  belongs_to  :body_type
+  has_many    :orders, through: :line_items
 
-  belongs_to :artist
-  belongs_to :customer
-  belongs_to :line_item
-
-
+  def current_step
+    @current_step || steps.first 
+  end
+  
+  def steps
+    [ 'wood' , 'paint' , 'neck', 'electronics' , 'accessories' ]   
+  end
+  
+  def next_step
+    self.current_step = steps[steps.index(current_step)+1]
+  end
 
 end
