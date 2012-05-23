@@ -13,7 +13,7 @@
 <%= form_for(@instrument) do |f| %>
   <fieldset id="custom_build">
     <h2>Step 4: Choose Paint</h2>
-      <% @features.each do |feature| %asdfasdfasdfasdf>
+      <% @features.each do |feature| %>
       <ul>
           <li><h3 id="feature" value="1000"><%= feature.name %></h3>
           <% feature.name.gsub!(" ", "-") %>

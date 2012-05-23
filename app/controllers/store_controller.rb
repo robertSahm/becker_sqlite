@@ -91,7 +91,7 @@ class StoreController < ApplicationController
   def paint
     # know the category and @instrument.id
     # get the instrument from the id
-    stepper = [ 'wood' , 'paint' , 'neck', 'electronics' , 'accessories' ]
+    stepper = [ 'wood' , 'paint' , 'neck', 'electronics' , 'accessories' , 'complete' ]
 
     @instrument = Instrument.find(params[:id])
     @type = @instrument.type_of
@@ -112,8 +112,13 @@ class StoreController < ApplicationController
     # have an update button on the bottom as 'continue'
     # receive that form and update_attributes on the @instrument.id
     # re-loop with new category
-    render 'store/customize'
-    
+    render 'store/customize'  
+  end
+  
+  def overview
+     @instrument = Instrument.find(params[:id])
+     @body = @instrument.body
+     @type = @instrument.type_of
   end
   
   def build
