@@ -40,6 +40,7 @@ class LineItemsController < ApplicationController
       # display: false
       # then create that product in the line items here
       product = Product.first
+      
       # work around !!
     else
       product = Product.find(params[:product_id])
