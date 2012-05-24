@@ -1,5 +1,6 @@
 Becker::Application.routes.draw do
 
+  # match checkout: 'checkouts'
   resources :checkouts
 
   resources :themes do
@@ -22,7 +23,6 @@ Becker::Application.routes.draw do
   resources :options
   resources :instruments
  #  match ':controller(/:action(/:id(.:format)))'
-  
   get "admins"  => 'admins#index'
   get "admin" => 'admins#index'
 

@@ -1,9 +1,5 @@
 <h2>Order Review</h2>
-   <%= render @cart %>
-   <tr class="total_line">
-     <td colspan="4">Total</td>
-     <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
-   </tr>
+
       <p>
         <h4>Name:</h4>
         <%=h @checkout.first_name  %>
