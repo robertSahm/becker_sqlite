@@ -199,10 +199,11 @@ ActiveRecord::Schema.define(:version => 20120523212601) do
     t.string   "name"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price"
+    t.decimal  "price",        :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type_of"
+    t.string   "feature"
     t.integer  "position"
     t.string   "body_url"
     t.string   "photo_url_1"

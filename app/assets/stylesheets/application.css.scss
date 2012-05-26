@@ -549,6 +549,7 @@ height: 32px;
 
 #page {
 height: auto;
+
 }
 
 #frame1 {
@@ -559,7 +560,7 @@ top: -20px;
 left: 0;
 background-color: black;
 z-index: 2002;
-
+overflow-x: hidden;
 
 	.welcome {
 		width: 100%;
@@ -634,6 +635,7 @@ z-index: 2002;
 /* - - Frame 2 - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - -  - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - -  - - -  - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - */
 
 #frame2 {
+overflow-x: hidden;
 position: absolute;
 width: 100%;
 height: 2310px;
@@ -851,8 +853,8 @@ z-index: 2001;
 #frame4 {
 	position: absolute;
 	width: 960px;
-	height: 600px;
-	top: 7200px;
+	height: 937px;
+	top: 6933px;
 	z-index: 3000;
 	background-color: black;
 	border-top: 1px solid red;
