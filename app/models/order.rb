@@ -16,7 +16,7 @@
 #
 
 class Order < ActiveRecord::Base
-    has_many :line_items, dependent: :destroy
+    has_many    :line_items, dependent: :destroy
     belongs_to  :customer
     belongs_to  :artist
     

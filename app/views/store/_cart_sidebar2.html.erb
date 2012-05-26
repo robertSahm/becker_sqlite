@@ -1,8 +1,8 @@
 
-  <div>Quantity:</div>
-  <div>Description:</div>
-  <div id="base_price">Base Price: $ <%= @cart_price %></div>
+  <div><%= @body.capitalize %> &nbsp; <%= @instrument.type_of.capitalize %></div>
+  <div id="base_price" value="<%= @instrument.price %>"></div>
   <div id="cart_price"></div>
-  <%= button_to 'Add to Cart', line_items_path(product_id: @product), method: :post  %>
-  <%= render 'build_type' %>
+
+
+
 

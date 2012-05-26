@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518215642) do
+ActiveRecord::Schema.define(:version => 20120523212601) do
 
   create_table "artists", :force => true do |t|
     t.string  "name"
@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20120518215642) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "display"
+  end
+
+  create_table "body_types_features", :id => false, :force => true do |t|
+    t.integer "body_type_id"
+    t.integer "feature_id"
   end
 
   create_table "body_types_options", :id => false, :force => true do |t|
@@ -105,6 +110,8 @@ ActiveRecord::Schema.define(:version => 20120518215642) do
     t.string  "name"
     t.integer "position"
     t.string  "description"
+    t.string  "category"
+    t.string  "type_of"
   end
 
   create_table "instruments", :force => true do |t|
@@ -114,6 +121,32 @@ ActiveRecord::Schema.define(:version => 20120518215642) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "construction"
+    t.integer  "wood"
+    t.integer  "headstock"
+    t.integer  "top"
+    t.integer  "trimlays"
+    t.integer  "color"
+    t.integer  "finish"
+    t.integer  "neck"
+    t.integer  "strings"
+    t.integer  "scale"
+    t.integer  "curvature"
+    t.integer  "fingerboard"
+    t.integer  "frets"
+    t.integer  "pickups"
+    t.integer  "acoustic"
+    t.integer  "computer"
+    t.integer  "electronics"
+    t.integer  "hardware"
+    t.integer  "case"
+    t.integer  "insurance"
+    t.integer  "play_pack"
+    t.integer  "price"
+    t.string   "step"
+    t.string   "type_of"
+    t.string   "body"
+    t.integer  "body_type_id"
   end
 
   create_table "line_items", :force => true do |t|
@@ -121,11 +154,12 @@ ActiveRecord::Schema.define(:version => 20120518215642) do
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "quantity",                                   :default => 1
-    t.decimal  "price",        :precision => 8, :scale => 2
+    t.integer  "quantity",                                    :default => 1
+    t.decimal  "price",         :precision => 8, :scale => 2
     t.integer  "order_id"
     t.integer  "body_type_id"
     t.integer  "theme_id"
+    t.integer  "instrument_id"
   end
 
   create_table "options", :force => true do |t|
@@ -165,11 +199,10 @@ ActiveRecord::Schema.define(:version => 20120518215642) do
     t.string   "name"
     t.text     "description"
     t.string   "image_url"
-    t.decimal  "price",        :precision => 8, :scale => 2
+    t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type_of"
-    t.string   "feature"
     t.integer  "position"
     t.string   "body_url"
     t.string   "photo_url_1"

@@ -1,0 +1,23 @@
+<% @options.each do |option| %>
+<% if feature.id == option.feature_id && option.display %>
+    <div class="option <%= feature.name.downcase %>">
+        <% option_value = number_with_precision(option.price, :precision => 0) %>
+        <% if option.default %>
+              <input name="option.<%= feature.name %>" type="radio" checked="checked" value="<%= option_value %>">
+        <% else %>
+              <input name="option.<%= feature.name %>" type="radio" value="<%= option_value %>"/>        
+        <% end %>
+        <p3><%= option.description %></p3>
+        
+        <% if option.price > 0 %>
+          <span class="price-delta">[Add $<%= option_value %>]</span>
+        <% elsif option.price < 0 %>
+          <% option_value = number_with_precision(-option.price, :precision => 0) %>
+          <span class="price-delta">[Subtract $<%= option_value %>]</span>
+        <% else %>
+          <span class="price-delta"></span>
+        <% end %>
+    </div>
+<% end %>
+<% end %>
+        

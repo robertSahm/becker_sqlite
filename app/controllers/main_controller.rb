@@ -70,11 +70,9 @@ class MainController < ApplicationController
 
   end
   
-  def artists
+  def artists    
     @artists = Artist.order("artists.position ASC")
-    @products = Product.order("products.type_of DESC")
-    @tile = shuffle(@artists, @products)
-    
+
     @vid = " width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/-sxUX3CNjmg\" frameborder=\"0\" allowfullscreen"
     case params[:type_of]
     when 'artist'  
@@ -82,13 +80,12 @@ class MainController < ApplicationController
     when 'instrument'  
       @tile = Product.order("products.position ASC")
     when 'video'  
-      @tile = Artist.order("products.position ASC")
-
+      @tile = @artists
     else
       @artists = Artist.order("artists.position ASC")
       @products = Product.order("products.type_of DESC")
-     # @tile = shuffle(@artists, @products)
-     @tile = @artists
+      # @tile = shuffle(@artists, @products)
+      @tile = @artists
     end
     @type_of  = params[:type_of] 
     

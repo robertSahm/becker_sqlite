@@ -22,11 +22,12 @@ class LineItem < ActiveRecord::Base
   has_many    :options
   belongs_to  :theme
   belongs_to  :body_type
+  belongs_to  :instrument
   
 
   
   def total_price
-    product.price * quantity
+    instrument.price * quantity
     # if similar products are added at different prices, this will not work
     # you would have to put some - best price type code here ie
       # your price has improved , we will update the other items in your cart
