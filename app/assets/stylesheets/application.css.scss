@@ -1122,7 +1122,7 @@ li.DropDownColumn {
 
 			li {
 				//height: 300px;
-				width: 310px;
+				width: 110px;
 				height: 110px;
 				padding-bottom: 0px;
 				border: 2px solid $darkBlue;
@@ -1133,7 +1133,6 @@ li.DropDownColumn {
 				border-bottom: 0;
 				border-right: 0;
 				margin: 10px 30px 150px 10px;
-
 
 				p {
 					font-size: .83em;
@@ -1166,9 +1165,16 @@ li.DropDownColumn {
 		}
 	}
 
-	.cellsWrapperArtists {
+	#cellsWrapperArtists {
 		margin-top: 125px;
-	}
+
+		ul {
+			
+			li {
+				width: 310px;
+			}
+		}	
+	} 
 }
 
 #instrumentWrapper {
