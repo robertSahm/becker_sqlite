@@ -44,6 +44,7 @@ class CheckoutsController < ApplicationController
   end
 
   def create
+    @cart = current_cart
     session[:checkout_params].deep_merge!(params[:checkout]) if params[:checkout]
     @checkout = Checkout.new(session[:checkout_params])
     @checkout.current_step = session[:checkout_step]

@@ -1,0 +1,15 @@
+
+<%= render 'store_breadcrumbs' %>
+<%= link_to @type, action: 'body', type: @type%>
+<%= link_to @body, action: 'customize', body: @body, instrument: @type  %>
+<span>></span>
+<%= render 'store_breadcrumbs_post' %>
+<div id="store-page">
+  <div class="tabs">
+
+
+    <h1>Custom Build an Instrument</h1>
+  <fieldset id="custom_build">
+    <%= render 'instrument' %>
+  </fieldset>
+  <%= render 'add_to_cart' %>

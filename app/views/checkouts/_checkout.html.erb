@@ -1,0 +1,7 @@
+
+  <ul class="line_item<%= line_item.id %>">
+
+    <li>Item: <%= line_item.instrument.body.capitalize %>&nbsp;<%= line_item.instrument.type_of.capitalize %></li>
+    <li>Quantity: <%= line_item.quantity %>&nbsp;&nbsp;  &nbsp;&nbsp;
+     <li class="item_price">Total Item Price: <%= number_to_currency(line_item.total_price) %></li>
+  </ul>

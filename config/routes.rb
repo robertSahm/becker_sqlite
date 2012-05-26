@@ -20,7 +20,9 @@ Becker::Application.routes.draw do
   end
   
   resources :options
-
+  resources :instruments
+ #  match ':controller(/:action(/:id(.:format)))'
+  
   get "admins"  => 'admins#index'
   get "admin" => 'admins#index'
 

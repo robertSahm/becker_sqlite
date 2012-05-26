@@ -1,19 +1,16 @@
-  
-<% if notice %>
-    <p id="notice"><%= notice %></p>
-<% end %>
 
-<h1>Catalog</h1>
-<% @products.each do |product| %>
-  <div class="entry">
-    <%= link_to image_tag(product.image_url, :border=>0), product_path(product) %>
-    <h3><%= link_to product.name, controller: 'products', action: 'show', id: product.id %></h3>
-    <%= sanitize(product.description) %>
-    <div class="price_line">
-      <span class="price"><%= number_to_currency(product.price) %></span>
-      <%= button_to 'Select', controller: 'store', action:'build', id: product.id %></h2>
+  <%= render 'store_breadcrumbs' %> -  Welcome to the Becker Shop   - 
+  <%= render 'store_breadcrumbs_post' %>
+  <div id="store-page">
+    <div class="tabs">
+      <h1>Custom Build an Instrument</h1>
+      <h2>Step 1: Choose an instrument</h2>
+      <ul>
+        <li><%= button_to 'Guitar',    action: 'body', type: 'guitar' %></li>
+        <li><%= button_to 'Bass',      action: 'body', type: 'bass' %></li>
+        <li><%= button_to 'Banjo',     action: 'body', type: 'banjo' %></li>
+        <li><%= button_to 'Mandolin',  action: 'body', type: 'mandolin' %></li>
+        <li><%= button_to 'Lap Steel', action: 'body', type: 'lap_steel' %></li>
+      </ul>
     </div>
-
-<% end %>
-</div>
-
+  </div>

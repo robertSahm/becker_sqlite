@@ -3,7 +3,7 @@
 <% else %>
   <ul class="line_item<%= line_item.id %>">
 <% end %>
-    <li>Product: <%= line_item.product.name %></li>
+    <li>Item: <%= line_item.instrument.body.capitalize %>&nbsp;<%= line_item.instrument.type_of.capitalize %></li>
     <li>Quantity: <%= line_item.quantity %>&nbsp;&nbsp;  &nbsp;&nbsp;
       <span class="quantity-up">
       <%= link_to '^', line_item_path(line_item, amount: 1), 

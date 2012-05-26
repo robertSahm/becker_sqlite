@@ -9,6 +9,7 @@
         <hr />
         <li>
           <%= link_to feature.name, edit_feature_path(feature)  %></li>
+        <li><%= feature.type_of %></li>
         <li class="tcell">
           <% @options = Option.where(feature_id: feature.id).order("options.price ASC") %>
           <%= render 'options', feature: feature %>
