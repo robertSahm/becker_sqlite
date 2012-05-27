@@ -1,16 +1,25 @@
 
 
-<div id="showroomWrapper">
-  <div class="showroomNav">
+
+
+
+
+<div id="artistsWrapper">
+  <div class="artistsNav">
     <div id="cellsWrapperArtists" class="cellsWrapper">
-      <ul id="allInstrumentsUl">
+      <ul id="allArtistsUl">
       <% @tile.each do |p| %>
-      		<li class="artistsCell"><p class="liHeader"><%= p.name %></p>
-      		  <% if p.class.to_s == 'Artist' %>
-      		    <%= link_to image_tag(p.image_url), {action: 'artist', id: p.id},   class: "cellImage"  %>
-      		  <% else %>
-      		    <%= link_to image_tag(p.image_url), { action: 'instrument', id: p.id} , class: "cellImage"  %>
-    		    <% end %>
+      		<li class="artistsCell">
+            <div class="cellTrans">
+              <p class="liHeader">
+                <%= p.name %>
+              </p>
+      		    <% if p.class.to_s == 'Artist' %>
+      		      <%= link_to image_tag(p.image_url), {action: 'artist', id: p.id},   class: "cellImage"  %>
+      		    <% else %>
+      		      <%= link_to image_tag(p.image_url), { action: 'instrument', id: p.id} , class: "cellImage"  %>
+    		     <% end %>
+           </div>
       		</li>  
       <% end %> 
       </ul>
