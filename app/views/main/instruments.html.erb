@@ -11,13 +11,12 @@
   
 
     <div class="showroomButtonContainer">
-      <h3>Filter:</h3>
+      <h3>Show:</h3>
       <ul class="showroomButtonUl">
         <li><%= link_to 'All', action: 'instruments' %></li>
         <li><%= link_to 'Guitar', action: 'instruments', type_of: 'guitar' %></li>
         <li><%= link_to 'Bass', action: 'instruments', type_of: 'bass' %></li>
         <li><%= link_to 'Other', action: 'instruments', type_of: 'custom' %></li>
-        
       </ul>
     </div>
   </div>
@@ -25,8 +24,13 @@
     <ul id="allInstrumentsUl">
     <% @products.each do |p| %>
     	
-    		<li>
-          <p class="liHeader"><%= p.name %></p><%= link_to image_tag(p.image_url), {action: 'instrument', id: p.id}, class: "cellImage"  %></li>
+    	<li>
+         <div class="cellTrans">
+            <p class="liHeader">
+              <%= p.name %>
+            </p><%= link_to image_tag(p.image_url), {action: 'instrument', id: p.id}, class: "cellImage"  %>
+        </div>
+      </li>
     <% end %> 
     </ul>
   </div>
