@@ -270,6 +270,7 @@ html {
 
 body { 
 	height: 100%;
+	overflow-x: hidden;
 }
 
 #main {
@@ -549,6 +550,7 @@ height: 32px;
 
 #page {
 height: auto;
+
 }
 
 #frame1 {
@@ -559,7 +561,7 @@ top: -20px;
 left: 0;
 background-color: black;
 z-index: 2002;
-
+overflow-x: hidden;
 
 	.welcome {
 		width: 100%;
@@ -634,6 +636,7 @@ z-index: 2002;
 /* - - Frame 2 - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - -  - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - -  - - -  - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - */
 
 #frame2 {
+overflow-x: hidden;
 position: absolute;
 width: 100%;
 height: 2310px;
@@ -851,11 +854,11 @@ z-index: 2001;
 #frame4 {
 	position: absolute;
 	width: 960px;
-	height: 600px;
-	top: 7200px;
+	height: 937px;
+	top: 6933px;
 	z-index: 3000;
 	background-color: black;
-	border-top: 1px solid red;
+
 	
 	img {
 		position: absolute;
@@ -1011,18 +1014,18 @@ li.DropDownColumn {
 }
 
 // Showroom page
-#showroomWrapper, #artistsWrapper {
+#showroomWrapper {
 	margin: 0 25px 25px 25px;
 	width: 100%;
 	height: 100%;
 	
 	.showroomNav {
 		width: 100%;
-		height: 180px;
+		height: 40px;
 		float: left;
 		clear: both;
 		position: fixed;
-		top: 0;
+		top: 130px;
 		left: 0;
 		background-color: black;
 		z-index: 100;
@@ -1033,57 +1036,31 @@ li.DropDownColumn {
 		a {
 			text-decoration: none;
 		}
-		
-    	.showroomHeadline {
-   		font-family: 'ovo', sans-serif;
-    	font-size: 2.7em;
-    	padding: 0;
-    	margin:  0 0 5px 0;
-    	float: left;
-    	width: 230px;
-    	line-height: 1em;
-		clear: both;
-
-    		&:hover {
-    			text-shadow: 0px 0px 3px rgba(255,255,255, 1);
-    			cursor: default;
-  			}
-  		}
-	
-  		p3.showroomByline {
-  			font-family: 'ovo', sans-serif;
-  			font-size: 1em;
-  			padding: 0;
-  			margin: 0 0 30px 0;
-  			width: 230px;
-  			float: left;
-  			clear: both;
-  		}
-	
   		.showroomButtonContainer {
-  			position: absolute;
-  			bottom: 0;
-  			left: 0;
-  			line-height: 0em;
+  			margin-left: 25px;
 	
   			h3 {
-  				padding: 0 0 10px 0;
-  				margin: 0;
-  				width: 100%;
-  				margin-left: 25px;
+  				padding: 0;
+  				margin: 0 5px 0 0;
+  				width: auto;
+  				height: auto;
   				color: #666;
+  				float: left;
+  				//border: 1px solid red;
+  				font-size: 1.5em;
+  				line-height: 1.5em;
+  				display: block;
   			}
 	
 		  	ul.showroomButtonUl {
 		  		font-family: 'MenschMenschRegular', sans-serif;
-		  		font-size: 2em;
-				height: auto;
-		  		width: 100%;
+		  		font-size: 1.5em;
 		  		margin: 0;
-		  		padding: 0;
+		  		padding: 0 0 0 10px;
 		  		display: inline-block;
 		  		float: left;
-		  		margin-left: 25px;
+		  		//border: 1px solid blue;
+
 	
 		  		li {
 		  			float: left;
@@ -1091,7 +1068,7 @@ li.DropDownColumn {
 		  			margin-right: 15px;
 		  			padding: 0;
 		  			height: auto;
-		  			line-height: 1.2em;
+		  			line-height: 1.5em;
 		  			display: inline-block;
 		  			clear: none;
 		  			bottom: 0;
@@ -1099,76 +1076,99 @@ li.DropDownColumn {
 		  		}
 
 		  		li:hover {
-		  			color: $brightGreen;
-		  			cursor: pointer;
+		  			color: $lightBlue;
+		  			
 		  		}
 		  	}
 		}
 	}
 
 	.cellsWrapper {
-		max-width: 880px;
+		max-width: 800px;
 		height: auto;
 		float: left;
-		margin: 88px 0 0 0;
+		margin: 70px 0 0 0;
 		padding: 0;
 
 		ul#allInstrumentsUl {
 			display: inline-block;
 			float: left;
 			clear: none;
-			margin: 0 0 0 -5px;
+			margin: 0 0 0 -15px;
 			padding: 0;
 
 			li {
-				//height: 300px;
-				width: 310px;
-				height: 110px;
+				height: 220px;
+				width: auto;
 				padding-bottom: 0px;
-				border: 2px solid $darkBlue;
 				text-align: left;	
 				float: left;
-				//background-color: #111;
 				border-radius: 5px;
 				border-bottom: 0;
 				border-right: 0;
-				margin: 10px 30px 150px 10px;
+				margin: 10px 50px 25px 10px;
+
+				.cellTrans {
+					width: auto;
+					height: inherit;
+					background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(50%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+					background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+					background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+					background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* IE10+ */
+					background: linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%); /* W3C */
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 
 
-				p {
-					font-size: .83em;
-					line-height: 1em;
-					margin: 0;
-					padding: 3px;
-					color: $darkBlue;
-					text-shadow: 0px 0px 12px $lightBlue;	
-				}
+	
+					&:hover {
+						background: none;
+					}
 
-				img {
-					position: relative;
-					height: 200%;
-					margin-left: 15px;
-					margin-top: 5px;
-					//padding-top: ;
+
+					p {
+						font-size: .83em;
+						line-height: 1em;
+						margin: 0;
+						padding: 3px;
+						color: $darkBlue;
+						text-shadow: 0px 0px 12px $lightBlue;
+						text-align: center;	
+					}
+	
+					img {
+						position: relative;
+						height: 85%;
+						margin-left: 15px;
+						margin-top: 5px;
+						//padding-top: ;
+						//border-bottom: 1px solid $darkBlue;
+						z-index: -100;
+					}
 				}
 			}
 
 			li:hover {
-		  		border: 2px solid $lightBlue;
-		  		border-right: 0;
-		  		border-bottom: 0;
 
 		  		p {
 		  			text-shadow: 0px 0px 6px $lightBlue;
 					color: #999;
+					cursor: pointer;
 				}
 		  	}
 		}
 	}
 
-	.cellsWrapperArtists {
+	#cellsWrapperArtists {
 		margin-top: 125px;
-	}
+
+		ul {
+			
+			li {
+				width: 310px;
+			}
+		}	
+	} 
 }
 
 #instrumentWrapper {
@@ -1287,11 +1287,274 @@ li.DropDownColumn {
 	}
 }
 
+// Artists page
+
+#artistsWrapper {
+	margin: 0 25px 25px 25px;
+	width: 100%;
+
+	.cellsWrapper {
+		max-width: 750px;
+		height: auto;
+		float: left;
+		//margin: 25px 0 0 0;
+		padding: 0;
+
+		ul#allArtistsUl {
+			display: inline-block;
+			float: left;
+			clear: none;
+			//margin: 0 0 25px 25px;
+			padding: 0;
+			margin: 0 0 30px 0;
+			border: 0;
+
+			li {
+				width: auto;
+				height: 210px;
+				margin: 20px 15px 5px 0;
+				text-align: left;	
+				float: left;
+				border: 0;
+				//border-left: 1px solid $darkBlue;
+				//background-color: #111;
+				//border-radius: 5px;
+				//border-bottom: 0;
+				//border-right: 0;
+				//margin: 20px 100px 220px 10px;
+				
+				.cellTrans {
+				width: auto;
+				height: inherit;
+
+				background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+					
+					&:hover {
+						background: none;
+					}
+
+
+					p {
+						font-size: .94em;
+						line-height: 1em;
+						margin: 0;
+						padding: 3px 0 10px 0;
+						color: $darkBlue;
+						text-shadow: 0px 0px 12px $lightBlue;
+						text-align: center;
+
+					}
+
+
+
+						img {
+							position: relative;
+							height: 85%;
+							margin: 0;
+							padding: 0;
+							z-index: -100;
+							border: 0;
+							//border-left: 3px solid $darkBlue;
+							border-radius: 15px;
+
+							
+						}
+
+						a {
+								height: 100%;
+								width: 100%;
+							}
+						
+				}
+			}
+
+			li:hover {
+		  		//border: 2px solid $lightBlue;
+		  		//border-right: 0;
+		  		//border-bottom: 0;
+		  		img {
+		  		opacity: 1;
+		  	}
+		  		p {
+		  			text-shadow: 0px 0px 6px $lightBlue;
+					color: #999;
+				}
+		  	}
+		}
+	}
+
+	#cellsWrapperArtists {
+		//margin-top: 125px;
+
+		ul {
+			
+			li {
+				width: auto;
+			}
+		}	
+	} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// About Page
+
+#contactWrapper {
+	margin: 0 25px 25px 25px;
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 800px;
+	height: auto;
+
+	.leftColumn {
+		float: left;
+		height: auto;
+		width: auto;
+		padding-bottom: 25px;
+
+		h3.callUs {
+			padding: 0;
+			margin: 0 0 0px 0;
+			width: 140px;
+			font-size: 2em;
+			color: $darkBlue;
+		}	
+
+		h4.phoneNumber {
+			padding: 0;
+			margin: 0 0 0px 0;
+			width: 140px;
+			height: auto;
+			font-family: 'MenschMenschRegular', sans-serif;
+			font-weight: 100;
+			font-size: 1.55em;
+			letter-spacing: .2em;
+		}
+	}
+	
+
+	p3.address {
+		font-family: 'MenschMenschRegular', sans-serif;
+		font-size: 1.2em;
+		display: block;
+		float: right;
+		height: auto;
+		width: auto;
+		text-align: left;
+		margin-right: 50%;
+	}
+
+	.gmap {
+		width: 800px;
+		height: 250px;
+
+		iframe {
+			
+		}
+	} // gmap
+} // contactWrapper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  * Galleria Classic Theme
  * Copyright (c) 2010, Aino
  * Licensed under the MIT license.
  */
+
+
+ /*
 
 .galleria-container {
     position: relative;
@@ -1363,8 +1626,9 @@ li.DropDownColumn {
     background-color: #000;
     padding: 12px;
     display: none;
-    /* IE7 */ zoom:1;
+    
 }
+/*
 .galleria-info-title {
     font: bold 12px/1.1 arial,sans-serif;
     margin: 0;

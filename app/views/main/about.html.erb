@@ -1,12 +1,116 @@
-  
-<div id="page">
+     <style>  
+      .map {  
+        width: 700px;  
+        /* The following are required to allow absolute positioning of the  
+         * info window at the bottom right of the map, and for it to be hidden  
+         * when it is "off map"  
+         */  
+        position: relative;  
+        overflow: hidden;  
+      } 
 
-  <div id="repair">
-    <%= render 'contact' %>
-    <h2>About Us</h2>
-    <div id="larger"><%= image_tag "webphotos/becker_backstage.jpg" %></div>
-    <p>Becker Guitars started as a basement repair shop in 1996. As the
-    business grew, so did our collective interest in producing our own line of high-quality and unique custom instruments. In 2006, we added master luthier and moped aficionado Ryan Martin to our crew and began prototyping and building guitars. We soon outgrew our shop in Stoughton, MA and moved to a fully functional shop in Attleboro, MA. In fall of 2007, we held a booth at the Premier Guitar Festival where we unveiled some of our first designs to th public. The show was a great success, and we have been developing and refining our designs ever since. We are devoted to creating unique designs that combine superior woodworking techniques, fine and exotic tonewoods, high-quality components, and dazzling finishes. We take a tremendous amount of pride in the work we do and let the instruments speak for themselves. Welcome to ElectriCandyLand.
+      #placeDetails {  
+        /* Place the div off the bottom right of the map */  
+        position: absolute;  
+        width: 300px;  
+        bottom: 0;  
+        right: -320px;  
+        padding-left: 10px;  
+        padding-right: 10px;  
+        /* Semi-transparent background */  
+        background-color: rgba(0,0,0,0.8);  
+        color: white;  
+        font-size: 80%;  
+        /* Rounded top left corner */  
+        border-top-left-radius: 15px;  
+        -moz-border-radius-topleft: 15px;  
+        -webkit-border-top-left-radius: 15px;  
+      }  
+      
+      /* Fit the text nicely inside the box */  
+      h1 {  
+        font-family: sans-serif;  
+        margin-bottom: 0;  
+      }  
+      
+      #placeDetails p {  
+        margin-top: 0;  
+      }  
+</style> 
+
+
+<div id="contactWrapper">
+	<div class="leftColumn">
+		<h3 class="callUs">
+			Call us
+		</h3>
+		<h4 class="phoneNumber">
+			508.222.9800
+		</h4>
+	</div>
+	 <p3 class="address">
+	 	Becker Guitars<br/>
+	 	44A Union St<br />
+	  	Attleboro, MA 02703
+	</p3>
+
+<div id='map_canvas' style='height:300px; width: 750px'>
+</div>
+
+<!--
+
+
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Becker+Guitars,+Attleboro,+MA&amp;aq=0&amp;oq=becker+gui&amp;sll=41.942917,-71.282102&amp;sspn=0.003683,0.004093&amp;ie=UTF8&amp;hq=Becker+Guitars,&amp;hnear=Attleboro,+Bristol,+Massachusetts&amp;ll=41.942924,-71.282146&amp;spn=0.007102,0.008186&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=18306712156941363520&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Becker+Guitars,+Attleboro,+MA&amp;aq=0&amp;oq=becker+gui&amp;sll=41.942917,-71.282102&amp;sspn=0.003683,0.004093&amp;ie=UTF8&amp;hq=Becker+Guitars,&amp;hnear=Attleboro,+Bristol,+Massachusetts&amp;ll=41.942924,-71.282146&amp;spn=0.007102,0.008186&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=18306712156941363520" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+
+
+
+
+	<div class="gmap"> 
+		<iframe 
+			width="100%" 
+			height="100%" 
+			frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=44A+Union+Street,+Attleboro,+MA+02703&amp;aq=0&amp;oq=44A+Union+St%09%09Attleboro,+MA+02703&amp;sll=41.942925,-71.282923&amp;sspn=0.007102,0.006845&amp;ie=UTF8&amp;hq=&amp;hnear=44+Union+St,+Attleboro,+Massachusetts+02703&amp;ll=41.942925,-71.282923&amp;spn=0.007366,0.006845&amp;t=m&amp;z=14&amp;output=embed">
+			</iframe>
+
+		<br />
+
+		<small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=60.894251,68.730469&amp;ie=UTF8&amp;t=m&amp;ll=41.942925,-71.282151&amp;spn=0.001995,0.008583&amp;z=17" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+	  		
+	 </div> --> <!-- gmap -->
+
+
+ </div><!-- contactWrapper -->
+<script>
+$(function() { // jQuery onload handler  
+	var latLng = new google.maps.LatLng(41.942917,-71.282102);  
+	var mapOptions = {  
+		zoom:      16,  
+		center:    latLng,  
+        mapTypeId: google.maps.MapTypeId.ROADMAP  
+	}  
+	var map = new google.maps.Map($("#map_canvas")[0], mapOptions);  
+	var map = new google.maps.Map($("#map_canvas")[0], mapOptions);  
+	
+	var marker = new google.maps.Marker({  
+  		position: new google.maps.LatLng(41.942917,-71.282102),  
+  		map:      map,  
+  		title:    'Becker Guitars' ,
+  		//icon:     'http://google-maps-icons.googlecode.com/files/marker.png'  
+	});
+});  
+
+</script>
+<!--
+
+ <h2>About Us</h2>
+    
+    <div id="larger">
+    	<%= image_tag "webphotos/becker_backstage.jpg" %>
+    </div>
+
+    <p>
+	    Becker Guitars started as a basement repair shop in 1996. As the
+	    business grew, so did our collective interest in producing our own line of high-quality and unique custom instruments. In 2006, we added master luthier and moped aficionado Ryan Martin to our crew and began prototyping and building guitars. We soon outgrew our shop in Stoughton, MA and moved to a fully functional shop in Attleboro, MA. In fall of 2007, we held a booth at the Premier Guitar Festival where we unveiled some of our first designs to th public. The show was a great success, and we have been developing and refining our designs ever since. We are devoted to creating unique designs that combine superior woodworking techniques, fine and exotic tonewoods, high-quality components, and dazzling finishes. We take a tremendous amount of pride in the work we do and let the instruments speak for themselves. Welcome to ElectriCandyLand.
     </p>
-  </div><!-- repair -->
-</div> <!-- page -->
+  
+</div> -->  <!-- page -->
