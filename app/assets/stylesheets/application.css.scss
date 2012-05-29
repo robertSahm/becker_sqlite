@@ -285,6 +285,10 @@ h3 { /* Frame Header font styles */
 	font-family: 'MenschMenschRegular';
 	font-weight: normal;
 	font-style: normal;
+	line-height: 1em;
+	margin:0;
+	padding:0;
+	word-spacing: -.20em;
 }
 
 p1 {
@@ -1339,7 +1343,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 						background: none;
 					}
 
-
 					p {
 						font-size: .94em;
 						line-height: 1em;
@@ -1351,26 +1354,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 					}
 
+					img {
+						position: relative;
+						height: 85%;
+						margin: 0;
+						padding: 0;
+						z-index: -100;
+						border: 0;
+						//border-left: 3px solid $darkBlue;
+						border-radius: 15px;
+					}
 
-
-						img {
-							position: relative;
-							height: 85%;
-							margin: 0;
-							padding: 0;
-							z-index: -100;
-							border: 0;
-							//border-left: 3px solid $darkBlue;
-							border-radius: 15px;
-
-							
-						}
-
-						a {
-								height: 100%;
-								width: 100%;
-							}
-						
+					a {
+						height: 100%;
+						width: 100%;
+					}	
 				}
 			}
 
@@ -1379,8 +1377,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 		  		//border-right: 0;
 		  		//border-bottom: 0;
 		  		img {
-		  		opacity: 1;
-		  	}
+		  			opacity: 1;
+		  		}
+
 		  		p {
 		  			text-shadow: 0px 0px 6px $lightBlue;
 					color: #999;
@@ -1401,6 +1400,110 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	} 
 }
 
+
+body.store {
+
+	#main {
+		margin: 0;
+		padding: 0 25px 25px 19px;
+
+		h3.shopWelcome {
+			margin-top: 30px;
+			width: 300px;
+			padding: 0;
+			margin: 0 0 0px 0;
+			width: 700px;
+			font-size: 2em;
+			color: $darkBlue;
+
+		}
+	
+		.breadCrumbs {
+			width: 300px;
+	
+			h3 {
+	
+				a {
+	
+				}
+			}
+		}
+	
+		.helpAccountCart {
+			position: absolute;
+			left: 568px;
+			top: 0;
+	
+			span {
+				font-family: MenschMenschRegular, sans-serif;
+	
+				a {
+					text-decoration: none;
+					font-size: .9em;
+				}
+			}
+		}
+	
+		.shop {
+			width: 450px;
+			margin-top: 15px;
+			margin-left: 3px;
+	
+			.tabs {
+
+
+				h3 {
+					margin-left: 19px;
+					font-size: 1.5em;
+					color: white;
+					opacity: .6;
+				}
+	
+				ul {
+					margin: 8px 0 0 0;
+					padding: 0;
+					list-style: none;
+	
+					li {
+						border-radius: 5px;
+						height: auto;
+						width: auto;
+						margin-left: 25px;
+
+						form {
+
+							div {
+
+								input {
+									//width: 130px;
+									padding: 5px 15px;
+									font-family: MenschMenschRegular, sans-serif;
+									line-height: 0;
+									font-size: 1.3em;
+									border: 0;
+									color: $brightGreen;
+									opacity: .6;
+									border-radius: 7px;
+									background-color: black;
+									text-align: left;
+									word-spacing: -.25em;
+		
+									&:hover {
+										//background-color: #333;
+										border-left: 3px solid white;
+										border-right: 3px solid white;
+										opacity: 1;
+										margin-left: -3px;
+									}
+								}
+							}	
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 
 

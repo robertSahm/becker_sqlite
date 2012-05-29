@@ -1,15 +1,23 @@
 
 <%= render 'store_breadcrumbs' %>
 <%= link_to @type, action: 'body', type: @type%>
-<span>></span>
+
+<span>-</span>
+
 <%= render 'store_breadcrumbs_post' %>
+
 <div id="store-page">
   <div class="tabs">
-    <h1>Custom Build an Instrument <%= @instrument.type_of %></h1>
-    <h2>Step 2: Choose Body Type</h2>
+    <h3>Custom Build an Instrument <%= @instrument.type_of %></h3>
+    <h4>Step 2: Choose Body Type</h4>
     <ul>
       <% @body.each do |b| %>
-        <li><%= button_to b.name, action: 'customize', body: b.name, id: @instrument.id %>$<%= b.price %>0</li>
+        <li>
+        	<%= button_to b.name, action: 'customize', body: b.name, id: @instrument.id %>$<%= b.price %>
+        	0
+        </li>
       <% end %>
     </ul>
+  </div>
+</div>
 
