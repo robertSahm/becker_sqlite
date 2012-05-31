@@ -6,7 +6,7 @@ Becker::Application.routes.draw do
   resources :themes do
     collection { post :sort }
   end
-
+  match '/about', to: 'main#about'
   resources :body_types  do
     collection { post :sort }
   end
