@@ -1,27 +1,47 @@
+<div class="shopPageWrapper">
+  <div class="breadCrumbs">
+    <%= render 'store_breadcrumbs' %> 
+  </div>
+  <%= link_to @type, action: 'body', type: @type%>
+  <%= link_to @body, action: 'customize', id: @instrument.id, body: @body, instrument: @type  %>
 
-<%= render 'store_breadcrumbs' %>
-<%= link_to @type, action: 'body', type: @type%>
-<%= link_to @body, action: 'customize', id: @instrument.id, body: @body, instrument: @type %>
-<span> > </span>
-<%= render 'store_breadcrumbs_post' %>
-    <%= render 'cart_sidebar2' %>
-<div id="store-page">
-  <div class="tabs">
+  <h3 class="helpAccountCart">
+    <span id='breadcrumb-right'>
+      <%= link_to 'help i ', '#' %>
+      <%= link_to 'account i ', "#" %>
+      <%= link_to 'cart', '#' %>
+    </span>
+  </h3>
+
+  <span>></span>
+
+  <%= render 'cart_sidebar2' %>
+
+    <div class="shop">
+      <div class="tabs">
+        <h1>
+          ////Custom Build an Instrument&nbsp;-&nbsp;
+        </h1>
+        <div class="formInstrument">
+          <%= form_for(@instrument) do |f| %>
+        </div>
+        <div class="stepInstrument">
+          <%= render "#{@instrument.step}", collection: @features %>
+        </div>
+        <div>
+          <input type="hidden" name="step" value="<%= @next_step %>" />
+        </div>
+        <div id="submit_price">
+          <input  type="hidden" name="price" value="<%= @instrument.price %>" />
+        </div>
+        <div class="actions">
+          <p><%= f.submit "Continue" %></p> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-    <h1>Custom Build an Instrument</h1>
-    <%= form_for(@instrument) do |f| %>
-      <%= render "#{@instrument.step}", collection: @features %>
-    
-      <div>
-        <input type="hidden" name="step" value="<%= @next_step %>" />
-      </div>
-      <div id="submit_price">
-        <input  type="hidden" name="price" value="<%= @instrument.price %>" />
-      </div>
-      <div class="actions">
-        <p><%= f.submit "Continue" %></p> 
-      </div>
-    <% end %>
 
-   
+

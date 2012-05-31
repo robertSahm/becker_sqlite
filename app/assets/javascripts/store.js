@@ -10,7 +10,11 @@ $(function() {
 	  	var indi_price = parseInt($(this).attr("price"));
 		calculateDelta(options, indi_price);
 		price_to_cart(feature_to_cart, text_to_cart);
+		
+		alert('hello byactch');
 	});
+
+
 });
 
 function calcCartPrice(base_price) {
@@ -52,3 +56,4 @@ function insertDom(obj) {
 	})
 }
 
+function 
