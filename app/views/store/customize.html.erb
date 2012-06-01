@@ -18,26 +18,21 @@
     </span>
     <p><%= render 'cart_sidebar2' %></p>
   </h3>
-  <div class="formInstrument">
-    <%= form_for(@instrument) do |f| %>
-  </div>
   <div class="shop">
     <div class="tabs">
-      <div class="stepInstrument">
+      <%= form_for(@instrument) do |f| %>
         <%= render "#{@instrument.step}", collection: @features %>
-      </div>
-      <div>
-        <input type="hidden" name="step" value="<%= @next_step %>" />
-      </div>
-      <div id="submit_price">
-        <input type="hidden" name="price" value="<%= @instrument.price %>" />
-      </div>
-      <div class="actions">
-        <p><%= f.submit "Continue" %></p> 
-      </div>
+    
+        <div>
+          <input type="hidden" name="step" value="<%= @next_step %>" />
+        </div>
+        <div id="submit_price">
+          <input  type="hidden" name="price" value="<%= @instrument.price %>" />
+        </div>
+        <div class="actions">
+          <p><%= f.submit "Continue" %></p> 
+        </div>
       <% end %>
-    </div>
-  
 
 
 
