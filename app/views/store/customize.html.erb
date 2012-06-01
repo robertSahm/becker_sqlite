@@ -21,7 +21,7 @@
   <div class="shop">
     <div class="tabs">
       <%= form_for(@instrument) do |f| %>
-        <%= render "#{@instrument.step}", collection: @features %>
+        <%= render "features", collection: @features %>
     
         <div>
           <input type="hidden" name="step" value="<%= @next_step %>" />
