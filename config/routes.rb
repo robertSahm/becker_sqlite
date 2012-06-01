@@ -12,7 +12,7 @@ Becker::Application.routes.draw do
   match '/showroom', to: 'main#instruments'
   match '/players', to: 'main#artists'
   match '/about', to: 'main#about'  
-  match 'store' => 'store#index'
+  match '/store' => 'store#index'
 
   resources :checkouts
   resources :users
