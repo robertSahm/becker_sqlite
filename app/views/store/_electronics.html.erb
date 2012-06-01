@@ -1,10 +1,9 @@
-<fieldset id="custom_build">
-  <h3>Step 6: Choose Electronics</h3>
-    <% @features.each do |feature| %>
-    <ul>
-        <li><h3 id="feature" value="1000"><%= feature.name %></h3></li>
-        <% feature.name.gsub!(" ", "-") %>
-        <li><%= render 'feature_options', feature: feature %></li>
-    </ul>
-    <% end %>
-</fieldset>
+<h3>Step 6: Choose Electronics</h3>
+  <% @features.each do |feature| %>
+  <ul>
+      <li><h4 id="feature" value="1000"><%= feature.name %></h4></li>
+      <% feature.name.gsub!(" ", "-") %>
+      <li><%= render 'feature_options', feature: feature %></li>
+  </ul>
+  <% end %>
+
