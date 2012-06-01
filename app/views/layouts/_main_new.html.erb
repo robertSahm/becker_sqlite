@@ -7,7 +7,7 @@
 		<ul id="fittext2" class="navUl">
 			<li id="bassNavClick" class="navLi">
 				<h2>
-					<%= link_to 'Showroom', { controller: 'main', action: 'instruments'}, :id => "bassClick"%>
+					<%= link_to 'Showroom', showroom_path , :id => "bassClick"%>
 				</h2>
 			</li>
 			<li id="guitarNavClick" class="firstLi navLi">
@@ -17,7 +17,7 @@
 			</li>
 			<li id="artistsNavClick" class="navLi">
 				<h2>
-				<%= link_to "Artists",{ controller: 'main', action: 'artists' }, :id => "artistsClick" %>
+				<%= link_to "Artists", players_path , :id => "artistsClick" %>
 				</h2>
 			</li>
 			<li id="storeNavClick" class="navLi">

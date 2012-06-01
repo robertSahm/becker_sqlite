@@ -5,7 +5,9 @@ Becker::Application.routes.draw do
   get "admins"  => 'admins#index'
   get "admin" => 'admins#index'
   get "artists/display"
-
+  
+  match '/showroom', to: 'main#instruments'
+  match '/players', to: 'main#artists'
   match '/about', to: 'main#about'  
   match 'store' => 'store#index'
 
