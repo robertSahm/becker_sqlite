@@ -8,7 +8,7 @@ Becker::Application.routes.draw do
   match 'woodshop' => 'admins#woodshop'
 
   get "artists/display"
-  get 'hello' => 'admins#index', notice: 'welcome'
+  get '/hello' => 'admins#index', notice: 'welcome'
   match '/showroom', to: 'main#instruments'
   match '/players', to: 'main#artists'
   match '/about', to: 'main#about'  

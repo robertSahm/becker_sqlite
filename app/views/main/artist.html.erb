@@ -1,5 +1,58 @@
-  
 <div id="page">
-  <%= render 'artist_view' %>
+  <div id="instrumentWrapper">
+    <div class="instrumentHeaderBox">
+      <h3 class="instrumentHeader">
+        <%= @artist.name %>
+      </h3>
+    </div>
 
+    <div id="featurebox">
+      <!-- <h3 class="features">Features:</h3><br /> -->
+      <% feature = strip_tags(@artist.description) %>
+      <ul id="features_box">
+          <% if !feature.blank? %>
+            <li id="features_box"><p3 class="featureItem"><span>-&nbsp;</span><%= feature %></p3></li>
+            <li><div class="divider"></div></li>
+            <li id="features_box"><p3 class="featureItem"><hr /></p3></li>
+            <li id="features_box"><p3 class="featureItem"><span>-&nbsp;</span><%= link_to @artist.website, '#' %></p3></li>
+            <li><div class="divider"></div></li>
+            <% if !@artist.facebook.blank? %>
+              <li id="features_box"><p3 class="featureItem"><hr /></p3></li>            
+              <li id="features_box"><p3 class="featureItem"><span>-&nbsp;</span><%= link_to @artist.facebook, '#' %></p3></li>
+              <li><div class="divider"></div></li>
+            <% end %>
+            <% if !@artist.twitter.blank? %>
+              <li id="features_box"><p3 class="featureItem"><hr /></p3></li>
+              <li id="features_box"><p3 class="featureItem"><span>-&nbsp;</span>Twitter - <%= @artist.twitter %></p3></li>
+              <li><div class="divider"></div></li>
+            <% end %>
+            <% if !@artist.instagram.blank? %>
+              <li id="features_box"><p3 class="featureItem"><hr /></p3></li>
+              <li id="features_box"><p3 class="featureItem"><span>-&nbsp;</span>Instagram - <%= @artist.instagram %></p3></li>
+              <li><div class="divider"></div></li>
+            <% end %>
+            <% if !@artist.blog.blank? %>
+              <li id="features_box"><p3 class="featureItem"><hr /></p3></li>
+              <li id="features_box"><p3 class="featureItem"><span>-&nbsp;</span>Blog - <%= @artist.blog if @artist.blog.blank? %></p3></li>
+              <li><div class="divider"></div></li>
+            <% end %>
+          <% end %>
+      </ul>    </div>
+
+    <div id="photo_gallery">
+      <div class="main_image">
+        <div id="galleria">
+          <%= image_tag(@artist.image_url) %>
+        </div>
+      </div>
+    </div> <!-- photo_gallery -->
+
+  </div><!-- instrumentWrapper -->
+
+
+  <script>
+      Galleria.loadTheme('themes/classic/galleria.classic.min.js');
+      Galleria.run('#galleria');
+
+  </script>
 </div> <!--page-->
