@@ -3,7 +3,7 @@
 <% else %>
   <ul class="line_item<%= line_item.id %>">
 <% end %>
-    <li>Item: <%= line_item.instrument.body.capitalize %>&nbsp;<%= line_item.instrument.type_of.capitalize %></li>
+    <li><%= line_item.instrument.body.capitalize %>&nbsp;<%= line_item.instrument.type_of.capitalize %></li>
     <li>Quantity: <%= line_item.quantity %>&nbsp;&nbsp;  &nbsp;&nbsp;
       <span class="quantity-up">
       <%= link_to '^', line_item_path(line_item, amount: 1), 
@@ -17,5 +17,5 @@
                       method:  :delete,
                       remote: true %>
       </span>&nbsp;&nbsp; &nbsp;&nbsp;<span class="save-button"></span></li>
-    <li class="item_price">Total Item Price: <%= number_to_currency(line_item.total_price) %></li>
+    <li class="item_price"><%= number_to_currency(line_item.total_price) %></li>
   </ul>
