@@ -28,7 +28,8 @@
          <div class="cellTrans">
             <p class="liHeader">
               <%= p.name %>
-            </p><%= link_to image_tag(p.image_url), {action: 'instrument', id: p.id}, class: "cellImage"  %>
+            </p>
+            <%= link_to image_tag(p.image_url), {action: 'instrument', id: p.id}, class: "cellImage"  %>
         </div>
       </li>
     <% end %> 

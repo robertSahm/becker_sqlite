@@ -1,10 +1,17 @@
+<h3>Choose <%= @step %></h3>
+<% @features.each do |feature| %>
+  <ul>
+    <li>
+      <%= image_tag feature.image_url %>
+    </li>
+    <li>
+      <ul>
+          <li><h4 id="feature" value="1000"><%= feature.name %></h4></li>
+          <% feature.name.gsub!(" ", "-") %>
+          <li><%= render 'feature_options', feature: feature %></li>
+      </ul>
+    </li>
+  </ul>
+<% end %>
 
-<fieldset id="custom_build">
-    <% @features.each do |feature| %>
-    <fieldset>
-        <h3 id="feature" value="1000"><%= feature.name %></h3>
-        <% feature.name.gsub!(" ", "-") %>
-        <%= render 'feature_options' %>
-        </fieldset>
-      <% end %>
-</fieldset>
+

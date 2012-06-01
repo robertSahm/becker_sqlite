@@ -1,6 +1,6 @@
 <form id="custom_build">
     <% @features.each do |feature| %>
-        <h3 id="feature" value="1000"><%= feature.name %></h3>
+        <h4 id="feature" value="1000"><%= feature.name %></h4>
         <% feature.name.gsub!(" ", "-") %>
         <%= render 'admins/options', feature: feature %>
       <% end %>

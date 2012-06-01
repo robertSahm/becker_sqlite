@@ -1,4 +1,4 @@
-<h3>Your <%= @instrument.body.capitalize %> &nbsp; <%= @instrument.type_of.capitalize %></h3>
+<h3 class="shopWelcome">Your <%= @instrument.body.capitalize %>&nbsp;<%= @instrument.type_of.capitalize %></h3>
 <ul>
   <li>Price: $<%= @instrument.price %> </li>
   <li>Construction: <%= Option.find(@instrument.construction).description if @instrument.construction  %></li>
