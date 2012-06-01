@@ -291,6 +291,12 @@ h3 { /* Frame Header font styles */
 	word-spacing: -.20em;
 }
 
+h1.artistView {
+	font-family: 'MenschMenschRegular';
+	font-weight: normal;
+	color: $white;	
+}
+
 p1 {
 	font-family: 'Ovo', serif;
 	font-weight: normal;
@@ -311,6 +317,7 @@ p5 { /* Big quotation marks */
 
 a {
 	color: inherit;
+	text-decoration : none;
 }
 
 
@@ -1153,6 +1160,10 @@ li.DropDownColumn {
 			}
 
 			li:hover {
+		  		img {
+		  			opacity: 1;
+					z-index: 0;
+		  		}
 
 		  		p {
 		  			text-shadow: 0px 0px 6px $lightBlue;
@@ -1332,12 +1343,12 @@ li.DropDownColumn {
 				height: inherit;
 
 				background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
-background: linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+				background: linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 					
 					&:hover {
 						background: none;
@@ -1378,6 +1389,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 		  		//border-bottom: 0;
 		  		img {
 		  			opacity: 1;
+					z-index: 0;
 		  		}
 
 		  		p {
@@ -1478,7 +1490,6 @@ body.store {
 									//width: 130px;
 									padding: 5px 15px;
 									font-family: MenschMenschRegular, sans-serif;
-									line-height: 0;
 									font-size: 1.3em;
 									border: 0;
 									color: $brightGreen;
