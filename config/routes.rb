@@ -1,11 +1,14 @@
 Becker::Application.routes.draw do
 
   root to: 'main#index', as: '/'
-
-  get "admins"  => 'admins#index'
-  get "admin" => 'admins#index'
-  get "artists/display"
   
+  get "admins"  => 'admins#index'
+  match "admin" => 'admins#index'
+  match "help" => 'admins#service'
+  match 'woodshop' => 'admins#woodshop'
+
+  get "artists/display"
+  get 'hello' => 'admins#index', notice: 'welcome'
   match '/showroom', to: 'main#instruments'
   match '/players', to: 'main#artists'
   match '/about', to: 'main#about'  
@@ -109,5 +112,5 @@ Becker::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id(.:format)))'
+   match ':controller(/:action(/:id(.:format)))'
 end
