@@ -1,33 +1,28 @@
-<div class="shopPageWrapper">
+<!-- inside body.store -->
+  <h3 class="shopWelcome">
+    Build a custom instrument
+  </h3>
+  
+  <!-- 
   <div class="breadCrumbs">
-    <%= render 'store_breadcrumbs' %> 
+    <%= render 'store_breadcrumbs' %>
+    <%= link_to @type, action: 'body', type: @type%> 
+    <%= link_to @body, action: 'customize', id: @instrument.id, body: @body, instrument: @type  %>
   </div>
-  <%= link_to @type, action: 'body', type: @type%>
-  <%= link_to @body, action: 'customize', id: @instrument.id, body: @body, instrument: @type  %>
-
+  -->
   <h3 class="helpAccountCart">
     <span id='breadcrumb-right'>
-      <%= link_to 'help i ', '#' %>
+      <%= link_to 'help i ', about_path %>
       <%= link_to 'account i ', "#" %>
       <%= link_to 'cart', '#' %>
     </span>
+    <p><%= render 'cart_sidebar2' %></p>
   </h3>
-
-  <span>></span>
-
-  <%= render 'cart_sidebar2' %>
-
-    <div class="shop">
-      <div class="tabs">
-        <h1>
-          ////Custom Build an Instrument&nbsp;-&nbsp;
-        </h1>
-        <div class="formInstrument">
-          <%= form_for(@instrument) do |f| %>
-        </div>
-        <div class="stepInstrument">
-          <%= render "#{@instrument.step}", collection: @features %>
-        </div>
+  <div class="shop">
+    <div class="tabs">
+      <%= form_for(@instrument) do |f| %>
+        <%= render "features", collection: @features %>
+    
         <div>
           <input type="hidden" name="step" value="<%= @next_step %>" />
         </div>
@@ -38,9 +33,6 @@
           <p><%= f.submit "Continue" %></p> 
         </div>
       <% end %>
-    </div>
-  </div>
-</div>
 
 
 

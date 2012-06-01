@@ -10,11 +10,7 @@ $(function() {
 	  	var indi_price = parseInt($(this).attr("price"));
 		calculateDelta(options, indi_price);
 		price_to_cart(feature_to_cart, text_to_cart);
-		
-		alert('hello byactch');
 	});
-
-
 });
 
 function calcCartPrice(base_price) {
@@ -30,7 +26,7 @@ function price_to_cart(feature_to_cart, text_to_cart) {
 	$("#cart_price span").empty();
   	$("#cart_price").append("<span>$ " + total_price + "</span>");
 	$('#submit_price').empty();
-	$('#submit_price').append("<input  type='hidden' name='price' value=" + total_price + " />")
+	$('#submit_price').append("<input type='hidden' name='price' value=" + total_price + " />");
 	$("#feature_adds").append('<fieldset>' + feature_to_cart + " - " + text_to_cart + "</fieldset>");
 }
 
@@ -56,4 +52,3 @@ function insertDom(obj) {
 	})
 }
 
-function 

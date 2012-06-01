@@ -1,4 +1,4 @@
-<h1>
+<h1 class="artistView">
   <%= @artist.name %>
 </h1>
 <div id="featurebox">
@@ -34,9 +34,7 @@
     <%= image_tag(@artist.image_url) %>
   </div>
 </div> <!-- photo_gallery -->
-<div id="twitter_home"><p>Artist videos  in center
-News items about artist
-Product demos discussing guitars</p>
+<div id="twitter_home">
   <ul>
       <% if !@artist.youtube_1.blank? %>
         <li><%= link_to @artist.name, action: 'artist', id: @artist.id  %></li>
