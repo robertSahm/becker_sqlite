@@ -1,23 +1,30 @@
-
-<%= render 'store_breadcrumbs' %>
-<%= link_to @type, action: 'body', type: @type%>
-
-<span>-</span>
-
-<%= render 'store_breadcrumbs_post' %>
-
-<div id="store-page">
-  <div class="tabs">
-    <h3>Custom Build an Instrument <%= @instrument.type_of %></h3>
-    <h4>Step 2: Choose Body Type</h4>
-    <ul>
-      <% @body.each do |b| %>
-        <li>
-        	<%= button_to b.name, action: 'customize', body: b.name, id: @instrument.id %>$<%= b.price %>
-        	0
-        </li>
-      <% end %>
-    </ul>
+<!-- inside body.store -->
+  <h3 class="shopWelcome">
+    Build a custom instrument
+  </h3>
+  <!-- 
+  <div class="breadCrumbs">
+    <%= render 'store_breadcrumbs' %>
+    <%= link_to @type, action: 'body', type: @type%> 
   </div>
-</div>
+  -->
+  <h3 class="helpAccountCart">
+    <span id='breadcrumb-right'>
+      <%= link_to 'help i ', about_path %>
+      <%= link_to 'account i ', "#" %>
+      <%= link_to 'cart', '#' %>
+    </span>
+  </h3>
+
+
+  <div class="shop">
+    <div class="tabs">
+      <h3>Step 2: Choose Body Type</h3>
+      <ul>
+        <% @body.each do |b| %>
+          <li class="instrumentChooser"><%= button_to b.name, action: 'customize', body: b.name, id: @instrument.id %>$<%= b.price %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
