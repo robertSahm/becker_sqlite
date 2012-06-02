@@ -598,7 +598,7 @@ overflow-x: hidden;
 		z-index: 0;
 
 		#parallax1 {
-			top: 180px;
+			top: 208px;
 			left: 120px;
 			color: #E99C2E;
 			font-size: 30px;
@@ -609,7 +609,7 @@ overflow-x: hidden;
 
 
 		#parallax2 {
-			top: 200px;
+			top: 230px;
 			left: 120px;
 			color: #E99C2E;
 			font-size: 35px;
@@ -618,7 +618,7 @@ overflow-x: hidden;
 		}
 
 		#parallax3 {
-			top: 220px;
+			top: 260px;
 			left: 120px;
 			color: #E99C2E;
 			font-size: 40px;
@@ -882,10 +882,12 @@ z-index: 2001;
 #frame4 {
 	position: absolute;
 	width: 960px;
-	height: 937px;
-	top: 6933px;
+	height: 190px;
+	top: 6590px;
 	z-index: 3000;
-	background-color: black;
+
+	
+	
 
 	
 	img {
@@ -900,24 +902,30 @@ z-index: 2001;
 
 	h3 {
 		float: left;
-		width: 2.9em;
+		width: 8em;
 		height: 26px;
-		top: 45px;
-		left: 343px;
+		top: 0px;
+		left: 603px;
 		@include h3Index;
 		z-index: 1001;
 		padding-bottom: .3em;
 		padding-right: .3em;
 		text-align: left;
 		line-height: .95em;
-		font-size: 55px;
+		font-size: 40px;
 		color: aqua;
+
+		p {
+			font-size: .3em;
+			word-spacing: 1px;
+		}
 	}
 		
 	h3:hover {
 		@include h3IndexHover;
 		z-index: 1001;
 		color: aquamarine;
+		cursor: pointer;
 	}
 
 	h3.repairs {
@@ -1301,7 +1309,7 @@ li.DropDownColumn {
 	#photo_gallery {
 		margin-top: 10px;
 		float: left;
-		height: 100%;
+		width: 100%;
 		position: absolute;
 		left: 400px;
 
@@ -1309,14 +1317,19 @@ li.DropDownColumn {
 			width: 500px;
 
 			img {
+				height: 100%;
 				width: 100%;
+
+			}
+		}
+	}
+}
+
+.instrumentImage  img{
 				min-height: 630px;
 				min-width: 240px;
 				max-height: 855px;
 				max-width: 329px;
-			}
-		}
-	}
 }
 
 // Artists page

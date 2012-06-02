@@ -49,8 +49,8 @@ $(document).ready(function() {
 		reverseDirection : false,
 		staticSpeed: 0.6,
 		staticScrollLimit : false
-
 	});
+
 
 	/*
 	$('.thankYou').scrollingParallax({
