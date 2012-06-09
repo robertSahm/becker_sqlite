@@ -1,17 +1,18 @@
-<h3>Choose <%= @step %></h3>
+<div class="pricingWrapper">
+<h3 class="choose">Choose <%= @step %></h3>
 <% @features.each do |feature| %>
-  <ul>
-    <li>
+  <ul class="featureWrapper">
+    <li class="featureTitle">
+      <h4 class="feature" value="1000"><%= feature.name %></h4>
+    </li>
+    <li class="featureImage">
       <%= image_tag feature.image_url %>
     </li>
-    <li>
-      <ul>
-          <li><h4 id="feature" value="1000"><%= feature.name %></h4></li>
-          <% feature.name.gsub!(" ", "-") %>
-          <li><%= render 'feature_options', feature: feature %></li>
-      </ul>
+    <% feature.name.gsub!(" ", "-") %>
+    <li class="featureOptions">
+      <%= render 'feature_options', feature: feature %>
     </li>
   </ul>
 <% end %>
-
+</div>
 

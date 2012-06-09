@@ -1,8 +1,17 @@
+<div class="miniCartWrapper">
+	<h4 class="youChose">You've Chosen:</h4>
+	<h3 class="miniCart">
+  		<%= @body.capitalize %>&nbsp;<%= @instrument.type_of.capitalize %>
+	</h3>
+	
+	<div id="base_price" value="<%= @instrument.price %>">
 
-  <div><%= @body.capitalize %>&nbsp;<%= @instrument.type_of.capitalize %></div>
-  <div id="base_price" value="<%= @instrument.price %>"></div>
-  <div id="cart_price"></div>
+	</div>
 
+	<div id="cart_price">
+  	
+	</div>
+</div>
 
 
 

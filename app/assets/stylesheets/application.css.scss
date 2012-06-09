@@ -594,7 +594,7 @@ overflow-x: hidden;
 	.welcome {
 		width: 100%;
 		color: #68A3A2;
-		position: fixed;
+		position: absolute;
 		z-index: 0;
 
 		#parallax1 {
@@ -649,10 +649,10 @@ overflow-x: hidden;
 	}
 
 	.headerImage {
-		position: fixed;
+		position: absolute;
 		height: auto;
 		width: auto;
-		top: 120px;
+		//top: 120px;
 		z-index: 1000;
 		img {
 			opacity: 1;
@@ -674,9 +674,9 @@ background-color: black;
 background-image: url('webphotos/orangeLap.jpg');
 background-repeat: no-repeat;
 background-position: 0% -1%;
-	-moz-box-shadow:    0px 0px 25px 25px black;
-	-webkit-box-shadow: 0px 0px 25px 25px black;
-	box-shadow:         0px 0px 25px 25px black;
+-moz-box-shadow:    0px 0px 25px 25px black;
+-webkit-box-shadow: 0px 0px 25px 25px black;
+box-shadow:         0px 0px 25px 25px black;
 
 	.frame2Line {
 		position: absolute;
@@ -699,9 +699,7 @@ background-position: 0% -1%;
 	.frame2Text {
 		position: absolute;
 		width: 500px;
-		height: auto;
 		padding: 0;
-		margin: 0;
 		margin: 40px 0 0 220px;
 
 		h3 {
@@ -716,7 +714,7 @@ background-position: 0% -1%;
 		h3:hover {
 			-webkit-stroke-width: 5.3px;
 			-webkit-stroke-color: #DE6B3F;
-			-webkit-fill-color: #DE6B3Fe;
+			-webkit-fill-color: #DE6B3FE;
 			text-shadow: 1px 1px 10px #DE6B3F;
 			-webkit-transition: width 0.6s; /*Safari & Chrome*/
 			transition: width 0.6s;
@@ -724,16 +722,26 @@ background-position: 0% -1%;
 			-o-transition: width 0.6s; /* Opera */
 		}
 
+		p2 {
+			font-size: 17px;
+			position: relative;
+			color: #ccc;
+			width: 500px;
+			height: auto;
+			z-index: 3007;
+		}
+
 		div.bigQuoteOpen p5 {
 			font-family: sans-serif;
 			position: absolute;
-			font-size: 11em;
 			height: 30px;
-			width: auto;
+			width: 30px;
+			font-size: 11em;
 			color: #E16839;
 			z-index: 3003;
 			left: -3px;
 			top: 400px;
+			//margin-top: 200px;
 			opacity: .4;
 		}
 		
@@ -746,8 +754,8 @@ background-position: 0% -1%;
 			color: #E16839;
 			z-index: 3004;
 			left: 174px;
-			top: 500px;
-			opacity: .3;
+			//top: 500px;
+			opacity: .4;
 		}
 
 		p1 {
@@ -762,14 +770,7 @@ background-position: 0% -1%;
 			text-shadow: 4px 4px 2px black;
 		}
 
-		p2 {
-			font-size: 17px;
-			position: relative;
-			color: #ccc;
-			width: 500px;
-			height: auto;
-			z-index: 3007;
-		}
+
 	}
 }
 
@@ -777,10 +778,11 @@ background-position: 0% -1%;
 
 .banjoIndex {
 	background-color: black;
-	width: 100%;
+	width: 1500px;
 	top: 2690px;
 	left: 285px;
-	z-index: 1998;
+	z-index: 1999;
+	overflow: hidden;
 
 	img {
 		width: 382px;
@@ -788,6 +790,7 @@ background-position: 0% -1%;
 		-webkit-transform: rotate(180deg);
 		-moz-transform: rotate(180deg);
 		z-index: 1998;
+		overflow: none;
 	}
 }
 /* - - - - - - - - - - - - - - - */
@@ -834,7 +837,7 @@ z-index: 2001;
 				text-align: left;
 				line-height: .95em;
 				font-size: 55px;
-				color: red;
+				color: #DE6B3F;
 
 				h3:hover {
 					@include h3IndexHover;
@@ -1447,14 +1450,11 @@ body.store {
 
 	#main {
 		margin: 0;
-		padding: 0 25px 25px 19px;
+		padding: 0 0 0 25px;
 
 		h3.shopWelcome {
-			margin-top: 30px;
-			width: 300px;
 			padding: 0;
 			margin: 0 0 0px 0;
-			width: 700px;
 			font-size: 2em;
 			color: $darkBlue;
 
@@ -1471,13 +1471,14 @@ body.store {
 			}
 		}
 	
-		.helpAccountCart {
-			position: absolute;
+		h3.helpAccountCart {
+			position: fixed;
 			left: 568px;
-			top: 0;
+			top: 133px;
 	
-			span {
+			span#breadcrumb-right {
 				font-family: MenschMenschRegular, sans-serif;
+				//color: $lightBlue;
 	
 				a {
 					text-decoration: none;
@@ -1485,95 +1486,263 @@ body.store {
 				}
 			}
 		}
+
+		.miniCartWrapper {
+			width: auto;
+			height: auto;
+			position: fixed;
+			top: 168px;
+			left: 568px;
+
+			h4.youChose {
+				font-size: .85em;
+				color: white;
+				margin-bottom: 7px;
+				color: #777;
+			}
+
+			h3.miniCart {
+				height: auto;
+				width: auto;
+				margin-bottom: 7px;
+				font-size: 1.4em;
+				color: white;
+			}
+
+			div#base_price {
+
+			}
 	
+			div#cart_price {
+				height: auto;
+				width: auto;
+				font-size: .92em;
+				letter-spacing: .15em;
+
+				span {
+
+				}
+			}
+		}
+
+
 		.shop {
-			width: 450px;
+			width: 600px;
+			height: auto;
 			margin-top: 15px;
 			margin-left: 3px;
+
+			h3 {
+				color: white;
+				font-size: 1.3em;
+			}
+
+			form {
+				width: auto;
+				height: auto;
 	
-			.tabs {
+				.tabs {
+					padding-left: 15px;
+	
+					h3.chooseBodyHeader {
+						font-size: 1.5em;
+	
+					}
+	
+					h3.bodyClick {
+	 					font-size: 1.3em;
 
+	 					form {
 
-				h3 {
-					margin-left: 19px;
-					font-size: 1.5em;
-					color: white;
-					opacity: .6;
+	 						div {
+
+	 							input {
+	 								font-size: 1.3em;
+	 								margin: 0;
+	 								padding: 0;
+	 							}
+	 						}
+	 					}
+					}
+	
+	
+					h3.bodyPrice {
+						font-size: 1.5em;
+						color: white;
+						opacity: .6;
+						padding: 3px 0 8px 29px;
+						font-size: 1.2em;
+					}
 				}
-	
-				ul {
-					margin: 8px 0 0 0;
+			
+
+				.actions {
+					line-height: 1em;
 					padding: 0;
-					list-style: none;
+					margin: 0;
+
+					p {
+
+
+						input {
+							background-color: black;
+							font-family: MenschMenschRegular, sans-serif;
+							font-size: 1.7em;
+							color: $lightBlue;
+							border: none;
+							border-radius: 10px;
+							height: 30px;
+							width: 126px;
+							margin-left: 22px;
+							opacity: .7;
 	
-					li {
-						border-radius: 5px;
-						height: auto;
-						width: auto;
-						margin-left: 25px;
-
-						form {
-
-							div {
-
-								input {
-									//width: 130px;
-									padding: 5px 15px;
-									font-family: MenschMenschRegular, sans-serif;
-									font-size: 1.3em;
-									border: 0;
-									color: $brightGreen;
-									opacity: .6;
-									border-radius: 7px;
-									background-color: black;
-									text-align: left;
-									word-spacing: -.25em;
-		
-									&:hover {
-										//background-color: #333;
-										border-left: 3px solid white;
-										border-right: 3px solid white;
-										opacity: 1;
-										margin-left: -3px;
-									}
-								}
-							}	
+							&:hover {
+								border-left: 5px solid white;
+								border-right: 5px solid white;
+								border-top: none;
+								border-bottom: none;
+								opacity: 1;
+							}
 						}
 					}
 				}
+			}	
+		}
+	}
+}
+
+ul.instrumentList {
+	width: 300px;
+	list-style-type: none;
+	margin: 6px 0 0 0;
+	padding: 0;
+
+	li.instrumentChooser {
+		text-align: left;
+		width: auto;
+		margin: 0;
+
+		.button_to {
+			text-align: left;
+			width: auto;
+
+			div {
+				text-align: left;
+				width: auto;
+
+				input {
+					text-align: left;
+					width: auto;
+					padding: 0 20px 0 20px;
+					margin: 0;
+
+				}
+			}
+		}
+	}			
+}
+
+
+
+form.button_to {
+
+	div {
+
+		input {
+			background-color: black;
+			font-family: MenschMenschRegular, sserif;
+			font-size: 1.5em;
+			color: $lightBlue;
+			border: none;
+			border-radius: 10px;
+			height: 30px;
+			width: 180px;
+			margin-left: 22px;
+			opacity: .7;
+			
+			&:hover {
+				border-left: 5px solid white;
+				border-right: 5px solid white;
+				border-top: none;
+				border-bottom: none;
+				opacity: 1;
 			}
 		}
 	}
 }
 
+fieldset#custom_build {
+	
+	ul {
+
+		li {
+			color: white;
+		}
+	}		
+}
+
+div.input#10 {
+	margin: 0;
+	padding: 0;
+}
+
+#cart {
+	color: white;
+	margin-left: 25px;
+}
 
 
+.pricingWrapper {
+	width: 450px;
+	margin:  0 0 0 20px;
+	padding: 0;
 
+	h3.choose {
+		padding: 0;
+		margin: 0 0 12px 0;
+		color: $lightBlue;
+		font-size: 1.5em;
+	}
 
+	ul.featureWrapper {	
+		position: relative;
+		list-style: none;
+		width: auto;
+		height: 170px;
+		padding: 0;
+		margin: 0 0 20px 20px;
 
+		li.featureTitle {
+			margin: 0;
+			padding: 0;
+	
+			h4.feature {
+				color: orange;
+				margin: 0;
+				padding: 0;
+				font-size: 1.3em;
+			}
+	
+		}
+	
+		li.featureImage {
+			float: left;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			img {
+				width: 200px;
+				height: 133px;
+				
+			}
+		}
+	
+		li.featureOptions {
+			width: 200px;
+			height: 133px;
+			float: right;
+			
+		}
+	}
+}
 
 
 
@@ -1634,15 +1803,6 @@ body.store {
 		}
 	} // gmap
 } // contactWrapper
-
-
-
-
-
-
-
-
-
 
 
 

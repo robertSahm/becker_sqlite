@@ -1,4 +1,4 @@
-
+/*
 var headerImage = $('.headerImage');
 var parallax1 = $('#parallax1');
 var parallax2 = $('#parallax2');
@@ -6,7 +6,9 @@ var parallax3 = $('#parallax3');
 var banjoIndex = $('.banjoIndex');
 var shopImage = $('img.shop');
 var header = $(".headerBackground");
+*/
 
+/*
 $(document).ready(function() {
   //call image rotator
 	$('.spinner').roundabout({
@@ -24,12 +26,14 @@ $(document).ready(function() {
 	});
 
 	//Call parallax scrolling ability on elements
+	/*
 	$('.headerImage').scrollingParallax({
 	  reverseDirection : true,
 	  staticSpeed: .2,
 		staticScrollLimit : false
 	});
 	
+
 	$('#parallax1').scrollingParallax({
 		reverseDirection : false,
 		staticSpeed: .06,
@@ -50,7 +54,7 @@ $(document).ready(function() {
 		staticSpeed: 0.6,
 		staticScrollLimit : false
 	});
-
+	*/
 
 	/*
 	$('.thankYou').scrollingParallax({
@@ -63,6 +67,8 @@ $(document).ready(function() {
 	//Store Animations
 	//$(".showcaseGuitar, .showcaseBass, .showcaseCustom, .showcaseTheme").hide();
 
+
+/*
 	$('.bassClick1 a').click(function() {
 		$('li.guitarClick1 a, li.customClick1 a, li.allClick1 a').toggle(500);
 		//$('.showcaseGuitar').delay(500).toggle(500);

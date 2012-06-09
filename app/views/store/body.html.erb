@@ -19,10 +19,17 @@
 
   <div class="shop">
     <div class="tabs">
-      <h3>Choose Body Type</h3>
+      <h3 class="chooseBodyHeader">Choose Body Type</h3>
       <ul>
         <% @body.each do |b| %>
-          <li class="instrumentChooser"><%= button_to b.name, action: 'customize', body: b.name, id: @instrument.id %>$<%= b.price %></li>
+          <li class="instrumentChooser">
+            <h3 class="bodyClick">
+              <%= button_to b.name, action: 'customize', body: b.name, id: @instrument.id %>
+            </h3>
+            <h3 class="bodyPrice">
+              $<%= b.price %>
+            </h3>
+          </li>
         <% end %>
       </ul>
     </div>
